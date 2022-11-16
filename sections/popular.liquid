@@ -1,0 +1,105 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+<div class="popular leftpro">
+  <h2 class="heading text-left"><span>{{ section.settings.ms_title }}</span></h2>
+    <div class="rless">
+      <div class="wbpop">
+        {%- assign collection = collections[section.settings.collection] -%}
+        {% assign num_row = section.settings.rows | times: 1 %} 
+        {% assign temp = 0 %}
+        {%- for product in collection.products -%}
+        {% if temp == 0 %}<ul class="twopro">{% endif %}
+        <li class="grid__item col-12 cless list-unstyled">
+          {% render 'product-card-custom',
+          product_card_product: product,
+          media_size: section.settings.image_ratio,
+          show_rating: section.settings.show_rating,
+          display_product_type: section.settings.display_product_type  %}
+        </li>
+        {% assign temp = temp | plus: 1 %}
+        {% if temp == num_row %}</ul>{% assign temp = 0 %}{% endif %}
+        {%- else -%}
+        {%- for i in (1..6) -%}
+        <div class="grid__item col-12 cless">
+          {% render 'product-card-placeholder' %}
+        </div>
+        {%- endfor -%}
+        {% endfor %}
+      </div>   
+    </div> 
+</div>
+
+
+{% schema %}
+{
+    "name": "Popular Products",
+    "class": "spaced-section",
+    "settings": [
+    {
+        "type": "text",
+        "id": "ms_title",
+        "label": "Top Heading",
+        "default": "Popular Products"
+    },
+    {
+        "type": "range",
+        "id": "rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 2
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+        "type": "checkbox",
+        "id": "display_product_type",
+        "label": "Show Product Type?",
+        "default": true
+    },
+    {
+        "type": "checkbox",
+        "id": "show_rating",
+        "default": false,
+        "label": "t:sections.featured-collection.settings.show_rating.label",
+        "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+        "type": "collection",
+        "id": "collection",
+        "label": "t:sections.featured-collection.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+        "name": "Popular Products",
+        "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

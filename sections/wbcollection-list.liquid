@@ -1,0 +1,80 @@
+<div class="wbhomecat">
+  <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
+   <div class="rless">
+            <div class="owl-catt">
+                {% for block in section.blocks limit: section.blocks.size %}
+                    <div class="cless col-12">
+                        {%- assign collection = collections[block.settings.collection] -%}
+                        {% if collection.image %}
+                            {%- assign collection_image = collection.image -%}
+                        {% elsif collection.products.first and collection.products.first.images != empty %}
+                            {%- assign collection_image = collection.products.first.featured_image -%}
+                        {% else %}
+                            {% assign collection_image = blank %}
+                        {% endif %}
+                        <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}">
+                                
+                            <div class="homecatb"> 
+                                {% if collection_image != blank %}
+                                <img loading="lazy" class="img-fluid mx-auto" src="{{ collection_image | img_url: '150x150' }}" alt="{{ collection.title }}">
+                                {% else %}
+                                    <img loading="lazy" class="img-fluid mx-auto" src="https://dummyimage.com/150x150/f5f5f5">
+                                {% endif %}
+                                <div class="homecatbsub">
+                                    <h2><span>{{ collection.title }}</span></h2>
+                                    {%comment%}<p>{{ collection.all_products_count }} {{ 'wbcustomlabel.wballtext.item' | t }}</p>{%endcomment%}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Webi Collection list",
+  "class": "spaced-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "s_title",
+      "label": "Sub Heading",
+      "default": "Shop By Brand"
+    },
+    {
+      "type": "text",
+      "id": "m_title",
+      "label": "Top Heading",
+      "default": "Top Category"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "featured_collection",
+        "name": "Collection",
+        "settings": [
+            {
+                "label": "Collection",
+                "id": "collection",
+                "type": "collection"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+        "name": "Webi Collection List",
+        "category": "Collection",
+        "blocks": [
+            {
+              "type": "featured_collection"
+            }
+        ]
+    }
+  ]
+}
+{% endschema %}

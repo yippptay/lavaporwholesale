@@ -1,0 +1,37 @@
+localization-form{
+    display: inline-block;
+}
+.disclosure {
+    position: relative;
+}
+.disclosure__list {
+    border: 1px solid var(--color-wbbordercolor);
+    min-width: 100%;
+    width: max-content;
+    overflow-y: auto;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    position: absolute;
+    transform: translateY(-1rem);
+    z-index: 2;
+    background: rgb(var(--color-background));
+    margin-top: 15px;
+    border-radius: 4px;
+    text-align: left;
+    right: 0;
+    min-width: 190px;
+}
+.disclosure__item {
+    position: relative;
+}
+.disclosure__link {
+    display: block;
+    padding: 4px 15px;
+    text-decoration: none;
+}
+@media (max-width: 767px) {
+    localization-form {
+        display: block;
+        padding: 4px 15px;  
+    }
+}

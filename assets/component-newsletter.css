@@ -1,0 +1,8 @@
+.newsletter-form__message {
+  justify-content: start;
+  margin-bottom: 0;
+  position: unset;
+}
+/*.newsletter-form__message.newsletter-form__message--success{
+	color: #069106;
+}*/

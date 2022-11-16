@@ -1,0 +1,89 @@
+.wbquicksuccess{ 
+    margin-bottom: 12px;
+}
+.wbquicksuccess,.spr-form-message-success,.wbquicksuccess svg{
+    color: #058c05;
+    fill: #058c05;
+}
+.hide-modalquick{
+    display: none !important;
+}
+#wbquickview .wbproleftimg .grid__item.is-active, #wbquickview .wbproleftimg .grid__item.is-active .product__media img,
+#wbquickview .product--stacked .wbproleftimg .grid__item .product__media img{
+    cursor: default;
+}
+#wbquickview .social-sharing {
+    padding: 0;
+    writing-mode: unset;
+    float: none;
+    margin-top: 0;
+}
+#wbquickview .social-sharing li a {
+    background: rgba(var(--color-foreground),0.8);
+}
+#wbquickview .social-sharing li a:hover {
+    background: rgba(var(--color-foreground),1);
+}
+#wbquickview .wbproleftimg .slider-button[disabled] .icon,#wbquickview .wbproleftimg .slider-button:not([disabled]):hover {
+    color: rgba(var(--color-foreground),.3);
+}
+#wbquickview .wbproleftimg .slider-button {
+    color: rgba(var(--color-foreground),.75);
+}
+#wbquickview .product__info-container .product__title {
+    font-size: calc(var(--font-size-base) * 2.3px);
+}
+@media (max-width: 991px) {
+    #wbquickview .product__info-wrapper .wbswatchclr input[type="radio"] + label {
+        min-width: 26px;
+        min-height: 26px;
+    }
+    #wbquickview .product__info-container .product__title {
+        font-size: calc(var(--font-size-base) * 1.43px);
+    }
+    #wbquickview .product__info-wrapper .product-form__input input[type="radio"] + label{
+        padding: 6px 6px;
+        min-width: 46px;
+        min-height: 30px;
+        font-size: calc(var(--font-size-base) * 1px);
+    }
+}
+
+.js-wbquickview {
+    display: none;
+    width: 90%;
+    max-width: 900px;
+    background: rgb(var(--color-background));
+    padding: 15px;
+    border-radius: 4px;
+}
+.js-wbquickview .loading,
+.js-wbquickview.wbquickview-loading .product {
+    display: none;
+}
+.js-wbquickview:not(.wbquickview-loaded) .product {
+    display: none;
+}
+.js-wbquickview.wbquickview-loading .loading {
+    display: block;
+    text-align: center;
+}
+.js-wbquickview .loading span {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: rgb(var(--color-foreground));
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-animation: rotation 1s linear infinite;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
+@media (min-width: 768px){
+    #wbquickview .product__info-wrapper {
+        padding-left: 30px;
+    }
+}

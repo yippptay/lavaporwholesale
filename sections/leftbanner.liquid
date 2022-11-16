@@ -1,0 +1,68 @@
+<div class="leftbnr">
+	<div class="beffect">
+        {% if section.settings.link != blank %}<a href="{{ section.settings.link }}" title="{{ 'wbcustomlabel.wballtext.banner' | t }}">{% endif%}
+        {% if section.settings.image != blank %}
+            <img loading="lazy" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}" class="img-fluid mx-auto" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"/>
+        {% else %}
+            <img loading="lazy" src="https://dummyimage.com/270x500/f5f5f5" class="img-fluid mx-auto" alt="banner" width="270" height="500"/>
+        {% endif %}
+        {% if section.settings.link != blank %}</a>{% endif %}
+    </div>
+    <div class="lefttxt">
+    	<div class="lftff">
+    		{% if section.settings.storysubtitle != blank %}
+	            <h5>{{ section.settings.storysubtitle }}</h5>
+	        {% endif %}
+	        {% if section.settings.storytitle != blank %}
+	            <h2>{{ section.settings.storytitle }}</h2>
+	        {% endif %}
+	        
+	        {% if section.settings.link != blank %}
+	            <a href="{{ section.settings.link }}" class="btn btn-primary">{{ section.settings.btntxt }}{% render 'icon-arrow' %}</a>
+	        {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "Left Banner",
+"class": "spaced-section",
+"settings": [
+    	{
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Size: 270x500"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link URL"
+        },
+        {
+            "type": "text",
+            "id": "storysubtitle",
+            "label": "Sub Heading",
+            "default": "up to 60% off"
+        },
+        {
+            "type": "text",
+            "id": "storytitle",
+            "label": "Heading",
+            "default": "Casual Jackets"
+        },
+        {
+            "type": "text",
+            "id": "btntxt",
+            "label": "Button Label",
+            "default": "Shop the collection"
+        }
+    ],
+  "presets": [
+    {
+      "name": "Left Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

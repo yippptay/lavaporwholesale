@@ -1,0 +1,884 @@
+<style>
+@media (min-width: 768px){
+      .cate-menu{
+          background: {{ section.settings.menubg }};
+      }
+}
+#megamenu li.wbmenul_1 a.wbmenul1_link {
+    color: {{ section.settings.menubgtxt }};
+}
+#megamenu li.wbmenul_1 a.wbmenul1_link:hover{
+    color: var(--color-wbmaincolors-text);
+}
+</style>
+<div class="wbmenuup">
+    {% if section.settings.megamenu_toggle %}
+    <h3 class="whr-menu d-lg-block d-none" data-toggle="collapse" data-target="#under-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" aria-label="Center Align">
+        <div class="navbar-toggler-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </div>
+    </button>
+    <span class="cate">{{ 'wbcustomlabel.wballtext.allcategories' | t }}</span>
+    </h3>
+    <div id="under-menu" class="collapse">
+        <nav id="megamenu" class="megamenu">
+
+            <div class="wr-menu" onclick="w3_open()">
+                <span>{% render 'icon-menubar' %}</span>
+            </div>
+            <ul id="wbmegalevel-1" class="level_1 menu-vertical">
+                <h2 class="wbmenuclose">{{ 'wbcustomlabel.wballtext.menu' | t }}<button type="button" class="closebtn float-right" aria-label="{{ 'wbcustomlabel.wballtext.menu' | t }}" onclick="w3_close()">{% include 'icon-close' %}</h2>
+                {% for block in section.blocks %}
+                    {% assign canonical_url_trim = canonical_url | replace: shop.url %}
+                    {% assign block_url_trim = block.settings.link | replace: shop.url %}
+                    {% if canonical_url_trim == "/" %}{% assign canonical_url_trim = "" %}{% endif %}
+
+                    <li class="wbmenulink wbmenul_1 {% case block.type %}{% when 'link-linklist' %}wbmegaonlylink{% when 'link-4linklists' %}wbmegalink-img{% when 'link-8banners' %}wbmegabanner{% when 'link-products' %}wbmegaproduct{% when 'link-blog' %}wbmegablog{% endcase %}">
+                        <a class="wbmenul1_link {% if block_url_trim == canonical_url_trim %}active{% endif %}" href="{{ block.settings.link }}">{{ block.settings.title }}
+                            {% if block.settings.links.size > 0 or block.settings.links_1.size > 0 or block.settings.links_2.size > 0 or block.settings.links_3.size > 0 or block.settings.links_4.size > 0 or block.settings.products.size > 0 or block.settings.blog.size > 0 or block.settings.banner_1_link.size > 0 %}<i class="fa fa-angle-down float-right float-right wbmegamainhd" data-submenu="menu_{{ block.id }}"></i>{% endif  %}
+                            {% if block.settings.badge_text.size > 0 %}<span class="menu_badge" style="background-color: {{ block.settings.bg_color }}">{{ block.settings.badge_text }}</span>{% endif %}
+
+                        </a> 
+
+                        {% case block.type %}
+                            {% when 'link-linklist' %}
+                                {% if block.settings.links.size > 0 %}
+                                    <ul class="level_2 simple-linkmn wbmenudropdown" id="menu_{{ block.id }}">
+                                        <li>
+                                            <div>
+                                                {%- assign links_small = block.settings.links -%}
+                                                <ul class="level_3">
+                                                    {% for link in linklists[links_small].links %}
+                                                        {%- assign child_list_handle = link.title | handleize -%}
+
+                                                        {%- assign link_count = 0 -%}
+                                                        {% for childlink in linklists[child_list_handle].links %}
+                                                            {%- assign link_count = link_count | plus: 1 -%}
+                                                        {% endfor %}
+
+                                                        <li class="level_3__item {% if link_count > 0 %}with_ul{% endif %}">
+                                                            <a class="level_3__link" href="{{ link.url }}">{{ link.title }}{% if link_count > 0 %}<i class="level_3__trigger wbmegamainhd" data-submenu="submenu_{{ block.id }}-{{ link_count }}"></i>{% endif %}</a>
+
+                                                            {% if link_count > 0 %}
+                                                                <ul class="level_3_2 droped_linklist" id="submenu_{{ block.id }}-{{ link_count }}">
+                                                                    {% for childlink in linklists[child_list_handle].links %}
+                                                                        {%- assign child_list_2_handle = childlink.title | handleize -%}
+
+                                                                        {%- assign link_count = 0 -%}
+                                                                        {% for childlink in linklists[child_list_2_handle].links %}
+                                                                            {%- assign link_count = link_count | plus: 1 -%}
+                                                                        {% endfor %}
+                                                                            
+                                                                        <li class="level_3_2_item {% if link_count > 2 %}with_ul{% endif %}">
+                                                                            <a class="level_3_2_link" href="{{ childlink.url }}">{{ childlink.title }}{% if link_count > 2 %}<i class="level_3__trigger wbmegamainhd" data-submenu="subsubmenu_{{ block.id }}-{{ link_count }}"></i>{% endif %}</a>
+
+                                                                            {% if link_count > 2 %}
+                                                                                <ul class="level_3_3 droped_linklist" id="subsubmenu_{{ block.id }}-{{ link_count }}">
+                                                                                    {% for childlink in linklists[child_list_2_handle].links %}
+                                                                                        <li class="level_3_3_item">
+                                                                                            <a class="level_3_3_link" href="{{ childlink.url }}">{{ childlink.title }}</a>
+                                                                                        </li>
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            {% endif %}
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+
+                            {% when 'link-4linklists' %}
+                                {% if block.settings.links_1.size > 0 or block.settings.links_2.size > 0 or block.settings.links_3.size > 0 or block.settings.links_4.size > 0 %}
+                                    <ul class="level_2 wbmenudropdown" id="menu_{{ block.id }}">
+                                        <li class="container">
+                                            <div class="row rless">
+                                            {% for i in (1..4) %}  
+                                                {% capture list %}links_{{ i }}{% endcapture %}
+                                                {% capture item_image %}image_{{ i }}{% endcapture %}
+                                                {% capture item_blink %}imageblink_{{ i }}{% endcapture %}
+                                                {%- assign list = block.settings[list] -%}
+                                                {%- assign item_image = block.settings[item_image] -%}
+                                                {%- assign item_blink = block.settings[item_blink] -%}
+
+                                                <div class="wbmegacolpart col-lg-3 col-12 cless {% if block.settings.align_text %}align_center{% endif %}">
+                                                    
+                                                    <h3 {% if block.settings.show_title %} class="visible"{% endif %}>{{ linklists[list].title }} <i class="level_2__trigger wbmegamainhd" data-submenu="menu_{{ block.id }}-{{ i }}"></i></h3>
+
+                                                    <ul class="level_3" id="menu_{{ block.id }}-{{ i }}">
+                                                        {% for link in linklists[list].links %}
+                                                            <li class="level_3__item">
+                                                                {% if link.title contains '[new]' %}
+                                                                    {%- assign link_text = link.title | replace: '[new]', '' -%}
+                                                                    {%- assign link_badge = 'new' -%}
+                                                                {% elsif link.title contains '[hot]' %} 
+                                                                    {%- assign link_text = link.title | replace: '[hot]', '' -%}
+                                                                    {%- assign link_badge = 'hot' -%}   
+                                                                {% else %}
+                                                                    {%- assign link_text = link.title -%}
+                                                                    {%- assign link_badge = false -%}   
+                                                                {% endif %}
+
+                                                                <a class="level_3__link" href="{{ link.url }}">{{ link_text }}{% if link_badge %}<span class="badge badge_{{ link_badge }}">{{ link_badge }}</span>{% endif %}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+
+                                                    {% if item_image %}
+                                                    <a href="{{ item_blink }}"> 
+                                                        <img src="{{ item_image | img_url: '430x200', crop:'center' }}" alt="{{ linklists[list].title }}" class="img-fluid mx-auto wb4proimg">
+                                                    </a>
+                                                    {% endif %}
+
+                                                </div>
+                                            {% endfor %}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+
+                            {% when 'link-8banners' %}
+                                {% if block.settings.banner_1_link.size > 0 or block.settings.links_2.size > 0 or block.settings.links_3.size > 0 or block.settings.links_4.size > 0 or block.settings.links_5.size > 0 or block.settings.links_5.size > 0 or block.settings.links_7.size > 0 or block.settings.links_8.size > 0 or block.settings.links_9.size > 0 or block.settings.links_10.size > 0 or block.settings.links_11.size > 0 or block.settings.links_12.size > 0 %}
+                                    <ul class="level_2 wbmenudropdown" id="menu_{{ block.id }}">
+                                        <li class="container">
+                                            <div class="row rless">
+                                            {% for i in (1..12) %}
+                                                {% capture item_link %}banner_{{ i }}_link{% endcapture %}
+                                                {% capture item_image %}banner_{{ i }}_image{% endcapture %}
+                                                {% capture item_text %}banner_{{ i }}_text{% endcapture %}
+
+                                                {% if item_image and block.settings[item_link].size > 0 %}
+                                                    <div class="col-6 col-sm-6 col-md-4 col-lg-2 cless wbmegacolpart {% if block.settings.align_text %}align_center{% endif %}">
+                                                    
+                                                        <a href="{{ block.settings[item_link] }}"><img src="{{ block.settings[item_image] | img_url: '255x180', crop:'center' }}" alt="{{ block.settings[item_text] }}" class="img-fluid mx-auto">
+                                                            
+                                                        {% if item_text.size > 0 %}
+                                                            <h4>{{ block.settings[item_text] }}</h4>
+                                                        {% endif %}
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+
+                            {% when 'link-products' %}
+                                {%- assign products = block.settings.products -%}
+
+
+                                {% if products.size > 0 %}
+                                    <ul class="level_2 wbmenudropdown" id="menu_{{ block.id }}">
+                                        <li class="container">
+                                            <div class="row rless">
+                                            <div class="col-lg-4 col-12 cless productwithlink">
+                                            <div class="row rless">
+                                                {% if block.settings.links_1.size > 0 or block.settings.links_2.size > 0 or block.settings.links_3.size > 0 or block.settings.links_4.size > 0 %}
+                                                {% for i in (1..4) %}
+                                                {% capture list %}links_{{ i }}{% endcapture %}
+                                                {%- assign list = block.settings[list] -%}
+                                                <div class="col-lg-6 col-12 cless wbmegacolpart {% if block.settings.align_text %}align_center{% endif %}">
+                                                    <h3 {% if block.settings.show_title %} class="visible"{% endif %}>{{ linklists[list].title }} <i class="level_2__trigger wbmegamainhd" data-submenu="menu_{{ block.id }}-{{ i }}"></i></h3>
+
+                                                    <ul class="level_3" id="menu_{{ block.id }}-{{ i }}">
+                                                        {% for link in linklists[list].links %}
+                                                            <li class="level_3__item">
+                                                                {% if link.title contains '[new]' %}
+                                                                    {%- assign link_text = link.title | replace: '[new]', '' -%}
+                                                                    {%- assign link_badge = 'new' -%}
+                                                                {% elsif link.title contains '[hot]' %} 
+                                                                    {%- assign link_text = link.title | replace: '[hot]', '' -%}
+                                                                    {%- assign link_badge = 'hot' -%}   
+                                                                {% else %}
+                                                                    {%- assign link_text = link.title -%}
+                                                                    {%- assign link_badge = false -%}   
+                                                                {% endif %}
+
+                                                                <a class="level_3__link" href="{{ link.url }}">{{ link_text }}{% if link_badge %}<span class="badge badge_{{ link_badge }}">{{ link_badge }}</span>{% endif %}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                            </div>   
+
+                                            <div class="col-lg-5 col-12 cless">
+                                                <slider-component class="slider-wrapper">
+                                                    <div class="wbslidcust slider" role="list"  id="Slider-{{product.id}}">
+                                                        {% for product in collections[products].products limit:3 %} 
+                                                            <div class="wbmegacolpart slider__slide wbinproduct" id="Slide-{{product.id}}">
+                                                                <div class="product-container">
+                                                                    <div class="imgblock">
+                                                                        <a href="{{ product.url | within: collection }}">
+                                                                            <img src="{{ product.featured_image.src | img_url: '340x' }}" class="img-fluid mx-auto" alt="{{ product.title }}" />
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="wbproductdes">
+                                                                        <p class="product_name">
+                                                                            <a href="{{ product.url | within: collection }}">{{ product.title | truncate:50 }}</a>
+                                                                        </p>
+
+                                                                        <div class="product_price">
+                                                                            <span class="money">{{ product.price | money }}</span>
+
+                                                                            {% if product.compare_at_price and product.compare_at_price > product.price %}
+                                                                                <span class="money money_sale">{{ product.compare_at_price | money }}</span>
+                                                                            {% endif %}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="progallerybtn text-center {% if product.media.size < 5 %}hidden{% endif %}">
+                                                        <button type="button" class="slider-button slider-button--prev bigger-slider" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+                                                        <button type="button" class="slider-button slider-button--next bigger-slider" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+                                                    </div>
+                                                </slider-component>
+                                            </div>
+
+                                            <div class="col-lg-3 col-12 cless">
+                                            <div class="">
+                                                {% if block.settings.caption_link.size > 0 %}
+                                                    <a href="{{ block.settings.caption_link }}"> 
+                                                {% if block.settings.prodimage.size > 0 %}
+                                                    <img class="img-fluid mx-auto" src="{{ block.settings.prodimage | img_url: 'master' }}" alt="{{ block.settings.title }}" />
+                                                {% endif %}
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+
+                                            </div>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+
+                            {% when 'link-blog' %}
+                                {%- assign item_blog = block.settings.blog -%}
+
+                                {% if item_blog.size > 0 %}
+                                {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+                                    <ul class="level_2 wbmenudropdown" id="menu_{{ block.id }}">
+                                        <li class="container">
+                                            <slider-component class="slider-wrapper">
+                                                <ul class="wbslidcust slider" role="list">
+                                                {% for article in blogs[item_blog].articles limit:6 %} 
+                                                <li class="wbslidcustinner slider__slide wbmegacolpart">   
+                                                    {% if article.image %}
+                                                        <div class="blog_img">
+                                                        <img src="{{ article.image.src | img_url: '1000x600', crop: 'center' }}" alt="{{ article.image.alt }}" class="img-fluid mx-auto">
+                                                        </div>
+                                                    {% endif %}
+                                                    
+                                                    <div class="blog_info">
+                                                        <h3 class="blog_title"><a href="{{ article.url }}">{{ article.title | truncate:60 }}</a></h3>
+                                                        <p class="blog_date">
+                                                            <span class="article_day"><i class="fa fa-calendar"></i> {{ article.published_at | date: '%d %b %y' }}</span>
+                                                        </p> 
+                                                    </div>
+                                                </li>
+                                                {% endfor %}
+                                                </ul>
+                                                <div class="progallerybtn text-center {% if product.media.size < 5 %}hidden{% endif %}">
+                                                    <button type="button" class="slider-button slider-button--prev bigger-slider" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+                                                    <button type="button" class="slider-button slider-button--next bigger-slider" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+                                                </div>
+                                            </slider-component>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+
+                        {% endcase %}
+
+                    </li>
+
+                {% endfor %}
+            </ul>
+            <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor: pointer;" id="myOverlay"></div>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Site Nav",
+  "class": "index-section",
+  "settings": [
+    {
+        "type": "color",
+        "id": "menubg",
+        "default": "#fff",
+        "label": "Bottom header bg color"
+    },
+    {
+        "type": "color",
+        "id": "menubgtxt",
+        "default": "#000",
+        "label": "Main menu text color"
+    },
+    {
+      "type": "header",
+      "content": "Megamenu"
+    },
+    {
+      "type": "checkbox",
+      "id": "megamenu_toggle",
+      "label": "Show megamenu"
+    }
+  ],
+
+    "blocks": [
+
+
+        // LINK ///////////////////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-simple",
+            "name": "Simple link",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                }
+            ]
+        },
+
+
+        // LINK + LINKLIST ////////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-linklist",
+            "name": "Link + linklist",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links",
+                    "label": "Choose linklist"
+                }
+            ]
+        },
+
+
+        // LINK + 4 LINKLISTS /////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-4linklists",
+            "name": "4 linklists + 4 banners",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "show_title",
+                    "label": "Show title",
+                    "default": false
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_1",
+                    "label": "Image 1"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_1",
+                    "label": "Linklist #1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_2",
+                    "label": "Image 2"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_2",
+                    "label": "Linklist #2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_3",
+                    "label": "Image 3"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_3",
+                    "label": "Linklist #3"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_4",
+                    "label": "Image 4"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_4",
+                    "label": "Linklist #4"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "align_text",
+                    "label": "Align center",
+                    "default": false
+                }
+            ]
+        },
+
+
+
+        // LINK + 8 BANNERS /////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-8banners",
+            "name": "Link + 8 banners",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "align_text",
+                    "label": "Text align center",
+                    "default": false
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_1_image",
+                    "label": "Banner 1 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_1_link",
+                    "label": "Banner_1_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_1_text",
+                    "label": "Banner 1 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_2_image",
+                    "label": "Banner 2 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_2_link",
+                    "label": "Banner_2_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_2_text",
+                    "label": "Banner 2 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 3"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_3_image",
+                    "label": "Banner 3 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_3_link",
+                    "label": "Banner_3_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_3_text",
+                    "label": "Banner 3 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 4"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_4_image",
+                    "label": "Banner 4 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_4_link",
+                    "label": "Banner_4_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_4_text",
+                    "label": "Banner 4 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 5"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_5_image",
+                    "label": "Banner 5 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_5_link",
+                    "label": "Banner_5_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_5_text",
+                    "label": "Banner 5 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 6"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_6_image",
+                    "label": "Banner 6 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_6_link",
+                    "label": "Banner_6_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_6_text",
+                    "label": "Banner 6 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 7"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_7_image",
+                    "label": "Banner 7 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_7_link",
+                    "label": "Banner_7_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_7_text",
+                    "label": "Banner 7 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 8"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_8_image",
+                    "label": "Banner 8 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_8_link",
+                    "label": "Banner_8_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_8_text",
+                    "label": "Banner 8 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 9"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_9_image",
+                    "label": "Banner 9 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_9_link",
+                    "label": "Banner_9_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_9_text",
+                    "label": "Banner 9 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 10"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_10_image",
+                    "label": "Banner 10 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_10_link",
+                    "label": "Banner_10_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_10_text",
+                    "label": "Banner 10 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 11"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_11_image",
+                    "label": "Banner 11 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_11_link",
+                    "label": "Banner_11_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_11_text",
+                    "label": "Banner 11 text"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner 12"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_12_image",
+                    "label": "Banner 12 image"
+                },
+                {
+                    "type": "url",
+                    "id": "banner_12_link",
+                    "label": "Banner_12_link"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_12_text",
+                    "label": "Banner 12 text"
+                }
+            ]
+        },
+
+
+        // LINK + PRODUCTS ////////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-products",
+            "name": "Link + products listing",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                },
+
+
+                {
+                    "type": "checkbox",
+                    "id": "show_title",
+                    "label": "Show title",
+                    "default": false
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_1",
+                    "label": "Linklist #1"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_2",
+                    "label": "Linklist #2"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_3",
+                    "label": "Linklist #3"
+                },
+                {
+                    "type": "link_list",
+                    "id": "links_4",
+                    "label": "Linklist #4"
+                },
+                {
+                    "type": "collection",
+                    "id": "products",
+                    "label": "Choose collection"
+                },
+                {
+                    "type": "header",
+                    "content": "Banner"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "prodimage",
+                    "label": "Banner image"
+                },
+                {
+                    "type": "url",
+                    "id": "caption_link",
+                    "label": "Banner link"
+                }
+            ]
+        },
+
+
+        // LINK + BLOG ////////////////////////////////////////////////////////////////////////////////////
+        {
+            "type": "link-blog",
+            "name": "Link + blog listing",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Item"
+                },
+                {
+                    "type": "url", 
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_text",
+                    "label": "Badge text"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background badge color",
+                    "default": "#ff0000"
+                }, 
+                {
+                    "type": "blog",
+                    "id": "blog",
+                    "label": "Choose blog"
+                }
+            ]
+        }
+    ],
+    "presets": [
+    {
+      "name": "Site Nav",
+      "category": "Megamenu"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,76 @@
+<div class="offerbnr"> 
+    <div class="beffect">
+        {% if section.settings.link != blank %}<a href="{{ section.settings.link }}" title="{{ 'wbcustomlabel.wballtext.banner' | t }}">{% endif%}
+        {% if section.settings.image != blank %}
+            <img loading="lazy" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}" class="img-fluid mx-auto" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"/>
+        {% else %}
+            <img loading="lazy" src="https://dummyimage.com/1470x300/f5f5f5" class="img-fluid mx-auto" alt="banner" width="1470" height="300"/>
+        {% endif %}
+        {% if section.settings.link != blank %}</a>{% endif %}
+    </div>
+    <div class="offerbtxt">
+        <div class="ofer">
+            {% if section.settings.subtitle != blank %}
+                <h4>{{ section.settings.subtitle }}</h4>
+            {% endif %}
+            {% if section.settings.storytitle != blank %}
+                <h2>{{ section.settings.storytitle }}</h2>
+            {% endif %}
+            {% if section.settings.storysubtitle != blank %}
+                <p>{{ section.settings.storysubtitle }}</p>
+            {% endif %}
+            {% if section.settings.link != blank %}
+                <a href="{{ section.settings.link }}" class="btn btn-primary">{{ section.settings.btntxt }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "Offer Banner",
+"class": "spaced-section",
+"settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Size: 1470x300"
+    },
+    {
+        "type": "url",
+        "id": "link",
+        "label": "Link URL"
+    },
+    {
+        "type": "text",
+        "id": "subtitle",
+        "label": "SubHeading",
+        "default": "Shop By Brand"
+    },
+    {
+        "type": "text",
+        "id": "storytitle",
+        "label": "Heading",
+        "default": "Beautiful Princess Dress For Your Kid"
+    },
+    {
+        "type": "textarea",
+        "id": "storysubtitle",
+        "label": "Description",
+        "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+    },
+    {
+        "type": "text",
+        "id": "btntxt",
+        "label": "Button Label",
+        "default": "Shop Deal Now"
+    }
+],
+  "presets": [
+    {
+      "name": "Offer Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

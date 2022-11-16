@@ -1,0 +1,44 @@
+.wballcatpage .cless{
+    margin-bottom: 30px;
+}
+.wballcatpage .cless a{
+    display: block;
+}
+.wballcatpage .cless h2{
+    font-size: calc(var(--font-size-base) * 1.43px);
+    text-transform: capitalize;
+    margin: 0;
+    transition: 0.3s ease;
+    margin-top: 15px;
+    text-align: center;
+}
+.wballcatpage .cless h2 .icon-wrap{
+    position: relative;
+    right: 0;
+    transition: 0.3s ease;
+}
+.wballcatpage .cless a:hover h2 .icon-wrap{
+    right: -5px;
+}
+.wballcatpage .cless img{
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+.wballcatpage .cless p{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+@media (max-width: 991px){
+    .wballcatpage .cless h2{
+        font-size: calc(var(--font-size-base) * 1px);
+    }
+    .wballcatpage .icon-arrow {
+        width: 15px;
+    }
+    .wballcatpage .cless {
+        margin-bottom: 15px;
+    }
+    .wballcatpage .cless p{
+        font-size: 12px;
+    }
+}

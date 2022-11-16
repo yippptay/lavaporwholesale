@@ -1,0 +1,12 @@
+{% if end_date != blank %}
+<div class="timer_outer">
+    {% if title != blank %}<h5>{{ title }}</h5>{% endif %}
+    <div class="countdowntimer">      
+        <div data-date="{{end_date}}"></div>
+        <div data-countdown="{{end_date}}" class="wbcounttimer">
+        </div>
+    </div>
+</div>
+{% endif %} 
+
+{%comment%}<div class="countdowntimer wbcounttimer"><div><span>369</span><strong>Days</strong></div><div><span>11</span><strong>Hours</strong></div><div><span>34</span><strong>Min</strong></div><div><span>32</span><strong>Sec</strong></div></div>{%endcomment%}   

@@ -1,0 +1,98 @@
+<div data-section-id="{{ section.id }}" class="salebnr">
+    <div class="row rless">
+      {% if section.blocks.size > 0 %}      
+          {% for block in section.blocks %}
+            <div class="col-sm-6 col-12 cless">
+              <div class="beffect">
+                {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif%}
+                {% if block.settings.image != blank %}
+                <img loading="lazy" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}" class="img-fluid mx-auto" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" />
+                {% else %}
+                <img loading="lazy" src="https://dummyimage.com/720x300/f5f5f5" class="img-fluid mx-auto" width="720" height="300" />
+                {% endif%}           
+                {% if block.settings.link != blank %}</a>{% endif%}  
+              </div>
+              <div class="saletext">
+                <div class="saleff">
+                    {% if block.settings.storysubtitle != blank %}
+                        <h5>{{ block.settings.storysubtitle }}</h5>
+                    {% endif %}
+                    {% if block.settings.storytitle != blank %}
+                        <h2>{{ block.settings.storytitle }}</h2>
+                    {% endif %}
+                    {% if block.settings.desc != blank %}
+                        <p>{{ block.settings.desc }}</p>
+                    {% endif %}
+                    {% if block.settings.btnlink != blank %}
+                        <a href="{{ block.settings.btnlink }}" class="btn btn-primary">{{ block.settings.btn }}{% render 'icon-arrow' %}</a>
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Sale Banner",
+"class": "spaced-section",
+"settings": [
+  ],
+  "blocks": [
+    {
+      "type": "Image",
+      "name": "Sale Banner",
+      "settings": [ 
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Size: 720x300"
+        },
+        {
+        "type": "url",
+        "id": "link",
+        "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "storysubtitle",
+          "label": "Sub Heading",
+          "default": "SPRING - SUMMER 2021"
+        },
+        {
+          "type": "text",
+          "id": "storytitle",
+          "label": "Heading",
+          "default": "New Shoes"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "wireless headphones"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Button",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "btnlink",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+"presets": [
+    {
+      "name": "Sale Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}    

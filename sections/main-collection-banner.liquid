@@ -1,0 +1,50 @@
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+    <h1 class="heading text-left"><span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span><span>{{- collection.title | escape -}}</span></h1>
+    {%- if collection.image and collection.description -%}
+        <div class="row collection-hero">
+            {%- if section.settings.show_collection_image and collection.image -%}
+                <div class="{% if section.settings.show_collection_description and section.settings.show_collection_image %}col-md-2 col-sm-12 col-12 {% else %}col-12 {% endif %} collection-hero__image-container">
+                    <img class="img-fluid mx-auto"
+                    srcset="{{ collection.image | img_url: 'master' }} {{ collection.image.width }}w"
+                    src="{{ collection.image | img_url: '750x' }}"
+                    alt="{{ collection.title | escape }}"
+                    loading="lazy"
+                    width="{{ collection.image.width }}"
+                    height="{{ collection.image.height }}" >
+                </div>
+            {%- endif -%}
+            <div class="{% if section.settings.show_collection_description and section.settings.show_collection_image %}col-md-10 col-sm-12 col-12 {% else %}col-12 {% endif %} collection-hero__text-wrapper">
+                {%- if section.settings.show_collection_description -%}
+                    <div class="collection-hero__description rte">{{ collection.description }}</div>
+                {%- endif -%}
+            </div>
+        </div>
+    {%- endif -%}  
+
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "spaced-section--full-width",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    }
+  ]
+}
+{% endschema %}

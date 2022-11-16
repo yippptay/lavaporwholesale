@@ -1,0 +1,106 @@
+<div class="card-wrapper wbproduct-container row">
+  <div class="wbimgblock col-4">
+    {%- if product_card_product.featured_media -%}
+      {%comment%}
+        Webibazaar Variants Wise Product Change
+      {%endcomment%}
+      <div id="webipro-{{ section.id }}-{{ product_card_product.id }}" class="imgblockslide slider">
+        {%- if product_card_product.selected_or_first_available_variant.featured_media != null -%}
+          {%- assign media = product_card_product.selected_or_first_available_variant.featured_media -%}
+          <div class="product__media-item" data-media-id="{{ section.id }}-{{ product_card_product.id }}-{{ media.id }}">
+            <a href="{{ product_card_product.url | default: '#' }}" title="{{ 'wbcustomlabel.wballtext.products' | t }}">
+              <img class="img-fluid mx-auto" srcset="{{ media.preview_image | img_url: '200x' }} 200w" src="{{ media.preview_image | img_url: '200x' }} 200w" loading="lazy" width="200" height="200" alt="{{ media.preview_image.alt | escape }}">
+            </a>
+          </div>
+        {%- endif -%}
+        {%- liquid
+                assign media_to_render = product_card_product.featured_media.id
+                for variant in product_card_product.variants
+                assign media_to_render = media_to_render | append: variant.featured_media.id | append: ' '
+                endfor
+                -%}
+        {%- for media in product_card_product.media -%}
+          {%- if media_to_render contains media.id and media.id != product_card_product.selected_or_first_available_variant.featured_media.id -%}
+            <div class="product__media-item" data-media-id="{{ section.id }}-{{ product_card_product.id }}-{{ media.id }}">
+              <a href="{{ product_card_product.url | default: '#' }}" title="{{ 'wbcustomlabel.wballtext.products' | t }}">
+                <img class="img-fluid mx-auto" srcset="{{ media.preview_image | img_url: '200x' }} 200w" src="{{ media.preview_image | img_url: '200x' }} 200w" loading="lazy" width="200" height="200" alt="{{ media.preview_image.alt | escape }}">
+              </a>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%comment%}
+        Webibazaar Variants Wise Product Change Over
+      {%endcomment%}
+    {%- else -%}
+      <div class="card__content">
+        <h2 class="card__text h3">
+          <a href="{{ product_card_product.url | default: '#' }}">
+            {{ product_card_product.title }}
+          </a>
+        </h2>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="wbproductdes col-8">
+    {%- if product_card_product.featured_media -%}
+      <h3 class="product-title">
+        <a href="{{ product_card_product.url | default: '#' }}">{{ product_card_product.title | escape }}</a>
+      </h3>
+    {%- endif -%}
+    {%- if show_rating -%}
+      {%- if product_card_product.metafields.reviews.rating.value != blank -%}
+        <div class="wbhrating">
+          <div class="prating">
+            {% liquid
+                            assign rating_decimal = 0 
+                            assign decimal = product_card_product.metafields.reviews.rating.value.rating | modulo: 1 
+                            if decimal >= 0.3 and decimal <= 0.7
+                            assign rating_decimal = 0.5
+                            elsif decimal > 0.7
+                            assign rating_decimal = 1
+                            endif 
+                            %}
+
+            <p class="rating-text caption">
+              {%- if product_card_product.metafields.reviews.rating.value -%}
+                <span aria-hidden="true">{{ product_card_product.metafields.reviews.rating.value }}</span>
+              {% endif %}
+            </p>
+
+
+
+            <div class="rating" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product_card_product.metafields.reviews.rating.value, rating_max: product_card_product.metafields.reviews.rating.value.scale_max }}">
+              <span aria-hidden="true" class="rating-star" style="--rating: {{ product_card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product_card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
+            </div>
+          </div>
+
+          <p class="rating-count caption">
+            <span aria-hidden="true">({{ product_card_product.metafields.reviews.rating_count }})</span>
+            <span class="visually-hidden">{{ product_card_product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
+          </p>
+        </div>
+      {%- else -%}
+        <div class="wbhrating">
+          <div class="prating">
+            <p class="rating-text caption">
+              <span aria-hidden="true">0</span>
+            </p>
+            <div class="rating">
+              <span class="rating-star wbnorating"></span>
+            </div>
+          </div>
+          <p class="rating-count caption">
+            <span aria-hidden="true">(0)</span>
+          </p>
+
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+    <div class="pcardpopup">
+      {%- render 'price', product: product_card_product, use_variant: true, show_badges: false -%}
+    </div>
+  </div>
+
+</div>

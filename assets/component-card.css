@@ -1,0 +1,463 @@
+.media--square {
+    padding-bottom: 100%;
+}
+.media--transparent {
+    background-color: transparent;
+}
+.media > img {
+  object-fit: cover;
+  object-position: center center;
+  transition: opacity .4s cubic-bezier(.25, .46, .45, .94);
+}
+.card__badge span{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    margin: 0 auto;
+    display: inline-block;
+    text-transform: capitalize;
+    line-height: normal;
+    font-size: calc(var(--font-size-base) * 1px);
+    border: none;
+    background: var(--gradient-base-accent-1);
+    color: var(--color-base-solid-button-labels);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.overlay-card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: transparent;
+    transition: background-color var(--duration-long) ease;
+}
+.wbproduct-container{
+    background-color: var(--color-wbprodct-background);
+    transition: 0.3s ease;
+    position: relative;
+    border: 1px solid var(--color-wbbordercolor);
+    border-radius: 4px;
+}
+.template-index .wbproduct-container {
+    border: none;
+}
+.wbproductdes {
+    padding: 10px 5px;
+    text-align: center;
+}
+.wbwishdesc {
+    text-align: center;
+    padding: 0 15px 10px;
+}
+.wbimgblock{
+    position: relative;
+    text-align: center;
+}
+.wbproduct-container .wbimgblock img {
+    border-radius: 10px;
+}
+.wbhrating{
+    margin-bottom: 3px;
+}
+.wbprotype{
+    font-size: calc(var(--font-size-base) * 1px);
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+.product-title{
+    font-size: calc(var(--font-size-base) * 1px);
+    text-transform: capitalize;
+    transition: .3s ease;
+    letter-spacing: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+.product-title:hover, .product-title:hover a{ 
+    color: var(--color-wbmaincolors-text);
+}
+.wbhprice{
+    margin-bottom: 5px;
+}
+.wbnorating.rating-star::before{
+    color: rgba(var(--color-base-text),0.3);
+    background: transparent;
+    -webkit-text-fill-color: rgba(var(--color-base-text),0.3);
+}
+.wbproduct-container .quantity__input{
+    width: 22px;
+    flex-grow: unset;
+    padding: 0;
+    font-size: rgb(var(--color-base-text));
+    height: 35px;
+    vertical-align: top;
+    color: var(--color-base-solid-button-labels);
+}
+.wbproduct-container .quantity{
+    height: 35px;
+    border-radius: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: var(--color-wbmaincolors-text);
+}
+.wbproduct-container .quantity__button{
+    font-size: 13px;
+    display: inline-block;
+    height: 33px;
+    padding: 0 5px;
+    color: var(--color-base-solid-button-labels);
+}
+.wbproduct-container .quantity__button svg {
+    width: 12px;
+    height: 11px;
+}
+.wbproduct-container .product-form__quantity,.wbproduct-container .product-form form{
+    display: block;
+    vertical-align: middle;
+} 
+.product-form .cartb .loading-overlay__spinner svg{
+    display: inline-block;
+}
+.wbimgblock img{
+    transition: 0.3s ease;
+}
+.wbproduct-container .product__media-item:not(:first-child) {
+    display: none!important;
+}
+/* Product Buttons */
+.wbproduct-container .button-group {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 58%;
+    margin: 0 auto;
+    transition: .3s ease-in-out;
+    opacity: 0;
+    text-align: center;
+}
+.wbproduct-container:hover .button-group {
+    opacity: 1;
+}
+.wbproduct-container .product-form form,.wbproduct-container .product-form .wbqvtop,.product-form .wbwish{
+    display: inline-block;
+    vertical-align: middle;
+}
+.wbproduct-container .cartb[disabled]{
+    cursor: no-drop;
+}
+
+.product-form .cartb,.product-form .wbquickv,.product-form .wbwish a{
+    border: 1px solid var(--color-wbbordercolor);
+    text-transform: capitalize;
+    background: rgb(var(--color-background));
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+    color: rgb(var(--color-base-text));
+    text-align: center;
+    transition: .3s ease;
+    letter-spacing: .5px;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 100%;
+}
+.product-form .cartb:hover,.product-form .wbquickv:hover,.product-form .wbwish a:hover{
+    background: var(--color-wbmaincolors-text);
+    border-color: var(--color-wbmaincolors-text);
+    color: var(--color-base-solid-button-labels);
+}
+.product-form .cartb:hover svg,.product-form .wbquickv:hover svg,.product-form .wbwish a:hover svg{
+    fill: var(--color-base-solid-button-labels);
+}
+.product-form .cartb svg,.product-form .wbquickv svg,.product-form .wbwish svg{
+    width: 18px;
+    height: 18px;
+    fill: rgba(var(--color-base-text),0.5);
+}
+.product-form .cartb span,.wbquickv span,.product-form .wbwish span.wbaddwish {
+    display: none;
+}
+/*Product Buttons Over */
+/* Home Variants */
+.wbproduct-container .product__media-item:not(:first-child) {
+    display: none;
+}
+.wbproduct-container .inner-class .form__label{
+    font-size: rgb(var(--color-base-text));
+}
+.wbproduct-container .product-form__input input[type="radio"],.wbproduct-container .wbswatchclr input[type="radio"] {
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    position: absolute;
+    height: 1px;
+    width: 1px;
+}
+.wbproduct-container .product-form__input input + label {
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    transition: border var(--duration-short) ease;
+    cursor: pointer;
+    border: 1px solid rgba(var(--color-base-text),0.08);
+    background: rgba(var(--color-base-text),0.03);
+    margin: 0 3px;
+    box-shadow: none;
+    min-width: 22px;
+    min-height: 22px;
+}
+.wbproduct-container .product-form__input input + label.active {
+    background-color: rgb(var(--color-base-text));
+    border-color: rgb(var(--color-base-text));
+    color: var(--color-base-solid-button-labels);
+    box-shadow: none;
+}
+/* For Color */
+.wbproduct-container .wbswatchclr  input + label{
+    padding: 0;
+    border-radius: 100%;
+    min-width: 15px;
+    min-height: 15px;
+    box-shadow: 0 0px 0px 1px rgba(var(--color-base-text),0.1);
+    border: none;
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.wbproduct-container .wbswatchclr  input + label.active{
+    box-shadow: 0 0px 0px 1px rgba(var(--color-base-text),1);
+}
+variant-webi,variant-radios{
+    display: block;
+    clear: both;
+    margin-bottom: 10px;
+    transition: 0.3s all ease;
+}
+variant-webi .js.product-form__input.inner-class,variant-radios .js.product-form__input.inner-class{
+    margin-bottom: 15px;
+}
+
+@media (min-width: 992px) {
+}
+/* Wishlist Page */
+.wbloginwish li{
+    margin-bottom: 30px;
+}
+.wbloginwish li p{
+    color: var(--color-base-text);
+    margin-bottom: 10px;
+}
+.wbloginwish li a{
+    color: var(--color-wbmaincolors-text);
+    text-transform: uppercase;
+}
+.wbloginwish li a:hover{
+    color: var(--color-base-text);
+}
+.wishanimated {
+    -webkit-animation: rotation 2s infinite linear;
+}
+.product-form .wbwish:hover .wbwishirmv i {
+    color: #fff;
+}
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+.wishlist-action a {
+    display: inline-block;
+}
+.wbwishremove .wbloadtowish, .wbwishremove .wbwishirmv, a.go-to-wishlist{
+    display: none;
+}
+.wbwishremove.wbloadtowish .wbloadtowish{
+    display: inline-block;
+}
+.wbwishremove.wbloadtowish .wbaddtowish, .wbwishremove.wbwishadding .wbwishirmv, .wbwishremove.wbwishadding + a.go-to-wishlist{
+    display: none;
+}
+.wbwishremove.wishactive .wbaddtowish{
+    display: none;
+}
+.wbwishremove.wishactive .wbwishirmv, .wbwishremove.wishactive + a.go-to-wishlist{
+    display: inline-block;
+}
+.wbwishremove.wishactive.wbwishadding .wbwishirmv, .wbwishremove.wishactive.wbwishadding + a.go-to-wishlist{
+    display: inline-block;
+}
+.wbwishremove.wbloadtowish.wbwishadding .wbwishirmv, .wbwishremove.wbloadtowish.wbwishadding + a.go-to-wishlist{
+    display: none;
+}
+
+.wbmainwish .wbwishremove{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: #fff;
+    border: 1px solid var(--color-wbbordercolor);
+    min-width: 35px;
+    min-height: 35px;
+    text-align: center;
+    border-radius: 100%;
+    padding-top: 6px;
+}
+.wbmainwish .heading span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.wbmainwish .wbinnerwimg{
+    position: relative;
+}
+.wbwishdesc h5{
+    font-size: 14px;
+    text-transform: capitalize; 
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: normal;
+}
+.wbwishdesc .product-price .compare-price{
+    text-decoration: line-through;
+    color: #777;
+}
+.wbwishdesc .product-price .price-sale,.wbwishdesc .product-price .pro-price{
+    font-size: 18px;
+    font-weight: 600;
+}
+.wbinnerwish{
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--color-wbbordercolor);
+}
+.wbwishempty p{
+    font-size: 24px;
+    color: var(--color-base-text);
+}
+@media (min-width: 1410px) and (max-width: 1600px) {
+    
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .wblistpdesc,.wbhprice {
+        margin: 0 0 5px;
+    }
+    .wbproduct-container .product-form {
+        top: 15%;
+    }
+}
+@media (max-width: 991px){
+    .wbproduct-container .button-group,.wbproduct-container .product-form .cartquick {
+        position: unset;
+        opacity: 1;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .wbproduct-container .product-form form, .wbproduct-container .product-form .wbqvtop, .product-form .wbwish {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .product-list .wbproduct-container .product-form{
+        margin-top: 6px;
+    }
+    .wbproduct-container .product-form__input input + label{
+        padding: 4px 6px;
+        font-size: 12px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+    .wbprobnr .wbproduct-container .product-form .wbqvtop, .wbprobnr .wbproduct-container .product-form form{
+        margin-top: 0;
+    }
+    .wbprobnr .wbproduct-container .product-form{
+        text-align: center;
+    }
+    .wbproduct-container:hover .wbimgblock img {
+        filter: unset;
+    }
+    .wbproduct-container .product-form{
+        position: unset;
+        margin-top: 0;
+        opacity: 1;
+        text-align: center;
+    }
+    .wbproduct-container .product-form form,.wbproduct-container .product-form .wbqvtop,.wbproduct-container .product-form .wbwish a{
+        margin-top: 0px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .product-form .cartb, .product-form .wbquickv,.product-form .wbwish a{
+        min-width: 32px;
+        min-height: 32px;
+        margin: 0 2px;
+        border: 1px solid var(--color-wbbordercolor);
+        padding: 4px 0;
+    }
+    .wbproduct-container .quantity__input,.wbproduct-container .quantity{
+        height: 30px;
+    }
+    .wbproduct-container .quantity__button{
+        height: 28px;
+    }
+    .wbhprice {
+        margin-bottom: 3px;
+    }
+    .wbprotype{
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    .wbhrating {
+        margin-bottom: 5px;
+        display: block;
+    }
+    variant-webi {
+        display: block;
+        float: none;
+    }
+    .product-form .cartb svg, .product-form .wbquickv svg, .product-form .wbwish svg {
+        width: 18px;
+        height: 17px;
+    }
+  	.card__badge span {
+        padding: 2px 4px;
+      	font-size: calc(var(--font-size-base) * 0.85px);
+    }
+    
+}
+@media (max-width: 767px) {
+    variant-webi, variant-webitab, variant-webitabquick {
+        margin-bottom: 0;
+    }
+    variant-webi {
+        display: block;
+        float: none;
+    }
+    .wbhrating {
+        display: block;
+    }
+    .product-form .cartb svg, .product-form .wbquickv svg, .product-form .wbwish svg {
+        width: 18px;
+        height: 18px;
+    }
+    .wbproductdes {
+        padding: 8px;
+    }
+}
+@media (max-width: 360px) {
+    .timer_outer {
+        bottom: 37%;
+    }
+}

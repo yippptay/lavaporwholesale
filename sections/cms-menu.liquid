@@ -1,0 +1,55 @@
+<div class="row">
+  
+  <div class="col-xl-9 col-12 hmenu">
+    <div class="cms-menu">
+      <a href="https://www.lavaporwholesale.com/pages/brands">Brands</a>
+      <a href="">Vape</a>
+      <a href="">Smoke Shop</a>
+      <a href="">Hemp</a>
+      <a href="">Quick Order</a>
+      <a href="https://www.lavaporwholesale.com/pages/about">About Us</a>
+      <a href="https://www.lavaporwholesale.com/pages/contact-us">Contact Us</a>
+    </div>
+  </div>
+  
+  <div class="col-lg-3 text-right offer-icon d-xl-inline-block d-none">
+    <div class="special-offer">
+        {{ section.settings.ofrtxt }}
+    </div>
+  </div>
+  
+</div>
+
+
+{% schema %}
+  {
+    "name": "Cms Menu",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cms Menu"
+      }, {
+        "type": "richtext",
+        "id": "cms_menu",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      }, {
+        "type": "header",
+        "content": "Special Offer"
+      }, {
+        "type": "richtext",
+        "id": "ofrtxt",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "Cms Menu",
+        "category": "Megamenu"
+      }
+    ]
+  }
+{% endschema %}

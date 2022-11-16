@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js full-height" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>{{ shop.name }}</title>
+
+    <meta name="description" content="{{ page_description | escape }}">
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {% style %}
+    {%- assign base_font = settings.type_base_font -%}  
+      :root {
+        --wbbase-font: {{ settings.type_base_font | remove: 'Google+' | replace: '+', ' ' }};
+        --font-size-header: {{ settings.type_header_base_size }};
+        --font-size-base: {{ settings.type_base_size }};
+        
+        --gradient-base-accent-1: {% if settings.gradient_accent_1 != blank %}{{ settings.gradient_accent_1 }}{% else %}{{ settings.colors_accent_1 }}{% endif %};
+        --color-base-solid-button-labels: {{ settings.colors_solid_button_labels }};
+
+        --gradient-base-accent-2: {% if settings.gradient_accent_2 != blank %}{{ settings.gradient_accent_2 }}{% else %}{{ settings.colors_accent_2 }}{% endif %};
+        --color-wb-hovercolor-button-text: {{ settings.wb_hovercolor_button_text }};
+
+        --color-wbmaincolors-text: {{ settings.wbmaincolors_text }};
+        --color-base-text: {{ settings.colors_text }};
+        --color-wbbordercolor: {{ settings.wbborder_color }};
+        
+        --color-background: {{ settings.colors_background_1 }};
+        --gradient-background: {% if settings.gradient_background_1 != blank %}{{ settings.gradient_background_1 }}{% else %}{{ settings.colors_background_1 }}{% endif %};
+
+        --payment-terms-background-color: {{ settings.colors_background_1 }};
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      svg{
+        width: 14px;height: 14px;
+      }
+    {% endstyle %}
+
+    {% if settings.type_base_font contains 'Google' %}
+      <link href="https://fonts.googleapis.com/css?family={{ settings.type_base_font | remove: 'Google+' }}:400,500,600,700"  rel="stylesheet">
+    {% endif %}
+
+    {{ 'section-password.css' | asset_url | stylesheet_tag }}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'password-modal.js' | asset_url }}" defer="defer"></script>
+  </head>
+
+  <body class="password gradient">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {% section 'main-password-header' %}
+
+    <main id="MainContent" class="password-main">
+      {{ content_for_layout }}
+    </main>
+    <footer>
+      {% section 'main-password-footer' %}
+    </footer>
+  </body>
+</html>

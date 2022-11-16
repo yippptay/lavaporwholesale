@@ -1,0 +1,98 @@
+<div class="testimonial leftpro">
+    {% if section.blocks.size > 0 %}
+        <div class="testi rless">
+            {% for block in section.blocks %}
+                <div class="cless col-12">
+                    <div class="wbtestisub text-center">
+                        <ul>
+                          <li>{% render 'icon-quote' %}</li>
+                            <li><img class="img-fluid max-auto" src="{{ block.settings.image | img_url: '80x80' }}" alt="{{ block.settings.image.alt | escape }}"></li>
+                            <li>
+                                {% if block.settings.author != blank %}
+                                    <h3>{{ block.settings.author }}</h3>
+                                {% endif %}
+                                {% if block.settings.author != blank %}
+                                    <h4>{{ block.settings.developer }}</h4>
+                                {% endif %}
+                                <span></span>
+                            </li>
+                        </ul>
+                        {% if block.settings.quote != blank %}
+                            <p>{{ block.settings.quote }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+<style>
+  .testimonial {
+     background: {{ section.settings.testi_bg }};
+  }
+</style>
+{% schema %}
+  {
+    "name": "Testimonials",
+    "class": "spaced-section",
+    "max_blocks": 9,
+    "settings": [
+        {
+          "type": "color",
+          "id": "testi_bg",
+          "label": "Background Color",
+          "default": "#f5f5f5"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "type": "quote",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Text",
+            "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+          },
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "Author's name"
+          },
+          {
+            "type": "text",
+            "id": "developer",
+            "label": "field",
+            "default": "developer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "quote"
+          },
+          {
+            "type": "quote"
+          },
+          {
+            "type": "quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

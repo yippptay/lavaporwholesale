@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="wblogos">
+        {% if section.blocks.size > 0 %}
+            <div class="wblogobar">
+                {% for block in section.blocks %}
+                    <div class="col-12 cless">
+                        {% if block.settings.link != blank %}<a href="{{ block.settings.link }}" title="{{ 'wbcustomlabel.wballtext.banner' | t }}">{% endif %}
+                        {% if block.settings.image != blank %}
+                            <img loading="lazy" src="{{ block.settings.image | img_url: '225x150' }}" class="logo-bar__image img-fluid mx-auto" alt="{{ block.settings.image.alt }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"/>
+                        {% else %}
+                            <img loading="lazy" src="https://dummyimage.com/225x150/f5f5f5" class="img-fluid mx-auto" alt="logobar" width="225" height="150" />
+                        {% endif %}
+                        {% if block.settings.link != blank %}</a>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Logo list",
+    "class": "spaced-section",
+    "max_blocks": 20,
+    "settings": [
+    ],
+  "blocks": [
+    {
+      "type": "logo_image",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo list",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "logo_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
