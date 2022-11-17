@@ -1668,6 +1668,9 @@ input::-webkit-search-decoration {
     width: 24px;
     height: 24px;
 }
+
+
+
 /* cms menu  */
 .cms-menu {
   display: flex;
@@ -1687,7 +1690,8 @@ input::-webkit-search-decoration {
     text-transform: uppercase;
     position: relative;
 }
-.cms-menu a::after {
+.cms-menu a::after { /* red underline after hover */
+    display: none;
     position: absolute;
     content: "";
     background-color: #d01418;
@@ -1729,6 +1733,9 @@ input::-webkit-search-decoration {
     font-weight: normal;
     text-transform: capitalize;
 }
+
+
+
 /* Header Cart Dropdown */
 #cart-icon-bubble .cart__warnings,#cart-icon-bubble .cart__empty-text,#cart-icon-bubble .is-empty .cart__contents, #cart-icon-bubble .is-empty .cart__footer,
 #cart-icon-bubble cart-items.is-empty .title-wrapper-with-link, #webi-main-cart-footer.is-empty{
