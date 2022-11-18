@@ -271,7 +271,7 @@
                 endif
               -%}
               {%- assign bar_progress = current_variant.inventory_quantity | times: 100 | divided_by: block.settings.max_stock | append: '%' -%}
-              <div class="wbstockcount {% unless current_variant.available and current_variant.inventory_quantity > 0 %} hidden {% endunless %}">
+              <div class="hidden wbstockcount {% unless current_variant.available and current_variant.inventory_quantity > 0 %} hidden {% endunless %}">
                 <div class="wbstockinfo wbstockinfo_{{ inventory_status }}">{{ inventory_message }}</div>
                 <div class="wbstockinfo-bar">
                   <span class="wbstockinfo-probar" style="width: {{ bar_progress }}"></span>
@@ -323,7 +323,7 @@
 
             {%- when 'description' -%}
             {%- if product.description != blank -%}
-                <div class="product__description rte">
+                <div class="hidden product__description rte">
                     {{ product.description }}
                 </div>
             {%- endif -%}
