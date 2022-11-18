@@ -282,7 +282,7 @@
             {%- unless product_card_product.has_only_default_variant -%}
                 {%- if show_variants %}
                     {%- if picker_type == 'button' -%}
-                        <variant-radios class="no-js-hidden new-swatch variant-webi" data-section="{{ section.id }}" data-product="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}" data-update-url="false" data-layout="card" {{ block.shopify_attributes }}>
+                        <variant-radios class="hidden no-js-hidden new-swatch variant-webi" data-section="{{ section.id }}" data-product="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}" data-update-url="false" data-layout="card" {{ block.shopify_attributes }}>
                             {%- for option in product_card_product.options_with_values -%}
                                 <fieldset {% if option.name == 'Color' and show_colorswatch %} class="swatchComponent inner-class" {% else %} class="js product-form__input inner-class" {% endif %}>
                                     <div {% if option.name == 'Color' and show_colorswatch %} class="wbswatchclr" {% endif %}>
