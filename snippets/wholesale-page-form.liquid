@@ -156,7 +156,7 @@ function nm_wholesale_show_spinner()
     <input id="nm_easywholesale_variant_as_product" value="1" type="hidden">
 {% endif %}
 
-                {% assign collection_handle_array = "@" | split: "@" %}
+                {% assign collection_handle_array = ", ky-taxable-products@" | split: "@" %}
                 {% assign page_id_array = "83347996758@" | split: "@" %}
                 {% assign discount_id_array = "" | split: "@" %}
                 
@@ -233,8 +233,8 @@ function nm_wholesale_show_spinner()
 <div id="nm-no-search">No products matched your search</div>
 <div class="nm-wholesale-table-container-all" id="nm-wholesale-table-container-all">
 
-                {% assign collection_handle_array = "@" | split: "@" %}
-                {% assign product_handle_array = ", aloha-sun-tfn-disposable@" | split: "@" %}
+                {% assign collection_handle_array = ", ky-taxable-products@" | split: "@" %}
+                {% assign product_handle_array = "@" | split: "@" %}
                 {% assign page_id_array = "83347996758@" | split: "@" %}
                 
                 {% assign count = 0 %}
