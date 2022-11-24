@@ -1,5 +1,5 @@
 
-{% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
+{% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product_card_product , wpd_is_render:'yes' -%}{% endcapture %}
     
     {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
     {% assign  wcp_price = wcp_price | minus: 0 %}
@@ -38,7 +38,7 @@
     
     {%- capture wcp_discount_value -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_discount_value' -%}{%- endcapture -%}
     
-    {% capture wcp_v_discounted_prices %}{%- render 'wcp_variant' , wcp_variant:product.selected_or_first_available_variant , set_prices_array:set_prices_array , wpd_is_render:'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value -%}{%- endcapture -%}
+    {% capture wcp_v_discounted_prices %}{%- render 'wcp_variant' , wcp_variant:product_card_product.selected_or_first_available_variant , set_prices_array:set_prices_array , wpd_is_render:'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value -%}{%- endcapture -%}
     
     {%- capture wcp_v_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_price' -%}{%- endcapture -%}
     {% assign  wcp_v_price = wcp_v_price | minus: 0 %}
@@ -257,7 +257,7 @@
           <div class="card__badge">
               {%- if product_card_product.available == false -%}
                   <span>{{ 'products.product.sold_out' | t }}</span>
-              {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
+              {%- elsif wcp_compare_at_price > wcp_price and product_card_product.available -%}
                   <span>{{ 'products.product.on_sale' | t }}</span>
               {%- endif -%}
           </div>
