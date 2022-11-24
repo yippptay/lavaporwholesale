@@ -1,4 +1,10 @@
-
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+-%}
 {% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
     
     {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
@@ -62,18 +68,22 @@
     {% render 'price', product: product %}
 {% endcomment %}
 {%- liquid
-  if use_variant
-    assign target = product.selected_or_first_available_variant
+  if target == product
+    assign compare_at_price = wcp_compare_at_price
+    assign price = wcp_price | default: 1999
+    assign available = target.available | default: false
+    assign money_price = price | money
+    if settings.currency_code_enabled
+      assign money_price = price | money_with_currency
+    endif
   else
-    assign target = product
-  endif
-
-  assign compare_at_price = target.compare_at_price
-  assign price = target.price | default: 1999
-  assign available = target.available | default: false
-  assign money_price = price | money
-  if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
+    assign compare_at_price = wcp_v_compare_at_price
+    assign price = wcp_v_price | default: 1999
+    assign available = target.available | default: false
+    assign money_price = price | money
+    if settings.currency_code_enabled
+      assign money_price = price | money_with_currency
+    endif
   endif
 
   if target == product and product.price_varies
