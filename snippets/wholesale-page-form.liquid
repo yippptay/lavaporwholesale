@@ -1,3 +1,54 @@
+
+{% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
+    
+    {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
+    {% assign  wcp_price = wcp_price | minus: 0 %}
+    
+    {%- capture wcp_compare_at_price  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price' -%}{%- endcapture -%}
+    {% if wcp_compare_at_price != blank %}
+        {% assign  wcp_compare_at_price = wcp_compare_at_price | minus: 0 %}
+    {% else %}
+    {% assign  wcp_compare_at_price = nil %}
+    {% endif %}
+    
+    {%- capture wcp_compare_at_price_min  -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_min' -%}{%- endcapture -%}
+    {% assign  wcp_compare_at_price_min = wcp_compare_at_price_min | minus: 0 %}
+    
+    {%- capture wcp_compare_at_price_max  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_max' -%}{%- endcapture -%}
+    {% assign  wcp_compare_at_price_max = wcp_compare_at_price_max | minus: 0 %}
+    
+    {%- capture wcp_price_min -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_min' -%}{%- endcapture -%}
+    {% assign  wcp_price_min = wcp_price_min | minus: 0 %}
+    
+    {%- capture wcp_price_max -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_max' -%}{%- endcapture -%}
+    {% assign  wcp_price_max = wcp_price_max | minus: 0 %}
+    
+    
+    {%- capture v_discount_tag -%}{%-render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'v_discount_tag'-%}{%- endcapture -%}
+    {% assign v_discount_tag = v_discount_tag | strip %}
+    
+    {%- capture p_discount_tag -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'p_discount_tag' -%}{%- endcapture -%}
+    {% assign p_discount_tag = p_discount_tag | strip %}
+    
+    {% assign raw_set_prices = product.metafields.wcp_set_prices.wcp_set_prices %}
+    {% assign set_prices_array = blank %}
+    {% if raw_set_prices %}
+        {% assign set_prices_array = raw_set_prices | split: ',' %}
+    {% endif %}
+    
+    {%- capture wcp_discount_value -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_discount_value' -%}{%- endcapture -%}
+    
+    {% capture wcp_v_discounted_prices %}{%- render 'wcp_variant' , wcp_variant:product.selected_or_first_available_variant , set_prices_array:set_prices_array , wpd_is_render:'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value -%}{%- endcapture -%}
+    
+    {%- capture wcp_v_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_price' -%}{%- endcapture -%}
+    {% assign  wcp_v_price = wcp_v_price | minus: 0 %}
+    
+    {%- capture wcp_v_compare_at_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_compare_at_price' -%}{%- endcapture -%}
+    {% if wcp_v_compare_at_price != blank %}
+        {% assign  wcp_v_compare_at_price = wcp_v_compare_at_price | minus: 0 %}
+    {% else %}
+    {% assign  wcp_v_compare_at_price = nil %}
+    {% endif %}
 {% comment %} DO NOT EDIT! This snippet is automatically added by EasyWholesale app, all changes will be overwritten {% endcomment %}{% assign easywholesaleShow = false %}{% if page.id == 83347996758 or nm_easywholesale_custom_page_id > 0 %}{% assign easywholesaleShow = true %}{% endif %}
 {% if easywholesaleShow %}
             <style>
@@ -332,7 +383,7 @@ function nm_wholesale_show_spinner()
                       <div class="nm-wholesale-header-price" data-pricemin="{{ product_temp_price_min }}" data-pricemax="{{ product_temp_price_max }}">
                                     <span {% if count_variant2 == 1 and last_variant.title == "Default Title" %}class="span_one_variant {% if last_variant.inventory_quantity <= 0 and last_variant.available == false %}nm-price-outstock{% endif %} "{% endif %}>
                                   {% if count_variant2 == 1 and last_variant.title == "Default Title" %}
-                                    {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price | money }}{% if last_variant.compare_at_price > product_temp_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ last_variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}
+                                    {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price | money }}{% if last_ wcp_v_compare_at_price > product_temp_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ last_ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}
                                   {% elsif product_temp_price_min == product_temp_price_max %}
                                     {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price_min | money }}{{ nm_easywholesale_textAfterPrice }}
                                   {% else %}
@@ -355,12 +406,12 @@ function nm_wholesale_show_spinner()
                                     {% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}
 
 {% assign variant = last_variant %}                               
-{% assign variant_price = variant.price %}           
+{% assign variant_price = wcp_v_price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %}
 
                       
                                       <div class="nm-easywholesale-qty-container nm-easywholesale-qty-container-one">
-                                        <div class="nm-easywholesale-price nm-primary-color" data-priceid="{{ last_variant.id }}" style="font-size: initial; display: none;">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if variant.compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>
+                                        <div class="nm-easywholesale-price nm-primary-color" data-priceid="{{ last_variant.id }}" style="font-size: initial; display: none;">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if wcp_v_compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>
                                         <div class="nm-easywholesale-qty-decrease nm-layout-text-color" data-id="nm-{{ last_variant.id }}" id="nm-id-decrease-nm-{{ last_variant.id }}">&minus;</div>
                                         <input type="text" class="nm-easywholesale-qty nm-layout-text-color nm-layout-border-color" data-id="nm-{{ last_variant.id }}" data-price="{{ variant_price }}" value="0" data-policy="{{ inventory_police_temp }}" data-quantity="{{ last_variant.inventory_quantity }}" id="nm-{{ last_variant.id }}" name="updates[{{ last_variant.id }}]" {% if nm_easywholesale_callback_quantity %}{% include "wholesale-page-callback-quantity" %}{% endif %}/>
                                         <div class="nm-easywholesale-qty-increase nm-layout-text-color" data-id="nm-{{ last_variant.id }}" id="nm-id-increase-nm-{{ last_variant.id }}">&plus;</div>
@@ -468,10 +519,10 @@ function nm_wholesale_show_spinner()
                                         
                                             <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
                             
-{% assign variant_price = variant.price %}           
+{% assign variant_price = wcp_v_price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %}                                        
                                             
-                                            {% if nm_easywholesale_showPrices %}{% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}<div class="nm-easywholesale-price {% if variant.inventory_quantity <= 0 and variant.available == false %}nm-price-outstock{% endif %} nm-primary-color" data-priceid="{{ variant.id }}">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if variant.compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>{% endunless %}{% endif %}
+                                            {% if nm_easywholesale_showPrices %}{% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}<div class="nm-easywholesale-price {% if variant.inventory_quantity <= 0 and variant.available == false %}nm-price-outstock{% endif %} nm-primary-color" data-priceid="{{ variant.id }}">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if wcp_v_compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>{% endunless %}{% endif %}
                                         </div>
                                       </div>
                                       {% unless count_variant2 == 1 and last_variant.title == "Default Title" %}
@@ -596,7 +647,7 @@ function nm_wholesale_show_spinner()
                       <div class="nm-wholesale-header-price" data-pricemin="{{ product_temp_price_min }}" data-pricemax="{{ product_temp_price_max }}">
                                     <span {% if count_variant2 == 1 and last_variant.title == "Default Title" %}class="span_one_variant {% if last_variant.inventory_quantity <= 0 and last_variant.available == false %}nm-price-outstock{% endif %} "{% endif %}>
                                   {% if count_variant2 == 1 and last_variant.title == "Default Title" %}
-                                    {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price | money }}{% if last_variant.compare_at_price > product_temp_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ last_variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}
+                                    {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price | money }}{% if last_ wcp_v_compare_at_price > product_temp_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ last_ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}
                                   {% elsif product_temp_price_min == product_temp_price_max %}
                                     {{ nm_easywholesale_textBeforePrice }}{{ product_temp_price_min | money }}{{ nm_easywholesale_textAfterPrice }}
                                   {% else %}
@@ -619,11 +670,11 @@ function nm_wholesale_show_spinner()
                                         {% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}
                                       
 {% assign variant = last_variant %}                               
-{% assign variant_price = variant.price %}           
+{% assign variant_price = wcp_v_price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %}
                                      
                                       <div class="nm-easywholesale-qty-container nm-easywholesale-qty-container-one">
-                                        <div class="nm-easywholesale-price nm-primary-color" data-priceid="{{ last_variant.id }}" style="font-size: initial; display: none;">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if variant.compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>
+                                        <div class="nm-easywholesale-price nm-primary-color" data-priceid="{{ last_variant.id }}" style="font-size: initial; display: none;">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if wcp_v_compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>
                                         <div class="nm-easywholesale-qty-decrease nm-layout-text-color" data-id="nm-{{ last_variant.id }}" id="nm-id-decrease-nm-{{ last_variant.id }}">&minus;</div>
                                         <input type="text" class="nm-easywholesale-qty nm-layout-text-color nm-layout-border-color" data-id="nm-{{ last_variant.id }}" data-price="{{ variant_price }}" value="0" data-policy="{{ inventory_police_temp }}" data-quantity="{{ last_variant.inventory_quantity }}" id="nm-{{ last_variant.id }}" name="updates[{{ last_variant.id }}]" {% if nm_easywholesale_callback_quantity %}{% include "wholesale-page-callback-quantity" %}{% endif %}/>
                                         <div class="nm-easywholesale-qty-increase nm-layout-text-color" data-id="nm-{{ last_variant.id }}" id="nm-id-increase-nm-{{ last_variant.id }}">&plus;</div>
@@ -743,10 +794,10 @@ function nm_wholesale_show_spinner()
                                         
                                             <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
                                             
-{% assign variant_price = variant.price %}           
+{% assign variant_price = wcp_v_price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %} 
                                         
-                                            {% if nm_easywholesale_showPrices %}{% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}<div class="nm-easywholesale-price {% if variant.inventory_quantity <= 0 and variant.available == false %}nm-price-outstock{% endif %} nm-primary-color" data-priceid="{{ variant.id }}">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if variant.compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ variant.compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>{% endunless %}{% endif %}
+                                            {% if nm_easywholesale_showPrices %}{% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}<div class="nm-easywholesale-price {% if variant.inventory_quantity <= 0 and variant.available == false %}nm-price-outstock{% endif %} nm-primary-color" data-priceid="{{ variant.id }}">{{ nm_easywholesale_textBeforePrice }}{% if nm_easywholesale_showPricesOnly %}{{ variant_price | money }}{% endif %}{% if wcp_v_compare_at_price > variant_price and nm_easywholesale_page_showCompareAtPrice %} <strike>{{ wcp_v_compare_at_price | money }}</strike>{% endif %}{{ nm_easywholesale_textAfterPrice }}</div>{% endunless %}{% endif %}
                                         </div>
                                       </div>
 
@@ -859,3 +910,9 @@ function nm_wholesale_show_spinner()
                                 
 {% endif %}
 {% endif %}<script>var nm_easywholesale_show = true;</script>
+{%- assign wcp_prd_var = product -%}
+{%- unless wcp_prd_var == empty -%}
+            <script type='application/json' class='{%- for wcp_v in wcp_prd_var.variants -%} wcp_json_{{wcp_v.id}} {%- endfor -%} wcp_json_{{ wcp_prd_var.id }} wcp_json' id='wcp_json_{{ wcp_prd_var.id }}' > 
+                {%- render 'wcp_product_json' with wcp_prd_var -%}
+            </script>
+{%- endunless -%}
