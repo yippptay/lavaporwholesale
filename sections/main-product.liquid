@@ -571,16 +571,16 @@
           {%- endunless -%}
                             {%- endif -%}
                         </div>
-                        <div class="wpd-vd">
-                            <b>
-                                {% unless wcp_vd_HTML_table == '' or  wcp_vd_HTML_table == blank %}
-                                    <br><span>{{shop.metafields.wcp_net.VDTableNote}}<br/></span>
-                                {% endunless %}
-                            </b>
-                            <div class-data='{{wcp_vd_HTML_table}}' id='wcp_vd_table' style ='margin-top :20px;'>{{wcp_vd_HTML_table}}</div>             
-                        </div> 
                     {%- endform -%}
                 </product-form>
+                <div class="wpd-vd">
+                    <b>
+                        {% unless wcp_vd_HTML_table == '' or  wcp_vd_HTML_table == blank %}
+                            <br><span>{{shop.metafields.wcp_net.VDTableNote}}<br/></span>
+                        {% endunless %}
+                    </b>
+                    <div class-data='{{wcp_vd_HTML_table}}' id='wcp_vd_table' style ='margin-top :20px;'>{{wcp_vd_HTML_table}}</div>             
+                </div> 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 
                 {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
