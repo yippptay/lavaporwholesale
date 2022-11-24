@@ -203,7 +203,21 @@ header-drawer {
                                 <div id="webi-main-cart-items" data-id="{{ section.id }}">
                                     <div class="js-contents">
                                         {%- if cart != empty -%}
-                                            {%- for item in cart.items -%}
+                                            {%- assign wcp_total_price = 0 -%} 
+{%- for item in cart.items -%}
+{%- include 'wcp_discount' with item.product -%}
+                        {%- include 'wcp_variant' with item.variant -%} 
+                        {%- include 'wcp_vd_discount' with item -%} 
+                        {%- assign  wcp_custom_final_Price = item.final_price  -%} 
+                        {%- if wcp_v_price < wcp_custom_final_Price -%}
+                  			{%- assign wcp_line_price = wcp_v_price | floor | minus: 0 | times: item.quantity -%}
+                        {%- else -%}
+                            {%- assign wcp_v_price = wcp_custom_final_Price | floor | minus: 0 -%}
+               	            {%- assign wcp_line_price = wcp_custom_final_Price | floor | minus: 0 | times: item.quantity -%}
+                        {%- endif -%}
+ {%- assign wcp_total_price = wcp_total_price | plus: wcp_line_price -%}	
+ {{NextDiscountHtml}} 
+
                                                 <div class="wbheadcartdrop" id="WbCartItem-{{ item.index | plus: 1 }}">
                                                     <div class="wbcartdimg">
                                                         {% if item.image %}
@@ -289,12 +303,12 @@ header-drawer {
                                                                     </div>
                                                                 </div>
                                                                 <div class="cart-item__price-wrapper">
-                                                                    {%- if item.original_line_price != item.final_line_price -%}
+                                                                    {%- if item.original_line_price !=  wcp_line_price  -%}
                                                                         <dl class="cart-item__discounted-prices">
                                                                             <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
                                                                             <dd><s class="cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
                                                                             <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
-                                                                            <dd class="price price--end">{{ item.final_line_price | money }}</dd>
+                                                                            <dd class="price price--end">{{  wcp_line_price  | money }}</dd>
                                                                         </dl>
                                                                     {%- else -%}
                                                                         <span class="price price--end">{{ item.original_line_price | money }}</span>
@@ -335,7 +349,12 @@ header-drawer {
                                 <div class="js-contents" {{ block.shopify_attributes }}>
                                     <div class="totals">
                                         <p>{{ 'sections.cart.subtotal' | t }}</p>
-                                        <h3>{{ cart.total_price | money_with_currency }}</h3>
+                                        <h3><span class="wcp-original-cart-total">{{ cart.total_price | money}}</span>
+    <span class="wcp-cart-total"></span>
+    <div class="additional-notes">
+        <span class="wcp-minimums-note"></span>
+        <span class="wcp-extra-note "></span>
+    </div>{% render "wcp_multi_currency_msg" %}</h3>
                                     </div>
                                     <div>
                                         {%- if cart.cart_level_discount_applications.size > 0 -%}

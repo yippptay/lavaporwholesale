@@ -21,7 +21,12 @@
               <div class="js-contents" {{ block.shopify_attributes }}>
                 <div class="totals">
                   <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
-                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                  <p class="totals__subtotal-value"><span class="wcp-original-cart-total">{{ cart.total_price | money}}</span>
+    <span class="wcp-cart-total"></span>
+    <div class="additional-notes">
+        <span class="wcp-minimums-note"></span>
+        <span class="wcp-extra-note "></span>
+    </div>{% render "wcp_multi_currency_msg" %}</p>
                 </div>
 
                 <div>
@@ -63,7 +68,15 @@
                 </button>
               </div>
 
-              {%- if additional_checkout_buttons -%}
+              <div>
+{% if customer.tags contains "wpdnet" %}
+        {% if shop.metafields.wcp_net.isNetEnabled == "true" or shop.metafields.wcp_net.isNetEnabled == "1" %}
+            <div style="margin-top:30px;float: right;">
+                <p>{{shop.metafields.wcp_net.netCartMsg}}</p>
+                <button id="wcp-30-open" class="btn">{{shop.metafields.wcp_net.netBtnMsg}}</button>
+            </div>
+        {% endif %}
+    {% endif %}</div> {%- if additional_checkout_buttons -%}
                 <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
                   {{ content_for_additional_checkout_buttons }}
                 </div>

@@ -1,1 +1,6 @@
-{{ 'sections.cart.new_subtotal' | t }}: {{ cart.total_price | money_with_currency }}
+{{ 'sections.cart.new_subtotal' | t }}: <span class="wcp-original-cart-total">{{ cart.total_price | money}}</span>
+    <span class="wcp-cart-total"></span>
+    <div class="additional-notes">
+        <span class="wcp-minimums-note"></span>
+        <span class="wcp-extra-note "></span>
+    </div>{% render "wcp_multi_currency_msg" %}
