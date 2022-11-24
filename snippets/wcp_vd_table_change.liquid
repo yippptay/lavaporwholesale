@@ -101,12 +101,8 @@
                         {
 
                           	"Qty":"{% if forloop.last == true  %}{{Qty_Discount[0]}}+ {% else  %}{% assign Qty_Discount_netx = Discounts_values_with_qty[forloop.index] | split: '-' %} {{Qty_Discount[0]}} - {{Qty_Discount_netx[0] |minus:1}}{% endif %}",
-                          	{% if calculation_mode == '2'and wcp_vd_discount_exceptions_rule == '0'  %}
-                            "Discount":"{{ 100.0 | minus: wcp_vd_percentage | round: 2 }}%",
-                            {% else %}
-                            "Discount":"{{wcp_vd_percentage | round: 2}}%",
-                            {% endif %}
-                          	"Price": {{ Discount_Price | floor | money | json }},
+                          	"Discount":"{{wcp_vd_percentage}}%",
+                          	"Price":"{{ Discount_Price | floor | money}}",
                           	"PID":"{{wcp_vd_table_change.id}}",
                           	"VID":"{{variant.id}}"
                          }

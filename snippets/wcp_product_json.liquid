@@ -21,7 +21,7 @@
     {%- if key_split_length > 2 -%}
       {%- assign p_value = key_split.last | plus: 0 -%}
       {%- assign removeable_key = key_split.last | prepend: '-' -%}
-      {%- assign p_key = discount_key | remove_last: removeable_key -%}
+      {%- assign p_key = discount_key | remove_first: removeable_key -%}
     {%- else %}
       {%- assign p_key = key_split[0] -%}
       {%- assign p_value = key_split[1] | plus: 0 -%}

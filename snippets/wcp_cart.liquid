@@ -5,7 +5,6 @@
  //var domain = "https://wholesalehelper.io/wpd/root.php?f=";
  //var domain ="https://"+ window.location.host+"/apps/wpdapp/root.php?f=";
  var Wpd_domain = "";
- var draftAPIRequestProcessing = false;
  if(window.wpd_domain_url == "" || typeof(window.wpd_domain_url) == "undefined"){   
     Wpd_domain = "https://"+ window.location.host+"/apps/wpdapp/api/";
   }else{
@@ -73,7 +72,7 @@ reqJquery(function($){
           {% assign key_split_length = key_split | size %}
           {% if key_split_length > 2 %}      		
               {% assign removeable_key = key_split.last | prepend: '-' %}
-              {% assign wcp_hide_sale_badge_customer_tag = discount_key | remove_last: removeable_key %}
+              {% assign wcp_hide_sale_badge_customer_tag = discount_key | remove_first: removeable_key %}
           {% else %}
               {% assign wcp_hide_sale_badge_customer_tag = key_split[0] %}      
           {% endif %}
@@ -83,39 +82,32 @@ reqJquery(function($){
       {% endfor %}
 	{% endif %}
     {% if is_wcp_wholesale_customer == true %}  
-        $('body').on('click', ".wcp_checkout_btn,#dvPaypal, #dvAmazon, input[name='checkout'], button[name='checkout'], [href$='checkout'], input[name='goto_pp'], button[name='goto_pp'], input[name='goto_gc'], button[name='goto_gc'], .additional-checkout-button, .google-wallet-button-holder, .amazon-payments-pay-button", function(ev){    
-            if(window.wpd_bypass_checkout != true) {
-                if(window.wcp_data.discounted_hash.discount_value || window.wcp_data.discounted_hash.shipping || window.wcp_data.discounted_hash.formatted_original_total != window.wcp_data.discounted_hash.formatted_wcp_total){
-                    if(window.wpd_prevent_checkout != undefined && window.wpd_prevent_checkout == true){return false;}
-                    ev.preventDefault();
-                    wcpolesaleCheckout();
-                }else{
-                    window.location = '/checkout';
-                }
-            }
-        });
+     $('body').on('click', ".wcp_checkout_btn,#dvPaypal, #dvAmazon, input[name='checkout'], button[name='checkout'], [href$='checkout'], input[name='goto_pp'], button[name='goto_pp'], input[name='goto_gc'], button[name='goto_gc'], .additional-checkout-button, .google-wallet-button-holder, .amazon-payments-pay-button", function(ev){    
+        if(window.wcp_data.discounted_hash.discount_value || window.wcp_data.discounted_hash.shipping || window.wcp_data.discounted_hash.formatted_original_total != window.wcp_data.discounted_hash.formatted_wcp_total){
+          if(window.wpd_prevent_checkout != undefined && window.wpd_prevent_checkout == true){return false;}
+          ev.preventDefault();
+          wcpolesaleCheckout();
+        }else{
+           window.location = '/checkout';
+        }
+      });  
   {% else %}  
-        $('body').on('click', ".wcp_checkout_btn,#dvPaypal, #dvAmazon, input[name='checkout'], button[name='checkout'], [href$='checkout'], input[name='goto_pp'], button[name='goto_pp'], input[name='goto_gc'], button[name='goto_gc'], .additional-checkout-button, .google-wallet-button-holder, .amazon-payments-pay-button", function(ev){        
-            if(window.wpd_bypass_checkout != true) {
-                if(window.wcp_data.discounted_hash.discount_value || window.wcp_data.discounted_hash.shipping || window.wcp_data.discounted_hash.formatted_original_total != window.wcp_data.discounted_hash.formatted_wcp_total ){
-                    if(window.wpd_prevent_checkout != undefined && window.wpd_prevent_checkout == true){return false;}        
-                    if(window.wcp_data != undefined && window.wcp_data.hasOwnProperty("discounted_hash") && window.wcp_data.discounted_hash.show_discount_code == true && window.wcp_data.discounted_hash.ApplyDiscountCode == true){
-                        ev.preventDefault();
-                        wcpolesaleCheckout();
-                    }else{
-                        window.location = '/checkout';
-                    }          
-                }else{
-                    window.location = '/checkout';
-                }
-            } 
-        });  
+  $('body').on('click', ".wcp_checkout_btn,#dvPaypal, #dvAmazon, input[name='checkout'], button[name='checkout'], [href$='checkout'], input[name='goto_pp'], button[name='goto_pp'], input[name='goto_gc'], button[name='goto_gc'], .additional-checkout-button, .google-wallet-button-holder, .amazon-payments-pay-button", function(ev){        
+      if(window.wcp_data.discounted_hash.discount_value || window.wcp_data.discounted_hash.shipping || window.wcp_data.discounted_hash.formatted_original_total != window.wcp_data.discounted_hash.formatted_wcp_total ){
+         if(window.wpd_prevent_checkout != undefined && window.wpd_prevent_checkout == true){return false;}        
+         if(window.wcp_data != undefined && window.wcp_data.hasOwnProperty("discounted_hash") && window.wcp_data.discounted_hash.show_discount_code == true && window.wcp_data.discounted_hash.ApplyDiscountCode == true){
+         	ev.preventDefault();
+		    wcpolesaleCheckout();
+          }else{
+        	   window.location = '/checkout';
+          }          
+        }else{
+           window.location = '/checkout';
+        }
+      });  
   {% endif %}
   function wcpolesaleCheckout(){
-    if(window.location.host == "tungstenandtool.com"){
-      if(draftAPIRequestProcessing == true){return false;}
-      draftAPIRequestProcessing = true;
-    }
+
     window.wcp_data.action_type = 'checkout';
     if ($("[name='note']").length) {
       window.wcp_data.wcp_cart.note = $("[name='note']")[0].value
@@ -191,7 +183,7 @@ reqJquery(function($){
         type: "POST",
        	url: Wpd_domain +"order/draft", 
         data: JSON.stringify(window.wcp_data),
-        success: function(res) {            
+        success: function(res) {  
           if(res.discount_method == 'code'){
             res.invoice_url = '/checkout';
             if (res.discount_code) {
@@ -219,13 +211,13 @@ reqJquery(function($){
               }              
               setTimeout(function(){
                 wcpClearCart();
-                window.location.href = orderRedirectUrl;                     
+                window.location.href = orderRedirectUrl;
               }, 500);
             } else {
               wcpClearCart();
-              window.location.href = "/checkout";               
+              window.location.href = "/checkout";
             }
-          }       
+          }
         }
       });
     } else {
@@ -281,8 +273,8 @@ reqJquery(function($){
          $(".wpd_net_shipping_amount").html(data.currency + data.ShippingCharges.price);
          $(".wpd_net_shipping_msg").html(data.ShippingCharges.title);              
          TempNetOrderPrice=parseFloat(data.wcp_total)+parseFloat(data.ShippingCharges.price);
-         TempNetOrderPrice = TempNetOrderPrice.toFixed(2);
-         TempNetOrderPrice=data.currency + TempNetOrderPrice;
+         TempNetOrderPrice=data.currency + TempNetOrderPrice
+         
         
        }
       
@@ -636,7 +628,7 @@ var fnCalled = false;
       data: JSON.stringify(wcp_data),
       type: 'POST',
       success: function (data, success) { 
-       $("#wcp-wcpModal-container").html($.parseHTML({{shop.metafields.wcp_net.netThankMsg | json}}));
+        $("#wcp-wcpModal-container").html("{{shop.metafields.wcp_net.netThankMsg}}");
         wcpClearCartnet();
         //return false; 
         if(window.wpd_net_waiting_time==undefined || isNaN(window.wpd_net_waiting_time)){
@@ -736,7 +728,7 @@ var fnCalled = false;
       
       {% if shop.metafields.wcp_net.isDisplayBillingEmail == 'true'  or shop.metafields.wcp_net.isDisplayBillingEmail == '1'%}
         if($('.wcpbillingEmail').val()!=''){          
-   			if (!/^\w+[^@]+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/.test($('.wcpbillingEmail').val().trim()))
+   			if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test($('.wcpbillingEmail').val().trim()))
   			{
                 document.getElementById("wcpbillingEmail").style.borderColor = "red"; 
               document.getElementById("wcpbillingEmail").focus();
@@ -851,7 +843,7 @@ var fnCalled = false;
       $("#net-order-form-billing :input").prop("disabled", true);
       $("#net-order-form-billing :button").prop("disabled", true);      
       $("#wpd-net-place-order").prop("disabled", true);
-      $("#wpd-net-place-order").addClass("wpd-button-loading");
+     
      setTimeout(function(){
        submitNet30(window.wcp_data); 
       }, 1000);       
