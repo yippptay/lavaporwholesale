@@ -188,7 +188,7 @@
                                 {%- when 'sku' -%}
                                 {% assign current_variant = product.selected_or_first_available_variant %}
                                 {% if current_variant.sku != '' %}
-                                  <div class="wbvsku"><span>{{ 'wbcustomlabel.wballtext.sku' | t }}</span><span class="variant-sku">{{ current_variant.sku }}</span></div>
+                                  <div class="wbvsku hidden"><span>{{ 'wbcustomlabel.wballtext.sku' | t }}</span><span class="variant-sku">{{ current_variant.sku }}</span></div>
                                 {% endif %}
 
                                 {%- when 'title' -%}
@@ -332,7 +332,7 @@
                 {%- if block.settings.picker_type == 'button' -%}
                     <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                         {%- for option in product.options_with_values -%}
-                            <fieldset class="js product-form__input">
+                            <fieldset class="js product-form__input hidden">
                                 <legend class="form__label">{{ option.name }}</legend>
                                 {%- for value in option.values -%}
                                     <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
@@ -743,7 +743,7 @@
           {
             "type": "textarea",
             "id": "instock_message",
-            "default": "In stock ({stock_number} units), ready to be shipped",
+            "default": "In stock ({stock_number} units)",
             "label": "t:sections.main-product.blocks.stock_countdown.settings.instock_message.label"
           },
           {
