@@ -1,3 +1,13 @@
+{%- include 'wcp_discount' with product -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{% include 'wcp_variant' with current_variant %}
+
+{% include 'wcp_vd_table_change' with product %}
+{% include 'wcp_variant' with current_variant %}
+
+{% include 'wcp_vd_product' with product %} 
+{% include 'wcp_variant' with current_variant %}
+
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
@@ -512,7 +522,7 @@
                                 {% if variant.available == false %}disabled{% endif %}
                                 value="{{ variant.id }}">
                                     {{ variant.title }} {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-                                    - {{ variant.price | money | strip_html }}
+                                    - {{ wcp_v_price | money | strip_html }}
                                 </option>
                             {%- endfor -%}
                         </select>
@@ -556,11 +566,21 @@
                                 </div>
                             </button>
                             {%- if block.settings.show_dynamic_checkout -%}
-                            {{ form | payment_button }}
+                             {%- unless customer.tags contains p_discount_tag or customer.tags contains v_discount_tag -%} 
+            {%- if product.selected_or_first_available_variant.price != wcp_v_price -%}<div style="display:none">{%- endif -%}{{ form | payment_button }}{%- if product.selected_or_first_available_variant.price != wcp_v_price -%}</div>{%- endif -%}        
+          {%- endunless -%}
                             {%- endif -%}
                         </div>
                     {%- endform -%}
                 </product-form>
+                <div class="wpd-vd">
+                    <b>
+                        {% unless wcp_vd_HTML_table == '' or  wcp_vd_HTML_table == blank %}
+                            <br><span>{{shop.metafields.wcp_net.VDTableNote}}<br/></span>
+                        {% endunless %}
+                    </b>
+                    <div class-data='{{wcp_vd_HTML_table}}' id='wcp_vd_table' style ='margin-top :20px;'>{{wcp_vd_HTML_table}}</div>             
+                </div> 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 
                 {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
@@ -662,6 +682,43 @@
     </modal-dialog>
   {%- endfor -%}
 </section>
+
+{% unless wcp_vd_HTML_table == '' %}
+<script type='application/json' class='wcp_vd_table' id='wcp_vd_table_{{ product.id }}' > 
+  {{- wcp_vd_HTML_table_tmp -}}
+</script>
+{% endunless %}
+
+{% unless wcp_vd_HTML_table == '' %}
+<script id='vdtable' type='text/x-handlebars-template'>
+<table>
+<tr>
+<th>Quantity</th>
+<th>Discount</th>
+<th>Price</th>
+</tr>
+{% raw %}
+{{#each vdtable}}
+    <tr>
+        <td>{{Qty}}</td>
+        <td>{{Discount}}</td>
+        <td>{{Price}}</td>
+      </tr>
+{{/each}}
+{% endraw %}
+</table>   
+</script>
+<script>
+  if(typeof Handlebars === 'undefined'){
+     var head = document.getElementsByTagName('head')[0];
+    script = document.createElement('script');
+    script.onload = function() { };
+    script.type = 'text/javascript';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js';
+    head.appendChild(script);
+  }  
+</script>    
+{% endunless %}
 
 {% javascript %}
   class ProductModal extends ModalDialog {
@@ -771,7 +828,7 @@
             "sku": {{ variant.sku | json }},
           {%- endif -%}
           "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "price" : {{ wcp_v_price | divided_by: 100.00 | json }},
           "priceCurrency" : {{ cart.currency.iso_code | json }},
           "url" : {{ shop.url | append: variant.url | json }}
         }{% unless forloop.last %},{% endunless %}
@@ -1217,3 +1274,10 @@
   ]
 }
 {% endschema %}
+
+{%- assign wcp_prd_var = product -%}
+{%- unless wcp_prd_var == empty -%}
+            <script type='application/json' class='{%- for wcp_v in wcp_prd_var.variants -%} wcp_json_{{wcp_v.id}} {%- endfor -%} wcp_json_{{ wcp_prd_var.id }} wcp_json' id='wcp_json_{{ wcp_prd_var.id }}' > 
+                {%- render 'wcp_product_json' with wcp_prd_var -%}
+            </script>
+{%- endunless -%}
