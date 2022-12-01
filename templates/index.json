@@ -86,21 +86,21 @@
         "f25f0917-6051-401a-9571-3dad3669d52d": {
           "type": "collection",
           "settings": {
-            "cat_name": "Vape",
+            "cat_name": "hardware",
             "collection": "frontpage"
           }
         },
         "1ccb1891-b5e1-4fb3-9730-41ac25850458": {
           "type": "collection",
           "settings": {
-            "cat_name": "Smoke Shop",
+            "cat_name": "e-liquid",
             "collection": "latest-product"
           }
         },
         "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6": {
           "type": "collection",
           "settings": {
-            "cat_name": "Hemp",
+            "cat_name": "disposables",
             "collection": "best-product"
           }
         }
@@ -111,7 +111,7 @@
         "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6"
       ],
       "settings": {
-        "m_title": "Top Sellers",
+        "m_title": "top vape products",
         "rows": 1,
         "image_ratio": "adapt",
         "display_product_type": true,
