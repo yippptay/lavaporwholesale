@@ -199,13 +199,23 @@
               "badge_text": "",
               "bg_color": "#ff0000"
             }
+          },
+          "963315d1-0bf5-4baf-b9f9-ad033ef688f2": {
+            "type": "link-simple",
+            "settings": {
+              "title": "Brands",
+              "link": "",
+              "badge_text": "",
+              "bg_color": "#ff0000"
+            }
           }
         },
         "block_order": [
           "7b396431-0dbf-414c-81d2-ba9179b3b022",
           "2be6eae6-1e5c-474c-b2a7-b248ddb25206",
           "ee971c4a-a76c-4e27-bedb-0b4d37cff70e",
-          "11ff4864-7eca-4c7c-806b-5a371d49d3fb"
+          "11ff4864-7eca-4c7c-806b-5a371d49d3fb",
+          "963315d1-0bf5-4baf-b9f9-ad033ef688f2"
         ],
         "settings": {
           "menubg": "#202020",
