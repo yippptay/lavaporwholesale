@@ -29,7 +29,7 @@ border-color: #000000;
 }
 .megamenu{
   padding: 20px 0px;
-  width:100%;
+  width: auto;
 }
 .megamenu> li > ul {
   padding: 0;
