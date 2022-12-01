@@ -217,7 +217,7 @@
         "type": "cms-menu",
         "settings": {
           "cms_menu": "",
-          "ofrtxt": "<p><a href=\"\/collections\/best-product\" title=\"Best Product\">Lorem Ipsum<\/a><\/p>"
+          "ofrtxt": ""
         }
       },
       "special": {
