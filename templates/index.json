@@ -164,18 +164,54 @@
       "settings": {
       }
     },
-    "1645186207bddede55": {
-      "type": "toprated",
+    "e808fe67-1339-4550-bf5c-00022e558c72": {
+      "type": "top-product",
+      "blocks": {
+        "6257b50b-372d-4a43-b354-cc8bf4fe3bdf": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Edibles",
+            "collection": ""
+          }
+        },
+        "48cf3c1f-1e06-428e-9f2d-8cddcd96481b": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Vapables",
+            "collection": ""
+          }
+        },
+        "28fc6e6c-102a-477c-b9d5-443599ea2c8a": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Flower",
+            "collection": ""
+          }
+        },
+        "83174dab-c500-4e5a-9201-0a75d3d791d4": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Prerolls",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "6257b50b-372d-4a43-b354-cc8bf4fe3bdf",
+        "48cf3c1f-1e06-428e-9f2d-8cddcd96481b",
+        "28fc6e6c-102a-477c-b9d5-443599ea2c8a",
+        "83174dab-c500-4e5a-9201-0a75d3d791d4"
+      ],
       "settings": {
-        "ms_title": "Top rated Products",
+        "m_title": "Top hemp products",
         "rows": 1,
         "image_ratio": "adapt",
-        "display_product_type1": true,
-        "show_rating1": false,
+        "display_product_type": true,
+        "show_rating": false,
+        "show_vendor": false,
         "show_variants": true,
         "picker_type": "button",
-        "show_colorswatch": true,
-        "collection1": "phone"
+        "show_colorswatch": true
       }
     },
     "1644812326b878e99b": {
@@ -278,20 +314,6 @@
       "settings": {
       }
     },
-    "1645244147611be941": {
-      "type": "newproduct",
-      "settings": {
-        "ms_title": "New Products",
-        "rows": 1,
-        "image_ratio": "adapt",
-        "display_product_type1": false,
-        "show_rating1": true,
-        "show_variants": true,
-        "picker_type": "button",
-        "show_colorswatch": true,
-        "collection1": "laptop"
-      }
-    },
     "1645244797dfa46cce": {
       "type": "onsale",
       "settings": {
@@ -333,10 +355,9 @@
     "1641556802093be1f1",
     "16542455861c80cea1",
     "1645186132b9355fa7",
-    "1645186207bddede55",
+    "e808fe67-1339-4550-bf5c-00022e558c72",
     "1644812326b878e99b",
     "164524262890b378ef",
-    "1645244147611be941",
     "1645244797dfa46cce",
     "1645245062f3e2c3c9",
     "164524671107d48801"
