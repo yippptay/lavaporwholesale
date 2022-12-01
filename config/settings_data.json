@@ -152,12 +152,12 @@
       "popular": {
         "type": "popular",
         "settings": {
-          "ms_title": "Popular Products",
+          "ms_title": "New Arrivals",
           "rows": 5,
           "image_ratio": "adapt",
           "display_product_type": false,
           "show_rating": true,
-          "collection": "e-liquid"
+          "collection": "newest"
         }
       },
       "site-nav": {
