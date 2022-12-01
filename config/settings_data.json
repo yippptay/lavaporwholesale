@@ -156,7 +156,7 @@
           "rows": 5,
           "image_ratio": "adapt",
           "display_product_type": false,
-          "show_rating": true,
+          "show_rating": false,
           "collection": "newest"
         }
       },
@@ -228,7 +228,7 @@
           "image_ratio": "adapt",
           "display_product_type": false,
           "enable_listdesc": false,
-          "show_rating": true,
+          "show_rating": false,
           "show_variants": false,
           "picker_type": "button",
           "show_colorswatch": true,
