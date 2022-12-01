@@ -167,7 +167,7 @@
             "type": "link-simple",
             "settings": {
               "title": "New Arrivals",
-              "link": "",
+              "link": "shopify:\/\/collections\/newest",
               "badge_text": "",
               "bg_color": "#ff0000"
             }
@@ -176,7 +176,7 @@
             "type": "link-simple",
             "settings": {
               "title": "Arrival Calender",
-              "link": "",
+              "link": "shopify:\/\/pages\/new-arrival",
               "badge_text": "",
               "bg_color": "#ff0000"
             }
@@ -185,7 +185,7 @@
             "type": "link-linklist",
             "settings": {
               "title": "Deals",
-              "link": "shopify:\/\/collections\/smart-tv",
+              "link": "shopify:\/\/collections\/deals",
               "badge_text": "",
               "bg_color": "#ff0000",
               "links": ""
@@ -195,7 +195,7 @@
             "type": "link-simple",
             "settings": {
               "title": "Clearance",
-              "link": "shopify:\/\/collections\/television",
+              "link": "shopify:\/\/collections\/clearance",
               "badge_text": "",
               "bg_color": "#ff0000"
             }
