@@ -223,7 +223,7 @@
       "special": {
         "type": "special",
         "settings": {
-          "ms_title": "Special Products",
+          "ms_title": "Popular Restocks",
           "rows": 1,
           "image_ratio": "adapt",
           "display_product_type": false,
@@ -232,7 +232,7 @@
           "show_variants": false,
           "picker_type": "button",
           "show_colorswatch": true,
-          "collection": "special-product"
+          "collection": "popular-restocks"
         }
       },
       "leftbanner": {
