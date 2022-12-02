@@ -215,10 +215,9 @@ body.overflow-hidden .menupos{
 }
 @media (min-width: 992px){
     #under-menu {
-        background: rgb(var(--color-background));
+        background-color: #f8ca23;
         border-radius: 4px;
-        border: 1px solid rgba(var(--color-base-text),.05);
-        margin-top: 30px;
+        /* border: 1px solid rgba(var(--color-base-text),.05); */
         margin-bottom: 0;
         display: block!important;
     }
@@ -239,19 +238,52 @@ body.overflow-hidden .menupos{
     }
     /* Megamenu */
     #megamenu li.wbmenul_1 a.wbmenul1_link{
+        color: #FFF;
         display: block;
         position: relative;
         text-transform: capitalize;
         font-weight: normal;
         letter-spacing: 0;
-        margin-right: 30px;
+        margin-right: 0px;
         padding: 11px 0;
         margin: 0 15px;
         font-size: calc(var(--font-size-base) * 1.15px);
     }
     #megamenu li.wbmenul_1 a.wbmenul1_link:hover {
-        color: var(--gradient-base-accent-1) !important;
+        color: #000 !important;
+        transition: 0.2s;
+        transform: translateX(2%);
     }
+    
+    #megamenu li.wbmenul_1:hover {
+        background-color: #dfb620 !important;
+        transition: 0.1s;
+    }
+
+    .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+        color: #0087ca;
+      }
+      
+      .hover-underline-animation::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #FFF;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .hover-underline-animation:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
     #megamenu ul .wbmenudropdown {
         position: absolute;
         left: 100%;

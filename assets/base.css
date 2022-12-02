@@ -2131,7 +2131,7 @@ noscript .localization-selector.link {
     margin: 0 auto;
     left: 0;
     background-color: var(--color-wbmaincolors-text);
-    transition: .5s ease;
+    transition: .3s ease;
 }
 .template-index .heading span:before {
     right: 0;

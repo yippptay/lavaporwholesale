@@ -1,18 +1,33 @@
 {% comment %} DO NOT EDIT! This snippet is automatically added by EasyWholesale app, all changes will be overwritten {% endcomment %}{% assign easywholesaleShow = true %}
 {% if easywholesaleShow %}
             <style>
+              /* scroll bar */
+              div.nm-easywholesale-table::-webkit-scrollbar {
+                width: 10px;  
+              }
+              div.nm-easywholesale-table::-webkit-scrollbar-track {
+                background: #f8ca23;        /* color of the tracking area */
+              }
+
+              div.nm-easywholesale-table::-webkit-scrollbar-thumb {
+                background-color: #c6a21c;    /* color of the scroll thumb */
+                /* border-radius: 20px;       roundness of the scroll thumb */
+                /* border: 2px solid #f8ca23; creates padding around scroll thumb */
+              }
+
               div.nm-easywholesale-table > div.nm-easywholesale-item:nth-of-type(odd) {
                 background-color: rgba(179, 179, 179, 0.2);
               }
+
             .nm-primary-background-color { background-color:#343d47 !important}
             .nm-wholesale-btn-add-to-cart { color:#ffffff !important}
             .nm-wholesale-table-footer-btn .nm-secondary-background-color { background-color:#ef5137 !important}
             .nm-primary-border-color { border-color:#343d47 !important}
             .nm-primary-color { color: #343d47 !important}
-            .nm-secondary-border-color { border-color: #ef5137 !important}
+            .nm-secondary-border-color { border-color: #f8ca23 !important}
             .nm-secondary-text-color { color: #ef5137 !important}
             .nm-nice-select { border-color: #ef5137 !important}
-            .nm-secondary-background-color { background-color: #ef5137 !important}
+            .nm-secondary-background-color { background-color: #f8ca23 !important}
             .nm-layout-text-color { color: #212b36 !important}
             .nm-layout-border-color { border-color: #d8d8d8 !important}
             .nm-primary-color-fill { fill: #343d47 !important}
@@ -32,7 +47,7 @@
 {% assign nm_easywholesale_showPrices = true %}
 {% assign nm_easywholesale_showPricesOnly = true %}
 {% assign nm_easywholesale_addHtml = "" %}
-{% assign nm_easywholesale_textOutOfStock = "back ordered" %}
+{% assign nm_easywholesale_textOutOfStock = "out of stock" %}
 {% assign nm_easywholesale_deleteTextOutOfStock = "" %}
 {% assign nm_easywholesale_add_to_cart = "Add to cart" %}  
 {% assign nm_easywholesale_showAllOutOfStock = true %}
