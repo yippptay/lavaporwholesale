@@ -27,6 +27,7 @@
           "settings": {
             "slidesubclr": "#bababa",
             "slideheadclr": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Tuesday_giving-06.png",
             "subtitle": "Apple iPhone 11",
             "heading": "New Apple Watch",
             "heading_size": "large",
@@ -49,7 +50,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "pagicolor": "#d01418",
+        "pagicolor": "#f8ca23",
         "auto_rotate": true,
         "change_slides_speed": 5,
         "show_text_below": false,
