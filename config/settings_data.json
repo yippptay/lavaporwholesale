@@ -25,6 +25,7 @@
     "currency_code_enabled": true,
     "show_variants": true,
     "show_rating": true,
+    "displaycustomizer": false,
     "wbboxed": false,
     "wbenblertl": false,
     "timer_text": "",
