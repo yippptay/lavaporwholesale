@@ -416,7 +416,7 @@
           "image_ratio": "adapt",
           "display_product_type": true,
           "show_rating": false,
-          "collection": ""
+          "collection": "newest"
         }
       }
     },
