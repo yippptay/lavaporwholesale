@@ -61,8 +61,9 @@
       "type": "service",
       "settings": {
         "s_title": true,
-        "icon1": "coloruser",
+        "icon1": "none",
         "checkiconimage1": true,
+        "iconimage1": "shopify:\/\/shop_images\/customer_service.png",
         "header_gift": "New Customers",
         "header_gift1": "X% off of 1st Order",
         "sa_title": true,
