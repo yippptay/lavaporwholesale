@@ -407,6 +407,17 @@
         ],
         "settings": {
         }
+      },
+      "popular2": {
+        "type": "popular2",
+        "settings": {
+          "ms_title": "Popular Products",
+          "rows": 5,
+          "image_ratio": "adapt",
+          "display_product_type": true,
+          "show_rating": false,
+          "collection": ""
+        }
       }
     },
     "content_for_index": [
