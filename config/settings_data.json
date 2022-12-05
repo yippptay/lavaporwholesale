@@ -25,7 +25,6 @@
     "currency_code_enabled": true,
     "show_variants": true,
     "show_rating": true,
-    "displaycustomizer": false,
     "wbboxed": false,
     "wbenblertl": false,
     "timer_text": "",
@@ -412,23 +411,7 @@
     },
     "content_for_index": [
 
-    ],
-    "blocks": {
-      "15885745614559378752": {
-        "type": "shopify:\/\/apps\/accessibly\/blocks\/app-embed\/4b59303e-1141-4c8a-945f-bf4adb516864",
-        "disabled": true,
-        "settings": {
-          "themeColor": "#574CD5",
-          "iconColor": "#574CD5",
-          "showLogo": true,
-          "topBottomPosition": 10,
-          "rightLeftPosition": 10,
-          "iconSize": "large",
-          "iconCustomSize": 64,
-          "position": "top-left"
-        }
-      }
-    }
+    ]
   },
   "presets": {
     "Default": {
