@@ -29,6 +29,7 @@
     "wbboxed": false,
     "wbenblertl": false,
     "timer_text": "",
+    "wb_enablewish": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/black_logo.png",
     "checkout_accent_color": "#d01418",
     "checkout_button_color": "#d01418",
