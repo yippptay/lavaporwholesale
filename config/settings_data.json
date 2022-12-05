@@ -236,7 +236,7 @@
         "type": "special",
         "settings": {
           "ms_title": "Popular Restocks",
-          "rows": 5,
+          "rows": 1,
           "image_ratio": "adapt",
           "display_product_type": false,
           "enable_listdesc": false,
