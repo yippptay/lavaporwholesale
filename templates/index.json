@@ -142,10 +142,11 @@
         "691702c5-a8d1-43b0-acbe-be2bcb6e8de1": {
           "type": "Image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/test_2.png",
             "link": "shopify:\/\/collections",
-            "storytitle": "mens shoes",
-            "storysubtitle": "New Collection",
-            "btn": "Shop Now",
+            "storytitle": "",
+            "storysubtitle": "",
+            "btn": "",
             "btnlink": "shopify:\/\/collections"
           }
         },
