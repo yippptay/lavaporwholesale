@@ -131,10 +131,11 @@
         "584e7296-6428-4aec-9374-e11484e3803f": {
           "type": "Image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/test.png",
             "link": "shopify:\/\/collections",
-            "storytitle": "Smart Watch",
-            "storysubtitle": "New Arrival 2022",
-            "btn": "Shop Now",
+            "storytitle": "",
+            "storysubtitle": "",
+            "btn": "",
             "btnlink": "shopify:\/\/collections"
           }
         },
