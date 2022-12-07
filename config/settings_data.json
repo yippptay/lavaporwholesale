@@ -228,8 +228,8 @@
       "cms-menu": {
         "type": "cms-menu",
         "settings": {
-          "cms_menu": "",
-          "ofrtxt": ""
+          "cms_menu": "<p><\/p>",
+          "ofrtxt": "<p><\/p>"
         }
       },
       "special": {
@@ -415,7 +415,7 @@
           "ms_title": "Popular Restocks",
           "rows": 5,
           "image_ratio": "adapt",
-          "display_product_type": true,
+          "display_product_type": false,
           "show_rating": false,
           "collection": "newest"
         }
