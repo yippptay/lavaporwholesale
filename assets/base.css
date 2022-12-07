@@ -4006,6 +4006,7 @@ border-radius: 4px;
         font-size: calc(var(--font-size-base) * 0.93px);
     }
     .wbproduct-container .price--on-sale .price-item--regular{
+        display: none;
         font-size: calc(var(--font-size-base) * 0.86px);
     }
     .headlogo{
