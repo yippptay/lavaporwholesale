@@ -69,6 +69,7 @@
         "sa_title": true,
         "icon2": "none",
         "checkiconimage2": true,
+        "iconimage2": "shopify:\/\/shop_images\/la_cash.png",
         "header_pay": "LA Cash",
         "header_pay1": "1% back on every order",
         "sb_title": true,
