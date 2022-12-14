@@ -30,6 +30,12 @@
                 {% render 'price', product: product, use_variant: true, show_badges: false %} 
               {%- endif -%}
             </div>
+
+              {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
+            <div class="wbqvtop">
+                <button class="focus-inset wbquickv quick_shop js-wbquickview-link" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">{% render 'icon-quickview' %}<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+            </div>
+
           </a>
         </li>
       {%- endfor -%}
