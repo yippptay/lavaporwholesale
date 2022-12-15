@@ -178,28 +178,28 @@
           "type": "collection",
           "settings": {
             "cat_name": "Edibles",
-            "collection": ""
+            "collection": "hemp-products"
           }
         },
         "48cf3c1f-1e06-428e-9f2d-8cddcd96481b": {
           "type": "collection",
           "settings": {
             "cat_name": "Vapables",
-            "collection": ""
+            "collection": "hemp-products"
           }
         },
         "28fc6e6c-102a-477c-b9d5-443599ea2c8a": {
           "type": "collection",
           "settings": {
             "cat_name": "Flower",
-            "collection": ""
+            "collection": "hemp-products"
           }
         },
         "83174dab-c500-4e5a-9201-0a75d3d791d4": {
           "type": "collection",
           "settings": {
             "cat_name": "Prerolls",
-            "collection": ""
+            "collection": "hemp-products"
           }
         }
       },
@@ -332,7 +332,7 @@
         "show_variants": true,
         "picker_type": "button",
         "show_colorswatch": true,
-        "collection1": "phone"
+        "collection1": "alternative-sale-1"
       }
     },
     "1645245062f3e2c3c9": {
@@ -353,7 +353,7 @@
         "image_ratio": "adapt",
         "display_product_type": false,
         "show_rating": true,
-        "collection": "speakers"
+        "collection": "7-daze"
       }
     }
   },
