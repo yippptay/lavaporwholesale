@@ -10,6 +10,8 @@
                 {%- assign collection = collections[section.settings.collection1] -%}
                 {% assign num_row1 = section.settings.rows | times: 1 %} 
                 {% assign temp1 = 0 %}
+
+{% comment %}Hard coding values{% endcomment %}
                 {%- for product in collection.products -%}
                     {% if temp1 == 0 %}<ul class="twopro">{% endif %}
                         <li class="grid__item col-12 cless list-unstyled">

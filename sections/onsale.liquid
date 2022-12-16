@@ -10,15 +10,17 @@
                 {%- assign collection = collections[section.settings.collection1] -%}
                 {% assign num_row1 = section.settings.rows | times: 1 %} 
                 {% assign temp1 = 0 %}
+
+{% comment %} Hard coding values {% endcomment %}
                 {%- for product in collection.products -%}
                     {% if temp1 == 0 %}<ul class="twopro">{% endif %}
                         <li class="grid__item col-12 cless list-unstyled">
                             {% render 'product-card',
                             product_card_product: product,
                             media_size: section.settings.image_ratio,
-                            show_rating: section.settings.show_rating1,
+                            show_rating: false,
                             picker_type: section.settings.picker_type,
-                            show_variants: section.settings.show_variants,
+                            show_variants: false,
                             show_colorswatch: section.settings.show_colorswatch,
                             display_product_type: section.settings.display_product_type1  %}
                         </li>

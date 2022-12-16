@@ -4,5 +4,8 @@
 		"editor.defaultFormatter": "sissel.shopify-liquid",
 		"editor.formatOnSave": false
 	},
-	"liquid.format.enable": false
+	"liquid.format.enable": false,
+	"[liquid]": {
+		"editor.formatOnSave": false
+	}
 }

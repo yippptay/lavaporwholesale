@@ -23,7 +23,7 @@
     "predictive_search_enabled": true,
     "favicon": "shopify:\/\/shop_images\/Favicon_a8c7c7e1-5312-4697-a323-8607cbd976f4.png",
     "currency_code_enabled": true,
-    "show_variants": true,
+    "show_variants": false,
     "show_rating": false,
     "displaycustomizer": false,
     "wbboxed": false,

@@ -5,49 +5,49 @@
 
 
 <div class="product-tab-item">
-        <div class="pro-tab tabs">
-            <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
-            <ul class="list-inline nav nav-tabs text-center">       
-                {%- for block in section.blocks -%}
-                    <li class="nav-item {% if forloop.first %}active{% endif %}">
-                        <a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{block.id}}">
-                            <span>{{ block.settings.cat_name }}</span>
-                        </a>
-                    </li>
-                {%- endfor -%}
-            </ul>
-        </div>
-        <div class="clearfix"></div>
-        <div class="tab-content tab-pro">
-            {%- for block in section.blocks -%}
-            {%- assign collection = collections[block.settings.collection]  -%}
-                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="wbprodtab1-{{block.id}}">
-                    <div class="rless">
-                        <div class="owl-toppro">
-                            {% for product in collection.products %}
-                                    <div class="grid__item col-12 cless list-unstyled">
-                                    {% render 'product-card-banner',
-                                    product_card_product: product,
-                                    block_id: block.id,
-                                    media_size: section.settings.image_ratio,
-                                    show_rating: section.settings.show_rating,
-                                    picker_type: section.settings.picker_type,
-                                    show_variants: section.settings.show_variants,
-                                    show_colorswatch: section.settings.show_colorswatch,
-                                    display_product_type: section.settings.display_product_type  %}
-                                    </div>
-                            {% else %}
-                                {%- for i in (1..6) -%}
-                                    <div class="twopro grid__item col-12 cless">
-                                        {% render 'product-card-placeholder' %}
-                                    </div>
-                                {%- endfor -%}
-                            {% endfor %} 
-                        </div>
-                    </div>
-                </div>
-            {%- endfor -%}
-        </div>
+  <div class="pro-tab tabs">
+    <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
+    <ul class="list-inline nav nav-tabs text-center">       
+      {%- for block in section.blocks -%}
+        <li class="nav-item {% if forloop.first %}active{% endif %}">
+          <a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{block.id}}">
+              <span>{{ block.settings.cat_name }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <div class="tab-content tab-pro">
+      {%- for block in section.blocks -%}
+      {%- assign collection = collections[block.settings.collection]  -%}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="wbprodtab1-{{block.id}}">
+              <div class="rless">
+                  <div class="owl-toppro">
+                      {% for product in collection.products limit : 9 %}
+                              <div class="grid__item col-12 cless list-unstyled">
+                              {% render 'product-card-banner',
+                              product_card_product: product,
+                              block_id: block.id,
+                              media_size: section.settings.image_ratio,
+                              show_rating: section.settings.show_rating,
+                              picker_type: section.settings.picker_type,
+                              show_variants: false,
+                              show_colorswatch: section.settings.show_colorswatch,
+                              display_product_type: section.settings.display_product_type  %}
+                              </div>
+                      {% else %}
+                          {%- for i in (1..6) -%}
+                              <div class="twopro grid__item col-12 cless">
+                                  {% render 'product-card-placeholder' %}
+                              </div>
+                          {%- endfor -%}
+                      {% endfor %} 
+                  </div>
+              </div>
+          </div>
+      {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
@@ -121,7 +121,7 @@
     {
       "type": "checkbox",
       "id": "show_variants",
-      "default": true,
+      "default": false,
       "label": "Show color/size variants"
     },
     {
