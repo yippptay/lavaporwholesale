@@ -11,7 +11,7 @@
     {%- endif -%}
     <ul id="predictive-search-results-list" class="predictive-search__results-list list-unstyled" role="listbox" aria-labelledby="predictive-search-products">
       {%- for product in predictive_search.resources.products -%}
-        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
+        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; align-items: center;">
           <a href="{{ product.url }}" class="predictive-search__item predictive-search__item--link" tabindex="-1">
             {%- if product.featured_media != blank -%}
               <img class="predictive-search__image"
@@ -30,17 +30,22 @@
                 {% render 'price', product: product, use_variant: true, show_badges: false %} 
               {%- endif -%}
             </div>
-
-              {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
-            <div class="wbqvtop">
-                <button class="focus-inset wbquickv quick_shop js-wbquickview-link" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">{% render 'icon-quickview' %}<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
-            </div>
-
           </a>
+
+          {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
+          <div class="wbqvtop" style="display: flex; align-items: center; padding-bottom: 15px;">
+            <div class="quick-view-search" style="opacity: 0;">
+              <a style="white-space: nowrap; color: rgba(0, 0, 0, 0.3); font-style: italic; font-size: 14px; font-weight:bold;">
+                Quick View
+              </a>
+            </div>
+            <button style="border-style: none; border-radius: 50%;" class="focus-inset wbquickv quick_shop js-wbquickview-link" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">{% render 'icon-quickview' %}<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+         </div>
+
         </li>
       {%- endfor -%}
       <li id="predictive-search-option-search-keywords" class="predictive-search__list-item" role="option">
-        <button class="predictive-search__item predictive-search__item--term link link--text h5 animate-arrow" tabindex="-1">
+        <button class="predictive-search__item predictive-search__item--term link link--text h5 animate-arrow" tabindex="-1" style="margin-top: 15px;">
           {{ 'templates.search.search_for' | t: terms: predictive_search.terms }}
           {% render 'icon-arrow' %}
         </button>
@@ -62,3 +67,11 @@
     {%- endif -%}
   </span>
 {%- endif -%}
+
+<style>
+  .wbqvtop:hover .quick-view-search {
+    transition: 300ms ease;
+    transform: translateX(-10px);
+    opacity: 1 !important;
+  }
+</style>
