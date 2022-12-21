@@ -140,7 +140,7 @@
     transition: .3s ease-in-out;
     opacity: 0;
     text-align: center;
-    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 0rem 0.25rem rgba(0, 0, 0, 0.2));
 }
 .wbproduct-container:hover .button-group {
     opacity: 1;
