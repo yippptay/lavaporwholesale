@@ -18,19 +18,19 @@
 		{% endif %}
 	{% endfor %}
 {% endif %}
-{% if is_wcp_wholesale_customer == true %}
-	{% unless shop.metafields.wcp_net.MultiCurrencyMsg == blank or shop.metafields.wcp_net.MultiCurrencyMsg == '' %}
-		{% assign MultiCurrency_Msg = shop.metafields.wcp_net.MultiCurrencyMsg | replace: "[currency]", shop.currency %}
-		<div class="wcp_multicurrency_msg_container">
-  			<p class="wcp_multicurrency_msg">{{MultiCurrency_Msg}}</p>
-		</div>
-	{% endunless %}
-    {% if template == 'cart' %}
-    	{% if cart.currency.iso_code != shop.currency %}
-    		<script>
-      			window.location.href="/cart?currency={{shop.currency}}";
-    		</script>
-    	{% endif %}
-    {% endif %}
-{% endif %}
+	{% if is_wcp_wholesale_customer == true %}
+		{% unless shop.metafields.wcp_net.MultiCurrencyMsg == blank or shop.metafields.wcp_net.MultiCurrencyMsg == '' %}
+			{% assign MultiCurrency_Msg = shop.metafields.wcp_net.MultiCurrencyMsg | replace: "[currency]", shop.currency %}
+			<div class="wcp_multicurrency_msg_container">
+				<p class="wcp_multicurrency_msg">{{MultiCurrency_Msg}}</p>
+			</div>
+		{% endunless %}
+		{% if template == 'cart' %}
+			{% if cart.currency.iso_code != shop.currency %}
+				<script>
+					window.location.href="/cart?currency={{shop.currency}}";
+				</script>
+			{% endif %}
+		{% endif %}
+	{% endif %}
 {% endunless %}

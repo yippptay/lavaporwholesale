@@ -86,7 +86,7 @@
 {%- endif -%}
 
 <section class="">
-  <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" style="justify-content: center;">
     <div class="grid__item product__media-wrapper wbproleftimg">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
         <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
@@ -375,6 +375,8 @@
                     {%- endif -%}
                 </div>
             {%- endif -%}
+            
+          {% comment %} Potential Wholesale Bulk Order Form app block {% endcomment %}
             <div {{ block.shopify_attributes }}>
                 {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -624,6 +626,7 @@
                         </div>
                     {%- endform -%}
                 </product-form>
+
                 <div class="wpd-vd">
                     <b>
                         {% unless wcp_vd_HTML_table == '' or  wcp_vd_HTML_table == blank %}
