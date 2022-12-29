@@ -17,21 +17,132 @@
     endif
     -%}
 
-    <div class="rless row wballcatpage" style="flex-wrap: wrap;">
-{% comment %} Brands {% endcomment %}
+    {%  comment  %} for ASCII Sort Order http://support.ecisolutions.com/doc-ddms/help/reportsmenu/ascii_sort_order_chart.htm {% endcomment %}
+    {% assign letter_array = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: ',' %}
+    {% assign number_array = "0,1,2,3,4,5,6,7,8,9" | split: ',' %}
 
+    <h4>#</h4>
+    <hr style="margin-top: 0px !important;"/>
+
+    <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 26px">
       {%- for collection in collections %}
-          {%- if collection.metafields.custom.type == "Brand" %}
-            <div class="col-sm-2 cless">
-              <a style="text-align: center;" href="{{ collection.url }}">
-                <h7>{{- collection.title -}}<span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></h7>
-              </a>
-            </div>
-          {%- endif %}
-      {%- endfor %}
+        {%- if collection.metafields.custom.type == "Brand" %}
+          {%  assign first_char = collection.title | slice: 0 | upcase %}
 
+          {%- case first_char %}
+
+            {% when "0" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "1" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "2" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "3" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "4" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "5" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "6" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "7" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "8" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+            {% when "9" %}
+              <div class="col-sm-3 cless">
+                <a href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+
+          {% endcase %}
+
+        {%- endif %}
+      {%- endfor %}
     </div>
+
+
+    {% for letters in letter_array %}
+
+      <h4 style="margin-bottom: 0px !important;">{{ letters }}</h4>
+      <hr style="margin-top: 0px !important;"/>
+
+      <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 26px">
+        {%- for collection in collections %}
+          {%- if collection.metafields.custom.type == "Brand" %}
+            {%  assign first_char = collection.title | slice: 0 | upcase %}
+            {%- if first_char == letters %}
+              <div class="col-sm-3 cless">
+                <a style="" href="{{ collection.url }}">
+                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
+                </a>
+              </div>
+            {% endif %}
+          {%- endif %}
+        {%- endfor %}
+      </div>
+
+    {% endfor %}
+
 </div>
+
+<style>
+  .col-sm-3 {
+    margin-bottom: 20px !important;
+  }
+
+  .col-sm-3:hover {
+    background-color: #E7E9EB;
+    border-radius: 12px;
+    transition: 0.;
+  }
+</style>
 
 {% schema %}
 {
