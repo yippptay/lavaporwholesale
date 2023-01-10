@@ -257,6 +257,7 @@
               </div>
           {%- endif -%}
 
+        {% comment %} Prodct Card Sale Badge
           <div class="card__badge">
               {%- if product_card_product.available == false -%}
                   <span>{{ 'products.product.sold_out' | t }}</span>
@@ -264,6 +265,8 @@
                   <span>{{ 'products.product.on_sale' | t }}</span>
               {%- endif -%}
           </div>
+
+        {% endcomment %}
 
       </div>
 
@@ -288,6 +291,8 @@
                 {{ product_card_product.description | strip_html | truncatewords: 26 }}
             </p>
         {%- endif -%}
+
+        
       
         <div id="ProductInfo-{{ section.id }}-{{ product_card_product.id }}" >
             {%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: product_card_product.id -%}
@@ -448,21 +453,6 @@
                         </quantity-input>
                     </div>{%endcomment%}
 
-                    {%- form 'product', product_card_product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                        <input type="hidden" name="id" value="{{ product_card_product.selected_or_first_available_variant.id }}" disabled>
-                        <button type="submit" name="add" class="cartb product-form__submit button" aria-label="{{ 'products.product.add_to_cart' | t }}" {% if product_card_product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
-                            {%- if product_card_product.selected_or_first_available_variant.available -%}
-                                {% render 'icon-pcart' %}<span>{{ 'products.product.add_to_cart' | t }}</span>
-                            {%- else -%}
-                                {% render 'icon-pcart' %}<span>{{ 'products.product.sold_out' | t }}</span>
-                            {%- endif -%}
-                            <div class="loading-overlay__spinner hidden">
-                                <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                                </svg>
-                            </div>
-                        </button>
-                    {%- endform -%}
                     {%comment%} Webibazaar Wishlist {%endcomment%}
                     <div class="wbwish">
                         {% if settings.wb_enablewish %}
@@ -478,9 +468,13 @@
                         {% endif %}
                     </div>
                     {%comment%} Webibazaar Wishlist Over {%endcomment%}
+
+
+                    {%comment%} Webibazaar Quick View
                     <div class="wbqvtop">
-                        <button class="focus-inset wbquickv quick_shop js-wbquickview-link" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">{% render 'icon-quickview' %}<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+                        <button class="focus-inset wbquickv quick_shop js-wbquickview-link" style="display: block !important;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
                     </div>
+                    Webibazaar Quick View Over {%endcomment%}
 
                     
                 </div>
@@ -488,6 +482,8 @@
             
 
         </div>
+
+        <button id="button" class="focus-inset wbquickv quick_shop js-wbquickview-link" style="background-color: black; border: none; border-radius: 4px; color: white; width: 100%;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
 
     </div>
     </div>
@@ -499,3 +495,10 @@
                 {%- render 'wcp_product_json' with wcp_prd_var -%}
             </script>
 {%- endunless -%}
+
+<style>
+    #button:hover {
+        background-color: #f8ca23 !important;
+        transition: 0.2s;
+    }
+</style>

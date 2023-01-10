@@ -238,7 +238,7 @@ body.overflow-hidden .menupos{
     }
     /* Megamenu */
     #megamenu li.wbmenul_1 a.wbmenul1_link{
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.8);
         display: block;
         position: relative;
         text-transform: capitalize;
@@ -252,13 +252,12 @@ body.overflow-hidden .menupos{
     #megamenu li.wbmenul_1 a.wbmenul1_link:hover {
         color: #FFF !important;
         transition: 0.2s;
-        transform: translateX(3%);
-        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+        transform: translateX(4%);
     }
     
     #megamenu li.wbmenul_1:hover {
-        background-color: rgba(223, 182, 32, 0.5) !important;
-        transition: 0.1s;
+        background-color: #202020 !important;
+        transition: 0.2s;
     }
 
     .hover-underline-animation {

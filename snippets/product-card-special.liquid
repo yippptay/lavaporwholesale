@@ -243,10 +243,11 @@
     </div>
     <div class="wbproductdes">
 
+    {% comment %}
         {% if display_product_type %}
             <p class="wbprotype">{{ product_card_product.type }}</p>
         {% endif %}
-
+    {% endcomment %}
         
      
         {%- if product_card_product.featured_media -%}

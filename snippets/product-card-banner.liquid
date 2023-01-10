@@ -254,6 +254,7 @@
               </div>
           {%- endif -%}
 
+        {% comment %} Product Card Sale and Out Of Stock Badge
           <div class="card__badge">
               {%- if product_card_product.available == false -%}
                   <span>{{ 'products.product.sold_out' | t }}</span>
@@ -261,17 +262,18 @@
                   <span>{{ 'products.product.on_sale' | t }}</span>
               {%- endif -%}
           </div>
+        {% endcomment %}
 
       </div>
 
 
       <div class="wbproductdes">
 
+      {% comment %}
         {% if display_product_type %}
             <p class="wbprotype">{{ product_card_product.type }}</p>
         {% endif %}
-
-        
+    {% endcomment %}
      
         {%- if product_card_product.featured_media -%}
             <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
@@ -411,7 +413,8 @@
                 {%- endfor -%}
             </select>
 
-            <product-form class="product-form">
+            {% comment %} Product Card Overlay Cart and Quick View {% endcomment %}
+            <product-form class="product-form hidden">
                 <div class="button-group">
                     <div class="wbquicksuccess hidden" hidden><i class="fa fa-check-circle" aria-hidden="true"></i> {{ 'wbcustomlabel.wballtext.quicksuccessmsg' | t }}</div>
                     <div class="product-form__error-message-wrapper" role="alert" hidden>
@@ -486,6 +489,8 @@
 
         </div>
 
+        <button id="button" class="focus-inset wbquickv quick_shop js-wbquickview-link" style="background-color: black; border: none; border-radius: 4px; color: white; width: 100%;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+
     </div>
     </div>
 
@@ -496,3 +501,10 @@
                 {%- render 'wcp_product_json' with wcp_prd_var -%}
             </script>
 {%- endunless -%}
+
+<style>
+    #button:hover {
+        background-color: #f8ca23 !important;
+        transition: 0.2s;
+    }
+</style>
