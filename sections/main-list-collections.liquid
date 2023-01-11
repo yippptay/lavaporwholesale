@@ -1,8 +1,104 @@
+<script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous">
+</script>
+
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
+
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
 <div class="">
-    <h1 class="heading text-left"><span>Brands</span></h1>
+
+{% comment %} Featured Brands {% endcomment %}
+<h1 class="heading text-left"><span>Featured Brands</span></h1>
+
+  <div>
+    <div class="brands-container" style="display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center;">
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/TWIST_color_200x200_.png" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/slider_s_m_smok.jpg" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/7_daze.jpg" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/Pod_Juice_Color_Transparent.png" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0660/0031/files/naked-100-logo_240x240.jpg?v=1569517459" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.unishowinc.com/wp-content/uploads/2022/01/Elf-Bar-Logo.jpg" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0882/1942/collections/costal-clouds-vape-juice.png?v=1611868927" width="auto" height="130px"></a>
+    </div>
+    <div class="brands-container" style="display: flex; flex-wrap: wrap; justify-content: space-evenly; padding-top: 16px; padding-bottom: 22px; align-items: center;">
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/Uwell_Black_Transparent.png" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://images.squarespace-cdn.com/content/v1/5bfdb0e78f5130942394c1e2/1562513284774-IKRP5BHGSURZEW1JT50N/candy-king-logo-433x450.jpg" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://logovectorseek.com/wp-content/uploads/2020/02/smok-logo-vector.png" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0613/8472/0630/collections/00fc1e482ffc199c4a8f829f0e4c2bc3.png?v=1644940988" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://tobaccoreporter.com/wp-content/uploads/sites/2/2022/04/vaporesso.jpg" width="auto" height="130px"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://uc26c6d6c728df0597c44629265a.previews.dropboxusercontent.com/p/thumb/AByzQr_qRJwAjoR6b44uY4T2j_TFQuCyWD27xWBoGejuEl0D6rDSarzpOfb4gMVCgsuU_vpIpu-Hvxdm09nXTLNU4QeFYOAyxgJhhH0DuJb4jzbIZnMYchzgggW1GsS4K85pxMxWjevzEEAbYuR8Yy8BRCmNGk5ADr7LcOnXw66pXqnzgKxIzxZVtlBKLRivyJ9YiJqnjG8jb0IfOAG_Pux_msN-rWb1o2PsIZomuQdX70Nvn370ND97JnRtoUlu1eXKVIZ9x_cHYyiUd5feGDy5KsDMGEGgztr1F4t7cNakC1Wb0WcLJamIpFOwfXvBEvhOj9Lkpmtz56pGT7IUt2dmD88j8gn5T8kyJUDrYp0bg_0HIDITzYKhjXXC_KD1sHXS-vAPSXXPr2XCQo8qa17sM9Ul6HUTI9werw_DEgbm8g/p.png" width="130px" height="auto"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/slider_f_r_freemax_logo_3_2.jpg" width="auto" height="130px"></a>
+    </div>
+
+    <h1 class="heading text-left"><span>All Brands</span></h1>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous">
+    </script>
+
+    {%  javascript  %}
+      function liveSearch() {
+      // Locate the card elements
+      let cards = document.querySelectorAll('.brand-names')
+      // Locate the search input
+      let search_query = document.getElementById("form1").value;
+      // Loop through the cards
+      for (var i = 0; i < cards.length; i++) {
+        // If the text is within the card...
+        if(cards[i].innerText.toLowerCase()
+          // ...and the text matches the search query...
+          .includes(search_query.toLowerCase())) {
+            // ...remove the `.is-hidden` class.
+            cards[i].classList.remove("slow-hide");
+            cards[i].classList.add("thick-text");
+        } else {
+          // Otherwise, add the class.
+          cards[i].classList.add("slow-hide");
+          cards[i].classList.remove("thick-text");
+        }
+      }
+    }
+    {% endjavascript %}
+
+    <script>
+      function liveSearch() {
+        // Locate the card elements
+        let cards = document.querySelectorAll('.brand-names')
+        // Locate the search input
+        let search_query = document.getElementById("form1").value;
+        // Loop through the cards
+        for (var i = 0; i < cards.length; i++) {
+          // If the text is within the card...
+          if(cards[i].innerText.toLowerCase()
+            // ...and the text matches the search query...
+            .includes(search_query.toLowerCase())) {
+              // ...remove the `.is-hidden` class.
+              cards[i].classList.remove("slow-hide");
+          } else {
+            // Otherwise, add the class.
+            cards[i].classList.add("slow-hide");
+          }
+        }
+      }
+    </script>
+
+    <input 
+      type="search" 
+      oninput="liveSearch()" 
+      id="form1" 
+      class="form-control"
+      placeholder="Search for brand... "
+    >
 
     {%- liquid
     case section.settings.sort
@@ -21,116 +117,115 @@
     {% assign letter_array = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: ',' %}
     {% assign number_array = "0,1,2,3,4,5,6,7,8,9" | split: ',' %}
 
-    <h4>#</h4>
-    <hr style="margin-top: 0px !important;"/>
-
-    <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 26px">
-      {%- for collection in collections %}
-        {%- if collection.metafields.custom.type == "Brand" %}
-          {%  assign first_char = collection.title | slice: 0 | upcase %}
-
-          {%- case first_char %}
-
-            {% when "0" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "1" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "2" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "3" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "4" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "5" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "6" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "7" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "8" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-            {% when "9" %}
-              <div class="col-sm-3 cless">
-                <a href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-
-          {% endcase %}
-
-        {%- endif %}
-      {%- endfor %}
-    </div>
-
-
-    {% for letters in letter_array %}
-
-      <h4 style="margin-bottom: 0px !important;">{{ letters }}</h4>
+      <h4 style="padding-top: 22px;">#</h4>
       <hr style="margin-top: 0px !important;"/>
 
-      <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 26px">
-        {%- for collection in collections %}
-          {%- if collection.metafields.custom.type == "Brand" %}
-            {%  assign first_char = collection.title | slice: 0 | upcase %}
-            {%- if first_char == letters %}
-              <div class="col-sm-3 cless">
-                <a style="" href="{{ collection.url }}">
-                  <h7 style="white-space: nowrap;">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% comment %}{% render 'icon-arrow' %}{% endcomment %}</span></h7>
-                </a>
-              </div>
-            {% endif %}
-          {%- endif %}
-        {%- endfor %}
+      <div class="list">
+        <div class="rless row wballcatpage" style="flex-wrsap: wrap; padding-bottom: 1px">
+          {%- for collection in collections %}
+            {%- if collection.metafields.custom.type == "Brand" %}
+              {%  assign first_char = collection.title | slice: 0 | upcase %}
+  
+              {%- case first_char %}
+  
+                {% when "0" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "1" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "2" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "3" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "4" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "5" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "6" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "7" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "8" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+                {% when "9" %}
+                  <div class="col-sm-3 cless brand-names">
+                    <a href="{{ collection.url }}">
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+  
+              {% endcase %}
+  
+            {%- endif %}
+          {%- endfor %}
+        </div>
+  
+        {% for letters in letter_array %}
+  
+          <h4 style="margin-bottom: 0px !important;">{{ letters }}</h4>
+          <hr style="margin-top: 0px !important;"/>
+  
+          <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
+            {%- for collection in collections %}
+              {%- if collection.metafields.custom.type == "Brand" %}
+                {%  assign first_char = collection.title | slice: 0 | upcase %}
+                {%- if first_char == letters %}
+                  <div class="col-sm-3 cless brand-names" style="margin-bottom: 4px !important;">
+                    <a href="{{ collection.url }}">
+                      <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
+                    </a>
+                  </div>
+                {% endif %}
+              {%- endif %}
+            {%- endfor %}
+          </div>
+  
+        {% endfor %}
       </div>
-
-    {% endfor %}
-
-</div>
 
 <style>
   .col-sm-3 {
@@ -140,7 +235,19 @@
   .col-sm-3:hover {
     background-color: #E7E9EB;
     border-radius: 12px;
-    transition: 0.;
+    transition: 0.3s;
+  }
+
+  .brand-img:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+
+  .slow-hide {
+    display: none;
+    /* visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.1s linear; */
   }
 </style>
 

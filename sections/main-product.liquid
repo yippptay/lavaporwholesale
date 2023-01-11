@@ -376,13 +376,121 @@
                 </div>
             {%- endif -%}
             
-          {% comment %} Potential Wholesale Bulk Order Form app block {% endcomment %}
+          {% comment %} Potential Wholesale Bulk Order Form app block
             <div {{ block.shopify_attributes }}>
                 {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
                 {%- endform -%}
-            </div>
+            </div> {% endcomment %}
+
+
+            <table width="100%" style="padding-right: -15px">
+              <tbody>
+                <tr>
+                  <td width="15%"><strong>SKU</strong></td>
+                  <td width="45%"><strong>Options</strong></td>
+                  <td width="10%" style="text-align: center;"><strong>Price</strong></td>
+                  <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
+                  <td width="20%" style="text-align: center;"><strong>Stock Level</strong></td>    
+                </tr>
+              </tbody>
+            </table> <!-- /.table -->
+
+              {% comment %} Table Contents {% endcomment %}
+              {% assign linklist = linklists['order-form'] %}
+              <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
+              <div style="overflow: overlay; overflow-y: scroll; min-height: 180px; max-height: 300px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+                {% for variant in product.variants %}
+                  {% include 'wcp_variant' with variant %}
+
+                    <div style="font-size: 12px;">
+                      <div style="z-index:9999999;">
+                        <table width="100%" border="0" style="z-index:9999999;">
+                          <tbody>
+                            <tr>
+
+                              <td width="15%">
+                                {{ variant.sku }}
+                              </td>
+                            
+                              <td width="45%">
+                                {{ variant.title  | remove: '/' }}
+                              </td>
+                          
+                              <td width="10%" style="text-align: center; padding-left: 12px;">
+                              {% if customer %}<strong>{{ wcp_v_price | money }}</strong>
+                              {% else %}
+                                <span>
+                                  <a style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
+                                </span>
+                              {% endif %}
+                              </td>
+
+                              <td width="10%" style="text-align: center; padding-left: 14px;">
+                                <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"  type="text" size="4" value="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+                              </td>
+                      
+                              <td width="20%" style="text-align: center; padding-left: 12px;">
+                                {% if true %}
+                                  {% if variant.inventory_management != "shopify" %}
+                                    In Stock
+                                  {% elsif variant.inventory_quantity > 0 %}
+                                    <strong>{{ variant.inventory_quantity }}</strong> In Stock
+                                  {% else %}
+                                    <span style="color:red; font-weight:bold;">Out Of Stock</span>
+                                  {% endif %}
+                                {% endif %}
+                              </td>
+
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
+                {% endfor %}
+              </div> <!-- TABLE WITHIN QUICK ORDER -->
+
+                {% comment %} Login Condition {% endcomment %}  
+              {% unless customer %}
+              <div>
+
+                <div class="price-box" style="cursor: pointer;" onclick="window.location='/account/login';"> 
+                  <div class="login-box" style="overflow: hidden; padding: 12px; background: black; border: 1px solid #eee;">
+                    <div style="font-size:16px; font-weight:bold; text-align: center; color: white;">
+                      <span><a href="/account/login"><span style="color:white;">Log in</span></a> to Purchase</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            {% endunless %}
+
+                {% comment %} Purchase Section {% endcomment %}
+              <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}" style="text-align: right;">
+                <div class="purchase">
+
+                  {% unless product.available %}
+                    <p>Sold Out</p>
+                  {% else %}
+                    <br />
+
+                  <div id='wcp_vd_table'>{{wcp_vd_HTML_table}}</div>
+            
+                    {% if customer %}
+                      <input type="submit" onclick="change()" value="Add to Cart" class="btn" style="background-color:#f8ca23; width: 100%; color: white;" id="submit-table-product"/>
+                    {% endif %}
+
+                    <input type="hidden" name="return_to" value="back" />
+                    {% endunless %} &nbsp;  &nbsp;  &nbsp;
+
+                </div>
+
+                <div id='wk-auction' prod-id='{{ product.id }}' cust-id='{{ customer.id }}'></div>
+
+              </div> <!-- /.purchase-section -->
 
             {%- when 'description' -%}
             {%- if product.description != blank -%}
@@ -889,6 +997,177 @@
       {%- endfor -%}
     ]
   }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
+      
+<script>
+function change() // no ';' here
+  {
+    var elem = document.getElementById("submit-table-product");
+    if (elem.value=="Adding to Cart") elem.value = "Add to Cart";
+    else elem.value = "Adding to Cart";
+  }
+</script>
+
+<script>
+$(document).ready(function()
+{
+$("tr:odd").css({
+  "background-color":"#ececec",
+  "color":"#000"});
+});
+</script>
+
+<script>
+{% assign linklist = linklists['order-form'] %}
+var length = {{ product.variants.size }};
+$(document).ready(function () {
+  $("#quantity-0").focus();    
+  $("#submit-table-product").click(function(e) {     
+      e.preventDefault();
+      //array for Variant Titles
+      var toAdd = new Array();
+      var qty ;
+
+      for(i=0; i < length; i++){
+          if ($("#quantity-"+i).val() > 0) {
+          toAdd.push({
+              variant_id: $("#variant-"+i).val(),        
+              quantity_id: $("#quantity-"+i).val() || 0
+          });
+      }
+  }
+      function moveAlong(){
+          if (toAdd.length) {
+              var request = toAdd.shift();
+              var tempId= request.variant_id;
+              var tempQty = request.quantity_id;
+              var params = {
+                  type: 'POST',
+                  url: '/cart/add.js',
+                  data: 'quantity='+tempQty+'&id='+tempId,
+                  dataType: 'json',
+                  success: function(line_item) { 
+                      //console.log("success!");
+                    Shopify.onSuccess,
+                      moveAlong();
+                  },
+                  error: function() {
+                      //console.log("fail");
+                      moveAlong();
+                  }
+              };
+              $.ajax(params);
+          }
+          else {				
+              window.location.reload(); 
+          }  
+      };
+      moveAlong();
+  });
+});
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+      return (msie > 0 || trident > 0);
+    }
+    if (!isIE()) return;
+    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+    const noScriptInputWrapper = document.createElement('div');
+    const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+    noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
+    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
+      hiddenInput.value = event.currentTarget.value;
+    });
+  });
+</script>
+
+<script>
+{% assign linklist = linklists['order-form'] %}
+var length = {{ product.variants.size }};
+$(document).ready(function () {
+  $("#quantity-0").focus();    
+  $("#submit-table-product").click(function(e) {     
+      e.preventDefault();
+      //array for Variant Titles
+      var toAdd = new Array();
+      var qty ;
+
+      for(i=0; i < length; i++){
+          if ($("#quantity-"+i).val() > 0) {
+          toAdd.push({
+              variant_id: $("#variant-"+i).val(),        
+              quantity_id: $("#quantity-"+i).val() || 0
+          });
+      }
+  }
+      function moveAlong(){
+          if (toAdd.length) {
+              var request = toAdd.shift();
+              var tempId= request.variant_id;
+              var tempQty = request.quantity_id;
+              var params = {
+                  type: 'POST',
+                  url: '/cart/add.js',
+                  data: 'quantity='+tempQty+'&id='+tempId,
+                  dataType: 'json',
+                  success: function(line_item) { 
+                      //console.log("success!");
+                    Shopify.onSuccess,
+                      moveAlong();
+                  },
+                  error: function() {
+                      //console.log("fail");
+                      moveAlong();
+                  }
+              };
+              $.ajax(params);
+          }
+          else {				
+              window.location.reload(); 
+          }  
+      };
+      moveAlong();
+  });
+});
+</script>
+
+<script>
+var selectCallback = function(variant, selector) {
+if (variant && variant.available == true) {
+  // selected a valid variant
+  jQuery('button#purchase').removeClass('disabled').removeAttr('disabled');
+  jQuery('button#purchase').css("opacity","1");
+  jQuery('button#purchase span').text("Add to cart");
+  jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
+  if (variant.compare_at_price > variant.price) {
+    jQuery('.price-field del').html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_without_currency_format }}"));
+  }
+  else {
+    jQuery('.price-field del').empty();
+  }
+} else {
+  // variant is unavailable or doesn't exist
+  if (variant.inventory_quantity == -1) {
+    // variant is for in-store purchase only
+    var message = "In Store Only";
+  } else {
+    var message = variant ? "Sold Out" : "Unavailable";
+  }
+  jQuery('button#purchase').addClass('disabled').attr('disabled', 'disabled');
+  jQuery('button#purchase').css("opacity",".6");
+  jQuery('button#purchase span').text(message);
+  jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
+  jQuery('.price-field del').empty();
+}
+};
 </script>
 
 {% schema %}

@@ -194,9 +194,9 @@
                         <tr>
                           <td width="15%"><strong>SKU</strong></td>
                           <td width="45%"><strong>Options</strong></td>
-                          <td width="10%"><strong>Price</strong></td>
-                          <td width="10%"><strong>QTY</strong></td>
-                          <td width="20%"><strong>Stock Level</strong></td>    
+                          <td width="10%" style="text-align: center;"><strong>Price</strong></td>
+                          <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
+                          <td width="20%" style="text-align: center;"><strong>Stock Level</strong></td>    
                         </tr>
                       </tbody>
                     </table> <!-- /.table -->
@@ -204,7 +204,7 @@
                       {% comment %} Table Contents {% endcomment %}
                     {% assign linklist = linklists['order-form'] %}
                     <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-                    <div style="overflow: hidden; overflow-y: scroll; min-height: 100px; max-height: 200px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; min-height: 100px; max-height: 200px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
                       {% for variant in product.variants %}
                         {% include 'wcp_variant' with variant %}
 
@@ -222,20 +222,20 @@
                                       {{ variant.title  | remove: '/' }}
                                     </td>
                                 
-                                    <td width="10%">
+                                    <td width="10%" style="text-align: center; padding-left: 12px;">
                                     {% if customer %}<strong>{{ wcp_v_price | money }}</strong>
                                     {% else %}
-                                      <span style="font-weight:bold;color:#95c4c6 !important;">
+                                      <span>
                                         <a style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
                                       </span>
                                     {% endif %}
                                     </td>
     
-                                    <td width="10%">
-                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"  type="text" size="4" value="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+                                    <td width="10%" style="text-align: center; padding-left: 14px;">
+                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"  type="text" size="4" value="0" max="{{ variant.inventory_quantity }}" id="quickquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
                                     </td>
                             
-                                    <td width="20%" style="text-align: center;">
+                                    <td width="20%" style="text-align: center; padding-left: 12px;">
                                       {% if true %}
                                         {% if variant.inventory_management != "shopify" %}
                                           In Stock
@@ -253,7 +253,7 @@
                             </div>
                           </div>
 
-                        <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
+                        <input type="hidden"  value="{{ variant.id }}" id="quickvariant-{{ forloop.index0 }}"/>
                       {% endfor %}
                     </div> <!-- TABLE WITHIN QUICK ORDER -->
 
@@ -261,8 +261,8 @@
                     {% unless customer %}
                     <div>
 
-                      <div class="price-box" style="cursor: pointer;" onclick="window.location='/account/login';"> 
-                        <div style="overflow: hidden; padding: 12px; background: black; border: 1px solid #eee;">
+                      <div class="price-box" style="cursor: pointer;" onclick="window.location='/account/login';" onMouseOver="this.style.background='#f8ca23'" onMouseOut="this.style.color='black'"> 
+                        <div class="login-box" style="overflow: hidden; padding: 12px; background: black; border: 1px solid #eee;">
                           <div style="font-size:16px; font-weight:bold; text-align: center; color: white;">
                             <span><a href="/account/login"><span style="color:white;">Log in</span></a> to Purchase</span>
                           </div>
@@ -284,7 +284,7 @@
                         <div id='wcp_vd_table'>{{wcp_vd_HTML_table}}</div>
                   
                           {% if customer %}
-                            <input type="submit" onclick="change()" value="Add to Cart" class="btn" style="background-color:#f8ca23; width: 100%; color: white;" id="submit-table"/>
+                            <input type="submit" onclick="change()" value="Add to Cart" class="btn" style="background-color:#f8ca23; width: 100%; color: white;" id="submit-table-quick"/>
                           {% endif %}
 
                           <input type="hidden" name="return_to" value="back" />
@@ -904,7 +904,7 @@
   <script>
 function change() // no ';' here
 {
-    var elem = document.getElementById("submit-table");
+    var elem = document.getElementById("submit-table-quick");
     if (elem.value=="Adding to Cart") elem.value = "Add to Cart";
     else elem.value = "Adding to Cart";
 }
@@ -924,18 +924,18 @@ $(document).ready(function()
 {% assign linklist = linklists['order-form'] %}
 var length = {{ product.variants.size }};
 $(document).ready(function () {
-    $("#quantity-0").focus();    
-    $("#submit-table").click(function(e) {     
+    $("#quickquantity-0").focus();    
+    $("#submit-table-quick").click(function(e) {     
         e.preventDefault();
         //array for Variant Titles
         var toAdd = new Array();
         var qty ;
 
         for(i=0; i < length; i++){
-            if ($("#quantity-"+i).val() > 0) {
+            if ($("#quickquantity-"+i).val() > 0) {
             toAdd.push({
-                variant_id: $("#variant-"+i).val(),        
-                quantity_id: $("#quantity-"+i).val() || 0
+                variant_id: $("#quickvariant-"+i).val(),        
+                quantity_id: $("#quickquantity-"+i).val() || 0
             });
         }
     }
@@ -970,37 +970,6 @@ $(document).ready(function () {
 });
 </script>
 
-<script>
-  var selectCallback = function(variant, selector) {
-  if (variant && variant.available == true) {
-    // selected a valid variant
-    jQuery('button#purchase').removeClass('disabled').removeAttr('disabled');
-    jQuery('button#purchase').css("opacity","1");
-    jQuery('button#purchase span').text("Add to cart");
-    jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
-    if (variant.compare_at_price > variant.price) {
-      jQuery('.price-field del').html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_without_currency_format }}"));
-    }
-    else {
-      jQuery('.price-field del').empty();
-    }
-  } else {
-    // variant is unavailable or doesn't exist
-    if (variant.inventory_quantity == -1) {
-      // variant is for in-store purchase only
-      var message = "In Store Only";
-    } else {
-      var message = variant ? "Sold Out" : "Unavailable";
-    }
-    jQuery('button#purchase').addClass('disabled').attr('disabled', 'disabled');
-    jQuery('button#purchase').css("opacity",".6");
-    jQuery('button#purchase span').text(message);
-    jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
-    jQuery('.price-field del').empty();
-  }
-};
-</script>
-
       <script>
         document.addEventListener('DOMContentLoaded', function() {
           function isIE() {
@@ -1029,18 +998,18 @@ $(document).ready(function () {
           }
         };
         $(document).ready(function() {
-          $("#quantity-0").focus();
-          $("#submit-table").click(function(e) {
+          $("#quickquantity-0").focus();
+          $("#submit-table-quick").click(function(e) {
             e.preventDefault();
             //array for Variant Titles
             var toAdd = new Array();
             var qty;
 
             for (i = 0; i < length; i++) {
-              if ($("#quantity-" + i).val() > 0) {
+              if ($("#quickquantity-" + i).val() > 0) {
                 toAdd.push({
-                  variant_id: $("#variant-" + i).val(),
-                  quantity_id: $("#quantity-" + i).val() || 0
+                  variant_id: $("#quickvariant-" + i).val(),
+                  quantity_id: $("#quickquantity-" + i).val() || 0
                 });
               }
             }
