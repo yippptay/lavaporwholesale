@@ -1,729 +1,47 @@
+<<<<<<< HEAD
 {% comment %} DO NOT EDIT! This snippet is automatically added by EasyWholesale app, all changes will be overwritten {% endcomment %}{% assign easywholesaleShow = false %}{% if page.id == 83398361174 or nm_easywholesale_custom_page_id > 0 %}{% assign easywholesaleShow = false %}{% endif %}
+=======
+{% comment %} DO NOT EDIT! This snippet is automatically added by EasyWholesale app, all changes will be overwritten {% endcomment %}{% assign easywholesaleShow = false %}
+>>>>>>> aeb5d31d1ef6b63e5ed692785fa966a0c988258c
 {% if easywholesaleShow %}
-  <style>
-  .nm-wholesale-odd-product {
-    background-color: rgba(179, 179, 179, 0.1)
-  }
-  .nm-primary-background-color {
-      background-color:#343d47 !important
-  }
-  .nm-wholesale-btn-add-to-cart {
-      color:#ffffff !important
-  }
-  .nm-wholesale-table-footer-btn .nm-secondary-background-color {
-      background-color:#ef5137 !important
-  }
-  .nm-primary-border-color {
-      border-color:#343d47 !important
-  }
-  .nm-primary-color {
-      color: #343d47 !important
-  }
-  .nm-secondary-border-color {
-      border-color: #ef5137 !important
-  }
-  .nm-secondary-text-color {
-      color: #ef5137 !important
-  }
-  .nm-nice-select {
-      border-color: #ef5137 !important
-  }
-  .nm-secondary-background-color {
-      background-color: #ef5137 !important
-  }
-  .nm-layout-text-color {
-      color: #212b36 !important
-  }
-  .nm-layout-border-color {
-      border-color: #d8d8d8 !important
-  }
-  .nm-primary-color-fill {
-      fill: #343d47 !important
-  }
-  .nm-secondary-color-fill {
-      fill: #ef5137 !important
-  }
-  .nm-wholesale-table-under-footer-total .nm-layout-text-color {
-      color: #212b36 !important;
-      border-color: #d8d8d8 !important;
-  }
-  .nm-easywholesale-select-container select,.nm-easywholesale-select-search-container select{
-      text-indent:1px;
-      text-overflow:"";
-      outline:0;
-      cursor:pointer;
-      padding-left:10px!important;
-      max-width:100%
-  }
-  .nm-easywholesale-form{
-      display:flex;
-      flex-direction:column;
-      padding:10px 10px 10px 0
-  }
-  .nm-easywholesale-header{
-      display:flex;
-      flex-direction:row;
-      flex-wrap:wrap;
-      align-items:center
-  }
-  .nm-easywholesale-header-page{
-      overflow:hidden;
-      height:auto;
-      margin-left:15px
-  }
-  .nm-easywholesale-collection-head{
-      margin-top:20px!important
-  }
-  .nm-easywholesale-select-container{
-      display:flex;
-      flex-direction:row;
-      align-items:end;
-      margin-right:15px;
-      height:40px;
-      align-items:center;
-      max-width:30%;
-      min-width:100px
-  }
-  .nm-easywholesale-select-container:last-child,.nm-easywholesale-select-search-container:last-child{
-      margin-right:0
-  }
-  .nm-easywholesale-select-container select{
-      border:none;
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      appearance:none;
-      flex-grow:1;
-      background:0 0;
-      z-index:10;
-      margin:0;
-      display:block!important;
-      box-shadow:none;
-      margin-left:-10px!important
-  }
-  .nm-easywholesale-select-container .nm-svg{
-      position:relative;
-      right:7px;
-      line-height:0
-  }
-  .nm-easywholesale-table{
-      display:flex;
-      flex-direction:column;
-      margin-bottom:10px;
-      overflow:auto;
-      border-top:2px solid;
-      margin-right:15px
-  }
-  .nm-easywholesale-table-page{
-      overflow:visible;
-      margin-left:15px
-  }
-  .nm-easywholesale-table-product{
-      border-bottom:2px solid
-  }
-  .nm-easywholesale-item{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      border-top:1px solid;
-  }
-  .nm-easywholesale-name-and-price{
-      display:flex;
-      flex-direction:row;
-      width:100%;
-      font-size:initial;
-      align-items:center
-  }
-  .nm-easywholesale-img{
-      width:40px;
-      height:40px;
-      margin-right:10px;
-      display:block!important
-  }
-  .nm-easywholesale-img img{
-      vertical-align:-webkit-baseline-middle
-  }
-  .nm-easywholesale-name{
-      flex-grow:1;
-      padding-right:5px;
-      text-align:left
-  }
-  .nm-easywholesale-price{
-      margin-right:30px;
-      white-space:nowrap;
-      font-weight:700;
-      text-align:left;
-      display:flex;
-      flex-direction:row;
-      align-items:center
-  }
-  .nm-easywholesale-qty-container{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      margin-left:auto;
-      float:right
-  }
-  .nm-easywholesale-qty{
-      width:60px!important;
-      height:30px;
-      /* margin:5px!important; */
-      text-align:center;
-      outline:0;
-      padding-left:15px;
-      padding-right:15px;
-      font-size:16px;
-      border-style:solid;
-      border-width:1px
-  }
-  .nm-easywholesale-qty-decrease,.nm-easywholesale-qty-increase{
-      cursor:pointer;
-      width:20px;
-      height:30px;
-      line-height:30px;
-      text-align:center;
-      font-size:18px;
-      font-weight:700;
-      font-family:Arial,Helvetica,sans-serif;
-      -webkit-user-select:none;
-      -moz-user-select:none;
-      -ms-user-select:none;
-      user-select:none
-  }
-  .nm-easywholesale-footer{
-      margin-top:10px;
-      margin-bottom:10px;
-      font-weight:700
-  }
-  .nm-easywholesale-total{
-      padding-right:140px;
-      padding-top:10px;
-      white-space:nowrap
-  }
-  .nm-wholesale-collapse,.nm-wholesale-show-more-variants{
-      border:0 solid;
-      font-size:.9em;
-      position:relative;
-      padding-left:15px;
-      padding-top:0;
-      outline:0;
-      text-decoration:none;
-      font-weight:600;
-      background-color:transparent
-  }
-  .nm-hide-this-row,.nm-hideAllVisible,.nm-wholesale-table-under-footer-collapse{
-      display:none
-  }
-  .svg-angle-down_show_more{
-      position:absolute;
-      width:10px;
-      transform:rotate(90deg)
-  }
-  .svg-angle-up_show_more{
-      position:absolute;
-      width:10px;
-      transform:rotate(270deg)
-  }
-  .nm-noborder{
-      /* border-top:0!important; */
-      /* border-bottom:0!important */
-  }
-  .nm-wholesale-table-under-footer,.nm-wholesale-table-under-footer-collapse{
-      border-bottom:2px solid;
-      text-align:left;
-      flex-direction:row;
-      font-size:initial
-  }
-  .nm-wholesale-table-under-footer{
-      display:flex;
-      align-items:center
-  }
-  .nm-wholesale-table-under-footer-collapse{
-      align-items:center
-  }
-  .nm-wholesale-collapse,.nm-wholesale-show-more-variants{
-      padding-bottom:10px;
-      width:100%;
-      line-height:20px;
-      margin-bottom:0
-  }
-  .nm-wholesale-collapse-product,.nm-wholesale-show-more-variants-product{
-      width:auto!important
-  }
-  .nm-no-product-matched{
-      margin-top:15px!important;
-      margin-bottom:15px!important;
-      text-align:center
-  }
-  .nm-title-foto{
-      margin-top:20px
-  }
-  .nm-wholesale-title-foto{
-      display:flex;
-      flex-direction:row;
-      margin-top:1px;
-      align-items:center
-  }
-  .nm-wholesale-header-price{
-      text-align:right;
-      width:100%;
-      padding-left:10px;
-      margin-right:15px;
-      display:flex;
-      flex-direction:column
-  }
-  .nm-wholesale-header-title{
-      padding: 10px;
-      width:-webkit-fill-available;
-      font-size:initial
-  }
-  .nm-wholesale-header-image{
-      width:80px;
-      margin-right:20px;
-      margin-left:15px;
-      margin-top:15px;
-      min-width:80px
-  }
-  .nm-wholesale-header-image-img{
-      max-width:80px!important;
-      max-height:100px!important;
-      margin-left:0!important
-  }
-  .nm-easywholesale-page-footer{
-      margin-top:20px;
-      border-top:1px solid #000;
-      border-bottom:1px solid #000;
-      margin-left:15px;
-      margin-right:15px
-  }
-  .nm-easywholesale-selected{
-      padding-top:10px;
-      flex-grow:1;
-      text-align:left
-  }
-  .nm-easywholesale-name-and-price-only,.nm-wholesale-right-block{
-      flex-direction:row;
-      display:flex;
-      width:100%
-  }
-  .nm-easywholesale-selected-page{
-      padding-bottom:10px
-  }
-  .nm-wholesale-right-block{
-      align-items:center
-  }
-  .span_one_variant{
-      margin-right:30px;
-      font-size:initial;
-      font-weight:700
-  }
-  .nm-easywholesale-qty-container-one{
-      padding-right:15px
-  }
-  .nm-easywholesale-add-to-cart-container{
-      text-align:left;
-      margin-top:20px;
-      font-size:initial
-  }
-  .nm-wholesale-btn-add-to-cart{
-      border:none;
-      outline:0;
-      padding:10px 60px;
-      border-radius:2px;
-      margin-bottom:10px;
-      line-height:20px!important;
-      width:auto!important;
-      cursor:pointer
-  }
-  .nm-wholesale-btn-add-to-cart-enabled:active{
-      box-shadow:0 0 7px 1px rgba(0,0,0,.35);
-      position:relative;
-      top:2px;
-      left:2px
-  }
-  .nm-searchByProduct-container{
-      display:flex;
-      flex-direction:row
-  }
-  .nm-searchByProduct{
-      flex-direction:row;
-      width:50%!important;
-      height:40px!important;
-      background:url(https://cdn.shopify.com/s/files/1/0015/8996/8995/t/1/assets/search.png?v=1587482532) 7px 12px no-repeat;
-      -webkit-background-size:20px!important;
-      background-size:15px!important;
-      padding-left:30px!important;
-      border:1px solid #eee!important;
-      margin-top:15px!important;
-      margin-right:20px!important;
-      background-color:#fff!important
-  }
-  .nm-view-collapse,.nm-view-other{
-      padding-top:10px;
-      padding-bottom:0;
-      border-top:1px solid #d8d8d8;
-      border-bottom:none;
-      padding-left:0;
-      text-align:left
-  }
-  .nm-easywholesale-select-search-container{
-      display:flex;
-      flex-direction:row;
-      align-items:end;
-      margin-right:15px;
-      height:40px;
-      align-items:center;
-      width:50%;
-      margin-top:15px
-  }
-  .nm-easywholesale-select-search-container select{
-      border:1px solid #eee;
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      appearance:none;
-      flex-grow:1;
-      z-index:4;
-      margin:0;
-      display:block!important;
-      height:40px!important;
-      background-color:#fff!important;
-      padding-top:0;
-      padding-bottom:0
-  }
-  .nm-easywholesale-add-to-cart-container-page{
-      margin-top:30px;
-      margin-left:15px;
-      margin-right:15px
-  }
-  #nm-no-search{
-      width:100%;
-      text-align:center;
-      font-weight:700;
-      display:none;
-      margin-top:30px
-  }
-  .nm-easywholesale-table-and-header{
-      padding: 8px;
-      margin-left:0px !important;
-  }
-  .nm-view-collapse{
-      display:none
-  }
-  .nm-other-div{
-      position:absolute;
-      opacity:0;
-      z-index:-1;
-      height:auto;
-      overflow:hidden;
-      display:none
-  }
-  .nm-wholesale-table-container-page{
-      box-shadow: none !important;
-      /* padding:10px; */
-      /* margin-top:20px */
-  }
-  @media screen and (max-width:450px){
-      .nm-easywholesale-add-to-cart-container-page,.nm-easywholesale-page-footer{
-          margin-left:0;
-          margin-right:0
-      }
-      .nm-easywholesale-header-page{
-          margin-left:0
-      }
-      .nm-wholesale-header-image{
-          margin-right:10px;
-          width:50px;
-          margin-left:0;
-          margin-top:0;
-          min-width:50px
-      }
-      .nm-wholesale-header-image-img{
-          max-width:50px!important
-      }
-      .nm-wholesale-right-block{
-          flex-direction:column;
-          margin-right:5px
-      }
-      .nm-wholesale-header-price{
-          text-align:left;
-          padding-left:0;
-          margin-right:0;
-          flex-direction:row;
-          padding-top:5px;
-          align-items:center
-      }
-      .nm-wholesale-header-price span{
-          text-align:left;
-          padding-left:0;
-          font-size:14px;
-          padding-right:10px;
-          white-space:nowrap
-      }
-      .nm-wholesale-title-foto{
-          align-items:flex-start
-      }
-      .nm-wholesale-header-title{
-          font-size:14px;
-          line-height:15px
-      }
-      .span_one_variant{
-          margin-right:0;
-          font-weight:400
-      }
-      .nm-easywholesale-qty{
-          padding-left:10px!important;
-          padding-right:10px!important;
-          width:40px!important
-      }
-      .nm-easywholesale-table{
-          margin-right:0
-      }
-      .nm-easywholesale-qty-container-one{
-          padding-right:0
-      }
-      .nm-easywholesale-name-and-price-only{
-          font-size:12px
-      }
-      .nm-wholesale-filter{
-          font-size:12px;
-          font-weight:700
-      }
-      .nm-searchByProduct-container{
-          flex-direction:column
-      }
-      .nm-easywholesale-select-search-container,.nm-searchByProduct{
-          width:100%
-      }
-      .nm-easywholesale-select-container{
-          min-width:unset;
-          width:-webkit-fill-available
-      }
-      .nm-easywholesale-footer{
-          font-size:14px
-      }
-      .nm-easywholesale-table-page{
-          margin-bottom:0;
-          margin-left:0
-      }
-  }
-  @media screen and (max-width:340px){
-      .nm-wholesale-header-price{
-          flex-direction:column;
-          padding-top:5px;
-          align-items:flex-start
-      }
-      .nm-wholesale-header-price span{
-          white-space:inherit
-      }
-  }
-  .nm-wholesale-main{
-      max-width:960px
-  }
-  .nm-wholesale-fix{
-      margin-right:10px;
-      margin-left:10px;
-      background:#fff;
-      box-shadow:0 4px 10px rgba(185,173,173,.15),0 -3px 10px rgba(185,173,173,.15);
-      border-radius:10px
-  }
-  .nm-wholesale-fix-inner{
-      display:flex;
-      align-items:baseline;
-      padding:10px 15px 0;
-      flex-direction:row;
-      max-width:960px;
-      position:relative;
-      left:0
-  }
-  .nm-wholesale-fix-footer{
-      border:0;
-      margin-top:0;
-      width:60%;
-      display:flex;
-      flex-direction:row
-  }
-  .nm-easywholesale-selected-page_fix{
-      padding-bottom:10px;
-      text-align:left
-  }
-  .nm-easywholesale-total-fix{
-      padding-right:10px;
-      padding-top:10px;
-      white-space:nowrap
-  }
-  .nm-easywholesale-add-to-cart-container-page-fix{
-      margin-left:0;
-      margin-top:0;
-      float:right;
-      font-size:initial;
-      width:40%;
-      text-align:right
-  }
-  .nm-wholesale-main-fix{
-      position:sticky;
-      left:0;
-      right:0;
-      z-index:2000000;
-      border-top:0 solid;
-      background-color:#ffffff00;
-      bottom:26px;
-      max-width:10px
-  }
-  @media screen and (max-width:1000px){
-      .nm-wholesale-fix-inner{
-          flex-direction:column
-      }
-      .nm-easywholesale-add-to-cart-container-page-fix{
-          margin-left:0;
-          width:100%;
-          text-align:center
-      }
-      .nm-wholesale-fix-footer{
-          width:100%
-      }
-      .nm-easywholesale-total-fix{
-          padding-right:165px
-      }
-  }
-  @media screen and (max-width:450px){
-      .nm-easywholesale-add-to-cart-container-page-fix button{
-          width:100%!important
-      }
-      .nm-wholesale-fix-inner{
-          flex-direction:column
-      }
-      .nm-easywholesale-add-to-cart-container-page-fix{
-          margin-left:0;
-          width:100%
-      }
-      .nm-wholesale-fix-footer{
-          width:100%
-      }
-      .nm-easywholesale-total-fix{
-          padding-right:0
-      }
-  }
-  .nm-easywholesale-linkfoto{
-      border-bottom:none!important
-  }
-  #nm-easywholesale-popup-wrapper{
-      position:fixed;
-      z-index:9999999;
-      width:100%;
-      height:100%;
-      top:0;
-      background:rgba(10,10,10,.77);
-      display:none
-  }
-  #nm-easywholesale-inner-block{
-      display:flex;
-      display:-ms-flexbox;
-      justify-content:center;
-      align-content:center;
-      width:100%;
-      position:fixed;
-      height:100%
-  }
-  #nm-easywholesale-popup-img{
-      max-width:100%;
-      max-height:100%;
-      width:800px;
-      margin:auto;
-      z-index:9998;
-      height:auto
-  }
-  #nm-easywholesale-popup-close{
-      position:absolute;
-      top:35px;
-      right:35px;
-      z-index:99999999;
-      max-width:50px
-  }
-  @media screen and (max-width:550px){
-      #nm-easywholesale-popup-close{
-          position:absolute;
-          top:0;
-          right:0;
-          z-index:99999999;
-          max-width:50px
-      }
-  }
-  @keyframes spin{
-      from{
-          transform:rotate(0)
-      }
-      to{
-          transform:rotate(360deg)
-      }
-  }
-  .nm-wholesale-stick-added{
-      position:fixed;
-      top:0;
-      left:0;
-      margin:10px;
-      padding:10px;
-      z-index:20000
-  }
-  @media screen and (max-width:481px){
-      #nm-searchByProduct.nm-searchByProduct{
-          width:100%!important;
-          font-size:16px
-      }
-      .nm-easywholesale-select-search-container select{
-          font-size:16px;
-          overflow:hidden
-      }
-  }
-  .nm-easywholesale-nonlogged-text{
-    padding-right: 7px;
-    font-size:14px;
-    white-space:nowrap
-  }
-  .nm-easywholesale-nonlogged-text a{
-      text-decoration:none
-  }
-  @media (max-width:560px){
-      .nm-easywholesale-nonlogged-text{
-          font-size:12px;
-          white-space:nowrap
-      }
-  }
-  .for_discount_price,.for_discount_price_header{
-      font-size:12px!important;
-      color:rgba(52,61,71,.65);
-      text-decoration:line-through
-  }
-  .nm-price-outstock{
-      opacity:.4
-  }
-  .for_discount_price{
-      padding-right:10px
-  }
-  </style>
-  <style>
-    .nm-easywholesale-qty-decrease, .nm-easywholesale-qty-increase {
-      display: none
-    }
-  </style>
-
-  <script>
-    var layoutValues = {
-        "LayoutMoreVariantsText" : "Show more variants",
-        "VariantsPerPage" : 1024,
-        "HeightRowsLimit" : 10,
-        "addToCartSlicky" : 1,
-        "currency"  : '{{ 0 | money | replace: "0.00", "X.XX" | replace: "0,00", "X,XX" }}',
-        "money_format" : '{% raw %}${{amount}}{% endraw %}'
-    };
-  </script>
-  
+            <style>
+            .nm-primary-background-color { background-color:#343d47 !important}
+            .nm-wholesale-btn-add-to-cart { color:#ffffff !important}
+            .nm-wholesale-table-footer-btn .nm-secondary-background-color { background-color:#ef5137 !important}
+            .nm-primary-border-color { border-color:#343d47 !important}
+            .nm-primary-color { color: #343d47 !important}
+            .nm-secondary-border-color { border-color: #ef5137 !important}
+            .nm-secondary-text-color { color: #ef5137 !important}
+            .nm-nice-select { border-color: #ef5137 !important}
+            .nm-secondary-background-color { background-color: #ef5137 !important}
+            .nm-layout-text-color { color: #212b36 !important}
+            .nm-layout-border-color { border-color: #d8d8d8 !important}
+            .nm-primary-color-fill { fill: #343d47 !important}
+            .nm-secondary-color-fill { fill: #ef5137 !important}
+            .nm-wholesale-table-under-footer-total .nm-layout-text-color { color: #212b36 !important; border-color: #d8d8d8 !important;}
+            .nm-easywholesale-select-container select,.nm-easywholesale-select-search-container select{text-indent:1px;text-overflow:"";outline:0;cursor:pointer;padding-left:10px!important;max-width:100%}.nm-easywholesale-form{display:flex;flex-direction:column;padding:10px 10px 10px 0}.nm-easywholesale-header{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center}.nm-easywholesale-header-page{overflow:hidden;height:auto;margin-left:15px}.nm-easywholesale-collection-head{margin-top:20px!important}.nm-easywholesale-select-container{display:flex;flex-direction:row;align-items:end;margin-right:15px;height:40px;align-items:center;max-width:30%;min-width:100px}.nm-easywholesale-select-container:last-child,.nm-easywholesale-select-search-container:last-child{margin-right:0}.nm-easywholesale-select-container select{border:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;flex-grow:1;background:0 0;z-index:10;margin:0;display:block!important;box-shadow:none;margin-left:-10px!important}.nm-easywholesale-select-container .nm-svg{position:relative;right:7px;line-height:0}.nm-easywholesale-table{display:flex;flex-direction:column;margin-bottom:10px;overflow:auto;border-top:2px solid;margin-right:15px}.nm-easywholesale-table-page{overflow:visible;margin-left:15px}.nm-easywholesale-table-product{border-bottom:2px solid}.nm-easywholesale-item{display:flex;flex-direction:row;align-items:center;border-top:1px solid;padding-top:7px;padding-bottom:7px}.nm-easywholesale-name-and-price{display:flex;flex-direction:row;width:100%;font-size:initial;align-items:center}.nm-easywholesale-img{width:40px;height:40px;margin-right:10px;display:block!important}.nm-easywholesale-img img{vertical-align:-webkit-baseline-middle}.nm-easywholesale-name{flex-grow:1;padding-right:5px;text-align:left}.nm-easywholesale-price{margin-right:30px;white-space:nowrap;font-weight:700;text-align:left;display:flex;flex-direction:row;align-items:center}.nm-easywholesale-qty-container{display:flex;flex-direction:row;align-items:center;margin-left:auto;float:right}.nm-easywholesale-qty{width:60px!important;height:30px;margin:5px!important;text-align:center;outline:0;padding-left:15px;padding-right:15px;font-size:16px;border-style:solid;border-width:1px}.nm-easywholesale-qty-decrease,.nm-easywholesale-qty-increase{cursor:pointer;width:20px;height:30px;line-height:30px;text-align:center;font-size:18px;font-weight:700;font-family:Arial,Helvetica,sans-serif;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.nm-easywholesale-footer{margin-top:10px;margin-bottom:10px;font-weight:700}.nm-easywholesale-total{padding-right:140px;padding-top:10px;white-space:nowrap}.nm-wholesale-collapse,.nm-wholesale-show-more-variants{border:0 solid;font-size:.9em;position:relative;padding-left:15px;padding-top:0;outline:0;text-decoration:none;font-weight:600;background-color:transparent}.nm-hide-this-row,.nm-hideAllVisible,.nm-wholesale-table-under-footer-collapse{display:none}.svg-angle-down_show_more{position:absolute;width:10px;transform:rotate(90deg)}.svg-angle-up_show_more{position:absolute;width:10px;transform:rotate(270deg)}.nm-noborder{border-top:0!important;border-bottom:0!important}.nm-wholesale-table-under-footer,.nm-wholesale-table-under-footer-collapse{border-bottom:2px solid;text-align:left;flex-direction:row;font-size:initial}.nm-wholesale-table-under-footer{display:flex;align-items:center}.nm-wholesale-table-under-footer-collapse{align-items:center}.nm-wholesale-collapse,.nm-wholesale-show-more-variants{padding-bottom:10px;width:100%;line-height:20px;margin-bottom:0}.nm-wholesale-collapse-product,.nm-wholesale-show-more-variants-product{width:auto!important}.nm-no-product-matched{margin-top:15px!important;margin-bottom:15px!important;text-align:center}.nm-title-foto{margin-top:20px}.nm-wholesale-title-foto{display:flex;flex-direction:row;margin-top:1px;align-items:center}.nm-wholesale-header-price{text-align:right;width:100%;padding-left:10px;margin-right:15px;display:flex;flex-direction:column}.nm-wholesale-header-title{width:-webkit-fill-available;font-size:initial}.nm-wholesale-header-image{width:80px;margin-right:20px;margin-left:15px;margin-top:15px;min-width:80px}.nm-wholesale-header-image-img{max-width:80px!important;max-height:100px!important;margin-left:0!important}.nm-easywholesale-page-footer{margin-top:20px;border-top:1px solid #000;border-bottom:1px solid #000;margin-left:15px;margin-right:15px}.nm-easywholesale-selected{padding-top:10px;flex-grow:1;text-align:left}.nm-easywholesale-name-and-price-only,.nm-wholesale-right-block{flex-direction:row;display:flex;width:100%}.nm-easywholesale-selected-page{padding-bottom:10px}.nm-wholesale-right-block{align-items:center}.span_one_variant{margin-right:30px;font-size:initial;font-weight:700}.nm-easywholesale-qty-container-one{padding-right:15px}.nm-easywholesale-add-to-cart-container{text-align:left;margin-top:20px;font-size:initial}.nm-wholesale-btn-add-to-cart{border:none;outline:0;padding:10px 60px;border-radius:2px;margin-bottom:10px;line-height:20px!important;width:auto!important;cursor:pointer}.nm-wholesale-btn-add-to-cart-enabled:active{box-shadow:0 0 7px 1px rgba(0,0,0,.35);position:relative;top:2px;left:2px}.nm-searchByProduct-container{display:flex;flex-direction:row}.nm-searchByProduct{flex-direction:row;width:50%!important;height:40px!important;background:url(https://cdn.shopify.com/s/files/1/0015/8996/8995/t/1/assets/search.png?v=1587482532) 7px 12px no-repeat;-webkit-background-size:20px!important;background-size:15px!important;padding-left:30px!important;border:1px solid #eee!important;margin-top:15px!important;margin-right:20px!important;background-color:#fff!important}.nm-view-collapse,.nm-view-other{padding-top:10px;padding-bottom:0;border-top:1px solid #d8d8d8;border-bottom:none;padding-left:0;text-align:left}.nm-easywholesale-select-search-container{display:flex;flex-direction:row;align-items:end;margin-right:15px;height:40px;align-items:center;width:50%;margin-top:15px}.nm-easywholesale-select-search-container select{border:1px solid #eee;-webkit-appearance:none;-moz-appearance:none;appearance:none;flex-grow:1;z-index:4;margin:0;display:block!important;height:40px!important;background-color:#fff!important;padding-top:0;padding-bottom:0}.nm-easywholesale-add-to-cart-container-page{margin-top:30px;margin-left:15px;margin-right:15px}#nm-no-search{width:100%;text-align:center;font-weight:700;display:none;margin-top:30px}.nm-easywholesale-table-and-header{margin-left:100px}.nm-view-collapse{display:none}.nm-other-div{position:absolute;opacity:0;z-index:-1;height:auto;overflow:hidden;display:none}.nm-wholesale-table-container-page{box-shadow:0 0 10px rgba(0,0,0,.05);padding:10px;margin-top:20px}@media screen and (max-width:450px){.nm-easywholesale-add-to-cart-container-page,.nm-easywholesale-page-footer{margin-left:0;margin-right:0}.nm-easywholesale-header-page{margin-left:0}.nm-wholesale-header-image{margin-right:10px;width:50px;margin-left:0;margin-top:0;min-width:50px}.nm-wholesale-header-image-img{max-width:50px!important}.nm-wholesale-right-block{flex-direction:column;margin-right:5px}.nm-wholesale-header-price{text-align:left;padding-left:0;margin-right:0;flex-direction:row;padding-top:5px;align-items:center}.nm-wholesale-header-price span{text-align:left;padding-left:0;font-size:14px;padding-right:10px;white-space:nowrap}.nm-wholesale-title-foto{align-items:flex-start}.nm-wholesale-header-title{font-size:14px;line-height:15px}.span_one_variant{margin-right:0;font-weight:400}.nm-easywholesale-qty{padding-left:10px!important;padding-right:10px!important;width:40px!important}.nm-easywholesale-table{margin-right:0}.nm-easywholesale-qty-container-one{padding-right:0}.nm-easywholesale-name-and-price-only{font-size:12px}.nm-wholesale-filter{font-size:12px;font-weight:700}.nm-searchByProduct-container{flex-direction:column}.nm-easywholesale-select-search-container,.nm-searchByProduct{width:100%}.nm-easywholesale-select-container{min-width:unset;width:-webkit-fill-available}.nm-easywholesale-footer{font-size:14px}.nm-easywholesale-table-page{margin-bottom:0;margin-left:0}}@media screen and (max-width:340px){.nm-wholesale-header-price{flex-direction:column;padding-top:5px;align-items:flex-start}.nm-wholesale-header-price span{white-space:inherit}}.nm-wholesale-main{max-width:960px}.nm-wholesale-fix{margin-right:10px;margin-left:10px;background:#fff;box-shadow:0 4px 10px rgba(185,173,173,.15),0 -3px 10px rgba(185,173,173,.15);border-radius:10px}.nm-wholesale-fix-inner{display:flex;align-items:baseline;padding:10px 15px 0;flex-direction:row;max-width:960px;position:relative;left:0}.nm-wholesale-fix-footer{border:0;margin-top:0;width:60%;display:flex;flex-direction:row}.nm-easywholesale-selected-page_fix{padding-bottom:10px;text-align:left}.nm-easywholesale-total-fix{padding-right:10px;padding-top:10px;white-space:nowrap}.nm-easywholesale-add-to-cart-container-page-fix{margin-left:0;margin-top:0;float:right;font-size:initial;width:40%;text-align:right}.nm-wholesale-main-fix{position:sticky;left:0;right:0;z-index:2000000;border-top:0 solid;background-color:#ffffff00;bottom:26px;max-width:10px}@media screen and (max-width:1000px){.nm-wholesale-fix-inner{flex-direction:column}.nm-easywholesale-add-to-cart-container-page-fix{margin-left:0;width:100%;text-align:center}.nm-wholesale-fix-footer{width:100%}.nm-easywholesale-total-fix{padding-right:165px}}@media screen and (max-width:450px){.nm-easywholesale-add-to-cart-container-page-fix button{width:100%!important}.nm-wholesale-fix-inner{flex-direction:column}.nm-easywholesale-add-to-cart-container-page-fix{margin-left:0;width:100%}.nm-wholesale-fix-footer{width:100%}.nm-easywholesale-total-fix{padding-right:0}}.nm-easywholesale-linkfoto{border-bottom:none!important}#nm-easywholesale-popup-wrapper{position:fixed;z-index:9999999;width:100%;height:100%;top:0;background:rgba(10,10,10,.77);display:none}#nm-easywholesale-inner-block{display:flex;display:-ms-flexbox;justify-content:center;align-content:center;width:100%;position:fixed;height:100%}#nm-easywholesale-popup-img{max-width:100%;max-height:100%;width:800px;margin:auto;z-index:9998;height:auto}#nm-easywholesale-popup-close{position:absolute;top:35px;right:35px;z-index:99999999;max-width:50px}@media screen and (max-width:550px){#nm-easywholesale-popup-close{position:absolute;top:0;right:0;z-index:99999999;max-width:50px}}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.nm-wholesale-stick-added{position:fixed;top:0;left:0;margin:10px;padding:10px;z-index:20000}@media screen and (max-width:481px){#nm-searchByProduct.nm-searchByProduct{width:100%!important;font-size:16px}.nm-easywholesale-select-search-container select{font-size:16px;overflow:hidden}}.nm-easywholesale-nonlogged-text{font-size:14px;white-space:nowrap}.nm-easywholesale-nonlogged-text a{text-decoration:none}@media (max-width:560px){.nm-easywholesale-nonlogged-text{font-size:12px;white-space:nowrap}}.for_discount_price,.for_discount_price_header{font-size:12px!important;color:rgba(52,61,71,.65);text-decoration:line-through}.nm-price-outstock{opacity:.4}.for_discount_price{padding-right:10px}
+            </style>
+        
+        <style>.nm-easywholesale-header, .nm-easywholesale-qty-decrease, .nm-easywholesale-qty-increase {
+    display: none
+}</style><script>
+            var layoutValues = {
+                "LayoutMoreVariantsText" : "Show more variants",
+                "VariantsPerPage" : 1024,
+                "HeightRowsLimit" : 10,
+                "addToCartSlicky" : 1,
+                "currency"  : '{{ 0 | money | replace: "0.00", "X.XX" | replace: "0,00", "X,XX" }}',
+                "money_format" : '{% raw %}${{amount}}{% endraw %}'
+            };
+        </script>
 {% assign nm_easywholesale_the_page = true %}
 {% assign nm_easywholesale_goToCart = true %}
 {% assign nm_easywholesale_showProductDescription = false %}
 {% assign nm_wholesale_qtyStep_page = 1 %}
 {% assign ShowCollectionHead = 0 %}
 {% assign nm_easywholesale_colorCollectionHead = "" %}
-{% assign nm_easywholesale_showProductImage = false %}
-{% assign nm_easywholesale_showVariantImage = false %}
+{% assign nm_easywholesale_showProductImage = true %}
+{% assign nm_easywholesale_showVariantImage = true %}
 {% assign nm_easywholesale_variant_as_product = false %}
 {% assign nm_easywholesale_showForm = true %} 
 {% assign nm_easywholesale_showPrices = true %}
@@ -743,19 +61,28 @@
 {% assign collection_order = "" %}
 {% assign collection_order_add = "" %}
 {% assign nm_easywholesale_pleasewait_now = false %}
+
 {% assign nm_easywholesale_textSearch = "Search..." %}
+
+
 {% assign nm_easywholesale_setLinkOnProductTitle = true %}
 {% assign nm_easywholesale_setLinkOnVariantTitle = false %}
 {% assign nm_easywholesale_add_to_cart = "Add to cart" %}
-{% assign nm_easywholesale_showAllOutOfStock = true %}
+{% assign nm_easywholesale_showAllOutOfStock = false %}
 {% assign nm_easywholesale_showViewOtherLink = true %}
+
 {% assign nm_easywholesale_showAllVariants = 1 %}
 {% assign nm_easywholesale_LayoutCountVariantsShow = 1| minus: 1 %}
 {% assign nm_easywholesale_ViewOtherVariantsText = "View other %%count_variants%% variants" %}
 
+
+
 {% unless customer %}
 	{% assign nm_easywholesale_showPrices = false %}
 {% endunless %}
+
+ 
+
 
 {% capture the_snippet_content %}{% include "wholesale-page-config" %}{% endcapture %}
 {% unless the_snippet_content contains "Liquid error" %}
@@ -810,7 +137,7 @@
 {% if nm_easywholesale_showForm %}
 
 <div id="nm-wholesale-spinner" style="justify-content: center; {% unless nm_easywholesale_pleasewait_now %}display:none; {% endunless %}font-size: 18px;" >
-	Loading...
+	Please wait...
 </div>
 <span id="nm_easywholesale_TotalSelectedItemsVar" style="display:none;">Total selected items:</span>
 <span id="nm_easywholesale_ButtonAddToCartVar" style="display:none;">{{ nm_easywholesale_add_to_cart }}</span>
@@ -825,7 +152,7 @@ function nm_wholesale_show_spinner()
     }
 }
 </script>
-<div class="nm-wholesale-main nm-easywholesale-container" style="display: none; margin-left: auto; margin-right: auto;">   
+<div class="nm-wholesale-main nm-easywholesale-container" style="display: none;">   
 
 <input type="hidden" id="nm-wholesale-page-type" value="page">
 <input type="hidden" id="nm_wholesale_qtyStep_page" value="{{ nm_wholesale_qtyStep_page }}">
@@ -833,8 +160,8 @@ function nm_wholesale_show_spinner()
     <input id="nm_easywholesale_variant_as_product" value="1" type="hidden">
 {% endif %}
 
-                {% assign collection_handle_array = ", aspire, batteries, 100club, 2027, 7-daze, 86-delta, ace-bar, activ, activ-delta, advken, air-bar, air-factory, aloha-sun-1, alternative-display, alternative-sale, 20-alternative-sale, aokit-1, aqua-1, argus, asvape-1, auxo, bad-drip, bang-disposable, beard, berryfornia, big-boy, biobx, biobx-1, black-out, blankz-1, blastin-foggins, blaze, blummlab, blvd-3k, blvk-1, blvk-e-juice, bmor@" | split: "@" %}
-                {% assign page_id_array = "83398361174@" | split: "@" %}
+                {% assign collection_handle_array = "" | split: "@" %}
+                {% assign page_id_array = "" | split: "@" %}
                 {% assign discount_id_array = "" | split: "@" %}
                 
                 {% assign count = 0 %}
@@ -898,7 +225,6 @@ function nm_wholesale_show_spinner()
                                     {% endfor %}    
                             
                                 </select>
-                                
 
     </div>
  </div>
@@ -911,9 +237,9 @@ function nm_wholesale_show_spinner()
 <div id="nm-no-search">No products matched your search</div>
 <div class="nm-wholesale-table-container-all" id="nm-wholesale-table-container-all">
 
-                {% assign collection_handle_array = ", aspire, batteries, 100club, 2027, 7-daze, 86-delta, ace-bar, activ, activ-delta, advken, air-bar, air-factory, aloha-sun-1, alternative-display, alternative-sale, 20-alternative-sale, aokit-1, aqua-1, argus, asvape-1, auxo, bad-drip, bang-disposable, beard, berryfornia, big-boy, biobx, biobx-1, black-out, blankz-1, blastin-foggins, blaze, blummlab, blvd-3k, blvk-1, blvk-e-juice, bmor@" | split: "@" %}
-                {% assign product_handle_array = "@" | split: "@" %}
-                {% assign page_id_array = "83398361174@" | split: "@" %}
+                {% assign collection_handle_array = "" | split: "@" %}
+                {% assign product_handle_array = "" | split: "@" %}
+                {% assign page_id_array = "" | split: "@" %}
                 
                 {% assign count = 0 %}
                 {% assign ind = -1 %}
@@ -999,7 +325,7 @@ function nm_wholesale_show_spinner()
                 </div>
                 {% endif %}
                 <div class="nm-wholesale-right-block">   
-                      <div tabindex="-1" class="nm-wholesale-header-title" data-inventory="{{ last_variant.inventory_quantity }}" data-countvar="{{ count_variant2 }}">{% if nm_easywholesale_setLinkOnProductTitle %}<a tabindex="-1" href="/products/{{ product_temp.handle }}" class="nm-easywholesale-linktitle">{% endif %}<strong>{% if nm_easywholesale_callback_title %}{% include "wholesale-page-callback-title" %}{% else %}{{ product_temp.title }}{% if last_variant.sku != null and last_variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ last_variant.sku }})</small>{% endif %}{% if last_variant.barcode != null and last_variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ last_variant.barcode }})</small>{% endif %}{% endif %}</strong>{% if nm_easywholesale_setLinkOnProductTitle %}</a>{% endif %}{% if count_variant2 == 1 and last_variant.title == "Default Title" %}{% endif %}{% if last_variant.inventory_quantity <= 0 and count_variant2 == 1 %}{% unless nm_easywholesale_deleteTextOutOfStock contains last_variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_showProductDescription %}{% assign product_desc_parts = product_temp.description | split: "<!--for_easywholesale-->" %}<br><small>{{ product_desc_parts[1] }}</small>{% endif %}</div>
+                      <div class="nm-wholesale-header-title" data-inventory="{{ last_variant.inventory_quantity }}" data-countvar="{{ count_variant2 }}">{% if nm_easywholesale_setLinkOnProductTitle %}<a href="/products/{{ product_temp.handle }}" class="nm-easywholesale-linktitle">{% endif %}<strong>{% if nm_easywholesale_callback_title %}{% include "wholesale-page-callback-title" %}{% else %}{{ product_temp.title }}{% if last_variant.sku != null and last_variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ last_variant.sku }})</small>{% endif %}{% if last_variant.barcode != null and last_variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ last_variant.barcode }})</small>{% endif %}{% endif %}</strong>{% if nm_easywholesale_setLinkOnProductTitle %}</a>{% endif %}{% if count_variant2 == 1 and last_variant.title == "Default Title" %}{% endif %}{% if last_variant.inventory_quantity <= 0 and count_variant2 == 1 %}{% unless nm_easywholesale_deleteTextOutOfStock contains last_variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_showProductDescription %}{% assign product_desc_parts = product_temp.description | split: "<!--for_easywholesale-->" %}<br><small>{{ product_desc_parts[1] }}</small>{% endif %}</div>
                       {% if nm_easywholesale_showPrices %}
                         {% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}
 {% assign product_temp_price = product_temp.price_min %}
@@ -1046,7 +372,7 @@ function nm_wholesale_show_spinner()
                                      {% endunless %}
                                  {% else %}
                                      <div class="nm-easywholesale-qty-container nm-easywholesale-qty-container-one nm-easywholesale-nonlogged-text" >
-                                     <a href="/account/login"><strong>login to see price</strong></a>
+                                     <a href="/account/login">login to see price</a>
                                      </div>                    
                                  {% endif %}       
                         {% endif %}                      
@@ -1144,7 +470,7 @@ function nm_wholesale_show_spinner()
                                         {% endif %} 
                                         <div class="nm-easywholesale-name-and-price-only"{% if nm_easywholesale_variant_as_product %} style="margin-left: 10px;"{% endif %}>
                                         
-                                            <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a tabindex="-1" href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
+                                            <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
                             
 {% assign variant_price = variant.price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %}                                        
@@ -1163,7 +489,7 @@ function nm_wholesale_show_spinner()
                                         {% endunless %}
                                       {% else %}
                                          <div class="nm-easywholesale-qty-container nm-easywholesale-nonlogged-text">
-                                         <a href="/account/login"><strong>login to see price</strong></a>
+                                         <a href="/account/login">login to see price</a>
                                          </div> 
                                       {% endif %}
                                       
@@ -1262,7 +588,7 @@ function nm_wholesale_show_spinner()
                 </div>
                 {% endif %}
                 <div class="nm-wholesale-right-block" data-inventory="{{ last_variant.inventory_quantity }}" data-countvar="{{ count_variant2 }}">   
-                      <div tabindex="-1" class="nm-wholesale-header-title">{% if nm_easywholesale_setLinkOnProductTitle %}<a tabindex="-1" href="/products/{{ product_temp.handle }}" class="nm-easywholesale-linktitle">{% endif %}<strong>{% if nm_easywholesale_callback_title %}{% include "wholesale-page-callback-title" %}{% else %}{{ product_temp.title }}{% if last_variant.sku != null and last_variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ last_variant.sku }})</small>{% endif %}{% if last_variant.barcode != null and last_variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ last_variant.barcode }})</small>{% endif %}{% endif %}</strong>{% if nm_easywholesale_setLinkOnProductTitle %}</a>{% endif %}{% if count_variant2 == 1 and last_variant.title == "Default Title" %}{% endif %}{% if last_variant.inventory_quantity <= 0 and count_variant2 == 1 %}{% unless nm_easywholesale_deleteTextOutOfStock contains last_variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_showProductDescription %}{% assign product_desc_parts = product_temp.description | split: "<!--for_easywholesale-->" %}<br><small>{{ product_desc_parts[1] }}</small>{% endif %}</div>
+                      <div class="nm-wholesale-header-title">{% if nm_easywholesale_setLinkOnProductTitle %}<a href="/products/{{ product_temp.handle }}" class="nm-easywholesale-linktitle">{% endif %}<strong>{% if nm_easywholesale_callback_title %}{% include "wholesale-page-callback-title" %}{% else %}{{ product_temp.title }}{% if last_variant.sku != null and last_variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ last_variant.sku }})</small>{% endif %}{% if last_variant.barcode != null and last_variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ last_variant.barcode }})</small>{% endif %}{% endif %}</strong>{% if nm_easywholesale_setLinkOnProductTitle %}</a>{% endif %}{% if count_variant2 == 1 and last_variant.title == "Default Title" %}{% endif %}{% if last_variant.inventory_quantity <= 0 and count_variant2 == 1 %}{% unless nm_easywholesale_deleteTextOutOfStock contains last_variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_showProductDescription %}{% assign product_desc_parts = product_temp.description | split: "<!--for_easywholesale-->" %}<br><small>{{ product_desc_parts[1] }}</small>{% endif %}</div>
                       
                       {% if nm_easywholesale_showPrices %}
                         {% unless nm_easywholesale_hidePricesProductIds contains product_temp.id %}
@@ -1309,7 +635,7 @@ function nm_wholesale_show_spinner()
                                         {% endunless %}
                                       {% else %}
                                          <div class="nm-easywholesale-qty-container nm-easywholesale-qty-container-one nm-easywholesale-nonlogged-text" >
-                                         <a href="/account/login"><strong>login to see price</strong></a>
+                                         <a href="/account/login">login to see price</a>
                                          </div>                    
                                       {% endif %}                        
                  
@@ -1419,7 +745,7 @@ function nm_wholesale_show_spinner()
                                         {% endif %} 
                                         <div class="nm-easywholesale-name-and-price-only"{% if nm_easywholesale_variant_as_product %} style="margin-left: 10px;"{% endif %}>
                                         
-                                            <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a tabindex="-1" href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
+                                            <div class="nm-easywholesale-name nm-primary-color">{% if nm_easywholesale_setLinkOnVariantTitle %}<a href="/products/{{ product_temp.handle }}?variant={{ variant.id }}" class="nm-easywholesale-linktitle">{% endif %}{{ variant_title }}{% if variant.sku != null and variant.sku != "" and nm_easywholesale_showProductSku %} <small>({{ variant.sku }})</small>{% endif %}{% if variant.barcode != null and variant.barcode != "" and nm_easywholesale_showProductBarcode %} <small>({{ variant.barcode }})</small>{% endif %}{% if variant.inventory_quantity <= 0 %}{% unless nm_easywholesale_deleteTextOutOfStock contains variant.id %} <small>({{ nm_easywholesale_textOutOfStock }})</small>{% endunless %}{% endif %}{% if nm_easywholesale_setLinkOnVariantTitle %}</a>{% endif %}</div>
                                             
 {% assign variant_price = variant.price %}           
 {% if nm_easywholesale_callback_price %}{% capture the_snippet_content %}{% include "wholesale-page-callback-price", typ: "variant" %}{% endcapture %}{% endif %} 
@@ -1439,7 +765,7 @@ function nm_wholesale_show_spinner()
                                         {% endunless %}
                                       {% else %}
                                              <div class="nm-easywholesale-qty-container nm-easywholesale-nonlogged-text" >
-                                             <a href="/account/login"><strong>login to see price</strong></a>
+                                             <a href="/account/login">login to see price</a>
                                              </div>                    
                                        {% endif %} 
                                       {% endunless %}
