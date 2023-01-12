@@ -1890,10 +1890,12 @@ ul.twopro{
 .card {
     border: none;
 }
-@media (min-width: 1591px) {
-    .owl-toppro .grid__item:nth-child(5), .owl-toppro .grid__item:nth-child(9) {
+@media (min-width: 1591px) { /* top-product.liquid - main-page TOP VAPE PRODUCT */
+
+    .owl-toppro .grid__item:nth-child(6), .owl-toppro .grid__item:nth-child(12) {
         border: none;
    }
+   /*
     .owl-toppro .grid__item:nth-child(3) {
         grid-column: 4;
         grid-row: 3;
@@ -1903,6 +1905,8 @@ ul.twopro{
         grid-row-end: 3;
         padding-top: 65px;
    }
+
+   */
 }
 .pro-tab{
     position: relative;
