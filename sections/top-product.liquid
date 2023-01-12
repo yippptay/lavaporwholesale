@@ -25,17 +25,17 @@
               <div class="rless">
                   <div class="owl-toppro">
                       {% for product in collection.products limit : 12 %}
-                              <div class="grid__item col-12 cless list-unstyled">
-                              {% render 'product-card-banner',
-                              product_card_product: product,
-                              block_id: block.id,
-                              media_size: section.settings.image_ratio,
-                              show_rating: section.settings.show_rating,
-                              picker_type: section.settings.picker_type,
-                              show_variants: false,
-                              show_colorswatch: section.settings.show_colorswatch,
-                              display_product_type: section.settings.display_product_type  %}
-                              </div>
+                            <div class="grid__item col-12 cless list-unstyled">
+                            {% render 'product-card-banner',
+                            product_card_product: product,
+                            block_id: block.id,
+                            media_size: section.settings.image_ratio,
+                            show_rating: section.settings.show_rating,
+                            picker_type: section.settings.picker_type,
+                            show_variants: false,
+                            show_colorswatch: section.settings.show_colorswatch,
+                            display_product_type: section.settings.display_product_type  %}
+                            </div>
                       {% else %}
                           {%- for i in (1..6) -%}
                               <div class="twopro grid__item col-12 cless">
@@ -52,7 +52,7 @@
 
 {% schema %}
 {
-  "name": "Top Product I",
+  "name": "Top Product",
   "tag": "section",
   "class": "spaced-section",
   "settings": [
