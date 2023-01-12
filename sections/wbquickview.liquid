@@ -189,22 +189,22 @@
                     </div>
 
                       {% comment %} Table Header {% endcomment %}
-                    <table width="100%" style="padding-right: -15px">
-                      <tbody>
-                        <tr>
-                          <td width="15%"><strong>SKU</strong></td>
-                          <td width="45%"><strong>Options</strong></td>
-                          <td width="10%" style="text-align: center;"><strong>Price</strong></td>
-                          <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                          <td width="20%" style="text-align: center;"><strong>Stock Level</strong></td>    
-                        </tr>
-                      </tbody>
-                    </table> <!-- /.table -->
+                      <table width="100%">
+                        <tbody>
+                          <tr">
+                            <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
+                            <td width="45%"><strong>Options</strong></td>
+                            <td width="10%" style="text-align: center;"><strong>Price</strong></td>
+                            <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
+                            <td width="20%" style="text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
+                          </tr>
+                        </tbody>
+                      </table> <!-- /.table -->
 
                       {% comment %} Table Contents {% endcomment %}
                     {% assign linklist = linklists['order-form'] %}
                     <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; min-height: 100px; max-height: 200px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
                       {% for variant in product.variants %}
                         {% include 'wcp_variant' with variant %}
 
@@ -214,7 +214,7 @@
                                 <tbody>
                                   <tr>
     
-                                    <td width="15%">
+                                    <td width="15%" style="padding-left: 8px;">
                                       {{ variant.sku }}
                                     </td>
                                   
@@ -913,7 +913,7 @@ function change() // no ';' here
 <script>
 $(document).ready(function()
 {
-  $("tr:odd").css({
+  $("tr:even").css({
     "background-color":"#ececec",
     "color":"#000"});
 });
@@ -1040,15 +1040,6 @@ $(document).ready(function () {
               }
             };
             moveAlong();
-          });
-        });
-      </script>
-
-      <script>
-        $(document).ready(function() {
-          $("tr:odd").css({
-            "background-color": "#ececec",
-            "color": "#000"
           });
         });
       </script>

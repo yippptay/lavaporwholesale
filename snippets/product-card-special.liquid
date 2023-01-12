@@ -209,15 +209,21 @@
             </div>
 
             {%- else -%}
-                <div class="card__content">
-                    <h2 class="card__text h3">
-                        <a href="{{ product_card_product.url | default: '#' }}" >
-                            {{ product_card_product.title }}
-                        </a>
-                    </h2>
-                </div>
-            {%- endif -%}
 
+            {% comment %} Temporary Image for Card {% endcomment %}
+            <div class="card__content">
+                <a href="{{ product_card_product.url | default: '#' }}" title="{{ product_card_product.title | escape }}">
+                    <img class="img-fluid mx-auto"
+                        src="{{ 'coming-soon.jpeg' | asset_url }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 992px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 768px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+                        loading="lazy"
+                        width="{{ product_card_product.featured_media.width }}"
+                        height="{{ product_card_product.featured_media.height }}"
+                        alt="{{ media.preview_image.alt | escape }}">
+                </a>
+              </div>
+            {%- endif -%}
+            
             <div class="card__badge">
                 {%- if product_card_product.available == false -%}
                     <span>{{ 'products.product.sold_out' | t }}</span>

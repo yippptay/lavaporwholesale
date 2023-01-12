@@ -61,7 +61,7 @@
 
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'component-a{ccordion.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -72,11 +72,22 @@
 {{ 'default-skin.css' | asset_url | stylesheet_tag }}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <script src="{{ 'photoswipe.min.js' | asset_url }}"></script>
 <script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}"></script>
+
+<script>
+$(document).ready(function()
+{
+$("tr:even").css({
+  "background-color":"#ececec",
+  "color":"#000"});
+});
+</script>
   
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
@@ -365,6 +376,8 @@
             <div class="no-js-hidden mainp-price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
             </div>
+
+            {% comment %}
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
                 <div class="product__tax caption rte">
                     {%- if shop.taxes_included -%}
@@ -375,6 +388,7 @@
                     {%- endif -%}
                 </div>
             {%- endif -%}
+          {% endcomment %}
             
           {% comment %} Potential Wholesale Bulk Order Form app block
             <div {{ block.shopify_attributes }}>
@@ -385,14 +399,14 @@
             </div> {% endcomment %}
 
 
-            <table width="100%" style="padding-right: -15px">
+            <table width="100%">
               <tbody>
-                <tr>
-                  <td width="15%"><strong>SKU</strong></td>
+                <tr">
+                  <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
                   <td width="45%"><strong>Options</strong></td>
                   <td width="10%" style="text-align: center;"><strong>Price</strong></td>
                   <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                  <td width="20%" style="text-align: center;"><strong>Stock Level</strong></td>    
+                  <td width="20%" style="text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
                 </tr>
               </tbody>
             </table> <!-- /.table -->
@@ -400,7 +414,7 @@
               {% comment %} Table Contents {% endcomment %}
               {% assign linklist = linklists['order-form'] %}
               <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-              <div style="overflow: overlay; overflow-y: scroll; min-height: 180px; max-height: 300px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+              <div style="overflow: overlay; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
                 {% for variant in product.variants %}
                   {% include 'wcp_variant' with variant %}
 
@@ -410,7 +424,7 @@
                           <tbody>
                             <tr>
 
-                              <td width="15%">
+                              <td width="15%" style="padding-left: 8px;">
                                 {{ variant.sku }}
                               </td>
                             
@@ -458,7 +472,7 @@
               <div>
 
                 <div class="price-box" style="cursor: pointer;" onclick="window.location='/account/login';"> 
-                  <div class="login-box" style="overflow: hidden; padding: 12px; background: black; border: 1px solid #eee;">
+                  <div class="login-box" style="overflow: hidden; padding: 10px; background-color: black;">
                     <div style="font-size:16px; font-weight:bold; text-align: center; color: white;">
                       <span><a href="/account/login"><span style="color:white;">Log in</span></a> to Purchase</span>
                     </div>
@@ -468,6 +482,25 @@
               </div>
             {% endunless %}
 
+            {% if customer %}
+              <div style="text-align: right; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
+
+              <strong>
+
+                <a style="padding-right: 25%;">
+                  Total Qty:
+                </a>
+
+                <a>
+                  Subtotal:
+                </a>
+                
+              </strong>
+              
+            </div>
+            {% endif %}
+
+
                 {% comment %} Purchase Section {% endcomment %}
               <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}" style="text-align: right;">
                 <div class="purchase">
@@ -475,7 +508,6 @@
                   {% unless product.available %}
                     <p>Sold Out</p>
                   {% else %}
-                    <br />
 
                   <div id='wcp_vd_table'>{{wcp_vd_HTML_table}}</div>
             
@@ -502,6 +534,7 @@
             {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
 
+            {% comment %} Shipping and Return
             {%- when 'collapsible_tab' -%}
             <div class="product__accordion accordion" {{ block.shopify_attributes }}>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -520,6 +553,7 @@
                     </div>
                 </details>
             </div>
+            {% endcomment %}
 
             {%- when 'quantity_selector' -%}
             <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
@@ -555,6 +589,7 @@
             </modal-opener>
             <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">{{ block.settings.text }}</a>
 
+            {% comment %}
             {%- when 'share' -%}
             <share-button id="Share-{{ section.id }}" class="share-button" {{ block.shopify_attributes }}>
                 <button class="share-button__button hidden">
@@ -590,7 +625,9 @@
                 </details>
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+            {% endcomment %}
 
+            {% comment %}
             {%- when 'share_button' -%}
             <ul class="social-sharing">
                 {% if block.settings.share_facebook %}
@@ -618,6 +655,7 @@
                     </li>
                 {% endif %}
             </ul>
+            {% endcomment %}
 
             {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
@@ -870,6 +908,7 @@
 {% endraw %}
 </table>   
 </script>
+
 <script>
   if(typeof Handlebars === 'undefined'){
      var head = document.getElementsByTagName('head')[0];
@@ -1008,15 +1047,6 @@ function change() // no ';' here
     if (elem.value=="Adding to Cart") elem.value = "Add to Cart";
     else elem.value = "Adding to Cart";
   }
-</script>
-
-<script>
-$(document).ready(function()
-{
-$("tr:odd").css({
-  "background-color":"#ececec",
-  "color":"#000"});
-});
 </script>
 
 <script>
@@ -1169,6 +1199,23 @@ if (variant && variant.available == true) {
 }
 };
 </script>
+
+<style>
+  .login-box {
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 0 0 4px 4px;
+  }
+  .price-box:hover > .login-box {
+    background-color: #f8ca23 !important;
+    transition: 0.2s all ease;
+  }
+  tr:nth-child(even) {
+    background-color: #ececec !important;
+  }
+  .btn:hover {
+    background-color: black !important;
+  }
+</style>
 
 {% schema %}
 {

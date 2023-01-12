@@ -483,7 +483,7 @@
 
         </div>
 
-        <button id="button" class="focus-inset wbquickv quick_shop js-wbquickview-link" style="background-color: black; border: none; border-radius: 4px; color: white; width: 100%;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+        <button id="qvbutton" class="focus-inset wbquickv quick_shop js-wbquickview-link" style="background-color: black; border: none; border-radius: 4px; color: white; width: 85%;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
 
     </div>
     </div>
@@ -497,7 +497,7 @@
 {%- endunless -%}
 
 <style>
-    #button:hover {
+    #qvbutton:hover {
         background-color: #f8ca23 !important;
         transition: 0.2s;
     }
