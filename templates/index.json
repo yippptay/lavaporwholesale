@@ -171,52 +171,52 @@
       "settings": {
       }
     },
-    "e808fe67-1339-4550-bf5c-00022e558c72": {
-      "type": "top-product",
+    "3ade3749-3fd1-4883-8da7-7c395b182f5a": {
+      "type": "top-product-two",
       "blocks": {
-        "6257b50b-372d-4a43-b354-cc8bf4fe3bdf": {
+        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1": {
           "type": "collection",
           "settings": {
-            "cat_name": "Edibles",
+            "cat_name": "EDIBLES",
             "collection": "hemp-products"
           }
         },
-        "48cf3c1f-1e06-428e-9f2d-8cddcd96481b": {
+        "842b9a99-6786-4ef9-8115-cf14e19f6c4c": {
           "type": "collection",
           "settings": {
-            "cat_name": "Vapables",
+            "cat_name": "VAPABLES",
             "collection": "hemp-products"
           }
         },
-        "28fc6e6c-102a-477c-b9d5-443599ea2c8a": {
+        "098f6d3e-0273-48db-820b-f4b57545d5ba": {
           "type": "collection",
           "settings": {
-            "cat_name": "Flower",
+            "cat_name": "FLOWER",
             "collection": "hemp-products"
           }
         },
-        "83174dab-c500-4e5a-9201-0a75d3d791d4": {
+        "6c780bfa-9821-434a-8fe5-520b9b2f8134": {
           "type": "collection",
           "settings": {
-            "cat_name": "Prerolls",
+            "cat_name": "PREROLLS",
             "collection": "hemp-products"
           }
         }
       },
       "block_order": [
-        "6257b50b-372d-4a43-b354-cc8bf4fe3bdf",
-        "48cf3c1f-1e06-428e-9f2d-8cddcd96481b",
-        "28fc6e6c-102a-477c-b9d5-443599ea2c8a",
-        "83174dab-c500-4e5a-9201-0a75d3d791d4"
+        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1",
+        "842b9a99-6786-4ef9-8115-cf14e19f6c4c",
+        "098f6d3e-0273-48db-820b-f4b57545d5ba",
+        "6c780bfa-9821-434a-8fe5-520b9b2f8134"
       ],
       "settings": {
-        "m_title": "featured hemp",
+        "m_title": "TOP HEMP PRODUCTS",
         "rows": 1,
         "image_ratio": "adapt",
         "display_product_type": true,
         "show_rating": false,
         "show_vendor": false,
-        "show_variants": true,
+        "show_variants": false,
         "picker_type": "button",
         "show_colorswatch": true
       }
@@ -362,7 +362,7 @@
     "1641556802093be1f1",
     "16542455861c80cea1",
     "1645186132b9355fa7",
-    "e808fe67-1339-4550-bf5c-00022e558c72",
+    "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1644812326b878e99b",
     "164524262890b378ef",
     "1645244797dfa46cce",
