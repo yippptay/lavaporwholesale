@@ -91,7 +91,7 @@
           "type": "collection",
           "settings": {
             "cat_name": "hardware",
-            "collection": "uwell"
+            "collection": "hardware-new-arrivals"
           }
         },
         "1ccb1891-b5e1-4fb3-9730-41ac25850458": {
@@ -105,14 +105,22 @@
           "type": "collection",
           "settings": {
             "cat_name": "disposables",
-            "collection": "7-daze"
+            "collection": "disposables"
+          }
+        },
+        "a3815c4e-2bfc-4242-81d1-ef66f4a5d42f": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Hemp",
+            "collection": "new-hemp"
           }
         }
       },
       "block_order": [
         "f25f0917-6051-401a-9571-3dad3669d52d",
         "1ccb1891-b5e1-4fb3-9730-41ac25850458",
-        "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6"
+        "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6",
+        "a3815c4e-2bfc-4242-81d1-ef66f4a5d42f"
       ],
       "settings": {
         "m_title": "New Arrivals",
