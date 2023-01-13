@@ -10,7 +10,7 @@
     <ul class="list-inline nav nav-tabs text-center">       
       {%- for block in section.blocks -%}
         <li class="nav-item {% if forloop.first %}active{% endif %}">
-          <a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{block.id}}">
+          <a class="nav-link" href="#wbprodtab1-{{block.id}}">
               <span>{{ block.settings.cat_name }}</span>
           </a>
         </li>
