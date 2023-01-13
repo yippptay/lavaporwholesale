@@ -114,13 +114,21 @@
             "cat_name": "Hemp",
             "collection": "new-hemp"
           }
+        },
+        "6c322285-1937-4ddf-8411-dd04a10fd5b6": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "Smoke Shop",
+            "collection": "new-smoke-shop"
+          }
         }
       },
       "block_order": [
         "f25f0917-6051-401a-9571-3dad3669d52d",
         "1ccb1891-b5e1-4fb3-9730-41ac25850458",
         "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6",
-        "a3815c4e-2bfc-4242-81d1-ef66f4a5d42f"
+        "a3815c4e-2bfc-4242-81d1-ef66f4a5d42f",
+        "6c322285-1937-4ddf-8411-dd04a10fd5b6"
       ],
       "settings": {
         "m_title": "New Arrivals",
