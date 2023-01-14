@@ -81,12 +81,12 @@
 <script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}"></script>
 
 <script>
-$(document).ready(function()
-{
-$("tr:even").css({
-  "background-color":"#ececec",
-  "color":"#000"});
-});
+  $(document).ready(function() {
+  $("tr:even").css({
+    "background-color":"#ececec",
+    "color":"#000"});
+    console.log( "Alternate Table Colors module loaded." );
+  });
 </script>
   
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
@@ -414,13 +414,13 @@ $("tr:even").css({
               {% comment %} Table Contents {% endcomment %}
               {% assign linklist = linklists['order-form'] %}
               <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-              <div style="overflow: overlay; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+              <div style="overflow: overlay; overflow-y: scroll; max-height: 266px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
                 {% for variant in product.variants %}
                   {% include 'wcp_variant' with variant %}
 
                     <div style="font-size: 12px;">
                       <div style="z-index:9999999;">
-                        <table width="100%" border="0" style="z-index:9999999;">
+                        <table width="100%" style="z-index:9999999;">
                           <tbody>
                             <tr>
 
@@ -442,7 +442,7 @@ $("tr:even").css({
                               </td>
 
                               <td width="10%" style="text-align: center; padding-left: 14px;">
-                                <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"  type="text" size="4" value="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+                                <input autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;" oninput="" type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
                               </td>
                       
                               <td width="20%" style="text-align: center; padding-left: 12px;">
@@ -464,7 +464,9 @@ $("tr:even").css({
                     </div>
 
                   <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
+
                 {% endfor %}
+
               </div> <!-- TABLE WITHIN QUICK ORDER -->
 
                 {% comment %} Login Condition {% endcomment %}  

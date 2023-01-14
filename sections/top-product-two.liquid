@@ -44,7 +44,7 @@
 
       {%- for block in section.blocks -%}
           <li class="tab" style="margin: 0 25px;">
-            <button class="tablinks nav-link" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
+            <button class="tablinks nav-link" style="background-color: transparent;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
           </li>
       {%- endfor -%}
       
@@ -109,7 +109,7 @@
 
   /* Create an active/current tablink class */
   .tabcontent {
-  animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
+  animation: fadeEffect 0.4s; /* Fading effect takes 1 second */
   }
 
   /* Go from zero to full opacity */
