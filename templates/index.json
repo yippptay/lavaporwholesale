@@ -237,40 +237,32 @@
         "77c00f5b-3843-456b-80d1-88ebbdbfd5e1": {
           "type": "collection",
           "settings": {
-            "cat_name": "EDIBLES",
-            "collection": "hemp-products"
+            "cat_name": "RESTOCKS",
+            "collection": "popular-restocks"
           }
         },
         "842b9a99-6786-4ef9-8115-cf14e19f6c4c": {
           "type": "collection",
           "settings": {
-            "cat_name": "VAPABLES",
-            "collection": "hemp-products"
+            "cat_name": "ON SALE",
+            "collection": "flash-sale"
           }
         },
         "098f6d3e-0273-48db-820b-f4b57545d5ba": {
           "type": "collection",
           "settings": {
-            "cat_name": "FLOWER",
-            "collection": "hemp-products"
-          }
-        },
-        "6c780bfa-9821-434a-8fe5-520b9b2f8134": {
-          "type": "collection",
-          "settings": {
-            "cat_name": "PREROLLS",
-            "collection": "hemp-products"
+            "cat_name": "CLEARANCE",
+            "collection": "deals-clearance"
           }
         }
       },
       "block_order": [
         "77c00f5b-3843-456b-80d1-88ebbdbfd5e1",
         "842b9a99-6786-4ef9-8115-cf14e19f6c4c",
-        "098f6d3e-0273-48db-820b-f4b57545d5ba",
-        "6c780bfa-9821-434a-8fe5-520b9b2f8134"
+        "098f6d3e-0273-48db-820b-f4b57545d5ba"
       ],
       "settings": {
-        "m_title": "Popular Restocks",
+        "m_title": "Popular Categories",
         "rows": 1,
         "image_ratio": "adapt",
         "display_product_type": true,
