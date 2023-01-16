@@ -69,6 +69,7 @@
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/pod-juice-logo.webp",
             "link": ""
           }
         }
