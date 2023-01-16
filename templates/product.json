@@ -95,7 +95,7 @@
       "type": "onsale",
       "settings": {
         "ms_title": "Best selling",
-        "rows": 2,
+        "rows": 1,
         "image_ratio": "adapt",
         "display_product_type1": true,
         "show_rating1": false,
