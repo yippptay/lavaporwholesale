@@ -8,7 +8,7 @@
           "settings": {
             "slidesubclr": "#bababa",
             "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/Dec_MODS_KITS-11.png",
+            "image": "shopify:\/\/shop_images\/Artboard_1_de7bad53-c537-4638-ba7d-e9877f4bf162.png",
             "subtitle": "",
             "heading": "",
             "heading_size": "medium",
@@ -237,39 +237,6 @@
       "settings": {
       }
     },
-    "164524262890b378ef": {
-      "type": "salebanner",
-      "blocks": {
-        "3d73e6a6-f0fd-4f81-8745-0bf2e422c9cc": {
-          "type": "Image",
-          "settings": {
-            "link": "shopify:\/\/collections",
-            "storysubtitle": "Up 30% off all jewellery",
-            "storytitle": "New jewellery design",
-            "desc": "new collection 2022",
-            "btn": "Shop Now",
-            "btnlink": "shopify:\/\/collections"
-          }
-        },
-        "823f375b-c92d-40fa-aff3-8f4fa5e834f0": {
-          "type": "Image",
-          "settings": {
-            "link": "shopify:\/\/collections",
-            "storysubtitle": "up  50% off",
-            "storytitle": "Headphones zone",
-            "desc": "wireless headphones",
-            "btn": "Shop Now",
-            "btnlink": "shopify:\/\/collections"
-          }
-        }
-      },
-      "block_order": [
-        "3d73e6a6-f0fd-4f81-8745-0bf2e422c9cc",
-        "823f375b-c92d-40fa-aff3-8f4fa5e834f0"
-      ],
-      "settings": {
-      }
-    },
     "1645244797dfa46cce": {
       "type": "onsale",
       "settings": {
@@ -291,7 +258,6 @@
     "16542455861c80cea1",
     "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
-    "164524262890b378ef",
     "1645244797dfa46cce"
   ]
 }
