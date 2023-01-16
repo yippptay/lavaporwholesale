@@ -283,27 +283,6 @@
         "show_colorswatch": true,
         "collection1": "alternative-sale-1"
       }
-    },
-    "1645245062f3e2c3c9": {
-      "type": "offerbanner",
-      "settings": {
-        "link": "shopify:\/\/collections",
-        "subtitle": "Allrounder Shoes 2022",
-        "storytitle": "running sport shoes",
-        "storysubtitle": "Snibh at magna akal semper sema olatiup sema olatiup iaculis the sed semper sit amet the udin vitae nibh",
-        "btntxt": "Shop Now"
-      }
-    },
-    "164524671107d48801": {
-      "type": "latestproduct",
-      "settings": {
-        "ms_title": "Latest Products",
-        "rows": 2,
-        "image_ratio": "adapt",
-        "display_product_type": false,
-        "show_rating": true,
-        "collection": "7-daze"
-      }
     }
   },
   "order": [
@@ -313,8 +292,6 @@
     "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
     "164524262890b378ef",
-    "1645244797dfa46cce",
-    "1645245062f3e2c3c9",
-    "164524671107d48801"
+    "1645244797dfa46cce"
   ]
 }
