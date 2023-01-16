@@ -259,11 +259,11 @@
         </div> 
         <div class="wbproductdes col-8 cless">
 
+        {%  comment  %}
             {% if display_product_type %}
                 <p class="wbprotype">{{ product_card_product.type }}</p>
             {% endif %}
-
-            
+        {% endcomment %}
          
             {%- if product_card_product.featured_media -%}
                 <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>

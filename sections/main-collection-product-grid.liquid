@@ -38,7 +38,7 @@
 
                     <div class="rightcol">
                         
-
+                        <!--
                         <div class="row wbsortbar">
                             <div class="wbglbtn col-md-3 col-5">
                                 <button class="gridv wblistgridbtn active" aria-label="grid">{% render 'icon-gridview' %}</button>
@@ -46,6 +46,8 @@
                             </div>
                             {% render 'sorting', results: collection, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
                         </div>
+                        -->
+
                         <div class="loading-overlay gradient"></div>
                         <ul id="product-grid" data-id="{{ section.id }}" class="row rless grid product-grid" style="flex-wrap: wrap !important;">
                             {%- for product in collection.products -%}

@@ -1885,7 +1885,7 @@ ul.twopro{
     overflow-y: hidden;
 }
 .tab-pro .grid__item,.toprated .grid__item,.newpro .grid__item,.onsale .grid__item {
-    border-right: 1px solid var(--color-wbbordercolor);
+    
 }
 .toprated .slick-list,.newpro .slick-list,.onsale .slick-list,.latest .slick-list {
     border-right: 5px solid rgb(var(--color-background));
@@ -1950,7 +1950,7 @@ ul.twopro{
 }
 .pro-tab .nav-tabs .nav-item.active .nav-link:before, .pro-tab .nav-tabs .nav-link:hover:before {
     width: 50px;
-    transition: .5s ease;
+    transition: .25s ease;
     opacity: 1;
 }
 .pro-tab .nav-tabs .nav-link:before {
