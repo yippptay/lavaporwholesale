@@ -134,17 +134,19 @@
                 {% section 'site-nav' %}
                 {% section 'popular' %}
                 {% section 'popular2' %}
+                {% comment %}
                 {% section 'bestproduct' %}
                 {% section 'secondleftbanner' %}
+                {% endcomment %}
             </div>
             <div class="col-12 col-md-8 col-lg-9 right-col">
                 {% render 'breadcrumbs' %}
+                {% section 'logo-bar' %}
                 {{ content_for_layout }}
             </div>
           </div>
         </div>
       </main>
-      {% section 'logo-bar' %}
       {% section 'popup-products' %}
       {% section 'footer' %}
     </div>
