@@ -79,23 +79,11 @@
         "enable_desctab": true
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "heading": "You may also like",
-        "image_ratio": "adapt",
-        "show_rating": true,
-        "display_product_type": false,
-        "show_variants": true,
-        "picker_type": "button",
-        "show_colorswatch": true
-      }
-    },
     "f09cbf35-714e-4252-ab41-b430fe3402b6": {
       "type": "onsale",
       "settings": {
         "ms_title": "Best selling",
-        "rows": 1,
+        "rows": 2,
         "image_ratio": "adapt",
         "display_product_type1": true,
         "show_rating1": false,
@@ -108,7 +96,6 @@
   },
   "order": [
     "main",
-    "product-recommendations",
     "f09cbf35-714e-4252-ab41-b430fe3402b6"
   ]
 }
