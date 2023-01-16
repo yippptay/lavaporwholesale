@@ -79,23 +79,23 @@
         "enable_desctab": true
       }
     },
-    "f09cbf35-714e-4252-ab41-b430fe3402b6": {
-      "type": "onsale",
+    "8809d195-f641-401e-b18f-6791c5da3291": {
+      "type": "top-product",
       "settings": {
-        "ms_title": "Best selling",
+        "m_title": "BEST SELLING",
         "rows": 2,
         "image_ratio": "adapt",
-        "display_product_type1": true,
-        "show_rating1": false,
-        "show_variants": true,
+        "display_product_type": true,
+        "show_rating": false,
+        "show_vendor": false,
+        "show_variants": false,
         "picker_type": "button",
-        "show_colorswatch": true,
-        "collection1": "best-selling"
+        "show_colorswatch": true
       }
     }
   },
   "order": [
     "main",
-    "f09cbf35-714e-4252-ab41-b430fe3402b6"
+    "8809d195-f641-401e-b18f-6791c5da3291"
   ]
 }
