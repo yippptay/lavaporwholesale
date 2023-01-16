@@ -1,5 +1,84 @@
 {
   "sections": {
+    "c16ee168-b792-4422-bb35-a160443088a8": {
+      "type": "logo-bar",
+      "blocks": {
+        "template--14457190613078__c16ee168-b792-4422-bb35-a160443088a8-1673877696b9e4b390-0": {
+          "type": "logo_image",
+          "settings": {
+            "link": "shopify:\/\/collections"
+          }
+        },
+        "1b447ca3-e9c3-49df-aeab-c27e166e1d2d": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "46464062-adc8-4dd8-b0f8-88243b41577e": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "6916ca25-0f50-46de-bb04-65041edef5b9": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "121f7732-2e65-439d-8598-3c3fe0b9dbaa": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "d0d59aba-d5c9-4a3b-afc0-f73a7e5c4a17": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "93019d6c-bedc-43e2-9b96-5e36b891ae06": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "befb6c34-6667-4707-a7a9-d42233ab87a5": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "7aa7b753-a733-4dcf-8afe-45c60253b4e0": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "f285545d-b3da-424c-83f3-6823aa8ec86b": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14457190613078__c16ee168-b792-4422-bb35-a160443088a8-1673877696b9e4b390-0",
+        "1b447ca3-e9c3-49df-aeab-c27e166e1d2d",
+        "46464062-adc8-4dd8-b0f8-88243b41577e",
+        "6916ca25-0f50-46de-bb04-65041edef5b9",
+        "121f7732-2e65-439d-8598-3c3fe0b9dbaa",
+        "d0d59aba-d5c9-4a3b-afc0-f73a7e5c4a17",
+        "93019d6c-bedc-43e2-9b96-5e36b891ae06",
+        "befb6c34-6667-4707-a7a9-d42233ab87a5",
+        "7aa7b753-a733-4dcf-8afe-45c60253b4e0",
+        "f285545d-b3da-424c-83f3-6823aa8ec86b"
+      ],
+      "settings": {
+      }
+    },
     "1641460486cee907a2": {
       "type": "slideshow",
       "blocks": {
@@ -253,6 +332,7 @@
     }
   },
   "order": [
+    "c16ee168-b792-4422-bb35-a160443088a8",
     "1641460486cee907a2",
     "1641556802093be1f1",
     "16542455861c80cea1",
