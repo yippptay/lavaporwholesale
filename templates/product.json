@@ -81,6 +81,34 @@
     },
     "8809d195-f641-401e-b18f-6791c5da3291": {
       "type": "top-product",
+      "blocks": {
+        "5766a919-e8fb-42c3-b0a0-dae2b611522d": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "HARDWARE",
+            "collection": "hardware-new-arrivals"
+          }
+        },
+        "3e176ed7-65bd-4807-a1c9-80163e516a6a": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "E-LIQUID",
+            "collection": "e-liquid"
+          }
+        },
+        "f5e8072e-7164-44e5-bc0a-7ba04efaca2d": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "DISPOSABLES",
+            "collection": "disposables"
+          }
+        }
+      },
+      "block_order": [
+        "5766a919-e8fb-42c3-b0a0-dae2b611522d",
+        "3e176ed7-65bd-4807-a1c9-80163e516a6a",
+        "f5e8072e-7164-44e5-bc0a-7ba04efaca2d"
+      ],
       "settings": {
         "m_title": "BEST SELLING",
         "rows": 2,
