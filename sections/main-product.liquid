@@ -67,7 +67,8 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
 {{ 'default-skin.css' | asset_url | stylesheet_tag }}
 
@@ -883,6 +884,12 @@
       </div>
     </modal-dialog>
   {%- endfor -%}
+
+
+
+
+
+
 </section>
 
 {% unless wcp_vd_HTML_table == '' %}
