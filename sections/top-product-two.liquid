@@ -51,7 +51,7 @@
     </ul>
   </div>
   <div class="clearfix"></div>
-  <div class="tab-content tab-pro" style="border-bottom: 1px solid rgba(var(--color-base-text),.1); padding-bottom: 30px; margin-bottom: 10px;">
+  <div class="tab-content tab-pro" style="padding-bottom: 30px; margin-bottom: 10px;">
     
       {%- for block in section.blocks -%}
       {%- assign collection = collections[block.settings.collection]  -%}
@@ -59,7 +59,7 @@
 
               <div class="rless">
                   <div class="owl-toppro">
-                      {% for product in collection.products limit : 12 %}
+                      {% for product in collection.products limit : 11 %}
 
                             <div class="grid__item col-12 cless list-unstyled">
                             {% render 'product-card-banner',
@@ -80,6 +80,13 @@
                               </div>
                           {%- endfor -%}
                       {% endfor %} 
+                      <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center; align-items: center;">
+                        <div style="width: 65%;">
+                          <button style="background-color: black; border: none; border-radius: 4px; color: white; height: 180px;">
+                            View all <span>{{ section.settings.m_title }}</span>
+                          </button>
+                        </div>
+                      </div>
                   </div>
               </div>
 
