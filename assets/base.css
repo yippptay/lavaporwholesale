@@ -2502,7 +2502,8 @@ variant-webiquick .js.product-form__input.inner-class {
 }
 /* Section Space */
 .spaced-section {
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 /* Slick issue Loading */
 .owl-slider .sliderel:not(:first-child){
