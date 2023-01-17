@@ -72,6 +72,20 @@
             "image": "shopify:\/\/shop_images\/pod-juice-logo.webp",
             "link": ""
           }
+        },
+        "5977c30b-f6be-4c57-9344-f1616723409e": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Twist-Logo-2020-1.png",
+            "link": ""
+          }
+        },
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -84,7 +98,9 @@
         "25863c9f-f16e-4b61-9a46-440e2ba14a17",
         "c5ca85f5-7597-4b6d-9ed4-153850416443",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
-        "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b"
+        "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b",
+        "5977c30b-f6be-4c57-9344-f1616723409e",
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca"
       ],
       "settings": {
       }
