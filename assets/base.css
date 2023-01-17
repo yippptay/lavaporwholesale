@@ -2281,14 +2281,16 @@ ul.twopro{
     font-weight: normal;
     margin-bottom: 0;
 }
+
 /* Logoslider */
 .wblogos .heading{
     font-size: calc(var(--font-size-header) * 0.75px);
 }
 .wblogos {
-    border: 1px solid var(--color-wbbordercolor);
+    /* border: 1px solid var(--color-wbbordercolor); */
     border-radius: 4px;
 }
+
 /* Scroll to top */
 #scroll {
     position: fixed;

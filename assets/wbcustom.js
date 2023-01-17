@@ -299,15 +299,19 @@ $(document).ready(function() {
     });
   	$(".wbblog").show();
 
+    // https://kenwheeler.github.io/slick/ //
     // Logo Slider
     $('.wblogobar').slick({
+        speed: 300,
         dots: false,
         arrows: false,
-        infinite: false,
+        infinite: true,
         autoplay: true,
-        autoplaySpeed: 6000,
-        slidesToShow: 8,
+        autoplaySpeed: 2000,
+        slidesToShow: 10,
         slidesToScroll: 3,
+        swipeToSlide: true,
+        touchMove: true,
         responsive: [
         {
             breakpoint: 1410,

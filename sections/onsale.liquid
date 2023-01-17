@@ -33,6 +33,16 @@
                         </div>
                     {%- endfor -%}
                 {% endfor %}
+                <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center; align-items: center;">
+                  <button id="qvbutton" type="button" onclick="location.href='{{ collection.url }}';" class="card-wrapper wbproduct-container btn btn-outline-warning shadow-sm p-3 mb-5 rounded" style="color: white; background-color: black; height: 308px; width: 216px">
+                    <strong>View all</strong>
+                    <h5>
+                      <span>{{ collection.title }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                  </svg></span>
+                    </h5>
+                  </button>
+                </div>
             </div>   
         </div> 
 </div>
