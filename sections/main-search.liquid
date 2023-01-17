@@ -58,7 +58,7 @@
 
             {%- if settings.predictive_search_enabled -%}
               <div
-                class="predictive-search predictive-search--search-template"
+                class="predictive-search predictive-search--search-template "
                 tabindex="-1"
                 data-predictive-search>
                 <div class="predictive-search__loading-state">
@@ -81,7 +81,7 @@
             </div>
 
             <span
-              class="predictive-search-status visually-hidden"
+              class="predictive-search-status  visually-hidden"
               role="status"
               aria-hidden="true"></span>
           {%- endif -%}
@@ -119,7 +119,7 @@
     <div id="ProductGridContainer">
       {%- if search.results.size == 0 and search.filters != empty -%}
         <div
-          class="template-search__results collection collection--empty page-width"
+          class="template-search__results collection collection--empty page-width "
           id="product-grid"
           data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>

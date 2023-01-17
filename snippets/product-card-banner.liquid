@@ -64,7 +64,7 @@
     Usage:
     {% render 'product-card', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
-<div class="card-wrapper wbproduct-container">
+<div class="card-wrapper wbproduct-container shadow-sm p-3 mb-5 rounded">
 	<div class="card">
       <div class="wbimgblock">
           {%- if product_card_product.featured_media -%}
@@ -260,26 +260,24 @@
               </div>
           {%- endif -%}
 
-        {% comment %} Product Card Sale and Out Of Stock Badge
-          <div class="card__badge">
+        {% comment %} Product Card Sale and Out Of Stock Badge {% endcomment %}
+          <div class="card__badge hidden">
               {%- if product_card_product.available == false -%}
                   <span>{{ 'products.product.sold_out' | t }}</span>
               {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
                   <span>{{ 'products.product.on_sale' | t }}</span>
               {%- endif -%}
           </div>
-        {% endcomment %}
 
       </div>
 
 
       <div class="wbproductdes">
 
-      {% comment %}
+      
         {% if display_product_type %}
-            <p class="wbprotype">{{ product_card_product.type }}</p>
+            <p class="wbprotype hidden">{{ product_card_product.type }}</p>
         {% endif %}
-    {% endcomment %}
      
         {%- if product_card_product.featured_media -%}
             <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>

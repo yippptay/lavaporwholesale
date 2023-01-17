@@ -767,7 +767,7 @@ input.mobile-facets__checkbox {
 }
 .wbsortbar{
     margin-bottom: 30px;
-    align-items: center;
+    justify-content: end;
     border: 1px solid var(--color-wbbordercolor);
     margin-left: 0;
     margin-right: 0;

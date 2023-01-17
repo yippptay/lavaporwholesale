@@ -38,20 +38,18 @@
 
                     <div class="rightcol">
                         
-                        <!--
                         <div class="row wbsortbar">
-                            <div class="wbglbtn col-md-3 col-5">
+                            <div class="wbglbtn col-md-3 col-5 hidden">
                                 <button class="gridv wblistgridbtn active" aria-label="grid">{% render 'icon-gridview' %}</button>
                                 <button class="listv wblistgridbtn" aria-label="list">{% render 'icon-listview' %}</button>
                             </div>
                             {% render 'sorting', results: collection, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
                         </div>
-                        -->
 
                         <div class="loading-overlay gradient"></div>
                         <ul id="product-grid" data-id="{{ section.id }}" class="row rless grid product-grid" style="flex-wrap: wrap !important;">
                             {%- for product in collection.products -%}
-                                <li class="grid__item col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 cless">
+                                <div class="grid__item col-12 cless list-unstyled" style="max-width: 246px; height: auto;">
                                     {% render 'product-card',
                                     product_card_product: product,
                                     media_size: section.settings.image_ratio,
@@ -62,7 +60,7 @@
                                     display_product_type: section.settings.display_product_type,
                                     enable_listdesc: section.settings.enable_listdesc
                                     %}
-                                </li>
+                                </div>
                             {%- endfor -%}
                         </ul>
                         {%- if paginate.pages > 1 -%}

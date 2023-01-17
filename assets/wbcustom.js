@@ -9,9 +9,9 @@ $(document).ready(function() {
     $('.owl-slider').slick({
         dots: true,
         arrows: false,
-        infinite: false,
-        autoplay: false,
-        autoplaySpeed: 2000,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 6000,
         slidesToShow: 1,
         slidesToScroll: 1
     });
@@ -312,19 +312,19 @@ $(document).ready(function() {
         {
             breakpoint: 1410,
             settings: {
-                slidesToShow: 7
+                slidesToShow: 9
             }
         },
         {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 5
+                slidesToShow: 7
             }
         },
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: 5
             }
         },
         {

@@ -66,6 +66,7 @@
                             product_card_product: product,
                             block_id: block.id,
                             media_size: section.settings.image_ratio,
+                            show_secondary_image: true,
                             show_rating: section.settings.show_rating,
                             picker_type: section.settings.picker_type,
                             show_variants: false,
@@ -81,15 +82,14 @@
                           {%- endfor -%}
                       {% endfor %} 
                       <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center; align-items: center;">
-                        <div>
-                          <button class="btn btn-outline-warning" style="max-width: 120px;">
-                            View all <span>{{ section.settings.m_title }}
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                              </svg>
-                            </span>
-                          </button>
-                        </div>
+                        <button id="qvbutton" type="button" class="card-wrapper wbproduct-container btn btn-outline-warning shadow-sm p-3 mb-5 rounded" style="color: white; background-color: black; height: 308px; width: 216px">
+                          <strong>View all</strong>
+                          <h5>
+                            <span>{{ block.settings.cat_name }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg></span>
+                          </h5>
+                        </button>
                       </div>
                   </div>
               </div>
@@ -117,10 +117,9 @@
 </script>
 
 <style>
-
   /* Create an active/current tablink class */
   .tabcontent {
-  animation: fadeEffect 0.4s; /* Fading effect takes 1 second */
+  animation: fadeEffect 0.35s; /* Fading effect takes 1 second */
   }
 
   /* Go from zero to full opacity */
