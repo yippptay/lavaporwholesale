@@ -75,7 +75,6 @@
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <script src="{{ 'photoswipe.min.js' | asset_url }}"></script>
@@ -443,7 +442,25 @@
                               </td>
 
                               <td width="10%" style="text-align: center; padding-left: 14px;">
-                                <input autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;" oninput="" type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+
+                                <!-- QTY input with automatic cleaning -->
+                                <input autocomplete="off" data-toggle="popover" data-content="Input over limit" data-placement="left" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                oninput="(
+                                  function() {
+                                    let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
+
+                                    // remove non numbers
+                                    if(isNaN(input)) {
+                                      setTimeout(() => {document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75);
+                                    }
+
+                                    // update quantity if it's over limit
+                                    if(input > {{ variant.inventory_quantity }}) {
+                                        setTimeout(() => {document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};},75);
+                                    }
+
+                                  })();"
+                                type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
                               </td>
                       
                               <td width="20%" style="text-align: center; padding-left: 12px;">

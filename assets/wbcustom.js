@@ -308,7 +308,7 @@ $(document).ready(function() {
         infinite: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        slidesToShow: 10,
+        slidesToShow: 14,
         slidesToScroll: 3,
         swipeToSlide: true,
         touchMove: true,

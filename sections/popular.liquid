@@ -3,32 +3,37 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 <div class="popular leftpro">
-  <h2 class="heading text-left"><span>{{ section.settings.ms_title }}</span></h2>
-    <div class="rless">
-      <div class="wbpop">
-        {%- assign collection = collections[section.settings.collection] -%}
-        {% assign num_row = section.settings.rows | times: 1 %} 
-        {% assign temp = 0 %}
-        {%- for product in collection.products -%}
-        {% if temp == 0 %}<ul class="twopro">{% endif %}
-        <li class="grid__item col-12 cless list-unstyled">
-          {% render 'product-card-custom',
-          product_card_product: product,
-          media_size: section.settings.image_ratio,
-          show_rating: section.settings.show_rating,
-          display_product_type: section.settings.display_product_type  %}
-        </li>
-        {% assign temp = temp | plus: 1 %}
-        {% if temp == num_row %}</ul>{% assign temp = 0 %}{% endif %}
-        {%- else -%}
-        {%- for i in (1..6) -%}
-        <div class="grid__item col-12 cless">
-          {% render 'product-card-placeholder' %}
-        </div>
-        {%- endfor -%}
-        {% endfor %}
-      </div>   
-    </div> 
+  {%- assign collection = collections[section.settings.collection] -%}
+  
+  <h2 class="heading text-left product-title">
+    <a href="{{ collection.url }}"><span>{{ section.settings.ms_title }}</span></a>
+  </h2>
+  
+  <div class="rless">
+    <div class="wbpop">
+
+      {% assign num_row = section.settings.rows | times: 1 %} 
+      {% assign temp = 0 %}
+      {%- for product in collection.products -%}
+      {% if temp == 0 %}<ul class="twopro">{% endif %}
+      <li class="grid__item col-12 cless list-unstyled">
+        {% render 'product-card-custom',
+        product_card_product: product,
+        media_size: section.settings.image_ratio,
+        show_rating: section.settings.show_rating,
+        display_product_type: section.settings.display_product_type  %}
+      </li>
+      {% assign temp = temp | plus: 1 %}
+      {% if temp == num_row %}</ul>{% assign temp = 0 %}{% endif %}
+      {%- else -%}
+      {%- for i in (1..6) -%}
+      <div class="grid__item col-12 cless">
+        {% render 'product-card-placeholder' %}
+      </div>
+      {%- endfor -%}
+      {% endfor %}
+    </div>   
+  </div> 
 </div>
 
 
