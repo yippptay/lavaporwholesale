@@ -89,10 +89,6 @@
             cards[i].classList.add("slow-hide");
           }
         }
-
-        if(document.getElementById("brandlisting").is(':empty')) {
-          console.log('clear');
-        }
       }
     </script>
 
@@ -222,7 +218,7 @@
           <h4 id="alpha-{{ letters }}" style="margin-bottom: 0px !important;">{{ letters }}</h4>
           <hr style="margin-top: 0px !important;"/>
   
-          <div id="brandlisting"class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
+          <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
             {%- for collection in collections %}
               {%- if collection.metafields.custom.type == "Brand" %}
                 {%  assign first_char = collection.title | slice: 0 | upcase %}
