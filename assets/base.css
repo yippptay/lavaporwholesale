@@ -1908,7 +1908,6 @@ ul.twopro{
         grid-row-end: 3;
         padding-top: 65px;
    }
-
    */
 }
 .pro-tab{
@@ -2583,10 +2582,9 @@ variant-webiquick .js.product-form__input.inner-class {
 .latest .grid__item:last-child {
     border-bottom: none;
 }
-/*.latest .wbproduct-container {
+.latest .wbproduct-container {
     margin: 15px 0;
 }
-*/
 /* Banner Effect */
 .beffect {
     position: relative;
