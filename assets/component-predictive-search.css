@@ -54,17 +54,16 @@ predictive-search[loading] .predictive-search__heading ~ .predictive-search__loa
     width: 100%;
 }
 .predictive-search__item--link {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 4rem 1fr;
     grid-column-gap: 2rem;
-    grid-template-areas: 'product-image product-content';
-    align-items: center;
+    grid-template-areas: 'product-image product-content'; */
+    align-items: left;
     margin-bottom: 15px;
 }
 .predictive-search__item-content {
-    grid-area: product-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     line-height: normal;
 }
 .predictive-search__item-content--centered {

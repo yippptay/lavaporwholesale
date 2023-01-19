@@ -40,7 +40,7 @@ body.overflow-hidden .menupos{
 .whr-menu {
     font-size: calc(var(--font-size-base) * 1.15px);
     background-color: var(--gradient-base-accent-1);
-    color: var(--color-base-solid-button-labels);
+    color: balck;
     height: 50px;
     padding: 14px 12px;
     margin: 0;
@@ -70,7 +70,7 @@ body.overflow-hidden .menupos{
     left: -1px;
 }
 .navbar-toggler-icon .bar {
-    background: var(--color-wb-hovercolor-button-text);
+    background: black;
     height: 1px;
     position: absolute;
     overflow: hidden;
@@ -238,7 +238,6 @@ body.overflow-hidden .menupos{
     }
     /* Megamenu */
     #megamenu li.wbmenul_1 a.wbmenul1_link{
-        color: rgba(255, 255, 255, 0.8);
         display: block;
         position: relative;
         text-transform: capitalize;
