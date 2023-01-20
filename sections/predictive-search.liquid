@@ -10,7 +10,7 @@
     {%- endif -%}
     <ul id="predictive-search-results-list" class="predictive-search__results-list list-unstyled" role="listbox" aria-labelledby="predictive-search-products">
       {%- for product in predictive_search.resources.products -%}
-        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; border-bottom: solid rgba(33, 37, 41, .1) 1px; align-items: center; padding: 6px 0px 9px 18px;">
+        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; border-bottom: solid rgba(33, 37, 41, .1) 1px; align-items: center; padding: 9px 0px 12px 21px;">
           <a href="{{ product.url }}" class="predictive-search__item predictive-search__item--link" tabindex="-1" style="flex-direction: column;">
             {%- if product.featured_media != blank -%}
               <img class="predictive-search__image hidden"
@@ -38,9 +38,9 @@
 
         </li>
       {%- endfor -%}
-      <li id="predictive-search-option-search-keywords" class="predictive-search__list-item" role="option" style="padding: 9px 18px 9px 18px;">
-        <button class="predictive-search__item predictive-search__item--term link link--text h6 animate-arrow" tabindex="-1" style="background: black; border-radius: 4px; color: white; padding:2px 2px 2px 6px;">
-          {{ 'templates.search.search_for' | t: terms: predictive_search.terms }}
+      <li id="predictive-search-option-search-keywords" class="predictive-search__list-item" role="option"">
+        <button class="predictive-search__item predictive-search__item--term link link--text h6 animate-arrow" tabindex="-1" style="color: black; padding: 9px 18px 9px 18px;">
+          <i>Show all results for "{{ predictive_search.terms }}"</i>
           {% render 'icon-arrow' %}
         </button>
       </li> 
@@ -64,7 +64,7 @@
 
 <style>
   .predictive-search__list-item:hover {
-    transition: 0.1s;
+    transition: 100ms;
     background: rgba(33, 37, 41, .05);
   }
   #qvsearch:hover {
