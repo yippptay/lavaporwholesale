@@ -82,10 +82,11 @@
 
 <script>
 $(document).ready(function() {
-$("tr:even").css({
-"background-color":"#ececec",
-"color":"#000"});
-console.log( "Alternate Table Colors module loaded." );
+  let globalQTY = 0;
+  $("tr:even").css({
+  "background-color":"#ececec",
+  "color":"#000"});
+  console.log( "Alternate Table Colors module loaded." );
 });
 </script>
 
@@ -287,7 +288,7 @@ console.log( "Alternate Table Colors module loaded." );
         const sliderComp = document.querySelector("slider-component");
         document.querySelector(`[data-thumb-id="${wbimgClickQuick}"]`).classList.add('active-thumbquick');
     }
-    
+
     // For Zoom
     'use strict';
     (function($){
@@ -447,18 +448,22 @@ console.log( "Alternate Table Colors module loaded." );
                             <input tabindex="0" autocomplete="off" data-toggle="popover" data-content="Input over limit" data-placement="left" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
                             oninput="(
                               function() {
+                                let totalQty = 0;
                                 let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
 
                                 // remove non numbers
                                 if(isNaN(input)) {
-                                  setTimeout(() => {document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75);
+                                  setTimeout(() => {
+                                    document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75)
+                                  
                                 }
 
                                 // update quantity if it's over limit
                                 if(input > {{ variant.inventory_quantity }}) {
-                                    setTimeout(() => {document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};},75);
+                                    setTimeout(() => {
+                                      document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
+                                      },75)
                                 }
-
                               })();"
                             type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
                           </td>
@@ -509,6 +514,9 @@ console.log( "Alternate Table Colors module loaded." );
 
             <a style="padding-right: 25%;">
               Total Qty:
+              <a id="totalqty">
+                0
+              </a>
             </a>
 
             <a>
