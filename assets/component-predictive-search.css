@@ -11,7 +11,6 @@
 #predictive-search-results{ 
     background: rgb(var(--color-background));
     border: 1px solid var(--color-wbbordercolor);
-    padding: 15px;
     border-radius: 4px;
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 2px 2px 12px 6px rgba(0, 0, 0, 0.1);
@@ -23,7 +22,6 @@ predictive-search[open] .predictive-search, predictive-search[loading] .predicti
     display: block;
 }
 .predictive-search__heading {
-    margin: 0 auto 15px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,9 +55,9 @@ predictive-search[loading] .predictive-search__heading ~ .predictive-search__loa
     /* display: grid;
     grid-template-columns: 4rem 1fr;
     grid-column-gap: 2rem;
-    grid-template-areas: 'product-image product-content'; */
+    grid-template-areas: 'product-image product-content';
+    margin-bottom: 15px; */
     align-items: left;
-    margin-bottom: 15px;
 }
 .predictive-search__item-content {
     display: flex;

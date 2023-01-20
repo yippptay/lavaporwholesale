@@ -82,7 +82,7 @@
                   {%- if product_card_product.selected_or_first_available_variant.featured_media != null -%}
                   {%- assign media = product_card_product.selected_or_first_available_variant.featured_media -%}
                       <div class="product__media-item" data-media-id="{{ section.id }}-{{ product_card_product.id }}-{{ media.id }}">
-                          <a href="{{ product_card_product.url | default: '#' }}" title="{{ product_card_product.title | escape }}" class="media media--transparent media--{{ media_size }} media--hover-effect {% if media.media_type == 'video' or media.media_type == 'external_video' or media.media_type == 'model' %} hide-modalquick {% endif %}" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}>
+                          <a href="{{ product_card_product.url | default: '#' }}" title="{{ product_card_product.title | escape }}" class="media media--transparent media--{{ media_size }} media--hover-effect {% if media.media_type == 'video' or media.media_type == 'external_video' or media.media_type == 'model' %} hide-modalquick {% endif %}" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: 100%;"{% endif %}>
                               <img class="img-fluid mx-auto" 
                               srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | img_url: '493x' }} 493w,{% endif %}
                                         {% if media.preview_image.width >= 600 %}{{ media.preview_image | img_url: '600x' }} 600w,{% endif %}
@@ -166,7 +166,7 @@
                   {%- for media in product_card_product.media -%}
                       {%- if media_to_render contains media.id and media.id != product_card_product.selected_or_first_available_variant.featured_media.id -%}
                           <div class="product__media-item" data-media-id="{{ section.id }}-{{ product_card_product.id }}-{{ media.id }}">
-                              <a href="{{ product_card_product.url | default: '#' }}" title="{{ product_card_product.title | escape }}" class="media media--transparent media--{{ media_size }} media--hover-effect {% if media.media_type == 'video' or media.media_type == 'external_video' or media.media_type == 'model' %} hide-modalquick {% endif %}" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}>
+                              <a href="{{ product_card_product.url | default: '#' }}" title="{{ product_card_product.title | escape }}" class="media media--transparent media--{{ media_size }} media--hover-effect {% if media.media_type == 'video' or media.media_type == 'external_video' or media.media_type == 'model' %} hide-modalquick {% endif %}" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: 100%;"{% endif %}>
                                   <img class="img-fluid mx-auto"
                                   srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | img_url: '493x' }} 493w,{% endif %}
                                         {% if media.preview_image.width >= 600 %}{{ media.preview_image | img_url: '600x' }} 600w,{% endif %}

@@ -160,9 +160,9 @@
         width: 100%;
         padding: 10px;
     }
-    /*.product-list .wbproduct-container .product-form form, .product-list .wbproduct-container .product-form .wbqvtop {
+    .product-list .wbproduct-container .product-form form, .product-list .wbproduct-container .product-form .wbqvtop {
         margin-top: 5px;
-    }*/
+    }
     .product-grid  variant-webi { 
         bottom: 35%;
     } 
