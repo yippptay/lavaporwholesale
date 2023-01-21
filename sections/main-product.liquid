@@ -415,7 +415,7 @@ $(document).ready(function() {
           {% comment %} Table Contents {% endcomment %}
           {% assign linklist = linklists['order-form'] %}
           <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-          <div style="overflow: overlay; overflow-y: scroll; max-height: 266px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
+          <div style="overflow-y: scroll; max-height: 318px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
             {% for variant in product.variants %}
               {% include 'wcp_variant' with variant %}
 
@@ -554,9 +554,12 @@ $(document).ready(function() {
 
         {%- when 'description' -%}
         {%- if product.description != blank -%}
-            <div class="product__description rte" style="padding-top: 25px;">
-                {{ product.description }}
-            </div>
+          <h4 style="padding-top: 32px">
+            Description:
+          </h4>
+          <div class="product__description rte shadow p-4 mb-5 rounded" style="overflow-y: scroll; max-height: 477px;">
+              {{ product.description }}
+          </div>
         {%- endif -%}
 
         {%- when 'custom_liquid' -%}
