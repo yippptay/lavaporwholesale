@@ -96,6 +96,7 @@
     {% endif %}
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   {% render 'minmaxify-head' %}
+{% render 'avalara-excise-variables' %}
 </head>
 
   <body class="gradient {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">

@@ -1,6 +1,12 @@
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
-    <div id="cart-notification-product-{{ item.id }}" class="cart-item">
+{%- assign exciseTaxExists = false -%}
+            {%- for p in item.properties -%}
+              {%- if p.first contains 'avalara_excise_tax' -%}
+              	{%- assign exciseTaxExists = true -%}
+              {%- endif -%}
+            {%- endfor -%}
+    <div id="cart-notification-product-{{ item.id }}" class="cart-item"{% if exciseTaxExists == true %}data-exciseTaxItem{% endif %}>
       {% if item.image %}
         <img class="cart-notification-product__image"
           src="{{ item.image | img_url: '140x' }}"

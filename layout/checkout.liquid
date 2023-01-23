@@ -12,7 +12,8 @@
 
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
-  </head>
+  {% render 'avalara-excise-variables' %}
+</head>
   <body>
     {{ skip_to_content_link }}
 
@@ -50,5 +51,6 @@
     </div>
 
     {{ tracking_code }}
-  </body>
+  {% render 'avalara-excise-checkout' %}
+</body>
 </html>

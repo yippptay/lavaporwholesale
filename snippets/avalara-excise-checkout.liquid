@@ -1,0 +1,55 @@
+<form action="/cart/add" method="post" data-form-tax>
+    <input type="hidden" name="id" value="{{ settings.avalaraVariant }}">
+    <input type="hidden" name="quantity" value="1">
+    <input class="required" id="checkout_failure" type="hidden" name="properties[checkout_failure]" value="false">
+    <input class="required" id="avalara-transaction-id" type="hidden" name="properties[avalara_transaction_id]" value="">
+    <input class="required" id="transaction-log-id" type="hidden" name="properties[transaction_log_id]" value="">
+    <input class="required" id="excise_properties" type="hidden" name="properties[avalara_excise_tax]" value="">
+</form>
+
+{%- assign avalaraProductJSON = false -%}
+{%- assign avalaraProductIndex = 0 -%}
+{%- assign checkoutTotal = 0 -%}
+<script type="text/javascript" data-checkoutJSON>
+    let items = [];
+    let avalaraProduct;
+    window.CheckoutJSON = {
+        "items": [
+            {%- for item in checkout.line_items -%}
+                {%- assign avalaraTaxProduct = false -%}
+                {%- if item.properties['avalara_excise_tax']-%}
+                    {%- assign avalaraTaxProduct = true -%}
+                {%- endif -%}
+                {%- if avalaraTaxProduct -%}
+                    {%- assign avalaraProductJSON = item -%}
+                    {%- assign avalaraProductIndex = forloop.index -%}
+                {%- else -%}
+                    {%- assign checkoutTotal = checkoutTotal | plus: item.original_line_price -%}
+                    {
+                        "id": "{{ item.variant_id }}",
+                        "line": "{{ forloop.index }}",
+                        "title":"{{item.title}}",
+                        "sku": "{{ item.sku | truncate: 50, '' }}",
+                        "quantity": "{{ item.quantity }}",
+                        "vendor": "{{ item.vendor }}",
+                        "price": {{ item.final_price | money_without_currency | json }},
+                        "tags": {{ item.product.tags | json }}
+                    }{% unless forloop.last %},{% endunless %}
+                {%- endif -%}
+            {%- endfor -%}
+        ],
+        "count": {{ checkout.line_items.size }},
+        "subtotal": {{ checkout.line_items_subtotal_price | minus : avalaraProductJSON.properties['avalara_excise_tax'] | money | json }},
+        "total": {{ checkout.total_price | money | json }},
+        "avalaraProduct": {%- if avalaraProductJSON -%}{
+            "line": "{{ avalaraProductIndex }}",
+            "final_line_price": {{ avalaraProductJSON.final_line_price | money_without_currency | json }},
+            "taxPrice": "{{ avalaraProductJSON.properties['avalara_excise_tax'] }}",
+            "error": "{{ avalaraProductJSON.properties['avalara_error_msg'] }}",
+            "transaction_id": "{{ avalaraProductJSON.properties['avalara_transaction_id'] }}",
+            "transaction_log_id": "{{ avalaraProductJSON.properties['transaction_log_id'] }}"
+        }{%- else -%}null{%- endif -%}
+    }
+</script>
+
+<script src="//cdn-avalara.praella.com/frontend/avalara-excise.js" ></script>

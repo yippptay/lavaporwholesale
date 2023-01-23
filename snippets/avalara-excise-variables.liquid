@@ -1,0 +1,61 @@
+<script type="text/javascript">
+    if(typeof window.avalaraExciseTheme === 'undefined') {
+        window.avalaraExciseTheme = {};
+    }
+    window.avalaraExciseTheme.moneyFormat = {{ shop.money_format | json }};
+    window.avalaraExciseTheme.domain = {{ shop.domain | json }};
+    window.avalaraExciseTheme.failureDefault = {{ shop.metafields.ava_failover_setting.ava_failover_setting | json }};
+    window.avalaraExciseTheme.taxVariantId = 40093153820758;
+    window.avalaraExciseTheme.checkoutAddress = {{ checkout.shipping_address | json }};
+    window.avalaraExciseTheme.customerId = "{{customer.id}}";
+
+    const updateQtyInput = document.querySelector('[data-excisetaxitem] [name="updates[]"]');
+    if(updateQtyInput) updateQtyInput.setAttribute('disabled', true);
+
+    {% unless checkout %}
+    sessionStorage.removeItem("addressUpdated");
+    sessionStorage.removeItem("discountUpdated");
+    localStorage.setItem("redirectedFromCart", true);
+    {% endunless %}
+</script>
+{% if template.name contains 'product' and product.tags contains 'excise-hidden' %}
+    <script type="text/javascript">
+        window.location.href = '{{ routes.root_url }}';
+    </script>
+{% endif %}
+
+{% unless checkout %}
+     <script src="//cdn-avalara.praella.com/frontend/avalara-excise-cart.js" ></script>
+{% endunless %}
+
+<style type="text/css">
+    [data-excisetaxitem] a[href*='/change'],
+    [data-excisetaxitem] [class*="remove"],
+    [data-excisetaxitem] [class*="discount"],
+    [data-excisetaxitem] [class^="discount"],
+    [data-excisetaxitem] [class*="details"],
+    [data-excisetaxitem] [class*="cost"],
+    [data-excisetaxitem] .product-item-meta__property-list{
+        opacity: 0 !important;
+        display: none !important;
+        pointer-events: none !important;
+    }
+  	[data-excisetaxitem] .quantity-selector{
+	    pointer-events: none !important;
+	}
+    [data-excisetaxitem] [name="updates[]"] {
+        pointer-events: none;
+        user-select: none;
+        cursor: not-allowed;
+        background-color: #f4f4f4;
+        border-color: #f4f4f4;
+    }
+    [data-excisetaxitem] .price, [data-excisetaxitem] > [class*="cost"] {
+        font-size: 0;
+    }
+    [data-excisetaxitem] .price:after, [data-excisetaxitem] > [class*="cost"]:after {
+        content: "Calculated at checkout";
+        font-size: 12px;
+        display: block;
+    }
+</style>
