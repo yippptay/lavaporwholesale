@@ -19,6 +19,12 @@
                     {%- if cart != empty -%}
                         {%- assign wcp_total_price = 0 -%} 
                         {%- for item in cart.items -%}
+{%- assign exciseTaxExists = false -%}
+            {%- for p in item.properties -%}
+              {%- if p.first contains 'avalara_excise_tax' -%}
+              	{%- assign exciseTaxExists = true -%}
+              {%- endif -%}
+            {%- endfor -%}
                         {%- include 'wcp_discount' with item.product -%}
                         {%- include 'wcp_variant' with item.variant -%} 
                         {%- include 'wcp_vd_discount' with item -%} 
@@ -31,7 +37,7 @@
                         {%- endif -%}
                         {%- assign wcp_total_price = wcp_total_price | plus: wcp_line_price -%}	 
 
-                            <div class="wbheadcartdrop" id="WbCartItem-{{ item.index | plus: 1 }}">
+                            <div class="wbheadcartdrop" id="WbCartItem-{{ item.index | plus: 1 }}"{% if exciseTaxExists == true %}data-exciseTaxItem{% endif %}>
                                 <div class="wbcartdimg">
                                     {% if item.image %}
                                     {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
