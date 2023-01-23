@@ -465,7 +465,7 @@ $(document).ready(function() {
                                       },75)
                                 }
                               })();"
-                            type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+                            type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
                           </td>
                   
                           <td width="20%" style="text-align: center; padding-left: 12px;">
@@ -1239,18 +1239,21 @@ jQuery('.price-field del').empty();
 
 <style>
 .login-box {
-/* top-left | top-right | bottom-right | bottom-left */
-border-radius: 0 0 4px 4px;
+  /* top-left | top-right | bottom-right | bottom-left */
+  border-radius: 0 0 4px 4px;
 }
 .price-box:hover > .login-box {
-background-color: #f8ca23 !important;
-transition: 0.2s all ease;
+  background-color: #f8ca23 !important;
+  transition: 0.2s all ease;
 }
 tr:nth-child(even) {
-background-color: #ececec !important;
+  background-color: #ececec !important;
 }
 .btn:hover {
-background-color: black !important;
+  background-color: black !important;
+}
+input::placeholder {
+  opacity: 0.5;
 }
 </style>
 

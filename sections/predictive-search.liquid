@@ -24,7 +24,7 @@
               {%- if settings.predictive_search_show_vendor -%} 
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span><div class="predictive-search__item-vendor caption-with-letter-spacing">{{ product.vendor }}</div>
               {%- endif -%}
-              <h4 class="predictive-search__item-heading">{{ product.title }}</h4> 
+              <h5 class="predictive-search__item-heading">{{ product.title }}</h5> 
             </div>
               {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
             <div class="wbqvtop" style="display: flex; align-items: center; z-index: 999;" >
@@ -68,7 +68,7 @@
     background: rgba(33, 37, 41, .05);
   }
   #qvsearch:hover {
-    transition: 0.3s;
+    transition: 250ms;
     background: #f8ca23 !important;
   }
 </style>

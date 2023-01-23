@@ -1,3 +1,10 @@
+function fetchConfig(type = 'json') {
+  return {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': `application/${type}` }
+  };
+}
+
 // Webibazaar Cart Dropdown Code Start
 function debounce(fn, wait) {
   let t;

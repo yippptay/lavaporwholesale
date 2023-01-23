@@ -9,7 +9,7 @@
 <cart-items class="{% if cart == empty %} is-empty{% endif %}">
   <div class="carthead">
     <h1 class="heading text-left">{{ 'sections.cart.title' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+    <a href="/cart/clear" class="underlined-link">Clear cart</a>
   </div>
 
   <div class="cart__warnings">
@@ -216,7 +216,7 @@
                       </quantity-input>
 
                       <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a onClick="setTimeout(function(){window.location.reload();},2500);" href="{{ item.url_to_remove }}" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        <a onClick="setTimeout(function(){window.location.reload();},4000);" href="{{ item.url_to_remove }}" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                           {% render 'icon-remove' %}
                         </a>
                       </cart-remove-button>
@@ -291,6 +291,8 @@
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
   </form>
 </cart-items>
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

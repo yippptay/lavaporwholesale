@@ -908,28 +908,6 @@ class VariantSelects extends HTMLElement {
       input.value = this.currentVariant.id;
       input.dispatchEvent(new Event('change', { bubbles: true }));
     });
-
-    if (document.getElementsByClassName('wcp_vd_table').length != 0 && document.getElementById('vdtable') != null) {
-
-        var source = document.getElementById('vdtable').innerHTML;
-        var template = Handlebars.compile(source);
-        if (document.getElementsByClassName('wcp_vd_table')[0] != undefined && document.getElementsByClassName('wcp_vd_table')[0].innerText != '') {
-          var context = JSON.parse(document.getElementsByClassName('wcp_vd_table')[0].innerText);
-          var vdtable = [];
-          vdtable['vdtable'] = context['wpd_' + this.currentVariant.id];
-          vdtable['vdtable'].forEach(function (arrayItem) {
-            arrayItem.Price = arrayItem.Price.replace(/<\/?span[^>]*>/g, '');
-          });
-          var html = template(vdtable);
-
-          document.getElementById('wcp_vd_table').innerHTML = html;
-        }
-        else {
-          document.getElementById('wcp_vd_table').innerHTML = '';
-        }
-
-      }
-    
   }
 
   updatePickupAvailability() {
