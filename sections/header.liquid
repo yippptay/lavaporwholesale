@@ -145,7 +145,7 @@ header-drawer {
                             </span>
                         </div>
                     </div>
-                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-right shadow rounded">
                         <div class="header-panel-top">
                             <div class="customer_account text-left">
                                 <ul class="list-unstyled">
@@ -184,7 +184,7 @@ header-drawer {
                 </div>
                 {%- endif -%}
                 {%comment%} Webibazaar Cart Dropdown {%endcomment%}
-                <div class="dropdown" id="cart-icon-bubble">
+                <div class="dropdown shadow rounded" id="cart-icon-bubble">
                     <div data-toggle="dropdown"> 
                         <div class="wbhcart">
                             <span class="svgbg d-inline-block align-middle text-center">{% render 'icon-hcart' %}</span>
@@ -272,7 +272,7 @@ header-drawer {
                                                         {%- endif -%}
                                                         <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                                                             {%- for discount in item.discounts -%}
-                                                                <li class="discounts__discount">
+                                                                <li class="discounts__discount hidden">
                                                                     {%- render 'icon-discount' -%}
                                                                     {{ discount.title }}
                                                                 </li>

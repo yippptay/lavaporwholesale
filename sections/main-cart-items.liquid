@@ -30,40 +30,43 @@
     <div id="main-cart-items" data-id="{{ section.id }}">
       <div class="js-contents">
         {%- if cart != empty -%}
-          <table class="cart-items">
+          <table class="cart-items table table-sm table-hover" style="margin-bottom: 0;">
             <thead>
               <tr>
                 <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
                 <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
+                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" style="text-align: center;" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
                 <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
               </tr>
             </thead>
 
             <tbody>
+
               {%- assign wcp_total_price = 0 -%} 
               {%- for item in cart.items -%}
-{%- assign exciseTaxExists = false -%}
-            {%- for p in item.properties -%}
-              {%- if p.first contains 'avalara_excise_tax' -%}
-              	{%- assign exciseTaxExists = true -%}
-              {%- endif -%}
-            {%- endfor -%}
-              {%- include 'wcp_discount' with item.product -%}
-              {%- include 'wcp_variant' with item.variant -%} 
-              {%- include 'wcp_vd_discount' with item -%} 
-              {%- assign  wcp_custom_final_Price = item.final_price  -%} 
-              {%- if wcp_v_price < wcp_custom_final_Price -%}
-              {%- assign wcp_line_price = wcp_v_price | floor | minus: 0 | times: item.quantity -%}
-              {%- else -%}
-              {%- assign wcp_v_price = wcp_custom_final_Price | floor | minus: 0 -%}
-              {%- assign wcp_line_price = wcp_custom_final_Price | floor | minus: 0 | times: item.quantity -%}
-              {%- endif -%}
-              {%- assign wcp_total_price = wcp_total_price | plus: wcp_line_price -%}	
+                {%- assign exciseTaxExists = false -%}
+
+                {%- for p in item.properties -%}
+                  {%- if p.first contains 'avalara_excise_tax' -%}
+              	    {%- assign exciseTaxExists = true -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- include 'wcp_discount' with item.product -%}
+                {%- include 'wcp_variant' with item.variant -%} 
+                {%- include 'wcp_vd_discount' with item -%} 
+                {%- assign  wcp_custom_final_Price = item.final_price  -%} 
+                {%- if wcp_v_price < wcp_custom_final_Price -%}
+                {%- assign wcp_line_price = wcp_v_price | floor | minus: 0 | times: item.quantity -%}
+                {%- else -%}
+                {%- assign wcp_v_price = wcp_custom_final_Price | floor | minus: 0 -%}
+                {%- assign wcp_line_price = wcp_custom_final_Price | floor | minus: 0 | times: item.quantity -%}
+                {%- endif -%}
+                {%- assign wcp_total_price = wcp_total_price | plus: wcp_line_price -%}	
 
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}"{% if exciseTaxExists == true %}data-exciseTaxItem{% endif %}>
 
-                  <td class="cart-item__media">
+                  <td class="cart-item__media" style="vertical-align: middle;">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                       <a href="{{ item.url }}">
@@ -72,12 +75,13 @@
                         alt="{{ item.image.alt | escape }}"
                         loading="lazy"
                         width="150"
-                        height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}" >
+                        height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                        style="width: 50px;" >
                       </a>
                     {% endif %}
                   </td>
 
-                  <td class="cart-item__details">
+                  <td class="cart-item__details" style="vertical-align: middle;">
                     {%- if section.settings.show_vendor -%}
                       <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                     {%- endif -%}
@@ -91,10 +95,10 @@
                         <span class="visually-hidden">
                           {{ 'products.product.price.regular_price' | t }}
                         </span>
-                        <s class="cart-item__old-price product-option">
+                        <s class="cart-item__old-price product-option hidden">
                           {{- item.original_price | money -}}
                         </s>
-                        <span class="visually-hidden">
+                        <span class="visually-hidden hidden">
                           {{ 'products.product.price.sale_price' | t }}
                         </span>
                         <strong class="cart-item__final-price product-option">
@@ -165,7 +169,7 @@
                             {{ 'products.product.price.regular_price' | t }}
                           </dt>
                           <dd>
-                            <s class="cart-item__old-price price price--end">
+                            <s class="cart-item__old-price price price--end hidden">
                               {{ item.original_line_price | money }}
                             </s>
                           </dd>
@@ -197,7 +201,7 @@
                     </div>
                   </td>
 
-                  <td class="cart-item__quantity">
+                  <td class="cart-item__quantity" style="vertical-align: middle;">
                     <div class="cart-item__quantity-wrapper">
                       <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
                         {{ 'products.product.quantity.label' | t }}
@@ -245,7 +249,7 @@
                     </div>
                   </td>
 
-                  <td class="cart-item__totals right small-hide">
+                  <td class="cart-item__totals right small-hide" style="vertical-align: middle;">
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
                         <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">

@@ -7,7 +7,7 @@
 <div class="product-tab-item">
   <div class="pro-tab tabs">
     <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
-    <ul class="list-inline nav nav-pills text-center">       
+    <ul class="list-inline nav nav-tabs text-center">       
       {%- for block in section.blocks -%}
         <li class="nav-item {% if forloop.first %}active{% endif %}">
           <a class="nav-link" href="#wbprodtab1-{{block.id}}">
