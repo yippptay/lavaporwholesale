@@ -62,6 +62,7 @@
               {%- assign wcp_total_price = wcp_total_price | plus: wcp_line_price -%}	
 
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}"{% if exciseTaxExists == true %}data-exciseTaxItem{% endif %}>
+
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -202,10 +203,13 @@
                         {{ 'products.product.quantity.label' | t }}
                       </label>
                       <quantity-input class="quantity">
-                        <button class="quantity__button no-js-hidden" name="minus" type="button">
+
+                        <!-- Cart minus button -->
+                        <button class="quantity__button no-js-hidden hidden" name="minus" type="button">
                           <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                           {% render 'icon-minus' %}
                         </button>
+
                         <input class="quantity__input"
                           type="number"
                           name="updates[]"
@@ -215,10 +219,13 @@
                           id="Quantity-{{ item.index | plus: 1 }}"
                           data-index="{{ item.index | plus: 1 }}"
                         >
-                        <button class="quantity__button no-js-hidden" name="plus" type="button">
+
+                        <!-- Cart plus button -->
+                        <button class="quantity__button no-js-hidden hidden" name="plus" type="button">
                           <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                           {% render 'icon-plus' %}
                         </button>
+
                       </quantity-input>
 
                       <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
@@ -285,6 +292,7 @@
                       {%- endif -%}
                     </div>
                   </td>
+                  
                 </tr>
               {%- endfor -%}
             </tbody>

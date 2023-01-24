@@ -63,6 +63,8 @@ predictive-search[loading] .predictive-search__heading ~ .predictive-search__loa
     display: flex;
     flex-direction: row;
     line-height: normal;
+    flex-wrap: nowrap;
+    align-items: baseline;
 }
 .predictive-search__item-content--centered {
     justify-content: center;

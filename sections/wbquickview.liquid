@@ -250,7 +250,7 @@
                                                 document.getElementById('quickquantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
                                                 },75)
                                           }
-                                        })();"type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quickquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %}/>    
+                                        })();"type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quickquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
                                     </td>
                             
                                     <td width="20%" style="text-align: center; padding-left: 12px;">
