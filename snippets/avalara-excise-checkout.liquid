@@ -52,4 +52,6 @@
     }
 </script>
 
-<script src="//cdn-avalara.praella.com/frontend/avalara-excise.js" ></script>
+{% if customer.b2b? != true %}
+    <script src="//cdn-avalara.praella.com/frontend/avalara-excise.js" ></script>
+{% endif %}
