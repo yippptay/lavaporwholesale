@@ -27,7 +27,6 @@
 {% unless checkout %}
     {% if customer.b2b? != true %}
         <script src="{{ 'avalara-excise-cart.js' | asset_url }}" />
-<!--         <script src="//cdn-avalara.praella.com/frontend/avalara-excise-cart.js" ></script> -->
     {% endif %}
 {% endunless %}
 
