@@ -28,7 +28,7 @@
               {%- endif -%}
               <h6 class="predictive-search__item-heading" style="margin-top: 0; margin-bottom: 0;">{{ product.title }}</h6>
                 {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
-              <div class="wbqvtop" style="display: flex; align-items: center; z-index: 999; padding-left: 12px;" >
+              <div class="wbqvtop" style="display: flex; align-items: center; z-index: 999; padding-right: 8px;" >
                 <button id="qvsearch" class="wbquickv quick_shop js-wbquickview-link" style="background-color: #000; border: none; border-radius: 4px; color: white;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
               </div>
             </div>

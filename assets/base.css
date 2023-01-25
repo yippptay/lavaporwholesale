@@ -1493,13 +1493,13 @@ input::-webkit-search-decoration {
     display: flex;
     gap: 15px;
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .wbheadcartdrop:last-child{
     margin-bottom: 0;
 }
 .wbheadcartdrop dl{
-    margin-bottom: 6px;
+    margin-bottom: 0px;
 }
 .wbcartdimg img{
     border-radius: 4px;
@@ -1537,8 +1537,8 @@ input::-webkit-search-decoration {
     letter-spacing: 0.3px;
     display: block;
     width: 85%;
-    line-height: 17px;
-    margin-bottom: 10px;
+    line-height: 16px;
+    margin-bottom: 0px;
 }
 .wbheadcartdrop .product-option{
     margin: 0;

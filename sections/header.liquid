@@ -194,7 +194,7 @@ header-drawer {
                             </span>
                         </div>
                     </div>
-                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-right shadow rounded">
                         <webi-cart-items class="{% if cart == empty %} is-empty{% endif %}">
                             <div class="cart__warnings">
                                 <h5 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h5>
@@ -311,7 +311,7 @@ header-drawer {
                                                                     {%- if item.original_line_price !=  wcp_line_price  -%}
                                                                         <dl class="cart-item__discounted-prices">
                                                                             <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
-                                                                            <dd><s class="cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
+                                                                            <dd><s class="cart-item__old-price price price--end hidden">{{ item.original_line_price | money }}</s></dd>
                                                                             <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
                                                                             <dd class="price price--end">{{  wcp_line_price  | money }}</dd>
                                                                         </dl>
