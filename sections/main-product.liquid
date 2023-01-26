@@ -434,12 +434,12 @@ $(document).ready(function() {
                           </td>
                       
                           <td width="10%" style="text-align: center; padding-left: 12px;">
-                          {% if customer %}<strong>{{ wcp_v_price | money }}</strong>
-                          {% else %}
-                            <span>
-                              <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
-                            </span>
-                          {% endif %}
+                            {% if customer %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
+                            {% else %}
+                              <span>
+                                <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
+                              </span>
+                            {% endif %}
                           </td>
 
                           <td width="10%" style="text-align: center; padding-left: 14px;">
@@ -448,7 +448,7 @@ $(document).ready(function() {
                             <input tabindex="0" autocomplete="off" data-toggle="popover" data-content="Input over limit" data-placement="left" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
                             oninput="(
                               function() {
-                                let totalQty = 0;
+                                let variantIndex = parseInt({{ forloop.length }}) - 1;
                                 let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
 
                                 // remove non numbers
@@ -465,6 +465,33 @@ $(document).ready(function() {
                                       },75)
                                 }
                               })();"
+
+                            onblur="(
+                              function() {
+                                let totalSubtotal = 0;
+                                let totalQty = 0;
+                                let maxVar = parseInt({{ forloop.length }}) - 1;
+
+                                for(let y = 0; y < maxVar; y++) {
+                                  if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
+                                    totalQty += 0;
+                                  } else {
+                                    totalQty = totalQty + parseInt(document.getElementById('quantity-' + String(y)).value)
+                                  }            
+                                }
+
+                                for(let y = 0; y < maxVar; y++) {
+                                  if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
+                                    totalSubtotal += 0;
+                                    } else {
+                                    let valFix = (document.getElementById('pricing-' + String(y)).innerHTML).replace('$','')
+                                    totalSubtotal += parseFloat(valFix).toFixed(2) * parseInt(document.getElementById('quantity-' + String(y)).value).toFixed(2);
+                                  }
+                                }
+                                document.getElementById('tableSubtotal').innerHTML = totalSubtotal.toFixed(2);
+                                document.getElementById('tableTotalQty').innerHTML = totalQty;
+                              })();"
+
                             type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
                           </td>
                   
@@ -510,22 +537,28 @@ $(document).ready(function() {
         {% if customer %}
           <div style="text-align: right; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
 
-          <strong>
-
-            <a style="padding-right: 25%;">
+            <div>
               Total Qty:
-              <a id="totalqty">
-                0
-              </a>
-            </a>
+              <strong>
+                <a id="tableTotalQty">
+                  0
+                </a>
+              </strong>
+            </div>
 
-            <a>
+            <div>
               Subtotal:
-            </a>
-            
-          </strong>
-          
-        </div>
+              <strong>
+                <a>
+                  $
+                </a>
+                <a id="tableSubtotal">
+                  0.00
+                </a>
+              </strong>
+            </div>
+
+          </div>
         {% endif %}
 
 

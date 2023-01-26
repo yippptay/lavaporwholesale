@@ -71,9 +71,13 @@
         }
         
         for (var i = 0; i < alphabet.length; i++) {
-          console.log(brandheader);
-          let items = document.getElementsByClassName('col-sm-3 cless brand-names ' + alphabet[i] + '-item').length
-          if (document.getElementsByClassName('col-sm-3 cless brand-names ' + alphabet[i] + '-item slow-hide').length == items) {
+          var d = document.getElementById(alphabet[i] + "-header");
+          let items = document.getElementsByClassName("col-sm-3 cless brand-names " + alphabet[i] + "-item").length
+          if (document.getElementsByClassName("col-sm-3 cless brand-names " + alphabet[i] + "-item slow-hide").length == items) {
+            d.className += " slow-hide";
+          }
+          else {
+            d.className -= " slow-hide";
           }
         }
       }
@@ -202,24 +206,25 @@
   
         {% for letters in letter_array %}
   
-          <div class="{{ letters }}-header">
+          <div id="{{ letters }}-header" class="{{ letters }}-header">
             <h4 style="margin-bottom: 0px !important;">{{ letters }}</h4>
             <hr style="margin-top: 0px !important;"/>
-          </div>
+          
   
-          <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
-            {%- for collection in collections %}
-              {%- if collection.metafields.custom.type == "Brand" %}
-                {%  assign first_char = collection.title | slice: 0 | upcase %}
-                {%- if first_char == letters %}
-                  <div class="col-sm-3 cless brand-names {{ letters }}-item" style="margin-bottom: 4px !important;">
-                    <a href="{{ collection.url }}">
-                      <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
-                    </a>
-                  </div>
-                {% endif %}
-              {%- endif %}
-            {%- endfor %}
+            <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
+              {%- for collection in collections %}
+                {%- if collection.metafields.custom.type == "Brand" %}
+                  {%  assign first_char = collection.title | slice: 0 | upcase %}
+                  {%- if first_char == letters %}
+                    <div class="col-sm-3 cless brand-names {{ letters }}-item" style="margin-bottom: 4px !important;">
+                      <a href="{{ collection.url }}">
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
+                      </a>
+                    </div>
+                  {% endif %}
+                {%- endif %}
+              {%- endfor %}
+            </div>
           </div>
   
         {% endfor %}
