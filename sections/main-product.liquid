@@ -493,13 +493,13 @@ $(document).ready(function() {
                                 document.getElementById('tableTotalQty').innerHTML = totalQty;
                               })();"
 
-                            type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
+                            type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {%- unless variant.inventory_management != "shopify" -%}{% if variant.inventory_quantity < 1 %}disabled{% endif %}{%- endunless -%}/>    
                           </td>
                   
                           <td width="20%" style="text-align: center; padding-left: 12px;">
                             {% if true %}
                               {% if variant.inventory_management != "shopify" %}
-                                In Stock
+                                <strong>In Stock</strong>
                               {% elsif variant.inventory_quantity > 0 %}
                                 <strong>{{ variant.inventory_quantity }}</strong> In Stock
                               {% else %}
@@ -591,7 +591,7 @@ $(document).ready(function() {
           <h4 style="padding-top: 32px">
             Description:
           </h4>
-          <div class="product__description rte shadow p-4 mb-5 rounded" style="overflow-y: scroll; max-height: 477px;">
+          <div class="product__description rte p-4 mb-5" style="overflow-y: scroll; max-height: 477px;">
               {{ product.description }}
           </div>
         {%- endif -%}
