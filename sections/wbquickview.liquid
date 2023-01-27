@@ -223,7 +223,7 @@
                                     </td>
                                 
                                     <td width="10%" style="text-align: center; padding-left: 12px;">
-                                    {% if customer %}<strong>{{ wcp_v_price | money }}</strong>
+                                      {% if customer %}<strong><a id="qvpricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
                                     {% else %}
                                       <span>
                                         <a style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
@@ -232,25 +232,55 @@
                                     </td>
     
                                     <td width="10%" style="text-align: center; padding-left: 14px;">
-                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;" oninput="(
+                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                      
+                                      oninput="(
                                         function() {
                                           let totalQty = 0;
-                                          let input = document.getElementById('quickquantity-{{ forloop.index0 }}').value;
+                                          let input = document.getElementById('qvquantity-{{ forloop.index0 }}').value;
           
                                           // remove non numbers
                                           if(isNaN(input)) {
                                             setTimeout(() => {
-                                              document.getElementById('quickquantity-{{ forloop.index0 }}').value = '';},75)
+                                              document.getElementById('qvquantity-{{ forloop.index0 }}').value = '';},75)
                                             
                                           }
           
                                           // update quantity if it's over limit
                                           if(input > {{ variant.inventory_quantity }}) {
                                               setTimeout(() => {
-                                                document.getElementById('quickquantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
+                                                document.getElementById('qvquantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
                                                 },75)
                                           }
-                                        })();"type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quickquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
+                                        })();"
+                                      
+                                        onblur="(
+                                          function() {
+                                            let totalSubtotal = 0;
+                                            let totalQty = 0;
+                                            let maxVar = parseInt({{ forloop.length }});
+            
+                                            for(let y = 0; y < maxVar; y++) {
+                                              if(isNaN(parseInt(document.getElementById('qvquantity-' + String(y)).value))) {
+                                                totalQty += 0;
+                                              } else {
+                                                totalQty = totalQty + parseInt(document.getElementById('qvquantity-' + String(y)).value)
+                                              }            
+                                            }
+            
+                                            for(let y = 0; y < maxVar; y++) {
+                                              if(isNaN(parseInt(document.getElementById('qvquantity-' + String(y)).value))) {
+                                                totalSubtotal += 0;
+                                                } else {
+                                                let valFix = (document.getElementById('qvpricing-' + String(y)).innerHTML).replace('$','')
+                                                totalSubtotal += parseFloat(valFix).toFixed(2) * parseInt(document.getElementById('qvquantity-' + String(y)).value).toFixed(2);
+                                              }
+                                            }
+                                            document.getElementById('qvtableSubtotal').innerHTML = totalSubtotal.toFixed(2);
+                                            document.getElementById('qvtableTotalQty').innerHTML = totalQty;
+                                          })();"
+                                      
+                                      type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="qvquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
                                     </td>
                             
                                     <td width="20%" style="text-align: center; padding-left: 12px;">
@@ -289,6 +319,33 @@
 
                     </div>
                   {% endunless %}
+
+                  {% if customer %}
+                    <div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
+          
+                      <div>
+                        Total Qty:
+                        <strong>
+                          <a id="qvtableTotalQty">
+                            0
+                          </a>
+                        </strong>
+                      </div>
+          
+                      <div>
+                        Subtotal:
+                        <strong>
+                          <a>
+                            $
+                          </a>
+                          <a id="qvtableSubtotal">
+                            0.00
+                          </a>
+                        </strong>
+                      </div>
+          
+                    </div>
+                  {% endif %}
 
                       {% comment %} Purchase Section {% endcomment %}
                     <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}" style="text-align: right;">
@@ -942,7 +999,7 @@ $(document).ready(function()
 {% assign linklist = linklists['order-form'] %}
 var length = {{ product.variants.size }};
 $(document).ready(function () {
-    $("#quickquantity-0").focus();    
+    $("#qvquantity-0").focus();    
     $("#submit-table-quick").click(function(e) {     
         e.preventDefault();
         //array for Variant Titles
@@ -950,10 +1007,10 @@ $(document).ready(function () {
         var qty ;
 
         for(i=0; i < length; i++){
-            if ($("#quickquantity-"+i).val() > 0) {
+            if ($("#qvquantity-"+i).val() > 0) {
             toAdd.push({
                 variant_id: $("#quickvariant-"+i).val(),        
-                quantity_id: $("#quickquantity-"+i).val() || 0
+                quantity_id: $("#qvquantity-"+i).val() || 0
             });
         }
     }
@@ -1016,7 +1073,7 @@ $(document).ready(function () {
           }
         };
         $(document).ready(function() {
-          $("#quickquantity-0").focus();
+          $("#qvquantity-0").focus();
           $("#submit-table-quick").click(function(e) {
             e.preventDefault();
             //array for Variant Titles
@@ -1024,10 +1081,10 @@ $(document).ready(function () {
             var qty;
 
             for (i = 0; i < length; i++) {
-              if ($("#quickquantity-" + i).val() > 0) {
+              if ($("#qvquantity-" + i).val() > 0) {
                 toAdd.push({
                   variant_id: $("#quickvariant-" + i).val(),
-                  quantity_id: $("#quickquantity-" + i).val() || 0
+                  quantity_id: $("#qvquantity-" + i).val() || 0
                 });
               }
             }

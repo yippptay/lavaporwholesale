@@ -446,6 +446,7 @@ $(document).ready(function() {
 
                             <!-- QTY input with automatic cleaning -->
                             <input tabindex="0" autocomplete="off" data-toggle="popover" data-content="Input over limit" data-placement="left" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                            
                             oninput="(
                               function() {
                                 let variantIndex = parseInt({{ forloop.length }}) - 1;
@@ -470,7 +471,7 @@ $(document).ready(function() {
                               function() {
                                 let totalSubtotal = 0;
                                 let totalQty = 0;
-                                let maxVar = parseInt({{ forloop.length }}) - 1;
+                                let maxVar = parseInt({{ forloop.length }});
 
                                 for(let y = 0; y < maxVar; y++) {
                                   if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
@@ -535,7 +536,7 @@ $(document).ready(function() {
         {% endunless %}
 
         {% if customer %}
-          <div style="text-align: right; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
+          <div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
 
             <div>
               Total Qty:
@@ -1111,62 +1112,64 @@ endif
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
   
 <script>
-function change() // no ';' here
-{
-var elem = document.getElementById("submit-table-product");
-if (elem.value=="Adding to Cart") elem.value = "Add to Cart";
-else elem.value = "Adding to Cart";
-}
+  function change() {
+    var elem = document.getElementById("submit-table-product");
+    if (elem.value=="Adding to Cart") {
+    elem.value = "Add to Cart";
+    } else {
+      elem.value = "Adding to Cart";
+    }
+  }
 </script>
 
 <script>
-{% assign linklist = linklists['order-form'] %}
-var length = {{ product.variants.size }};
-$(document).ready(function () {
-$("#quantity-0").focus();    
-$("#submit-table-product").click(function(e) {     
-  e.preventDefault();
-  //array for Variant Titles
-  var toAdd = new Array();
-  var qty ;
+  {% assign linklist = linklists['order-form'] %}
+  var length = {{ product.variants.size }};
+  $(document).ready(function () {
+  $("#quantity-0").focus();    
+  $("#submit-table-product").click(function(e) {     
+    e.preventDefault();
+    //array for Variant Titles
+    var toAdd = new Array();
+    var qty ;
 
-  for(i=0; i < length; i++){
-      if ($("#quantity-"+i).val() > 0) {
-      toAdd.push({
-          variant_id: $("#variant-"+i).val(),        
-          quantity_id: $("#quantity-"+i).val() || 0
-      });
+    for(i=0; i < length; i++){
+        if ($("#quantity-"+i).val() > 0) {
+        toAdd.push({
+            variant_id: $("#variant-"+i).val(),        
+            quantity_id: $("#quantity-"+i).val() || 0
+        });
+    }
   }
-}
-  function moveAlong(){
-      if (toAdd.length) {
-          var request = toAdd.shift();
-          var tempId= request.variant_id;
-          var tempQty = request.quantity_id;
-          var params = {
-              type: 'POST',
-              url: '/cart/add.js',
-              data: 'quantity='+tempQty+'&id='+tempId,
-              dataType: 'json',
-              success: function(line_item) { 
-                  //console.log("success!");
-                Shopify.onSuccess,
-                  moveAlong();
-              },
-              error: function() {
-                  //console.log("fail");
-                  moveAlong();
-              }
-          };
-          $.ajax(params);
-      }
-      else {				
-          window.location.reload(); 
-      }  
-  };
-  moveAlong();
-});
-});
+    function moveAlong(){
+        if (toAdd.length) {
+            var request = toAdd.shift();
+            var tempId= request.variant_id;
+            var tempQty = request.quantity_id;
+            var params = {
+                type: 'POST',
+                url: '/cart/add.js',
+                data: 'quantity='+tempQty+'&id='+tempId,
+                dataType: 'json',
+                success: function(line_item) { 
+                    //console.log("success!");
+                  Shopify.onSuccess,
+                    moveAlong();
+                },
+                error: function() {
+                    //console.log("fail");
+                    moveAlong();
+                }
+            };
+            $.ajax(params);
+        }
+        else {				
+            window.location.reload(); 
+        }  
+    };
+    moveAlong();
+  });
+  });
 </script>
 
 <script>
@@ -1240,34 +1243,34 @@ $("#submit-table-product").click(function(e) {
 </script>
 
 <script>
-var selectCallback = function(variant, selector) {
-if (variant && variant.available == true) {
-// selected a valid variant
-jQuery('button#purchase').removeClass('disabled').removeAttr('disabled');
-jQuery('button#purchase').css("opacity","1");
-jQuery('button#purchase span').text("Add to cart");
-jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
-if (variant.compare_at_price > variant.price) {
-jQuery('.price-field del').html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_without_currency_format }}"));
-}
-else {
-jQuery('.price-field del').empty();
-}
-} else {
-// variant is unavailable or doesn't exist
-if (variant.inventory_quantity == -1) {
-// variant is for in-store purchase only
-var message = "In Store Only";
-} else {
-var message = variant ? "Sold Out" : "Unavailable";
-}
-jQuery('button#purchase').addClass('disabled').attr('disabled', 'disabled');
-jQuery('button#purchase').css("opacity",".6");
-jQuery('button#purchase span').text(message);
-jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
-jQuery('.price-field del').empty();
-}
-};
+  var selectCallback = function(variant, selector) {
+    if (variant && variant.available == true) {
+      // selected a valid variant
+      jQuery('button#purchase').removeClass('disabled').removeAttr('disabled');
+      jQuery('button#purchase').css("opacity","1");
+      jQuery('button#purchase span').text("Add to cart");
+      jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
+      if (variant.compare_at_price > variant.price) {
+        jQuery('.price-field del').html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_without_currency_format }}"));
+        }
+      else {
+      jQuery('.price-field del').empty();
+      }
+    } else {
+    // variant is unavailable or doesn't exist
+    if (variant.inventory_quantity == -1) {
+    // variant is for in-store purchase only
+    var message = "In Store Only";
+    } else {
+    var message = variant ? "Sold Out" : "Unavailable";
+    }
+    jQuery('button#purchase').addClass('disabled').attr('disabled', 'disabled');
+    jQuery('button#purchase').css("opacity",".6");
+    jQuery('button#purchase span').text(message);
+    jQuery('span.price-field').html(Shopify.formatMoney(variant.price, "{{ shop.money_without_currency_format }}"));
+    jQuery('.price-field del').empty();
+    }
+  };
 </script>
 
 <style>
