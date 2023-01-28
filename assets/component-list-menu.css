@@ -39,8 +39,8 @@ body.overflow-hidden .menupos{
 }
 .whr-menu {
     font-size: calc(var(--font-size-base) * 1.15px);
-    background-color: var(--gradient-base-accent-1);
-    color: balck;
+    /* background-color: var(--gradient-base-accent-1); */
+    background-color: #202020;
     height: 50px;
     padding: 14px 12px;
     margin: 0;
@@ -48,6 +48,7 @@ body.overflow-hidden .menupos{
     cursor: pointer;
     font-weight: normal;
     text-transform: uppercase;
+    color: white;
 }
 .whr-menu span {
     margin: 0 15px;
@@ -70,7 +71,7 @@ body.overflow-hidden .menupos{
     left: -1px;
 }
 .navbar-toggler-icon .bar {
-    background: black;
+    background: white;
     height: 1px;
     position: absolute;
     overflow: hidden;
@@ -215,8 +216,8 @@ body.overflow-hidden .menupos{
 }
 @media (min-width: 992px){
     #under-menu {
-        background-color: #f8ca23;
-        border-radius: 4px;
+        background-color: #202020;
+        border-radius: 0 0 5px 5px;
         /* border: 1px solid rgba(var(--color-base-text),.05); */
         margin-bottom: 0;
         display: block!important;
@@ -246,6 +247,7 @@ body.overflow-hidden .menupos{
         margin-right: 0px;
         padding: 11px 0;
         margin: 0 15px;
+        color: white;
         font-size: calc(var(--font-size-base) * 1.15px);
     }
     #megamenu li.wbmenul_1 a.wbmenul1_link:hover {
@@ -255,7 +257,7 @@ body.overflow-hidden .menupos{
     }
     
     #megamenu li.wbmenul_1:hover {
-        background-color: #202020 !important;
+        background-color: #f8ca23 !important;
         transition: 0.2s;
     }
 

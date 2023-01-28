@@ -885,7 +885,7 @@
 
         </div><!-- /.grid__item -->
 
-        <div class="product__description rte" style="max-width: 47%; padding-left: 5%">
+        <div class="product__description rte" style="max-width: 47%; padding-left: 5%; overflow-y: scroll; max-height: 477px;">
           {{ product.description }}
         </div>
 
@@ -1129,6 +1129,12 @@ $(document).ready(function () {
     </section> <!-- /.product-container -->
   </div> <!-- /.container -->
 </section>
+
+<style>
+  #submit-table-quick:hover {
+    background-color: black !important;
+  }
+</style>
 
 {% schema %}
   {

@@ -3,7 +3,6 @@
   integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
   crossorigin="anonymous">
 </script>
-
 <!-- MDB -->
 <script
   type="text/javascript"
@@ -34,7 +33,7 @@
       <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://logovectorseek.com/wp-content/uploads/2020/02/smok-logo-vector.png" width="auto" height="130px"></a>
       <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0613/8472/0630/collections/00fc1e482ffc199c4a8f829f0e4c2bc3.png?v=1644940988" width="auto" height="130px"></a>
       <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://tobaccoreporter.com/wp-content/uploads/sites/2/2022/04/vaporesso.jpg" width="auto" height="130px"></a>
-      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://uc26c6d6c728df0597c44629265a.previews.dropboxusercontent.com/p/thumb/AByzQr_qRJwAjoR6b44uY4T2j_TFQuCyWD27xWBoGejuEl0D6rDSarzpOfb4gMVCgsuU_vpIpu-Hvxdm09nXTLNU4QeFYOAyxgJhhH0DuJb4jzbIZnMYchzgggW1GsS4K85pxMxWjevzEEAbYuR8Yy8BRCmNGk5ADr7LcOnXw66pXqnzgKxIzxZVtlBKLRivyJ9YiJqnjG8jb0IfOAG_Pux_msN-rWb1o2PsIZomuQdX70Nvn370ND97JnRtoUlu1eXKVIZ9x_cHYyiUd5feGDy5KsDMGEGgztr1F4t7cNakC1Wb0WcLJamIpFOwfXvBEvhOj9Lkpmtz56pGT7IUt2dmD88j8gn5T8kyJUDrYp0bg_0HIDITzYKhjXXC_KD1sHXS-vAPSXXPr2XCQo8qa17sM9Ul6HUTI9werw_DEgbm8g/p.png" width="130px" height="auto"></a>
+      <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/1732/9785/files/header_logo.png?v=1613506337" width="130px" height="auto"></a>
       <a class="brand-img" href="https://placeholder.com" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/slider_f_r_freemax_logo_3_2.jpg" width="auto" height="130px"></a>
     </div>
 
@@ -111,8 +110,8 @@
 
     <ul class="nav" style="display: flex; justify-content: space-between;">
       {% for letters in letter_array %}
-        <li href="#alpha-{{letters}}" class="nav-item">
-          <a class="nav-link active" href="#alpha-{{letters}}">{{letters}}</a>
+        <li href="#{{ letters }}-header" class="nav-item">
+          <a class="nav-link active" href="#{{ letters }}-header">{{letters}}</a>
         </li>
       {% endfor %}
     </ul>

@@ -3,6 +3,15 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
+{% assign min = 1 %}
+{% assign max = 100 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+<!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
+<!--    30    |    25    |     30      |  10  |      5     -->
+<!--    1-30  |   31-55  |     56-85   |86-95 |   96-100   -->
+
 <div class="product-tab-item">
   <div class="pro-tab tabs">
     <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
@@ -18,14 +27,6 @@
   </div>
   <div class="clearfix"></div>
   <div class="tab-content tab-pro" style="padding-bottom: 30px; margin-bottom: 10px;">
-
-    {% assign min = 1 %}
-    {% assign max = 100 %}
-    {% assign diff = max | minus: min %}
-    {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
-    <!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
-    <!--    30    |    25    |     30      |  10  |      5     -->
-    <!--    1-30  |   31-55  |     56-85   |86-95 |   96-100   -->
 
     {%- for block in section.blocks -%}
     {%- assign collection = collections[block.settings.collection]  -%}

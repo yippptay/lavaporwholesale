@@ -445,7 +445,7 @@ $(document).ready(function() {
                           <td width="10%" style="text-align: center; padding-left: 14px;">
 
                             <!-- QTY input with automatic cleaning -->
-                            <input tabindex="0" autocomplete="off" data-toggle="popover" data-content="Input over limit" data-placement="left" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                            <input tabindex="0" autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
                             
                             oninput="(
                               function() {
@@ -456,14 +456,13 @@ $(document).ready(function() {
                                 if(isNaN(input)) {
                                   setTimeout(() => {
                                     document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75)
-                                  
                                 }
 
                                 // update quantity if it's over limit
                                 if(input > {{ variant.inventory_quantity }}) {
-                                    setTimeout(() => {
-                                      document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
-                                      },75)
+                                  setTimeout(() => {
+                                    document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
+                                  },75)
                                 }
                               })();"
 
