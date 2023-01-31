@@ -45,6 +45,7 @@
 }
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; 
 }
 html.no-js .no-js:not(html) {
     display: block !important;
@@ -1934,9 +1935,12 @@ ul.twopro{
     border: none;
     padding: 0;
     color: rgba(var(--color-base-text),.6);
+    padding: 0 12px 0 12px;
+    border-radius: 0.25rem !important;
 }
 .pro-tab .nav-tabs .nav-item.active .nav-link, .pro-tab .nav-tabs .nav-link:hover {
-    color: var(--gradient-base-accent-1);
+    color: white;
+    background-color: #000;
 }
 .pro-tab .nav-tabs {
     border-bottom: none;
@@ -1962,7 +1966,8 @@ ul.twopro{
     bottom: -12px;
     margin: 0 auto;
     left: 0;
-    background-color: var(--color-wbmaincolors-text);
+    /* nav-item underline */
+    /* background-color: var(--color-wbmaincolors-text); */
     transition: .5s ease;
     width: 0;
 }

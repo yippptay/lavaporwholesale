@@ -3,10 +3,34 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-{% assign min = 1 %}
-{% assign max = 100 %}
+
+<!-- Tabbing Logic -->
+{% assign min = 0 %}
+{% assign max = 101 %}
 {% assign diff = max | minus: min %}
 {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+<!-- Selector Logic -->
+{% if randomNumber <= 30 %}
+  {% assign selector = 1 %}
+{% endif %}
+
+{% if randomNumber > 30 and randomNumber <= 55 %}
+  {% assign selector = 2 %}
+{% endif %}
+
+{% if randomNumber > 56 and randomNumber <= 85 %}
+  {% assign selector = 3 %}
+{% endif %}
+
+{% if randomNumber > 86 and randomNumber <= 95 %}
+  {% assign selector = 4 %}
+{% endif %}
+
+{% if randomNumber > 96 %}
+  {% assign selector = 5 %}
+{% endif %}
+
 
 <!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
 <!--    30    |    25    |     30      |  10  |      5     -->
@@ -17,7 +41,7 @@
     <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
     <ul class="list-inline nav nav-tabs text-center">       
       {%- for block in section.blocks -%}
-        <li class="nav-item {% if forloop.first %}active{% endif %}">
+        <li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
           <a class="nav-link" href="#wbprodtab1-{{block.id}}">
               <span>{{ block.settings.cat_name }}</span>
           </a>
@@ -30,7 +54,7 @@
 
     {%- for block in section.blocks -%}
     {%- assign collection = collections[block.settings.collection]  -%}
-    <div class="tab-pane fade {%- if forloop.first -%}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
+    <div class="tab-pane fade {% if forloop.index0 == selector %}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
             <div class="rless">
                 <div class="owl-toppro">
                     {% for product in collection.products limit : 11 %}

@@ -55,16 +55,13 @@
           background: {{ section.settings.menubg }};
       }
 }
-#megamenu li.wbmenul_1 a.wbmenul1_link {
-    color: {{ section.settings.menubgtxt }};
-}
 #megamenu li.wbmenul_1 a.wbmenul1_link:hover{
     color: var(--color-wbmaincolors-text);
 }
 </style>
 <div class="wbmenuup shadow rounded">
     {% if section.settings.megamenu_toggle %}
-    <h3 class="whr-menu d-lg-block d-none" data-toggle="collapse" data-target="#under-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <h3 class="whr-menu d-lg-block d-none" data-toggle="collapse" data-target="#under-menu" aria-expanded="true" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" aria-label="Center Align">
         <div class="navbar-toggler-icon">
         <div class="bar"></div>
@@ -74,7 +71,7 @@
     </button>
     <span class="cate">{{ 'wbcustomlabel.wballtext.allcategories' | t }}</span>
     </h3>
-    <div id="under-menu" class="collapse">
+    <div id="under-menu" class="collapse show">
         <nav id="megamenu">
 
             <div class="wr-menu" onclick="w3_open()">

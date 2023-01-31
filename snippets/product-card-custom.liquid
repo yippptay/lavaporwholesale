@@ -348,8 +348,10 @@
                             - {{ wcp_v_price | money | strip_html }}
                             </option>
                         {%- endfor -%}
+                        
                     </select>
-                {%- endif -%}  
+                {%- endif -%}
+                
 
                 {%comment%}<product-form class="product-form">
                     <div class="cartquick">
@@ -428,6 +430,8 @@
                 
 
             </div>
+
+            <button id="qvbutton" class="focus-inset wbquickv quick_shop js-wbquickview-link" style="white-space: nowrap; background-color: black; border: none; border-radius: 4px; color: white; width: 50%; height: 50%; font-size: 12px; padding: 0px;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product_card_product.id }}" data-url="{{ product_card_product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
 
         </div>
     </div>

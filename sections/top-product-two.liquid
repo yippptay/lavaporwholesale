@@ -3,22 +3,6 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-{% javascript %}
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-{% endjavascript %}
-
 <div class="product-tab-item">
 
   <script>
@@ -44,7 +28,7 @@
 
       {%- for block in section.blocks -%}
           <li class="tab" style="margin: 0 25px;">
-            <button class="tablinks nav-link" style="background-color: transparent;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
+            <button class="tablinks nav-link {% if forloop.first %}active {% endif %}" style="background-color: transparent;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
           </li>
       {%- endfor -%}
       
@@ -127,10 +111,23 @@
     from {opacity: 0;}
     to {opacity: 1;}
   }
+  .tab button {
+    padding: 0 12px 0 12px !important;
+    display: inline-block;
+    vertical-align: middle;
+  }
   .tab button.active {
-    color: var(--gradient-base-accent-1) !important;
+    color: white !important;
     -webkit-transform: scaleX(1) !important;
     transform: scaleX(1) !important;
+    background-color: black !important;
+    padding: 0 12px 0 12px;
+    transition: .4s ease;
+  }
+  .tab button:hover {
+    background-color: #000 !important;
+    padding: 0 12px 0 12px !important;
+    transition: .4s ease;
   }
 </style>
 
