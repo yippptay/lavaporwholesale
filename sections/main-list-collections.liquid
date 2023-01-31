@@ -39,12 +39,6 @@
 
     <h1 class="heading text-left"><span>All Brands</span></h1>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.js"
-      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-      crossorigin="anonymous">
-    </script>
-
     <script>
       function liveSearch() {
 
@@ -128,72 +122,72 @@
               {%- case first_char %}
   
                 {% when "0" %}
-                  <div class="col-sm-3 cless brand-names">
+                <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "1" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "2" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "3" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "4" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "5" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "6" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "7" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "8" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 class="name" style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
                 {% when "9" %}
-                  <div class="col-sm-3 cless brand-names">
+                  <div class="col-sm-3 cless brand-names {% if collection.all_products_count == 0 %} hidden{% endif %}">
                     <a href="{{ collection.url }}">
-                        <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                     </a>
                   </div>
   
@@ -206,29 +200,28 @@
         {% for letters in letter_array %}
   
           <div id="{{ letters }}-header" class="{{ letters }}-header">
+
             <h4 style="margin-bottom: 0px !important;">{{ letters }}</h4>
             <hr style="margin-top: 0px !important;"/>
           
-  
             <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
               {%- for collection in collections %}
                 {%- if collection.metafields.custom.type == "Brand" %}
                   {%  assign first_char = collection.title | slice: 0 | upcase %}
                   {%- if first_char == letters %}
-                    <div class="col-sm-3 cless brand-names {{ letters }}-item" style="margin-bottom: 4px !important;">
+                    <div class="col-sm-3 cless brand-names {{ letters }}-item {% if collection.all_products_count == 0 %} hidden{% endif %}" style="margin-bottom: 4px !important;">
                       <a href="{{ collection.url }}">
-                        <h7 style="white-space: nowrap;">{{- collection.title -}}</h7>
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                       </a>
+
                     </div>
                   {% endif %}
                 {%- endif %}
               {%- endfor %}
             </div>
           </div>
-  
         {% endfor %}
       </div>
-
 <style>
   .col-sm-3 {
     margin-bottom: 20px !important;

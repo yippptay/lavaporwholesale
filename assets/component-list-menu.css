@@ -31,8 +31,10 @@ body.overflow-hidden .menupos{
     position: unset;
 }
 .wbmenuup {
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.15);
     position: relative;
-    margin-top: -50px;
+    margin-top: -52px;
 }
 .cate-menu {
     padding: 13px 0;
@@ -58,7 +60,7 @@ body.overflow-hidden .menupos{
     min-width: 34px;
     min-height: 34px;
     border-radius: 100%;
-    background: rgba(var(--color-background),.15);
+    background: #f8ca23;
     padding: 0;
     font-size: 0;
     top: -5px;
@@ -71,7 +73,7 @@ body.overflow-hidden .menupos{
     left: -1px;
 }
 .navbar-toggler-icon .bar {
-    background: white;
+    background: #202020;
     height: 1px;
     position: absolute;
     overflow: hidden;

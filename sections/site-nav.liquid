@@ -62,7 +62,7 @@
     color: var(--color-wbmaincolors-text);
 }
 </style>
-<div class="wbmenuup">
+<div class="wbmenuup shadow rounded">
     {% if section.settings.megamenu_toggle %}
     <h3 class="whr-menu d-lg-block d-none" data-toggle="collapse" data-target="#under-menu" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" aria-label="Center Align">
@@ -87,7 +87,7 @@
                     {% assign block_url_trim = block.settings.link | replace: shop.url %}
                     {% if canonical_url_trim == "/" %}{% assign canonical_url_trim = "" %}{% endif %}
 
-                    <li class="wbmenulink wbmenul_1 {% case block.type %}{% when 'link-linklist' %}wbmegaonlylink{% when 'link-4linklists' %}wbmegalink-img{% when 'link-8banners' %}wbmegabanner{% when 'link-products' %}wbmegaproduct{% when 'link-blog' %}wbmegablog{% endcase %}" style="border-top: 1px solid rgba(255,255,255,.15);">
+                    <li class="wbmenulink wbmenul_1 {% case block.type %}{% when 'link-linklist' %}wbmegaonlylink{% when 'link-4linklists' %}wbmegalink-img{% when 'link-8banners' %}wbmegabanner{% when 'link-products' %}wbmegaproduct{% when 'link-blog' %}wbmegablog{% endcase %}" id="wbmenul_1" style="border-top: 1px solid rgba(255,255,255,.15);">
                         <a class="wbmenul1_link {% if block_url_trim == canonical_url_trim %}active{% endif %}" href="{{ block.settings.link }}">{{ block.settings.title }}
                             {% if block.settings.links.size > 0 or block.settings.links_1.size > 0 or block.settings.links_2.size > 0 or block.settings.links_3.size > 0 or block.settings.links_4.size > 0 or block.settings.products.size > 0 or block.settings.blog.size > 0 or block.settings.banner_1_link.size > 0 %}<i class="fa fa-angle-down float-right float-right wbmegamainhd" style="border-top: 1px solid rgba(255,255,255,.15);" data-submenu="menu_{{ block.id }}"></i>{% endif  %}
                             {% if block.settings.badge_text.size > 0 %}<span class="menu_badge" style="border-top: 1px solid rgba(255,255,255,.15); background-color: {{ block.settings.bg_color }};">{{ block.settings.badge_text }}</span>{% endif %}
