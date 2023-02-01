@@ -458,8 +458,8 @@ $(document).ready(function() {
                                     document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75)
                                 }
 
-                                // update quantity if it's over limit
-                                if(input > {{ variant.inventory_quantity }}) {
+                                // update quantity if it's over limit and if it's not dropship
+                                if(input > {{ variant.inventory_quantity }} && {{ variant.inventory_management }} == 'shopify') {
                                   setTimeout(() => {
                                     document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
                                   },75)

@@ -305,11 +305,14 @@
     </div>
   </div>
 
-  <div class="col-lg-3 text-right offer-icon d-xl-inline-block d-none">
+  <!-- Announcement bar -->
+  <!-- <div class="col-lg-3 text-right offer-icon d-xl-inline-block d-none">
     <div class="special-offer">
-      {{ section.settings.ofrtxt }}
+        {% if section.settings.ofrtxt != blank %}
+            {{ section.settings.ofrtxt }}
+        {% endif %}
     </div>
-  </div>
+  </div> -->
 
 </div>
 
