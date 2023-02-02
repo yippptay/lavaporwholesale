@@ -74,19 +74,19 @@ $(document).ready(function() {
             {
                 breakpoint: 992,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 3
                 }
             },
             {
                 breakpoint: 576,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 3
                 }
             },
             {
                 breakpoint: 361,
                 settings: {
-                    slidesToShow: 1
+                    slidesToShow: 3
                 }
             }
             ]
@@ -107,25 +107,25 @@ $(document).ready(function() {
         {
             breakpoint: 1400,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 6
             }
         },
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 3
             }
         },
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 3
             }
         },
         {
             breakpoint: 361,
             settings: {
-                slidesToShow: 1
+                slidesToShow: 3
             }
         }
         ]
@@ -191,7 +191,7 @@ $(document).ready(function() {
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 1
             }
         },
         {
@@ -316,13 +316,13 @@ $(document).ready(function() {
         {
             breakpoint: 1410,
             settings: {
-                slidesToShow: 9
+                slidesToShow: 7
             }
         },
         {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 7
+                slidesToShow: 5
             }
         },
         {
@@ -334,7 +334,7 @@ $(document).ready(function() {
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 5
             }
         }
         ]

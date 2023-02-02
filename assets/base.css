@@ -28,7 +28,7 @@
     display: none !important;
 }
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     overflow-x: hidden;
 }
 html.no-js .no-js:not(html) {
@@ -1923,12 +1923,12 @@ ul.twopro{
     border-radius: 0.25rem !important;
 }
 .pro-tab .nav-tabs .nav-item.active .nav-link, .pro-tab .nav-tabs .nav-link:hover {
-    color: #f8ca23;
-    outline: solid 1px #f8ca23;
+    color: black;
+    outline: solid 1px black;
     transition: 200ms ease;
 }
 .pro-tab .nav-tabs .nav-item.active .nav-link {
-    background-color: #f8ca23;
+    background-color: black;
     color: white;
     transition: 200ms ease;
 }
