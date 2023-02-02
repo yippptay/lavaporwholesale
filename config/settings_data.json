@@ -206,7 +206,7 @@
             "type": "link-simple",
             "settings": {
               "title": "Brands",
-              "link": "shopify:\/\/pages\/brands",
+              "link": "\/collections",
               "badge_text": "",
               "bg_color": "#ff0000"
             }
