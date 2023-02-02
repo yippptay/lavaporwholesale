@@ -2509,6 +2509,9 @@ variant-webiquick .js.product-form__input.inner-class {
 .owl-catt,.wbtopr,.wbnewpro,.wbsale,.wblatest,.wbpop,.wbbestp,.wbspeprod,.testi,.wbblog,.wblogobar {
     display: none 
 }
+.wbsale .slick-list .slick-track {
+    align-items: flex-end;
+}
 /* Left product */
 .leftpro .heading {
     font-weight: 500;
@@ -3080,7 +3083,8 @@ variant-webiquick .js.product-form__input.inner-class {
     .owl-toppro {
         display: grid;
         grid-template-columns: repeat(6,1fr);
-        grid-template-rows: repeat(2,1fr);
+        /* grid-template-rows: repeat(2,1fr); */ /* fixes potential spacing between toppro and botpro */
+        align-items: flex-end;
    }
 }
 @media (min-width:1590px) and (max-width: 1829px) {

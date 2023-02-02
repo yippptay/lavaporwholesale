@@ -280,9 +280,9 @@
         {% endif %}
      
         {%- if product_card_product.featured_media -%}
-            <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
+            <h3 href="{{ product_card_product.url | default: '#' }}" style="cursor: pointer;" class="product-title"><a>{{ product_card_product.title | escape }}</a></h3>
         {%  else %}
-            <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
+            <h3 href="{{ product_card_product.url | default: '#' }}" style="cursor: pointer;" class="product-title"><a>{{ product_card_product.title | escape }}</a></h3>
         {%- endif -%}
 
         {% comment %} TODO: metafield {% endcomment %}
