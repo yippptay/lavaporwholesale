@@ -295,7 +295,7 @@
         "show_vendor": false,
         "show_variants": false,
         "picker_type": "button",
-        "show_colorswatch": true
+        "show_colorswatch": false
       }
     },
     "1645186132b9355fa7": {
