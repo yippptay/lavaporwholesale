@@ -3,14 +3,13 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-
-<!-- Tabbing Logic -->
+		<!-- Tabbing Logic -->
 {% assign min = 0 %}
 {% assign max = 101 %}
 {% assign diff = max | minus: min %}
 {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
 
-<!-- Selector Logic -->
+		<!-- Selector Logic -->
 {% if randomNumber <= 30 %}
   {% assign selector = 1 %}
 {% endif %}
@@ -31,67 +30,65 @@
   {% assign selector = 5 %}
 {% endif %}
 
-
-<!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
-<!--    30    |    25    |     30      |  10  |      5     -->
-<!--   1-30   |   31-55  |     56-85   |86-95 |   96-100   -->
+		<!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
+		<!--    30    |    25    |     30      |  10  |      5     -->
+		<!--   1-30   |   31-55  |     56-85   |86-95 |   96-100   -->
 
 <div class="product-tab-item">
-  <div class="pro-tab tabs">
-    <h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
-    <ul class="list-inline nav nav-tabs text-center">       
-      {%- for block in section.blocks -%}
-        <li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
-          <a class="nav-link" href="#wbprodtab1-{{block.id}}">
-              <span>{{ block.settings.cat_name }}</span>
-          </a>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
-  <div class="clearfix"></div>
-  <div class="tab-content tab-pro" style="padding-bottom: 30px; margin-bottom: 10px;">
-
-    {%- for block in section.blocks -%}
-    {%- assign collection = collections[block.settings.collection]  -%}
-    <div class="tab-pane fade {% if forloop.index0 == selector %}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
-            <div class="rless">
-                <div class="owl-toppro">
-                    {% for product in collection.products limit : 11 %}
-                          <div class="grid__item col-12 cless list-unstyled">
-                          {% render 'product-card-banner',
-                          product_card_product: product,
-                          block_id: block.id,
-                          media_size: section.settings.image_ratio,
-                          show_secondary_image: true,
-                          show_rating: section.settings.show_rating,
-                          picker_type: section.settings.picker_type,
-                          show_variants: false,
-                          show_colorswatch: section.settings.show_colorswatch,
-                          display_product_type: section.settings.display_product_type  %}
-                          </div>
-                    {% else %}
-                        {%- for i in (1..6) -%}
-                            <div class="twopro grid__item col-12 cless">
-                                {% render 'product-card-placeholder' %}
-                            </div>
-                      {%- endfor -%}
-                    {% endfor %} 
-                    <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
-                      <button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container btn btn-outline-warning shadow-sm p-3 mb-5 rounded" style="color: white; background-color: black; height: 308px; width: 216px">
-                        <strong>View all</strong>
-                        <h5>
-                          <span>{{ block.settings.cat_name }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                      </svg></span>
-                        </h5>
-                      </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {%- endfor -%}
-  </div>
+	<div class="pro-tab tabs">
+		<h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
+		<ul class="list-inline nav nav-tabs text-center">       
+			{%- for block in section.blocks -%}
+				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
+					<a class="nav-link" href="#wbprodtab1-{{block.id}}">
+						<span>{{ block.settings.cat_name }}</span>
+					</a>
+				</li>
+			{%- endfor -%}
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div class="tab-content tab-pro">
+		{%- for block in section.blocks -%}
+			{%- assign collection = collections[block.settings.collection]  -%}
+			<div class="tab-pane fade {% if forloop.index0 == selector %}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
+				<div class="rless">
+					<div class="owl-toppro">
+					
+						{% for product in collection.products limit : 11 %}
+							<div class="grid__item col-12 cless list-unstyled">
+							{% render 'product-card-banner',
+							product_card_product: product,
+							block_id: block.id,
+							media_size: section.settings.image_ratio,
+							show_rating: section.settings.show_rating,
+							picker_type: section.settings.picker_type,
+							show_variants: section.settings.show_variants,
+							show_colorswatch: section.settings.show_colorswatch,
+							display_product_type: section.settings.display_product_type  %}
+							</div>
+						{% else %}
+							{%- for i in (1..6) -%}
+								<div class="twopro grid__item col-12 cless">
+									{% render 'product-card-placeholder' %}
+								</div>
+							{%- endfor -%}
+						{% endfor %} 
+						
+						<div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
+							<button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container btn btn-outline-warning shadow-sm p-3 mb-5 rounded" style="color: white; background-color: black; height: 308px; width: 216px">
+								<strong>View all</strong>
+								<h5>
+									<span>{{ block.settings.cat_name }}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></span>
+								</h5>
+							</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		{%- endfor -%}
+	</div>
 </div>
 
 {% schema %}
@@ -165,7 +162,7 @@
     {
       "type": "checkbox",
       "id": "show_variants",
-      "default": false,
+      "default": true,
       "label": "Show color/size variants"
     },
     {
