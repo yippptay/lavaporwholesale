@@ -9,9 +9,9 @@ $(document).ready(function() {
     $('.owl-slider').slick({
         dots: true,
         arrows: false,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 6000,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1
     });
@@ -22,7 +22,7 @@ $(document).ready(function() {
         arrows: true,
         infinite: false,
         autoplay: false,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 7,
         slidesToScroll: 1,
         responsive: [
@@ -61,8 +61,8 @@ $(document).ready(function() {
             arrows: true,
             infinite: false,
             autoplay: false,
-            autoplaySpeed: 2000,
-            slidesToShow: 6,
+            autoplaySpeed: 4000,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [
             {
@@ -74,19 +74,19 @@ $(document).ready(function() {
             {
                 breakpoint: 992,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: 2
                 }
             },
             {
                 breakpoint: 576,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: 2
                 }
             },
             {
                 breakpoint: 361,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: 1
                 }
             }
             ]
@@ -100,8 +100,8 @@ $(document).ready(function() {
         arrows: true,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 6,
+        autoplaySpeed: 4000,
+        slidesToShow: 5,
         slidesToScroll: 1,
         responsive: [
         {
@@ -113,19 +113,19 @@ $(document).ready(function() {
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 2
             }
         },
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 2
             }
         },
         {
             breakpoint: 361,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 1
             }
         }
         ]
@@ -140,32 +140,32 @@ $(document).ready(function() {
         arrows: true,
         infinite: false,
         autoplay: false,
-        autoplaySpeed: 2000,
-        slidesToShow: 6,
+        autoplaySpeed: 4000,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
         {
             breakpoint: 1400,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 2
             }
         },
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 1
             }
         },
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 1
             }
         },
         {
             breakpoint: 361,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 1
             }
         }
         ]
@@ -176,7 +176,7 @@ $(document).ready(function() {
     $('.wbpop,.wbbestp').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
         slidesToShow: 1,
@@ -191,7 +191,7 @@ $(document).ready(function() {
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 1
+                slidesToShow: 2
             }
         },
         {
@@ -210,7 +210,7 @@ $(document).ready(function() {
         arrows: true,
         infinite: false,
         autoplay: false,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
@@ -266,7 +266,7 @@ $(document).ready(function() {
         arrows: false,
         infinite: false,
         autoplay: false,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1
     });
@@ -279,7 +279,7 @@ $(document).ready(function() {
         arrows: true,
         infinite: true,
         autoplay: false,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
@@ -299,19 +299,15 @@ $(document).ready(function() {
     });
   	$(".wbblog").show();
 
-    // https://kenwheeler.github.io/slick/ //
     // Logo Slider
     $('.wblogobar').slick({
-        speed: 300,
         dots: false,
         arrows: false,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 11,
-        slidesToScroll: 3,
-        swipeToSlide: true,
-        touchMove: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 8,
+        slidesToScroll: 1,
         responsive: [
         {
             breakpoint: 1410,
@@ -322,13 +318,13 @@ $(document).ready(function() {
         {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 5
             }
         },
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 4
             }
         },
         {
@@ -523,4 +519,3 @@ function w3_close() {
     document.getElementById("megamenu").className = "";
     $('body').removeClass("wbbodyscroll");
 }
-
