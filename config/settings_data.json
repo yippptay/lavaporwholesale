@@ -177,7 +177,7 @@
           "2be6eae6-1e5c-474c-b2a7-b248ddb25206": {
             "type": "link-simple",
             "settings": {
-              "title": "Arrival Calender",
+              "title": "Arrival Calendar",
               "link": "shopify:\/\/pages\/new-arrival",
               "badge_text": "",
               "bg_color": "#ff0000"
