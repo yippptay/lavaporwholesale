@@ -70,8 +70,8 @@
           "topbg": "#202020",
           "enable_country_selector": true,
           "enable_language_selector": true,
-          "logo": "shopify:\/\/shop_images\/LOGO.png",
-          "logo_width": 170,
+          "logo": "shopify:\/\/shop_images\/image.png",
+          "logo_width": 175,
           "head_no": "(626) 940-5677"
         }
       },
