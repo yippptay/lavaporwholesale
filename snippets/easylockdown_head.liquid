@@ -1,0 +1,402 @@
+{% assign easylockdownON = false %} {% assign easylockdownHiddenPurchase = false %} {% assign easylockdownRedirectURL = '' %} {% assign easylockdownPage404Title = '' %} {% assign easylockdownPage404Message = '' %} {% assign easylockdownActiveID = 0 %} {% assign easylockdownActiveHash = '' %} {% assign easylockdownPasswordForm = false %} {% assign easylockdownPasswordNote = '' %} {% assign easylockdownPasswordPlaceholder = '' %} {% assign easylockdownHidePrice = false %} {% assign easylockdownLocaleRootUrl = '' %} {% for locale in shop.published_locales %} {% if shop.locale == locale.iso_code %} {% unless locale.primary %}{% assign easylockdownLocaleRootUrl = locale.root_url %}{% endunless %}{% break %} {% endif %} {% endfor %} <script type='text/javascript'>var easylockdownLocationDisabled = true;</script> <script type='text/javascript' src='{% unless request.design_mode %}//{{ shop.domain }}{% endunless %}/apps/easylockdown/easylockdown-1.0.5.min.js' data-no-instant></script> <script type='text/javascript'>if( typeof InstantClick == 'object' ) easylockdown.clearData();</script> <style type="text/css">#easylockdown-password-form{padding:30px 0;text-align:center}#easylockdown-wrapper,.easylockdown-form-holder{display:inline-block}#easylockdown-password{vertical-align:top;margin-bottom:16px;padding:8px 15px;line-height:1.2em;outline:0;box-shadow:none}#easylockdown-password-error{display:none;color:#fb8077;text-align:left}#easylockdown-password-error.easylockdown-error{border:1px solid #fb8077}#easylockdown-password-form-button:not(.easylockdown-native-styles){vertical-align:top;display:inline-block!important;height:auto!important;padding:8px 15px;background:#777;border-radius:3px;color:#fff!important;line-height:1.2em;text-decoration:none!important}.easylockdown-instantclick-fix,.easylockdown-item-selector{position:absolute;z-index:-999;display:none;height:0;width:0;font-size:0;line-height:0}.easylockdown-collection-item[data-eld-loc-can],.easylockdown-item-selector+*,.easylockdown-item[data-eld-loc-can]{display:none}.easylockdown404-content-container{padding:50px;text-align:center}.easylockdown404-title-holder .easylockdown-title-404{display:block;margin:0 0 1rem;font-size:2rem;line-height:2.5rem}</style> {% if easylockdownInstantClick %}<div class='easylockdown-instantclick-fix' style='display:none;'></div>{% endif %}
+{% assign easylockdownSuperPage = false %}{% assign proxyPageA = shop.url | append: '/a/' %}{% assign proxyPageApps = shop.url | append: '/apps/' %}{% assign proxyPageCommunity = shop.url | append: '/community/' %}{% assign proxyPageTools = shop.url | append: '/tools/' %}
+{% if template == blank or template == 'customers/login' or template == 'customers/activate_account' or template == 'customers/reset_password' %}{% assign easylockdownSuperPage = true %}{% endif %}
+{% if canonical_url contains proxyPageA or canonical_url contains proxyPageApps or canonical_url contains proxyPageCommunity or canonical_url contains proxyPageTools %}{% assign easylockdownSuperPage = false %}{% endif %}
+{% assign easylockdownNow = 'now' | date:'%s' | times: 1 %}{% assign easylockdownNowWeekDay = easylockdownNow | date:'%u' %}{% assign easylockdownNowMonthDay = easylockdownNow | date:'%d' %}{% assign easylockdownNowHM = easylockdownNow | date:'%H%M' | times: 1 %}{% if customer %}{% assign easylockdownPlacedOrder = customer.orders.first.created_at | date:'%s' %}{% assign easylockdownOldestPlacedOrder = customer.orders.last.created_at | date:'%s' %}{% assign easylockdownDateDifference = easylockdownNow | minus: easylockdownPlacedOrder %}{% endif %}
+{% for t in customer.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'connecticut' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'delaware' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'district of columbia' %}{% assign elcTag3 = true %}{% endif %}
+{% if tag == 'massachusetts' %}{% assign elcTag4 = true %}{% endif %}
+{% if tag == 'mississippi' %}{% assign elcTag5 = true %}{% endif %}
+{% if tag == 'ohio' %}{% assign elcTag6 = true %}{% endif %}
+{% if tag == 'puerto rico' %}{% assign elcTag7 = true %}{% endif %}
+{% if tag == 'rhode island' %}{% assign elcTag8 = true %}{% endif %}
+{% if tag == 'vermont' %}{% assign elcTag9 = true %}{% endif %}
+{% if tag == 'west virginia' %}{% assign elcTag10 = true %}{% endif %}
+{% if tag == 'wyoming' %}{% assign elcTag11 = true %}{% endif %}
+{% if tag == 'california' %}{% assign elcTag12 = true %}{% endif %}
+{% if tag == 'no nic' %}{% assign elcTag13 = true %}{% endif %}
+{% if tag == 'alt&hemp' %}{% assign elcTag14 = true %}{% endif %}
+{% if tag == 'alaska' %}{% assign elcTag15 = true %}{% endif %}
+{% if tag == 'arizona' %}{% assign elcTag16 = true %}{% endif %}
+{% if tag == 'arkansas' %}{% assign elcTag17 = true %}{% endif %}
+{% if tag == 'colorado' %}{% assign elcTag18 = true %}{% endif %}
+{% if tag == 'idaho' %}{% assign elcTag19 = true %}{% endif %}
+{% if tag == 'iowa' %}{% assign elcTag20 = true %}{% endif %}
+{% if tag == 'montana' %}{% assign elcTag21 = true %}{% endif %}
+{% if tag == 'nevada' %}{% assign elcTag22 = true %}{% endif %}
+{% if tag == 'utah' %}{% assign elcTag23 = true %}{% endif %}
+{% if tag == 'kentucky' %}{% assign elcTag24 = true %}{% endif %}
+{% if tag == 'north dakota' %}{% assign elcTag25 = true %}{% endif %}
+{% if tag == 'new york' %}{% assign elcTag26 = true %}{% endif %}
+{% if tag == 'michigan' %}{% assign elcTag27 = true %}{% endif %}
+{% if tag == 'georgia' %}{% assign elcTag28 = true %}{% endif %}
+{% if tag == 'illinois' %}{% assign elcTag29 = true %}{% endif %}
+{% if tag == 'kansas' %}{% assign elcTag30 = true %}{% endif %}
+{% if tag == 'maryland' %}{% assign elcTag31 = true %}{% endif %}
+{% if tag == 'jersey' %}{% assign elcTag32 = true %}{% endif %}
+{% if tag == 'oregon' %}{% assign elcTag33 = true %}{% endif %}
+{% if tag == 'pennsylvania' %}{% assign elcTag34 = true %}{% endif %}
+{% if tag == 'washington' %}{% assign elcTag35 = true %}{% endif %}
+{% if tag == 'virginia' %}{% assign elcTag36 = true %}{% endif %}
+{% if tag == 'auction blocked' %}{% assign elcTag37 = true %}{% endif %}
+{% if tag == 'no pa' %}{% assign elcTag38 = true %}{% endif %}
+{% if tag == 'san francisco' %}{% assign elcTag39 = true %}{% endif %}
+{% endfor %}
+{% for t in product.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'saveurvape' %}{% assign elpTag1 = true %}{% endif %}
+{% if tag == 'disposable' %}{% assign elpTag2 = true %}{% endif %}
+{% if tag == 'de8' %}{% assign elpTag3 = true %}{% endif %}
+{% if tag == 'hemp' %}{% assign elpTag4 = true %}{% endif %}
+{% if tag == 'delta 8' %}{% assign elpTag5 = true %}{% endif %}
+{% endfor %}
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag1 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag2 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag3 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag4 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag5 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag6 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag7 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag8 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag9 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag10 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag11 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 43741282390 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 267926437974 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 267926437974 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag12 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/california-tax-excluded{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% if customer %}
+{% assign easylockdownHideLinks = false %}{% if elcTag12 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-ca-no-access"],*[data-eld-collection-handle="sugar-ca-no-access"]');</script>
+{% endif %}
+{% endif %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if product.id == 6843217510486 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}login{% endcapture %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 82695913558 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 161815232598 or c.id == 263601717334 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 161815232598 or collection.id == 263601717334 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if template contains "product" and product %}{% if elpTag2 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag13 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/wisconsin-redirect{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% if customer %}
+{% assign easylockdownHideLinks = false %}{% if elcTag13 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/disposables"],*[data-eld-collection-handle="disposables"],*[href$="/collections/synthetic-nicotine"],*[data-eld-collection-handle="synthetic-nicotine"]');</script>
+{% endif %}
+{% endif %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 82682839126 %}
+{% assign easylockdownException = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 264044314710 or c.id == 265108127830 or c.id == 173059309654 or c.id == 57342165078 or c.id == 173059473494 or c.id == 263268958294 or c.id == 57135005782 or c.id == 173715619926 or c.id == 262750732374 or c.id == 81961222230 or c.id == 174870855766 or c.id == 261088608342 or c.id == 264786411606 or c.id == 84646330454 or c.id == 173987922006 or c.id == 262750404694 or c.id == 173630652502 or c.id == 57981796438 or c.id == 261042143318 or c.id == 260680384598 or c.id == 371827142 or c.id == 172497961046 or c.id == 262751125590 or c.id == 262750994518 or c.id == 173062357078 or c.id == 173820018774 or c.id == 83331514454 or c.id == 174174568534 or c.id == 174871117910 or c.id == 260571725910 or c.id == 172747358294 %}{% assign easylockdownException = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 264044314710 or collection.id == 265108127830 or collection.id == 173059309654 or collection.id == 57342165078 or collection.id == 173059473494 or collection.id == 263268958294 or collection.id == 57135005782 or collection.id == 262750732374 or collection.id == 81961222230 or collection.id == 174870855766 or collection.id == 261088608342 or collection.id == 264786411606 or collection.id == 84646330454 or collection.id == 173987922006 or collection.id == 262750404694 or collection.id == 173630652502 or collection.id == 57981796438 or collection.id == 261042143318 or collection.id == 260680384598 or collection.id == 371827142 or collection.id == 172497961046 or collection.id == 262750994518 or collection.id == 173062357078 or collection.id == 83331514454 or collection.id == 174174568534 or collection.id == 174871117910 or collection.id == 260571725910 or collection.id == 172747358294 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
+{% if template contains "list-collections" %}{% assign easylockdownException = true %}{% endif %}
+{% endif %}
+{% if template contains "product" and product %}{% if elpTag3 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
+{% if template == "index" %}{% assign easylockdownException = true %}{% endif %}
+{% if template == "cart" %}{% assign easylockdownException = true %}{% endif %}
+{% if template == "search" %}{% assign easylockdownException = true %}{% endif %}
+{% if collection.handle == "all" and template == "collection" %}{% assign easylockdownException = true %}{% endif %}
+{% if template contains "page" and page %}{% if page.id == 80908419158 or page.id == 81071407190 or page.id == 81496342614 or page.id == 80676978774 or page.id == 18749030486 or page.id == 80017358934 or page.id == 18715017302 or page.id == 18580439126 or page.id == 53506342998 or page.id == 81385259094 or page.id == 712998918 or page.id == 80554295382 or page.id == 19019628630 or page.id == 50843615318 or page.id == 81930027094 or page.id == 236967046 or page.id == 52323221590 or page.id == 18911166550 or page.id == 259904006 or page.id == 39654817878 or page.id == 39655080022 or page.id == 82462212182 or page.id == 79996125270 or page.id == 18696274006 or page.id == 50469371990 or page.id == 49762795606 or page.id == 81244684374 or page.id == 81901813846 or page.id == 52080443478 or page.id == 22607495254 or page.id == 79695249494 or page.id == 80374235222 or page.id == 80943677526 or page.id == 80973889622 or page.id == 259904582 or page.id == 53794766934 or page.id == 79376908374 or page.id == 18696011862 or page.id == 259903814 or page.id == 80968843350 or page.id == 50843582550 or page.id == 18666487894 or page.id == 21945548886 or page.id == 80675733590 or page.id == 82646925398 or page.id == 259903942 or page.id == 22019670102 or page.id == 50144215126 or page.id == 82064441430 or page.id == 18734383190 or page.id == 259905030 or page.id == 80806969430 or page.id == 19021594710 or page.id == 39654785110 or page.id == 80675766358 or page.id == 80354902102 or page.id == 19021627478 or page.id == 52371816534 or page.id == 82462244950 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
+{% unless easylockdownException %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% assign easylockdownLockedContent = true %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag14 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/smoke-shop-redirect{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 82064441430 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 266295115862 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 266295115862 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-taxes{% endcapture %}
+{% else %}
+{% unless elcTag12 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-taxes{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% unless customer %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/only-avail-ca"],*[data-eld-collection-handle="only-avail-ca"]');</script>
+{% else %}
+{% assign easylockdownHideLinks = false %}{% unless elcTag12 %}{% assign easylockdownHideLinks = true %}{% endunless %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/only-avail-ca"],*[data-eld-collection-handle="only-avail-ca"]');</script>
+{% endif %}
+{% endunless %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 267938594902 or c.id == 264852406358 or c.id == 267902320726 or c.id == 267902287958 or c.id == 267902058582 or c.id == 267902124118 or c.id == 267902189654 or c.id == 267902025814 or c.id == 267937022038 or c.id == 267901993046 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 267938594902 or collection.id == 264852406358 or collection.id == 267902320726 or collection.id == 267902287958 or collection.id == 267902058582 or collection.id == 267902124118 or collection.id == 267902189654 or collection.id == 267902025814 or collection.id == 267937022038 or collection.id == 267901993046 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% unless customer %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/vapeables"],*[data-eld-collection-handle="vapeables"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/hemp-cartridges"],*[data-eld-collection-handle="hemp-cartridges"],*[href$="/collections/hemp-disposables"],*[data-eld-collection-handle="hemp-disposables"],*[href$="/collections/hhc"],*[data-eld-collection-handle="hhc"],*[href$="/collections/thco"],*[data-eld-collection-handle="thco"],*[href$="/collections/gummies-edibles"],*[data-eld-collection-handle="gummies-edibles"],*[href$="/collections/delta-10"],*[data-eld-collection-handle="delta-10"],*[href$="/collections/delta-11"],*[data-eld-collection-handle="delta-11"],*[href$="/collections/delta-8"],*[data-eld-collection-handle="delta-8"]');</script>
+{% endunless %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 267901993046 or c.id == 264852406358 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 267901993046 or collection.id == 264852406358 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if template contains "product" and product %}{% if elpTag4 or elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag24 or elcTag31 or elcTag4 or elcTag22 or elcTag32 or elcTag33 or elcTag34 or elcTag23 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% if customer %}
+{% assign easylockdownHideLinks = false %}{% if elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag24 or elcTag31 or elcTag4 or elcTag22 or elcTag32 or elcTag33 or elcTag34 or elcTag23 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/delta-8"],*[data-eld-collection-handle="delta-8"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"]');</script>
+{% endif %}
+{% endif %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% assign easylockdownHiddenContent = true %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}login{% endcapture %}
+{% endunless %}
+{% else %}
+{% unless easylockdownHiddenPurchase %}
+{% if easylockdownHiddenContent %}
+{% unless customer %}
+{% assign easylockdownHiddenPurchase = true %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 53506342998 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 174658256982 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag37 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/notice{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 79376908374 %}
+{% assign easylockdownException = false %}
+{% if template contains "page" and page %}{% if page.id == 259904006 or page.id == 22607495254 or page.id == 53794766934 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
+{% unless easylockdownException %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% assign easylockdownLockedContent = true %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag38 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/pact-act-notice{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if product.id == 4973007044694 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 50144215126 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 158126473302 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 158126473302 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag26 or elcTag39 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-regulations{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 43741282390 %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 139358470230 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 139358470230 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag12 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/california-tax-excluded{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "page" and page %}{% if page.id == 83400687702 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% assign easylockdownPasswordProtectedContent = true %}
+<script type='text/javascript'>easylockdown.routeListByAuth.can.push({aid: '59761', ah: '57eefe0a89dc3dd6092004192bbce2669bf71de35bd641fafa64ff9123ddb95e', pn: '<p>Only registered vendors may access this page. Not a vendor with us yet? Click&nbsp;<span style="text-decoration: underline;"><a href="https://form.jotform.com/222528845563059">here.</a></span></p><p>Forgot Passcode, please contact us at 626-940-5677 during our normal business hours. (8am-5pm PST)</p>', pp: 'Login Code', lt: '315360000'});</script>
+{% endif %}
+{% endunless %}
+
+{% if easylockdownON or easylockdownPasswordProtectedContent %}<meta name="robots" content="noindex,nofollow">{% endif %}
+
+<script type='text/javascript'>
+  if( typeof easylockdown == 'object' ) {
+    easylockdown.localeRootUrl = '{{ easylockdownLocaleRootUrl }}';
+    {% if easylockdownON %}easylockdown.router('{{ easylockdownRedirectURL }}'); {% else %}easylockdown.routerByLocation(); {% endif %}
+
+    easylockdown.onReady(function(e){
+      easylockdown.hideAllLinks();
+    });
+  }
+</script>
