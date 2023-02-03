@@ -253,7 +253,7 @@
         "show_vendor": false,
         "show_variants": false,
         "picker_type": "button",
-        "show_colorswatch": true
+        "show_colorswatch": false
       }
     },
     "3ade3749-3fd1-4883-8da7-7c395b182f5a": {
