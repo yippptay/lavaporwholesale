@@ -246,12 +246,12 @@
       ],
       "settings": {
         "m_title": "New Arrivals",
-        "rows": 1,
+        "rows": 2,
         "image_ratio": "adapt",
-        "display_product_type": true,
+        "display_product_type": false,
         "show_rating": false,
         "show_vendor": false,
-        "show_variants": true,
+        "show_variants": false,
         "picker_type": "button",
         "show_colorswatch": true
       }
