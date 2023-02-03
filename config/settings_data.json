@@ -156,7 +156,7 @@
         "settings": {
           "ms_title": "New Arrivals",
           "rows": 5,
-          "image_ratio": "adapt",
+          "image_ratio": "square",
           "display_product_type": false,
           "show_rating": false,
           "collection": "newest"
@@ -414,7 +414,7 @@
         "settings": {
           "ms_title": "Popular Restocks",
           "rows": 5,
-          "image_ratio": "adapt",
+          "image_ratio": "square",
           "display_product_type": false,
           "show_rating": false,
           "collection": "newest"
