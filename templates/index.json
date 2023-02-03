@@ -289,8 +289,8 @@
       "settings": {
         "m_title": "Popular Categories",
         "rows": 1,
-        "image_ratio": "adapt",
-        "display_product_type": true,
+        "image_ratio": "square",
+        "display_product_type": false,
         "show_rating": false,
         "show_vendor": false,
         "show_variants": false,
@@ -348,12 +348,12 @@
       "settings": {
         "ms_title": "Onsale Products",
         "rows": 1,
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "display_product_type1": false,
-        "show_rating1": true,
-        "show_variants": true,
+        "show_rating1": false,
+        "show_variants": false,
         "picker_type": "button",
-        "show_colorswatch": true,
+        "show_colorswatch": false,
         "collection1": "alternative-sale"
       }
     }
