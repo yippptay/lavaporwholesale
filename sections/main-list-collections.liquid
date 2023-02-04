@@ -209,9 +209,9 @@
                 {%- if collection.metafields.custom.type == "Brand" %}
                   {%  assign first_char = collection.title | slice: 0 | upcase %}
                   {%- if first_char == letters %}
-                    <div class="col-sm-3 cless brand-names {{ letters }}-item {% if collection.all_products_count == 0 %} hidden{% endif %}" style="margin-bottom: 4px !important;">
+                    <div class="col-sm-3 cless brand-names {{ letters }}-item {% if collection.products_count == 0 %} hidden{% endif %}" style="margin-bottom: 4px !important;">
                       <a href="{{ collection.url }}">
-                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.products_count -}})</h7>
                       </a>
 
                     </div>

@@ -74,7 +74,7 @@ $(document).ready(function() {
             {
                 breakpoint: 992,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 3
                 }
             },
             {
@@ -86,7 +86,7 @@ $(document).ready(function() {
             {
                 breakpoint: 361,
                 settings: {
-                    slidesToShow: 1
+                    slidesToShow: 3
                 }
             }
             ]
@@ -98,7 +98,7 @@ $(document).ready(function() {
     $('.wbtopr,.wbnewpro,.wbsale').slick({
         dots: false,
         arrows: true,
-        infinite: true,
+        infinite: false,
         autoplay: true,
         autoplaySpeed: 4000,
         slidesToShow: 5,
@@ -107,13 +107,13 @@ $(document).ready(function() {
         {
             breakpoint: 1400,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 4
             }
         },
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 3
             }
         },
         {
@@ -159,7 +159,7 @@ $(document).ready(function() {
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 1
+                slidesToShow: 2
             }
         },
         {
