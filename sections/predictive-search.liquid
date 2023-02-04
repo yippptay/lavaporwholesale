@@ -11,7 +11,7 @@
     {%- endif -%}
     -->
     <ul id="predictive-search-results-list" class="predictive-search__results-list list-unstyled" role="listbox" aria-labelledby="predictive-search-products">
-      {%- for product in predictive_search.resources.products -%}{% include 'easylockdown_filter_collection' with product %}
+      {%- for product in predictive_search.resources.products -%}
         <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; border-bottom: solid rgba(33, 37, 41, .1) 1px; align-items: center; padding: 9px 21px 9px 21px;">
           <a href="{{ product.url }}" class="predictive-search__item predictive-search__item--link" tabindex="-1" style="flex-direction: column;">
             {%- if product.featured_media != blank -%}
