@@ -48,7 +48,7 @@
 
                         <div class="loading-overlay gradient"></div>
                         <ul id="product-grid" data-id="{{ section.id }}" class="row rless grid product-grid" style="flex-wrap: wrap !important;">
-                            {%- for product in collection.products -%}
+                            {%- for product in collection.products -%}{% include 'easylockdown_filter_collection' with product %}
                                 <div class="grid__item col-12 cless list-unstyled" style="max-width: 246px; height: auto;">
                                     {% render 'product-card',
                                     product_card_product: product,

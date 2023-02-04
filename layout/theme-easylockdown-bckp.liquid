@@ -5,7 +5,7 @@
 
 <html class="no-js wbboxlt" lang="{{ request.locale.iso_code }}" {% if settings.wbboxed %} id="wbboxlayout" {% endif %}>
   <head>
-{% include 'easylockdown_head' %}
+
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -134,7 +134,7 @@
             </div>
             <div class="col-12 col-md-8 col-lg-9 right-col">
                 {% render 'breadcrumbs' %}
-                {% comment %}{{ content_for_layout }}{% endcomment %}{% include 'easylockdown_body' %}
+                {{ content_for_layout }}
             </div>
           </div>
         </div>
