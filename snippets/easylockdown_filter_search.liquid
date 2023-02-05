@@ -261,13 +261,4 @@
 {% endif %}
 {% endif %}
 {% endunless %}
-{% assign easylockdownSearchException = false %}
-{% unless easylockdownSearchException %}
-{% if easylockdown_filter_search.object_type == 'product' %}
-{% if easylockdown_filter_search.id == 6846495391830 %}
-{% assign easylockdownTmp = 'PL' | split: ',' %}
-{% assign easylockdownLocationsCannot = easylockdownLocationsCannot | concat: easylockdownTmp | uniq %}
-{% endif %}
-{% endif %}
-{% endunless %}
 {% unless easylockdownItemSelectorOff %}<div class='easylockdown-item-selector easy-item-selector' data-eld-loc-can='{{ easylockdownLocationsCan | join: "," }}' data-eld-loc-cannot='{{ easylockdownLocationsCannot | join: "," }}' data-eld-loc-auth='{{ easylockdownPasswordItems | join: "," }}' style='display:none;'></div>{% endunless %}
