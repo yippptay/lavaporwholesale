@@ -1017,10 +1017,25 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
-document.addEventListener('DOMContentLoaded', function(){
-  let productsBlock = document.querySelectorAll('.slick-track .slick-slide');
-  [ ...productsBlock].forEach(block => {
-    let productLink =  block.querySelector('a.media ')
-    if( productLink && productLink.style.display === 'none') block.remove();
-  })            
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var target = document.querySelector('body');
+
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if(mutation.type == 'childList' && document.querySelector('.slick-track')){
+        observer.disconnect();
+        let productsBlock = document.querySelectorAll('.slick-track .slick-slide');
+        [ ...productsBlock].forEach(block => {
+          let productLink =  block.querySelector('a.media ')
+          if( productLink && productLink.style.display === 'none') block.remove();
+        }); 
+      }
+    });    
+  });
+
+  var config = { attributes: true, childList: true, characterData: true };
+  observer.observe(target,  config);
 })
