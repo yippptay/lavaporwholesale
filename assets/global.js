@@ -1017,3 +1017,10 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
+document.addEventListener('DOMContentLoaded', function(){
+  let productsBlock = document.querySelectorAll('.slick-track .slick-slide');
+  [ ...productsBlock].forEach(block => {
+    let productLink =  block.querySelector('a.media ')
+    if( productLink && productLink.style.display === 'none') block.remove();
+  })            
+})
