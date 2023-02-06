@@ -382,6 +382,7 @@ let formWatcher;
 
 window.avalaraExcise = {
     init: function () {
+        console.log('in excise js')
         addressUpdated = sessionStorage.getItem("addressUpdated");
         discountUpdated = sessionStorage.getItem("discountUpdated");
         redirectedFromCart = localStorage.getItem("redirectedFromCart") || 'false';
