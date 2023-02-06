@@ -149,8 +149,9 @@
                         </div>
                     {%- endif -%}
                 </div>
-                    <!-- newsletter start
-                <div class="col-lg-3 col-12 newsltr">
+
+                <!-- footer newsletter -->
+                <div class="col-lg-3 col-12 newsltr hidden">
                    <div class="newsl text-center">
                     <div class="news-icon">
                         {% render 'icon-envelop' %}
@@ -199,8 +200,7 @@
                         {%- endform -%} 
   
                     </div> 
-                </div> newsletter ends -->
-
+                </div>
             </div>
 
         </div>
@@ -230,7 +230,7 @@
     </div>
 </div>
 
-<a href="" class="hidden" id="scroll" style="display: block;" title="{{ 'wbcustomlabel.wballtext.scrolltop' | t }}"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+<a href="" id="scroll" style="display: block;" title="{{ 'wbcustomlabel.wballtext.scrolltop' | t }}"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
 </footer>
 <div class="footer__content-bottom text-center" style="background-color: {{ section.settings.color_news_bg }};">
     <div class="container">

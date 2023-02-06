@@ -115,7 +115,7 @@
 
       <div class="list">
         <div class="rless row wballcatpage" style="flex-wrsap: wrap; padding-bottom: 1px">
-          {%- for collection in collections %}{% include 'easylockdown_filter_collections' with collection %}
+          {%- for collection in collections %}
             {%- if collection.metafields.custom.type == "Brand" %}
               {%  assign first_char = collection.title | slice: 0 | upcase %}
   
@@ -205,7 +205,7 @@
             <hr style="margin-top: 0px !important;"/>
           
             <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
-              {%- for collection in collections %}{% include 'easylockdown_filter_collections' with collection %}
+              {%- for collection in collections %}
                 {%- if collection.metafields.custom.type == "Brand" %}
                   {%  assign first_char = collection.title | slice: 0 | upcase %}
                   {%- if first_char == letters %}

@@ -70,10 +70,10 @@
 .product-title{
     font-size: calc(var(--font-size-base) * 1px);
     text-transform: capitalize;
-    transition: .1s ease;
+    transition: .3s ease;
     letter-spacing: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
     overflow: hidden;
     margin: 0 0 5px 0;

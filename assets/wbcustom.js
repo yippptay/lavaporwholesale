@@ -57,36 +57,19 @@ $(document).ready(function() {
     // Home Tab Product 
     if ($(window).width() <= 1591) {  
         $('.owl-toppro').slick({
-            dots: false,
             arrows: true,
-            infinite: false,
             autoplay: false,
             autoplaySpeed: 4000,
-            slidesToShow: 4,
-            slidesToScroll: 1,
+            dots: false,
+            infinite: false,
+            rows: 2,
+            slidesToShow: 2,
+            slidesToScroll: 2,
             responsive: [
             {
                 breakpoint: 1400,
                 settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
                     slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 361,
-                settings: {
-                    slidesToShow: 3
                 }
             }
             ]
@@ -98,20 +81,14 @@ $(document).ready(function() {
     $('.wbtopr,.wbnewpro,.wbsale').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         responsive: [
         {
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 4
-            }
-        },
-        {
-            breakpoint: 992,
+            breakpoint: 1591,
             settings: {
                 slidesToShow: 3
             }
@@ -178,7 +155,7 @@ $(document).ready(function() {
         arrows: true,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
@@ -306,7 +283,7 @@ $(document).ready(function() {
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        slidesToShow: 8,
+        slidesToShow: 10,
         slidesToScroll: 1,
         responsive: [
         {
@@ -318,19 +295,19 @@ $(document).ready(function() {
         {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 5
+                slidesToShow: 6
             }
         },
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: 5
             }
         },
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 4
             }
         }
         ]

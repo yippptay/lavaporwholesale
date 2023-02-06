@@ -27,8 +27,8 @@
     <ul class="list-inline nav-tabs text-center" style="display: flex; flex-wrap: nowrap; justify-content: center; margin-bottom: 0;">
 
       {%- for block in section.blocks -%}
-          <li class="tab" style="margin: 0 25px;">
-            <button class="tablinks nav-link {% if forloop.first %}active {% endif %}" style="background-color: transparent;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
+          <li class="tab" style="margin: 0 15px;">
+            <button class="tablinks nav-link {% if forloop.first %}active {% endif %}" style="background-color: transparent; white-space: nowrap;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
           </li>
       {%- endfor -%}
       
