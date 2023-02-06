@@ -8,6 +8,10 @@
     window.avalaraExciseTheme.taxVariantId = 40093153820758;
     window.avalaraExciseTheme.checkoutAddress = {{ checkout.shipping_address | json }};
     window.avalaraExciseTheme.customerId = "{{customer.id}}";
+    window.avalaraExciseTheme.isB2BCustomer = false;
+    {% if customer and customer.b2b? %}
+        window.avalaraExciseTheme.isB2BCustomer = true;
+    {% endif %}
 
     const updateQtyInput = document.querySelector('[data-excisetaxitem] [name="updates[]"]');
     if(updateQtyInput) updateQtyInput.setAttribute('disabled', true);
@@ -25,9 +29,8 @@
 {% endif %}
 
 {% unless checkout %}
-    {% if customer.b2b? != true %}
-        <script src="//cdn-avalara.praella.com/frontend/avalara-excise-cart.js" ></script>
-    {% endif %}
+    <script src="{{ 'avalara-excise-cart.js' | asset_url }}"></script>
+<!--         <script src="//cdn-avalara.praella.com/frontend/avalara-excise-cart.js" ></script> -->
 {% endunless %}
 
 <style type="text/css">
