@@ -46,7 +46,7 @@ window.avalaraExcise = {
             index++;
         }
 
-        if (avalaraProduct && cart.item_count === 1) {
+        if ((avalaraProduct && cart.item_count === 1) || (avalaraProduct && window.avalaraExciseTheme.isB2BCustomer)) {
             //Remove Excise product from cart, as it is the only product in cart.
             const body = {
                 line: avalaraProductIndex,
@@ -93,7 +93,7 @@ window.avalaraExcise = {
                     Rollbar.error('Code[3]: Failed to reset Excise Product.', error);
                 });
             }
-        } else if (window.avalaraExciseTheme && window.avalaraExciseTheme.taxVariantId) {
+        } else if (window.avalaraExciseTheme && window.avalaraExciseTheme.taxVariantId && !window.avalaraExciseTheme.isB2BCustomer) {
             // Ådd Excise product with 0 value, we will calculate it on checkout
             const body = {
                 id: window.avalaraExciseTheme.taxVariantId,
