@@ -1553,7 +1553,7 @@ input::-webkit-search-decoration {
     margin-top: 12px;
 }
 #webi-main-cart-footer .cart__ctas .button{
-    width: 50%;
+    width: 100%;
 }
 #webi-main-cart-footer .totals{
     display: flex;

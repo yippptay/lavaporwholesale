@@ -258,6 +258,8 @@
         
             {%- if product_card_product.featured_media -%}
                 <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
+            {%- elseif %}
+                <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
             {%- endif -%}
 
             {% comment %} TODO: metafield {% endcomment %}

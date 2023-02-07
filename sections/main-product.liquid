@@ -185,7 +185,7 @@ $(document).ready(function() {
                 <img id="Thumbnail-{{ section.id }}-0" srcset="{{ featured_media.preview_image | img_url: '200x' }} 200w"
                   src="{{ featured_media | img_url: '200x' }}"
                   sizes="calc((1200px - 19.5rem) / 5)"
-                  alt="{{ featured_media.alt | escape }}"
+                  alt="{{ 'coming-soon.jpeg' | asset_url }}"
                   height="200"
                   width="200"
                   loading="lazy"
@@ -222,7 +222,7 @@ $(document).ready(function() {
                     srcset="{{ media.preview_image | img_url: '200x' }} 200w"
                     src="{{ media | img_url: '200x' }}"
                     sizes="calc((1200px - 19.5rem) / 5)"
-                    alt="{{ media.alt | escape }}"
+                    alt="{{ 'coming-soon.jpeg' | asset_url }}"
                     width="200"
                     height="200"
                     loading="lazy"
@@ -451,6 +451,7 @@ $(document).ready(function() {
                               function() {
                                 let variantIndex = parseInt({{ forloop.length }}) - 1;
                                 let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
+                                let invVar = 'shopify';
 
                                 // remove non numbers
                                 if(isNaN(input)) {
@@ -459,7 +460,7 @@ $(document).ready(function() {
                                 }
 
                                 // update quantity if it's over limit and if it's not dropship
-                                if(input > {{ variant.inventory_quantity }} && {{ variant.inventory_management }} == 'shopify') {
+                                if(input > {{ variant.inventory_quantity }} && invVar == '{{ variant.inventory_management }}' ) {
                                   setTimeout(() => {
                                     document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
                                   },75)

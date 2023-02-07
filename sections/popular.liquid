@@ -2,8 +2,9 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
 <div class="popular leftpro"> <!-- sections/popular.liquid -->
-  <h2 class="heading text-left"><span>{{ section.settings.ms_title }}</span></h2>
+  <h2 class="heading text-left"><span><a href="/collections/{{ section.settings.collection }}" style="cursor: pointer;">{{ section.settings.ms_title }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></a></span></h2>
     <div class="rless">
       <div class="wbpop">
         {%- assign collection = collections[section.settings.collection] -%}

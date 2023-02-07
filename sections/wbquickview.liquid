@@ -238,16 +238,16 @@
                                         function() {
                                           let totalQty = 0;
                                           let input = document.getElementById('qvquantity-{{ forloop.index0 }}').value;
+                                          let invVar = 'shopify';
           
                                           // remove non numbers
                                           if(isNaN(input)) {
                                             setTimeout(() => {
                                               document.getElementById('qvquantity-{{ forloop.index0 }}').value = '';},75)
-                                            
                                           }
           
                                           // update quantity if it's over limit
-                                          if(input > {{ variant.inventory_quantity }}) {
+                                          if(input > {{ variant.inventory_quantity }} && invVar == '{{ variant.inventory_management }}' ) {
                                               setTimeout(() => {
                                                 document.getElementById('qvquantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
                                                 },75)

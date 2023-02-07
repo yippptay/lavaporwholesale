@@ -73,7 +73,7 @@
     transition: .3s ease;
     letter-spacing: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
     overflow: hidden;
     margin: 0 0 5px 0;
