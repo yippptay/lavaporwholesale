@@ -9,6 +9,9 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
+<!-- https://stackoverflow.com/questions/69462232/how-can-i-sort-a-collection-before-rendering-it-in-liquid-on-dawn-shopify -->
+<!-- https://toomanytabs.xyz/blog_posts/building-arrays-with-liquid-in-shopify -->
+
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>

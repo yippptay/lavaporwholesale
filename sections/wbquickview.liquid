@@ -74,10 +74,10 @@
         <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
       {%- endif -%}
 
-      <div class="section-{{ section.id }}-padding product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" style="justify-content: space-around;">
+      <div class="section-{{ section.id }}-padding product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" style="justify-content: space-between;">
 
           {% comment %} Start of the page {% endcomment %}
-        <div class="product-detail quickbuy-content spaced-row container" style="padding-top: 15px;">
+        <div class="product-detail quickbuy-content spaced-row" style="width: -webkit-fill-available;">
 
           <div class="gallery gallery--layout-{{ section.settings.gallery_layout }} gallery-size-{{ section.settings.gallery_size }} product-column-left {% if product.media.size > 1 %}has-thumbnails{% endif %}"
             data-cc-animate
@@ -193,10 +193,10 @@
                         <tbody>
                           <tr">
                             <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
-                            <td width="45%"><strong>Options</strong></td>
+                            <td width="30%"><strong>Options</strong></td>
                             <td width="10%" style="text-align: center;"><strong>Price</strong></td>
-                            <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                            <td width="20%" style="text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
+                            <td width="15%" style="text-align: center;"><strong>QTY</strong></td>
+                            <td width="30%" style="text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
                           </tr>
                         </tbody>
                       </table> <!-- /.table -->
@@ -218,7 +218,7 @@
                                       {{ variant.sku }}
                                     </td>
                                   
-                                    <td width="45%">
+                                    <td width="30%">
                                       {{ variant.title  | remove: '/' }}
                                     </td>
                                 
@@ -231,7 +231,7 @@
                                     {% endif %}
                                     </td>
     
-                                    <td width="10%" style="text-align: center; padding-left: 14px;">
+                                    <td width="15%" style="text-align: center; padding-left: 14px;">
                                       <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
                                       
                                       oninput="(
@@ -283,7 +283,7 @@
                                       type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="qvquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
                                     </td>
                             
-                                    <td width="20%" style="text-align: center; padding-left: 12px;">
+                                    <td width="30%" style="text-align: center; padding-left: 12px;">
                                       {% if true %}
                                         {% if variant.inventory_management != "shopify" %}
                                           In Stock

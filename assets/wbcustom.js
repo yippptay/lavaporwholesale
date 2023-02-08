@@ -59,20 +59,32 @@ $(document).ready(function() {
     // Home Tab Product 
     if ($(window).width() <= 1591) {  
         $('.owl-toppro').slick({
-            arrows: true,
-            autoplay: false,
-            autoplaySpeed: 4000,
             dots: false,
+            arrows: false,
             infinite: false,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
             rows: 2,
-            slidesToShow: 2,
-            slidesToScroll: 2,
             cssEase: 'ease',
             responsive: [
             {
-                breakpoint: 1400,
+                breakpoint: 1591,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 576,
                 settings: {
                     slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 361,
+                settings: {
+                    slidesToShow: 1
                 }
             }
             ]
@@ -89,6 +101,7 @@ $(document).ready(function() {
         autoplaySpeed: 4000,
         slidesToShow: 6,
         slidesToScroll: 1,
+        rows: 2,
         cssEase: 'ease',
         responsive: [
         {
