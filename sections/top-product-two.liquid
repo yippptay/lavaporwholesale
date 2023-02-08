@@ -3,7 +3,7 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-<div class="product-tab-item">
+<div class="product-tab-item shadow-sm rounded">
 
   <script>
     function openTab(evt, tabName) {
@@ -35,7 +35,7 @@
     </ul>
   </div>
   <div class="clearfix"></div>
-  <div class="tab-content tab-pro" style="padding-bottom: 30px; margin-bottom: 10px;">
+  <div class="tab-content tab-pro">
     
       {%- for block in section.blocks -%}
       {%- assign collection = collections[block.settings.collection]  -%}

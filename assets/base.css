@@ -3,22 +3,18 @@
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #666;
 }
-
 .hover-underline-animation {
     display: inline-block;
     position: relative;
@@ -1869,6 +1865,11 @@ ul.twopro{
     height: 0;
     overflow-y: hidden;
 }
+.onsale {
+    border: 1px solid rgba(var(--color-base-text),.1);
+    border-radius: 5px;
+    padding: 16px;
+}
 .tab-pro .grid__item,.toprated .grid__item,.newpro .grid__item,.onsale .grid__item {
     
 }
@@ -1960,6 +1961,11 @@ ul.twopro{
     /* background-color: var(--color-wbmaincolors-text); */
     transition: .5s ease;
     width: 0;
+}
+.product-tab-item {
+    border: 1px solid rgba(var(--color-base-text),.1);
+    border-radius: 5px;
+    padding: 12px;
 }
 /* top category */
 .homecatb {

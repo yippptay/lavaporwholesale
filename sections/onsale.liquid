@@ -3,7 +3,7 @@
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-<div class="onsale">
+<div class="onsale shadow-sm rounded">
 
 	<h2 class="heading text-center"><span>{{ section.settings.ms_title }}</span></h2>
 	
@@ -23,7 +23,7 @@
 					picker_type: section.settings.picker_type,
 					show_variants: section.settings.show_variants,
 					show_colorswatch: section.settings.show_colorswatch,
-					display_product_type: section.settings.display_product_type1  %}
+					display_product_type: section.settings.display_product_type1  %} 
 				</li>
 				{% assign temp1 = temp1 | plus: 1 %}
 				{% if temp1 == num_row1 %}</ul>{% assign temp1 = 0 %}{% endif %}

@@ -34,12 +34,12 @@
 		<!--    30    |    25    |     30      |  10  |      5     -->
 		<!--   1-30   |   31-55  |     56-85   |86-95 |   96-100   -->
 
-<div class="product-tab-item">
+<div class="product-tab-item shadow-sm rounded">
 	<div class="pro-tab tabs">
 		<h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
 		<ul class="list-inline nav nav-tabs text-center">       
 			{%- for block in section.blocks -%}
-				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
+				<li class="nav-item{% if forloop.index0 == selector %} active{% endif %}">
 					<a class="nav-link" style="white-space: nowrap;" href="#wbprodtab1-{{block.id}}">
 						<span>{{ block.settings.cat_name }}</span>
 					</a>
