@@ -234,7 +234,7 @@
 {% endunless %}
 
 
-{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 83503611990 %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "collection" or template contains "product" %}
@@ -249,7 +249,7 @@
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
 {% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-restriction{% endcapture %}
 {% endif %}
 {% endif %}
 {% endif %}
