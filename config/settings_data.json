@@ -16,9 +16,9 @@
     "type_header_base_size": 22,
     "type_base_size": 14,
     "social_twitter_link": "",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/la-vapor-inc\/about\/",
     "social_facebook_link": "https:\/\/www.facebook.com\/LAVaporWholesale\/",
     "social_pinterest_link": "",
-    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/la-vapor-inc\/about\/",
     "social_instagram_link": "https:\/\/www.instagram.com\/lavaporstore\/",
     "social_tumblr_link": "",
     "predictive_search_enabled": true,
@@ -418,7 +418,7 @@
           "image_ratio": "square",
           "display_product_type": false,
           "show_rating": false,
-          "collection": "newest"
+          "collection": "popular-restocks"
         }
       }
     },
