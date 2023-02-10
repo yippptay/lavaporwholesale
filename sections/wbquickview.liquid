@@ -204,15 +204,15 @@
                       {% comment %} Table Contents {% endcomment %}
                     {% assign linklist = linklists['order-form'] %}
                     <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px;">
+                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; width: -webkit-fill-available;">
                       {% for variant in product.variants %}
                         {% include 'wcp_variant' with variant %}
 
-                          <div style="font-size: 12px;">
+                          <div>
                             <div style="z-index:9999999;">
-                              <table width="100%" border="0" style="z-index:9999999;">
+                              <table width="100%" style="z-index:9999999; border-style: none;">
                                 <tbody>
-                                  <tr>
+                                  <tr style="font-size: 10px;">
     
                                     <td width="15%" style="padding-left: 8px;">
                                       {{ variant.sku }}
@@ -232,7 +232,7 @@
                                     </td>
     
                                     <td width="15%" style="text-align: center; padding-left: 14px;">
-                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                      <input  autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; text-align:center;"
                                       
                                       oninput="(
                                         function() {
@@ -1134,6 +1134,9 @@ $(document).ready(function () {
   #submit-table-quick:hover {
     background-color: black !important;
   }
+  td {
+  border: none;
+}
 </style>
 
 {% schema %}

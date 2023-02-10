@@ -409,7 +409,7 @@ $(document).ready(function() {
                 <td width="30%"><strong>Options</strong></td>
                 <td width="10%" style="text-align: center;"><strong>Price</strong></td>
                 <td width="15%" style="text-align: center;"><strong>QTY</strong></td>
-                <td width="30%" style="text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
+                <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
               </tr>
             </tbody>
           </table> <!-- /.table -->
@@ -498,7 +498,7 @@ $(document).ready(function() {
                               type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {%- unless variant.inventory_management != "shopify" -%}{% if variant.inventory_quantity < 1 %}disabled{% endif %}{%- endunless -%}/>    
                             </td>
                     
-                            <td width="30%" style="text-align: center; padding-left: 12px;">
+                            <td width="30%" style="text-align: center;">
                               {% if true %}
                                 {% if variant.inventory_management != "shopify" %}
                                   <strong>In Stock</strong>
@@ -1288,6 +1288,9 @@ tr:nth-child(even) {
 }
 input::placeholder {
   opacity: 0.5;
+}
+td {
+  border: none;
 }
 </style>
 

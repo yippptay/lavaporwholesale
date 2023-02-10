@@ -12,7 +12,7 @@
     -->
     <ul id="predictive-search-results-list" class="predictive-search__results-list list-unstyled" role="listbox" aria-labelledby="predictive-search-products">
       {%- for product in predictive_search.resources.products -%}{% include 'easylockdown_filter_collection' with product %}
-        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; border-bottom: solid rgba(33, 37, 41, .1) 1px; align-items: center; padding: 9px 21px 9px 21px;">
+        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false" style="display: flex; border-bottom: solid rgba(33, 37, 41, .1) 1px; align-items: center; padding: 9px 12px 9px 16px;">
           <a href="{{ product.url }}" class="predictive-search__item predictive-search__item--link" tabindex="-1" style="flex-direction: column;">
             {%- if product.featured_media != blank -%}
               <img class="predictive-search__image hidden"
@@ -29,7 +29,7 @@
               <h6 class="predictive-search__item-heading" style="margin-top: 0; margin-bottom: 0;">{{ product.title }}</h6>
                 {% comment %} WB-QUICKVIEW SECTION BUTTON {% endcomment %}
               <div class="wbqvtop" style="display: flex; align-items: center; z-index: 999; padding-right: 8px;" >
-                <button id="qvsearch" class="wbquickv quick_shop js-wbquickview-link" style="background-color: #000; border: none; border-radius: 4px; color: white;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
+                <button id="qvsearch" class="wbquickv quick_shop js-wbquickview-link" style="white-space: nowrap; background-color: black; border: none; border-radius: 4px; color: white; font-size: 12px; padding: 2px 6px 2px 6px;" aria-label="{{ 'wbcustomlabel.wballtext.quickview' | t }}" data-id="{{ product.id }}" data-url="{{ product.url }}">Quick View<span>{{ 'wbcustomlabel.wballtext.quickview' | t }}</span></button>
               </div>
             </div>
           </a>
