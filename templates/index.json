@@ -365,33 +365,33 @@
           "type": "Image",
           "settings": {
             "image": "shopify:\/\/shop_images\/test.png",
-            "link": "shopify:\/\/collections",
+            "link": "shopify:\/\/collections\/vaporesso",
             "storytitle": "",
             "storysubtitle": "",
             "btn": "",
-            "btnlink": "shopify:\/\/collections"
+            "btnlink": ""
           }
         },
         "691702c5-a8d1-43b0-acbe-be2bcb6e8de1": {
           "type": "Image",
           "settings": {
             "image": "shopify:\/\/shop_images\/skwezed_lav.png",
-            "link": "shopify:\/\/collections",
+            "link": "shopify:\/\/collections\/skwezed",
             "storytitle": "",
             "storysubtitle": "",
             "btn": "",
-            "btnlink": "shopify:\/\/collections"
+            "btnlink": ""
           }
         },
         "a9f0f4c5-47d4-47a3-bfc5-91413b6aa790": {
           "type": "Image",
           "settings": {
             "image": "shopify:\/\/shop_images\/test_3.png",
-            "link": "shopify:\/\/collections",
+            "link": "shopify:\/\/collections\/smoktech",
             "storytitle": "",
             "storysubtitle": "",
             "btn": "",
-            "btnlink": "shopify:\/\/collections"
+            "btnlink": ""
           }
         }
       },
