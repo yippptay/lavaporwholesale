@@ -10,10 +10,17 @@
       "settings": {
         "custom_liquid": ""
       }
+    },
+    "ed06cf91-8f01-4e04-9e7c-1d0c023bbea6": {
+      "type": "page",
+      "settings": {
+        "page": "shipping-new"
+      }
     }
   },
   "order": [
     "main",
-    "1661530836243df9f5"
+    "1661530836243df9f5",
+    "ed06cf91-8f01-4e04-9e7c-1d0c023bbea6"
   ]
 }
