@@ -416,20 +416,6 @@
         "show_colorswatch": false,
         "collection1": "skwezed"
       }
-    },
-    "574b9017-2976-47cc-9ab5-ab238dfc4a46": {
-      "type": "bestproduct",
-      "settings": {
-        "ms_title": "Best Products",
-        "rows": 2,
-        "image_ratio": "adapt",
-        "display_product_type": false,
-        "show_rating": false,
-        "show_variants": false,
-        "picker_type": "button",
-        "show_colorswatch": false,
-        "collection": "skwezed"
-      }
     }
   },
   "order": [
@@ -439,7 +425,6 @@
     "16542455861c80cea1",
     "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
-    "1645244797dfa46cce",
-    "574b9017-2976-47cc-9ab5-ab238dfc4a46"
+    "1645244797dfa46cce"
   ]
 }
