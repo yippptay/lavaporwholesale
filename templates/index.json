@@ -416,6 +416,21 @@
         "show_colorswatch": false,
         "collection1": "skwezed"
       }
+    },
+    "c8fda2ae-e685-49a8-ae97-9c800e48398b": {
+      "type": "special",
+      "settings": {
+        "ms_title": "Special Products",
+        "rows": 2,
+        "image_ratio": "adapt",
+        "display_product_type": true,
+        "enable_listdesc": true,
+        "show_rating": false,
+        "show_variants": true,
+        "picker_type": "button",
+        "show_colorswatch": true,
+        "collection": "skwezed"
+      }
     }
   },
   "order": [
@@ -425,6 +440,7 @@
     "16542455861c80cea1",
     "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
-    "1645244797dfa46cce"
+    "1645244797dfa46cce",
+    "c8fda2ae-e685-49a8-ae97-9c800e48398b"
   ]
 }
