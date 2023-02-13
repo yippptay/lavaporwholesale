@@ -280,7 +280,7 @@
                                             document.getElementById('qvtableTotalQty').innerHTML = totalQty;
                                           })();"
                                       
-                                      type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="qvquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% if variant.inventory_quantity < 1 %}disabled{% endif %}/>    
+                                      type="text" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="qvquantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {%- unless variant.inventory_management != "shopify" -%}{% if variant.inventory_quantity < 1 %}disabled{% endif %}{%- endunless -%}/>    
                                     </td>
                             
                                     <td width="30%" style="text-align: center; padding-left: 12px;">

@@ -268,17 +268,13 @@
         </div>
 
 
-        <div class="wbproductdes">
+        <div class="wbproductdes" style="display: flex; flex-direction:column; align-items:center; justify-content:space-between; min-height: 111.59px;">
 
             {% if display_product_type %}
                 <p class="wbprotype">{{ product_card_product.type }}</p>
             {% endif %}
 
-            
-        
-            {% if product_card_product.featured_media %}
-                <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
-            {% endif %}
+            <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
 
             {% comment %} TODO: metafield {% endcomment %}
             <span class="caption-large light">{{ block.settings.description | escape }}</span>

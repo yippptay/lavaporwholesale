@@ -68,7 +68,7 @@
             {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
         </div>
-        <div class="container slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
+        <div class="container slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}" style="cursor: pointer;" onclick="window.location='{{ block.settings.link }}';">
           <div class="slideshow__text banner__box  slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
             {%- if block.settings.subtitle != blank -%}
               <strong style="color: {{ block.settings.slidesubclr }};" class="banner__subheading slidehsmall{% if block.settings.heading_size == 'medium' %} slidehmedium{% elsif block.settings.heading_size == 'large' %} slidehlarge{% endif %}">{{ block.settings.subtitle | escape }}</strong>

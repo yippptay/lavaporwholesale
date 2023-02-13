@@ -5,53 +5,59 @@
 
 <div class="onsale shadow-sm rounded">
 
-	<h2 class="heading text-center"><span>{{ section.settings.ms_title }}</span></h2>
-	
-	<div class="rless">
+  <h2 class="heading text-center">
+    <span>{{ section.settings.ms_title }}</span>
+  </h2>
 
-		<div class="wbsale">
-			{% assign collection = collections[section.settings.collection1] %}
-			{% assign num_row1 = section.settings.rows | times: 1 %} 
-			{% assign temp1 = 0 %}
-			{% for product in collection.products %}
-				{% if temp1 == 0 %}<ul class="twopro">{% endif %}
-				<li class="grid__item col-12 cless list-unstyled">
-					{% render 'product-card',
-					product_card_product: product,
-					media_size: section.settings.image_ratio,
-					show_rating: section.settings.show_rating1,
-					picker_type: section.settings.picker_type,
-					show_variants: section.settings.show_variants,
-					show_colorswatch: section.settings.show_colorswatch,
-					display_product_type: section.settings.display_product_type1  %} 
-				</li>
-				{% assign temp1 = temp1 | plus: 1 %}
-				{% if temp1 == num_row1 %}</ul>{% assign temp1 = 0 %}{% endif %}
-			{% else %}
-				{% for i in (1..6) %}
-					<div class="grid__item col-12 cless">
-						{% render 'product-card-placeholder' %}
-					</div>
-				{% endfor %}
-			{% endfor %}
-		</div>
-	</div>
+  <div class="rless">
+
+    <div class="wbsale">
+      {% assign collection = collections[section.settings.collection1] %}
+      {% assign num_row1 = section.settings.rows | times: 1 %}
+      {% assign temp1 = 0 %}
+      {% for product in collection.products %}
+        {% if temp1 == 0 %}
+          <ul class="twopro">
+          {% endif %}
+          <li class="grid__item col-12 cless list-unstyled">
+            {% render 'product-card'
+             , product_card_product: product,
+             media_size: section.settings.image_ratio,
+             show_rating: section.settings.show_rating1,
+             picker_type: section.settings.picker_type,
+             show_variants: section.settings.show_variants,
+             show_colorswatch: section.settings.show_colorswatch,
+             display_product_type: section.settings.display_product_type1 %}
+          </li>
+          {% assign temp1 = temp1 | plus: 1 %}
+          {% if temp1 == num_row1 %}
+          </ul>
+          {% assign temp1 = 0 %}{% endif %}
+      {% else %}
+        {% for i in (1..6) %}
+          <div class="grid__item col-12 cless">
+            {% render 'product-card-placeholder' %}
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
 
 </div>
 
 
 {% schema %}
-{
+  {
     "name": "Onsale Products",
     "class": "spaced-section",
     "settings": [
-    {
+      {
         "type": "text",
         "id": "ms_title",
         "label": "Heading",
         "default": "Onsale Products"
-    },
-    {
+      },
+      {
         "type": "range",
         "id": "rows",
         "label": "Rows",
@@ -59,88 +65,78 @@
         "max": 5,
         "step": 1,
         "default": 2
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured-collection.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.featured-collection.settings.image_ratio.label"
-    },
-    {
+      },
+      {
+        "type": "header",
+        "content": "t:sections.featured-collection.settings.header.content"
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+          }, {
+            "value": "portrait",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+          }, {
+            "value": "square",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+          }
+        ],
+        "default": "adapt",
+        "label": "t:sections.featured-collection.settings.image_ratio.label"
+      }, {
         "type": "checkbox",
         "id": "display_product_type1",
         "label": "Show Product Type?",
         "default": true
-    },
-    {
+      }, {
         "type": "checkbox",
         "id": "show_rating1",
         "default": false,
         "label": "t:sections.featured-collection.settings.show_rating.label",
         "info": "t:sections.featured-collection.settings.show_rating.info"
-    },
-    {
-      "type": "header",
-      "content": "Variants"
-    },    
-    {
-      "type": "checkbox",
-      "id": "show_variants",
-      "default": true,
-      "label": "Show color/size variants"
-    },
-    {
-      "type": "select",
-      "id": "picker_type",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
-        },
-        {
-          "value": "button",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
-        }
-      ],
-      "default": "button",
-      "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-    },
-    {
+      }, {
+        "type": "header",
+        "content": "Variants"
+      }, {
+        "type": "checkbox",
+        "id": "show_variants",
+        "default": true,
+        "label": "Show color/size variants"
+      }, {
+        "type": "select",
+        "id": "picker_type",
+        "options": [
+          {
+            "value": "dropdown",
+            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+          }, {
+            "value": "button",
+            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+          }
+        ],
+        "default": "button",
+        "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+      }, {
         "type": "checkbox",
         "id": "show_colorswatch",
         "default": true,
         "label": "Enable color swatches",
         "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
-    },
-    {
+      }, {
         "type": "collection",
         "id": "collection1",
         "label": "t:sections.featured-collection.settings.collection.label"
-    }
-  ],
-  "presets": [
-    {
+      }
+    ],
+    "presets": [
+      {
         "name": "Onsale Products",
         "category": "Collection"
-    }
-  ]   
-}
+      }
+    ]
+  }
 {% endschema %}
