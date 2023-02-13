@@ -589,7 +589,7 @@ window.avalaraExcise = {
             } else {
                 if (document.querySelector(avalaraSelectors.exciseData)) document.querySelector(avalaraSelectors.exciseData).remove();
             }
-        }, 500);
+        }, 1000); /* 500 */
     },
 
     /*  Function Use: set avalara JSON
