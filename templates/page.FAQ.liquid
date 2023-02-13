@@ -1,0 +1,154 @@
+<!-- /templates/page.liquid -->
+
+<div class="container"> 
+  <div class="page-container"> 
+    <h1> 
+      {% if settings.language_enable %}
+      <span class="lang1">{{ page.title | split: '|' | first }}</span>
+      <span class="lang2">{{ page.title | split: '|' | last }}</span>
+      {% else %}
+      {{ page.title | split: '|' | first }}
+      {% endif %}
+    </h1> 
+    {% comment %}
+      
+    {% endcomment %}
+    <div class="rte"> 
+      {% if settings.language_enable %}
+      <div class="lang1">{{ page.content | split: '[lang2]' | first }}</div>
+      <div class="lang2">{{ page.content | split: '[lang2]' | last }}</div>
+      {% else %}
+      {{ page.content | split: '[lang2]' | first }}
+      {% endif %}
+      
+      
+      
+      
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style><!--
+.accordion {
+  background-color: #fff;
+  margin-top: 1px;
+  color: #000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 3px solid black;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.4s;
+  padding: 10px 30px;
+}
+
+.active, .accordion:hover {
+  background-color: Black;
+  color: #fff; 
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #000;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+  color: #000;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+--></style>
+<button class="accordion">GENERAL</button>
+<div class="panel">
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong>Q: How can I create an account?</strong> <br /> <strong>A:</strong> At the top right corner of the homepage, click the new account icon and submit your account request form. Please upload a copy of your Tax EIN certificate. You will receive an account activation email within 24 - 48 hours, once the request has been approved.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Is online ordering the only option?</strong> <br /> <strong>A:</strong> If online ordering isn't for you, please call our office and you will be directed to your sales representative to assist you in placing your order. <br /> Hours: 8AM -  5PM  <strong>626-940-5677</strong> </span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Can you price match?</strong> <br /> <strong>A:</strong> Price matching is available through phone orders (some restrictions apply), online price matching is currently unavailable.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: I Received the wrong product, how do I return?</strong> <br /> <strong>A:</strong> Please e-mail us at info@lavaporwholesale.com <br /> SubjectL Shop name #order <br /> Briefly explain which item is incorrect and complete the RMA Request Form, we will e-mail you back with our return address or a return label.  <br /> <a href="https://www.lavaporwholesale.com/pages/la-vapor-rma-request-form">Please click <strong>HERE</strong> for the RMA Request Form (Must be completed fully in order to proceed with the return process) </a></span></h4> 
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Can I access my purchase history/invoice from the website?</strong> <br /> <strong>A:</strong> Only online order history can be viewed through the website, all orders prior to that will not reflect through your online account. Your sales representative can send you any previous invoices upon request.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Can I apply my existing credit through the website?</strong> <br /> <strong>A:</strong> Unfortunately all existing credits on our system must be redeemed through a sale rep manually. <br /> But If the customer places their orders online, they are able to access their credits by using their LA Cash. If for any reason, LA Cash has not been adjusted in the system, please contact your sales representative for more information.</span></h4>
+<p> </p>
+  </div>
+<p> </p>
+<button class="accordion">PAYMENTS</button>
+<div class="panel">
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong>Q: What payment method do you accept?</strong> <br /> <strong>A:</strong> We accept VISA, MasterCard, Discover for credit card payments. (May incur a 3% handling fee where applicable)</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Do you accept PayPal?</strong> <br /> <strong>A:</strong> Unfortunately, we currently do not accept PayPal.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Do you accept Chase QuickPay?</strong> <br /> <strong>A:</strong> Yes, you may select Behalf as a payment option and send to accounting@lavaporwholesale.com.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Do you accept wire transfer/bank deposit?</strong> <br /> <strong>A:</strong> Yes, we accept wire transfer to Chase, Bank of America, and Wells Fargo. Please call (626)-940-5677 or e-mail info@lavaporwholesale.com for more information.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Do you accept check?</strong> <br /> <strong>A:</strong> Yes, check is accepted.</span></h4>
+<p> </p>
+</div>
+<p> </p>
+<button class="accordion">RETURNS</button>
+<div class="panel">
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong>Q: What is your return policy?</strong> <br /> <strong>A:</strong> <a href="https://www.lavaporwholesale.com/pages/shipping">Please click <strong>HERE</strong> to visit Shipping and Returns page</a></span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Will I receive a notification for unfulfuilled products?</strong> <br /> <strong>A:</strong> If we are unable to fulfill your product we will notify you via e-mail with your respected credit.</span></h4>
+<p> </p>
+</div>
+<p> </p>
+<button class="accordion">SHIPPING</button>
+<div class="panel">
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong>Q: Where is my tracking number?</strong> <br /> <strong>A:</strong> Due to alternative shipping methods, we are unable to provide tracking information. Please contact your sales rep if you have any questions.</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: Do you offer free shipping?</strong> <br /> <strong>A:</strong> We offer Free Ground Shipping on orders over $1000.00 within the continental U.S</span></h4>
+<hr />
+<p> </p>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"><strong>Q: How long does it take for an order to be shipped?</strong> <br /> <strong>A:</strong> All orders including expedited shipping will take 24 - 48 hours for fulfillment.</span></h4>
+<p> </p>
+</div>
+<br /> <br /> <br />
+<script>// <![CDATA[
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+// ]]></script>
+
+      
+      
+      
+      
+      
+    </div> 
+  </div> 
+</div>

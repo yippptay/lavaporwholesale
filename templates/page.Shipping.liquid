@@ -1,0 +1,69 @@
+<!-- /templates/page.liquid -->
+
+<div class="container"> 
+  <div class="page-container"> 
+    <h1> 
+      {% if settings.language_enable %}
+      <span class="lang1">{{ page.title | split: '|' | first }}</span>
+      <span class="lang2">{{ page.title | split: '|' | last }}</span>
+      {% else %}
+      {{ page.title | split: '|' | first }}
+      {% endif %}
+    </h1> 
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    
+    
+    
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> Please MAKE SURE to review your order before ordering. Changes are hard to be made after orders<br /> has been placed due to the high amount of orders we receive daily. IF you do have changes on<br /> your order, it may delay your shipment further than the below stated timelines. </span></h4>
+
+<br />
+<h3 style="font-family: Arial;"><strong> International Orders </strong></h3>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> LA Vapor Wholesale is NOT liable for any shipments that are held or seized<br /> by the Customs of your country. Several countries do not allow nicotine to be <br /> imported. We will NOT refund any orders due to shipments not arriving as it is <br /> your responsibility to understand the law of your own country. </span></h4>
+
+<br />
+<h3 style="font-family: Arial;"><strong> Shipping/Handling Timelines </strong></h3>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> Please allow 24 Hours for your packaged to be shipped. </span></h4>
+
+<br />
+<h3 style="font-family: Arial;"><strong> Return Policy </strong> <span style="line-height: 22px; color: #ff2a00;"> - Please allow extra time for your returns to be reviewed and processed. </span></h3>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - Returns for DEFECTIVE product(s) will be accepted within 180 Days of purchase</span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - All returns MUST include the original invoice and/or reference number corresponding to the defective product(s). </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - All returns MUST include original packaging and original pieces for a full refund. Any contents without its original packaging will be denied. </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - No returns on CLEARANCE and AUCTION product(s). Product(s) will be denied. </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - No returns on ANY devices containing liquids/e-juice. This includes but is not limited to disposables, closed-pod systems, e-juice bottles. Product(s) will be denied. </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - <b>No returns on NON-DEFECTIVE product(s). Product(s) will be denied.</b> </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> - Customers will need to provide a shipping label for any denied product(s). If the shipping label is not provided within 30 days, the product(s) will be disposed of. </span></h4>
+
+<br />
+<h3 style="font-family: Arial;"><strong> Return Product(s) Marked DOA </strong></h3>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;">Any product will be considered DOA if it fails within the first 14 calendar days after the customer receives the product(s). </span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;">After 14 Days, a regular RMA process will apply. Product(s) being returned as DOA will be subject to testing. If the product(s) returned is tested and not found DOA, the product(s) will be denied. </span></h4>
+
+<h4 style="font-family: Arial;"><span style="line-height: 25px;">Credit will be applied to your account when the DOA product(s) is received, inspected, and approved by the LA Vapor Returns Department.</span></h4>
+<h4 style="font-family: Arial;"><span style="line-height: 25px;">Customers will need to provide a shipping label for any denied product(s). If the shipping label is not provided within 30 days, the product(s) will be disposed of.</span></h4>
+
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong> Please submit the RMA request form. <a href="https://www.lavaporwholesale.com/pages/la-vapor-rma-request-form" style="color: #0000ff;">Click here</a> to begin an RMA for defective products. </strong> </span></h4>
+
+<h4 style="font-family: Arial;"><span style="line-height: 25px;"> <strong> info@lavaporwholesale.com <br /> 626-940-5677  </strong> </span></h4>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+    
+    
+    
+    
+    
+    <div class="rte"> 
+      {% if settings.language_enable %}
+      <div class="lang1">{{ page.content | split: '[lang2]' | first }}</div>
+      <div class="lang2">{{ page.content | split: '[lang2]' | last }}</div>
+      {% else %}
+      {{ page.content | split: '[lang2]' | first }}
+      {% endif %}
+    </div> 
+  </div> 
+</div>
