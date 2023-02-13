@@ -74,8 +74,8 @@
 }
 @media (min-width: 1200px) {
     .product-grid .grid__item {
-        flex: 0 0 20%;
-        max-width: 20%;
+        flex: 0 0 16.665%;
+        max-width: 16.665%;
     }
 }
 @media (min-width: 1590px) {

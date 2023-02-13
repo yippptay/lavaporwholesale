@@ -9,185 +9,178 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
-<!-- https://stackoverflow.com/questions/69462232/how-can-i-sort-a-collection-before-rendering-it-in-liquid-on-dawn-shopify -->
-<!-- https://toomanytabs.xyz/blog_posts/building-arrays-with-liquid-in-shopify -->
-
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link
+  rel="preload"
+  href="{{ 'component-rte.css' | asset_url }}"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 <div id="ProductGridContainer">
-    {%- paginate collection.products by section.settings.products_per_page -%}
-        {%- if collection.products.size == 0 -%}
-            <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
-                <div class="loading-overlay gradient"></div>
-                <div class="title-wrapper center">
-                    <h2 class="title title--primary">
-                        {{ 'sections.collection_template.empty' | t }}<br>
-                        {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
-                    </h2>
-                </div>
-            </div>
-        {%- else -%}
-            <div class="collection ">
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if collection.products.size == 0 -%}
+      <div
+        class="collection collection--empty page-width"
+        id="product-grid"
+        data-id="{{ section.id }}">
+        <div class="loading-overlay gradient"></div>
+        <div class="title-wrapper center">
+          <h2 class="title title--primary">
+            {{ 'sections.collection_template.empty' | t }}<br>
+            {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+          </h2>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="collection ">
 
-                    {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-                        {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-                        <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-                        <div id="main-collection-filters" data-id="{{ section.id }}">
-                            {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
-                        </div>
-                    {%- endif -%}
-
-                    <div class="rightcol">
-                        
-                        <div class="row wbsortbar">
-                            <div class="wbglbtn col-md-3 col-5 hidden">
-                                <button class="gridv wblistgridbtn active" aria-label="grid">{% render 'icon-gridview' %}</button>
-                                <button class="listv wblistgridbtn" aria-label="list">{% render 'icon-listview' %}</button>
-                            </div>
-                            {% render 'sorting', results: collection, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
-                        </div>
-
-                        <div class="loading-overlay gradient"></div>
-                        <ul id="product-grid" data-id="{{ section.id }}" class="row rless grid product-grid" style="flex-wrap: wrap !important;">
-                            {%- for product in collection.products -%}{% include 'easylockdown_filter_collection' with product %}
-                                <div class="grid__item col-12 cless list-unstyled" style="max-width: 246px; height: auto;">
-                                    {% render 'product-card',
-                                    product_card_product: product,
-                                    media_size: section.settings.image_ratio,
-                                    show_rating: section.settings.show_rating,
-                                    picker_type: section.settings.picker_type,
-                                    show_variants: section.settings.show_variants,
-                                    show_colorswatch: section.settings.show_colorswatch,
-                                    display_product_type: section.settings.display_product_type,
-                                    enable_listdesc: section.settings.enable_listdesc
-                                    %}
-                                </div>
-                            {%- endfor -%}
-                        </ul>
-                        {%- if paginate.pages > 1 -%}
-                            {% render 'pagination', paginate: paginate, anchor: '' %}
-                        {%- endif -%}
-                    </div>
-            </div>
+        {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+          {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+          <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+          <div id="main-collection-filters" data-id="{{ section.id }}">
+            {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+          </div>
         {%- endif -%}
-    {%- endpaginate -%}
+
+        <div class="rightcol">
+
+
+          <div class="row wbsortbar">
+            <div class="wbglbtn col-md-3 col-5 hiddens">
+              <button class="gridv wblistgridbtn active" aria-label="grid">{% render 'icon-gridview' %}</button>
+              <button class="listv wblistgridbtn" aria-label="list">{% render 'icon-listview' %}</button>
+            </div>
+            {% render 'sorting', results: collection, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+          </div>
+          <div class="loading-overlay gradient"></div>
+          <ul
+            id="product-grid"
+            data-id="{{ section.id }}"
+            class="row rless grid product-grid">
+            {%- for product in collection.products -%}
+              <li class="grid__item col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 cless">
+                {% render 'product-card'
+                 , product_card_product: product,
+                 media_size: section.settings.image_ratio,
+                 show_rating: section.settings.show_rating,
+                 picker_type: section.settings.picker_type,
+                 show_variants: section.settings.show_variants,
+                 show_colorswatch: section.settings.show_colorswatch,
+                 display_product_type: section.settings.display_product_type,
+                 enable_listdesc: section.settings.enable_listdesc %}
+              </li>
+            {%- endfor -%}
+          </ul>
+          {%- if paginate.pages > 1 -%}
+            {% render 'pagination', paginate: paginate, anchor: '' %}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
 </div>
 
 {% schema %}
-{
-  "name": "t:sections.main-collection-product-grid.name",
-  "class": "collection-grid-section",
-  "settings": [
-    {
-      "type": "range",
-      "id": "products_per_page",
-      "min": 8,
-      "max": 24,
-      "step": 4,
-      "default": 16,
-      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.featured-collection.settings.image_ratio.label"
-    },
-    {
+  {
+    "name": "t:sections.main-collection-product-grid.name",
+    "class": "collection-grid-section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_per_page",
+        "min": 8,
+        "max": 24,
+        "step": 4,
+        "default": 16,
+        "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+          }, {
+            "value": "portrait",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+          }, {
+            "value": "square",
+            "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+          }
+        ],
+        "default": "adapt",
+        "label": "t:sections.featured-collection.settings.image_ratio.label"
+      },
+      {
         "type": "checkbox",
         "id": "display_product_type",
         "label": "Display Product Type?",
         "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
-      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
-    },
-    {
-      "type": "header",
-      "content": "Variants"
-    },    
-    {
-      "type": "checkbox",
-      "id": "show_variants",
-      "default": true,
-      "label": "Show color/size variants"
-    },
-    {
-      "type": "select",
-      "id": "picker_type",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
-        },
-        {
-          "value": "button",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
-        }
-      ],
-      "default": "button",
-      "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-    },
-    {
+      }, {
+        "type": "checkbox",
+        "id": "show_rating",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+        "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+      }, {
+        "type": "header",
+        "content": "Variants"
+      }, {
+        "type": "checkbox",
+        "id": "show_variants",
+        "default": true,
+        "label": "Show color/size variants"
+      }, {
+        "type": "select",
+        "id": "picker_type",
+        "options": [
+          {
+            "value": "dropdown",
+            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+          }, {
+            "value": "button",
+            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+          }
+        ],
+        "default": "button",
+        "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+      }, {
         "type": "checkbox",
         "id": "show_colorswatch",
         "default": true,
         "label": "Enable color swatches",
         "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_filtering",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
-      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_sorting",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "collapse_on_larger_devices",
-      "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
-    },
-    {
-      "type": "header",
-      "content": "Product List Description"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_listdesc",
-      "default": true,
-      "label": "Enable Product List Description"
-    }
-  ]
-}
+      }, {
+        "type": "checkbox",
+        "id": "enable_filtering",
+        "default": true,
+        "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+        "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+      }, {
+        "type": "checkbox",
+        "id": "enable_sorting",
+        "default": true,
+        "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+      }, {
+        "type": "checkbox",
+        "id": "collapse_on_larger_devices",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
+      }, {
+        "type": "header",
+        "content": "Product List Description"
+      }, {
+        "type": "checkbox",
+        "id": "enable_listdesc",
+        "default": true,
+        "label": "Enable Product List Description"
+      }
+    ]
+  }
 {% endschema %}
