@@ -1,0 +1,50 @@
+<!-- /Certified Distributor Authorization/page.liquid -->
+
+<div class="container"> 
+  <div class="page-container"> 
+    <h1> 
+      {% if settings.language_enable %}
+      <span class="lang1">{{ page.title | split: '|' | first }}</span>
+      <span class="lang2">{{ page.title | split: '|' | last }}</span>
+      {% else %}
+      {{ page.title | split: '|' | first }}
+      {% endif %}
+    </h1> 
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    
+    
+    <style><!--
+p {
+  font-size: 15px;
+}
+--></style>
+<p> </p>
+<p>Efest Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Efest_Certificate_of_Authorization.pdf?v=1672360502">Download Here</a></strong></i></p>
+<p>GeekVape Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Geekvape_Certificate_of_Authorization.pdf?v=1672360501">Download Here</a></strong></i></p>
+<p>Hato Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Hato_Certificate_of_Authorization.pdf?v=1672360507">Download Here</a></strong></i></p>
+<p>Innokin Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Innokin_Certificate_of_Authorization.pdf?v=1672360509">Download Here</a></strong></i></p>
+<p>Lithicore Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Lihticore_Certificate_of_Authorization.pdf?v=1672360501">Download Here</a></strong></i></p>
+<p>Lost Vape Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Lost_Vape_Certificate_of_Authorization.pdf?v=1672360502">Download Here</a></strong></i></p>
+<p>Innokin Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/Innokin_Certificate_of_Authorization.pdf?v=1672360509">Download Here</a></strong></i></p>
+<p>VOOPOO Certificate of Authorization - <i><strong> <a href="https://cdn.shopify.com/s/files/1/1726/8617/files/VOOPOO_Certificate_of_Authorization.pdf?v=1672360502">Download Here</a></strong></i></p>    
+    
+
+
+
+
+
+
+    
+    
+    <div class="rte"> 
+      {% if settings.language_enable %}
+      <div class="lang1">{{ page.content | split: '[lang2]' | first }}</div>
+      <div class="lang2">{{ page.content | split: '[lang2]' | last }}</div>
+      {% else %}
+      {{ page.content | split: '[lang2]' | first }}
+      {% endif %}
+    </div> 
+  </div> 
+</div>

@@ -1,0 +1,58 @@
+<!-- /templates/page.liquid -->
+
+<div class="container"> 
+  <div class="page-container"> 
+    <h1> 
+      {% if settings.language_enable %}
+      <span class="lang1">{{ page.title | split: '|' | first }}</span>
+      <span class="lang2">{{ page.title | split: '|' | last }}</span>
+      {% else %}
+      {{ page.title | split: '|' | first }}
+      {% endif %}
+    </h1> 
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    
+    
+    <h3><strong>WARNING! THIS SITE CONTAINS INFORMATION REGARDING ELECTRONIC CIGARETTES. <br />YOU MUST BE LEGAL OF SMOKING AGE FOR STATE IN WHICH YOU RESIDE TO ENTER THIS SITE.</strong></h3>
+<p> </p>
+<h5>Must be legal of smoking age for state in which you reside to purchase electronic cigarette</h5>
+<h5>products from this web site. Falsifying your age for the purpose of purchasing products</h5>
+<h5>from this web site is strictly illegal and is punishable by law. Purchasing items on behalf</h5>
+<h5>of a minor is prohibited and punishable by law. We reserve the right to ask for identification</h5>
+<h5>upon our discretion. By shopping our store you are confirming in legal" of smoking age for state</h5>
+<h5>which reside we reserve the right to deny any order if think it is placed by a minor providing</h5>
+<h5>false declaration under penalties perjury criminal offense</h5>
+<br />
+<h4><span> <strong>Age Verification</strong></span></h4>
+<h5>We reserve the right to use third party age verification systems, in accordance with federal law.</h5>
+<h5>If necessary, we reserve the right to ask for identification if necessary. You must be legal of</h5>
+<h5>smoking age for the state in which you reside to obtain and use a credit card and to purchase</h5>
+<h5>electronic cigarette products. In instances in which credit card verification is not enough,</h5>
+<h5>we may require to review your identification card. You will be asked to fax or email a legible</h5>
+<h5>copy of your identification clearly showing your age and shipping address. We will require</h5>
+<h5>a signed authorization note along with a legible copy of your identification card. We will</h5>
+<h5>cancel the order if proper identification cannot be given in an appropriate amount of time.</h5>
+<h5>All fraudulent orders may be reported to the local authorities within your vicinity.</h5>
+<p> </p>
+<h4><strong>Refusal or Limit of Service</strong></h4>
+<h5>Due to the nature of internet sales, we reserve the right to refuse service to anyone.</h5>
+<h5>If you feel your refusal of service was unnecessary, please contact our Customer Service</h5>
+<h5>team at <strong>info@lavaporwhoesale.com</strong></h5>
+<p> </p>
+<p> </p>
+    
+    
+    
+    
+    <div class="rte"> 
+      {% if settings.language_enable %}
+      <div class="lang1">{{ page.content | split: '[lang2]' | first }}</div>
+      <div class="lang2">{{ page.content | split: '[lang2]' | last }}</div>
+      {% else %}
+      {{ page.content | split: '[lang2]' | first }}
+      {% endif %}
+    </div> 
+  </div> 
+</div>
