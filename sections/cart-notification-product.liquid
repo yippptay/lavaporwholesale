@@ -1,5 +1,6 @@
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
+    {% render 'free-gift-inject' %}
 {%- assign exciseTaxExists = false -%}
             {%- for p in item.properties -%}
               {%- if p.first contains 'avalara_excise_tax' -%}

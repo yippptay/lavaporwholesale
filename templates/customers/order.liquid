@@ -1,5 +1,7 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
+{% render 'free-gift-inject' %}
+
 <div class="customer order ">
   <svg style="display:none">
     <symbol id="icon-discount" viewBox="0 0 12 12">

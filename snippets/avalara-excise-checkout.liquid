@@ -1,4 +1,5 @@
 <form action="/cart/add" method="post" data-form-tax>
+{% render 'free-gift-inject' %}
     <input type="hidden" name="id" value="{{ settings.avalaraVariant }}">
     <input type="hidden" name="quantity" value="1">
     <input class="required" id="checkout_failure" type="hidden" name="properties[checkout_failure]" value="false">
