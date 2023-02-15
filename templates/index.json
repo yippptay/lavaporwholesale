@@ -316,6 +316,17 @@
         "show_colorswatch": false
       }
     },
+    "b2c936d1-de07-48e3-9ebf-b4ec0794e2fc": {
+      "type": "offerbanner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/la-vapor_mp2_-specs_banner-2899x1024.jpg",
+        "link": "",
+        "subtitle": "",
+        "storytitle": "",
+        "storysubtitle": "",
+        "btntxt": ""
+      }
+    },
     "3ade3749-3fd1-4883-8da7-7c395b182f5a": {
       "type": "top-product-two",
       "blocks": {
@@ -423,6 +434,7 @@
     "1641460486cee907a2",
     "1641556802093be1f1",
     "16542455861c80cea1",
+    "b2c936d1-de07-48e3-9ebf-b4ec0794e2fc",
     "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
     "1645244797dfa46cce"
