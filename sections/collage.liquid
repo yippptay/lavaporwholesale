@@ -158,7 +158,7 @@
                       {%- if block.settings.product.available == false -%}
                         <span class="badge badge--bottom-left">{{ 'products.product.sold_out' | t }}</span>
                       {%- elsif block.settings.product.compare_at_price > block.settings.product.price and block.settings.product.available -%}
-                        <span class="badge badge--bottom-left">{{ 'products.product.on_sale' | t }}</span>
+                        <span class="badge badge--bottom-left hidden">{{ 'products.product.on_sale' | t }}</span>
                       {%- endif -%}
                     </div>
                   </div>
@@ -173,7 +173,7 @@
                           {{ 'products.product.sold_out' | t }}
                         </span>
                       {%- elsif block.settings.product.compare_at_price > block.settings.product.price and block.settings.product.available -%}
-                        <span class="badge badge--bottom-left">
+                        <span class="badge badge--bottom-left hidden">
                           {{ 'products.product.on_sale' | t }}
                         </span>
                       {%- endif -%}
