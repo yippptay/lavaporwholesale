@@ -196,6 +196,7 @@ header-drawer {
                     </div>
                     <div class="dropdown-menu dropdown-menu-right shadow rounded">
                         <webi-cart-items class="{% if cart == empty %} is-empty{% endif %}">
+                          {% render 'free-gift-inject' %}
                             <div class="cart__warnings">
                                 <h5 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h5>
                             </div>
@@ -348,7 +349,9 @@ header-drawer {
                                 </div>
                                 <p class="visually-hidden" id="webi-cart-live-region-text" aria-live="polite" role="status"></p>
                                 <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
-                            </form>
+                                {% render 'free-gift-inject' %}
+                                </form>
+                                {% render 'free-gift-inject' %}
                         </webi-cart-items>
                         <div class="{% if cart == empty %} is-empty{% endif %}" id="webi-main-cart-footer" data-id="{{ section.id }}">
                             <div class="cart__blocks">

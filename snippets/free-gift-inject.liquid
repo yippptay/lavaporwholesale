@@ -1,4 +1,5 @@
-{% assign free_gift_over_price_40 = 4000 %}
+{% assign free_gift_over_price_40 = 100000 %}
+{% comment %} Price in cents {% endcomment %}
 {% assign variant_id = '40186893664342' %}
 
 <script>
@@ -15,7 +16,7 @@
       }
     }
 
-    if ((cartItems.length === 1) && (qtyInTheCart > 0)) {
+    if ((cartTotal <= {{ free_gift_over_price_40 }}) && (qtyInTheCart > 0)) {
       cartUpdates = {
         {{ variant_id }}: 0
       }
