@@ -74,7 +74,7 @@
         <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
       {%- endif -%}
 
-      <div class="section-{{ section.id }}-padding product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" style="justify-content: space-between;">
+      <div class="section-{{ section.id }}-padding product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}" style="justify-content: space-evenly;">
 
           {% comment %} Start of the page {% endcomment %}
         <div class="product-detail quickbuy-content spaced-row" style="width: -webkit-fill-available;">
@@ -885,7 +885,7 @@
 
         </div><!-- /.grid__item -->
 
-        <div class="product__description rte" style="max-width: 45%; overflow-y: scroll; max-height: 450px;">
+        <div class="product__description rte" style="min-width: 45%; max-width: 47%; overflow-y: scroll; max-height: 450px;">
           {{ product.description }}
         </div>
 
