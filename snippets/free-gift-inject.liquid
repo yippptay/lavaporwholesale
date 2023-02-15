@@ -34,10 +34,7 @@
       data: {
         updates: cartUpdates
       },
-      dataType: 'json',
-      success: function(stuff) {
-        window.location.href = '/cart';
-      }
+      dataType: 'json'
     };
     $.ajax(params);
   })(jQuery);

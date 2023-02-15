@@ -98,7 +98,6 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   {% render 'minmaxify-head' %}
 {% render 'avalara-excise-variables' %}
-{% render 'free-gift-inject' %}
 </head>
 
   <body class="gradient {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">

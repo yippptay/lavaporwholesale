@@ -10,7 +10,6 @@
 </div>
 <div class="dropdown-menu dropdown-menu-right shadow rounded">
     <webi-cart-items class="{% if cart == empty %} is-empty{% endif %}">
-        {% render 'free-gift-inject' %}
         <div class="cart__warnings">
             <h5 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h5>
         </div>
@@ -23,7 +22,6 @@
 {%- assign exciseTaxExists = false -%}
             {%- for p in item.properties -%}
               {%- if p.first contains 'avalara_excise_tax' -%}
-              {% render 'free-gift-inject' %}
               	{%- assign exciseTaxExists = true -%}
               {%- endif -%}
             {%- endfor -%}
@@ -165,7 +163,7 @@
             </div>
             <p class="visually-hidden" id="webi-cart-live-region-text" aria-live="polite" role="status"></p>
             <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
-            {% render 'free-gift-inject' %}
+
             </form>
             
     </webi-cart-items>
