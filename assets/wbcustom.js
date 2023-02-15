@@ -11,7 +11,7 @@ $(document).ready(function() {
         arrows: false,
         infinite: false,
         autoplay: false,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 6000,
         slidesToShow: 1,
         cssEase: 'ease',
         slidesToScroll: 1
@@ -173,7 +173,7 @@ $(document).ready(function() {
         arrows: true,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 8000,
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: 'ease',
