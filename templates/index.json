@@ -127,6 +127,25 @@
             "text_alignment_mobile": "center"
           }
         },
+        "18931b3d-de0d-4852-94ab-90d84aa9c684": {
+          "type": "slide",
+          "settings": {
+            "slidesubclr": "#ffffff",
+            "slideheadclr": "#ffffff",
+            "image": "shopify:\/\/shop_images\/LA-VAPOR-Homepage-Banner-2899x1024.jpg",
+            "subtitle": "",
+            "heading": "",
+            "heading_size": "large",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify:\/\/collections\/xros-family",
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "text_alignment_mobile": "center"
+          }
+        },
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4": {
           "type": "slide",
           "settings": {
@@ -165,25 +184,6 @@
             "text_alignment_mobile": "center"
           }
         },
-        "18931b3d-de0d-4852-94ab-90d84aa9c684": {
-          "type": "slide",
-          "settings": {
-            "slidesubclr": "#ffffff",
-            "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/LA-VAPOR-Homepage-Banner-2899x1024.jpg",
-            "subtitle": "",
-            "heading": "",
-            "heading_size": "large",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify:\/\/collections\/xros-family",
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "text_alignment_mobile": "center"
-          }
-        },
         "bd1117da-a726-46de-97e0-20a628f524bd": {
           "type": "slide",
           "settings": {
@@ -206,9 +206,9 @@
       },
       "block_order": [
         "c580c1d5-e69f-42b9-b22f-363292813133",
+        "18931b3d-de0d-4852-94ab-90d84aa9c684",
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4",
         "f527ba75-0e4f-4578-8eb2-8a81fd4c9868",
-        "18931b3d-de0d-4852-94ab-90d84aa9c684",
         "bd1117da-a726-46de-97e0-20a628f524bd"
       ],
       "settings": {
