@@ -6,6 +6,8 @@
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
+{% render 'free-gift-inject' %}
+
 <cart-items class="{% if cart == empty %} is-empty{% endif %}">
   <div class="carthead">
     <h1 class="heading text-left">{{ 'sections.cart.title' | t }}</h1>
