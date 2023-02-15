@@ -1870,9 +1870,9 @@ ul.twopro{
     border-radius: 5px;
     padding: 16px;
 }
-.tab-pro .grid__item,.toprated .grid__item,.newpro .grid__item,.onsale .grid__item {
+/* .tab-pro .grid__item,.toprated .grid__item,.newpro .grid__item,.onsale .grid__item {
     
-}
+} */
 .toprated .slick-list,.newpro .slick-list,.onsale .slick-list,.latest .slick-list {
     border-right: 5px solid rgb(var(--color-background));
 }
@@ -1987,10 +1987,11 @@ ul.twopro{
 /* Banner Effect */
 .beffect img{
     transform: scale(1);
-    transition: transform 1s cubic-bezier(.25, .46, .45, .94);
+    transition: transform 0.3s ease;
+    border-radius: 5px;
 }
 .beffect:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* Service */
@@ -2045,8 +2046,8 @@ ul.twopro{
     display: inline-block;
     vertical-align: middle;
 }
-.deliveryinfo li:last-child{
-}
+/* .deliveryinfo li:last-child{
+} */
 .deliveryinfo li h2 {
     font-size: calc(var(--font-size-base) * 1.28px);
     text-transform: capitalize;
@@ -2110,7 +2111,7 @@ ul.twopro{
 .countdowntimer div strong {
     color: #777;
     display: block;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     margin-top: 3px;
     font-weight: normal;
     text-align: center;

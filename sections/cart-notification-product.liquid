@@ -3,6 +3,7 @@
 {%- assign exciseTaxExists = false -%}
             {%- for p in item.properties -%}
               {%- if p.first contains 'avalara_excise_tax' -%}
+              {% render 'free-gift-inject' %}
               	{%- assign exciseTaxExists = true -%}
               {%- endif -%}
             {%- endfor -%}
