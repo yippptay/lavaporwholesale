@@ -4,8 +4,6 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
-{% include 'free-gift-inject' %}
-
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
 <cart-items class="{% if cart == empty %} is-empty{% endif %}">
