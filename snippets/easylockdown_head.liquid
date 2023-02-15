@@ -56,6 +56,37 @@
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if product.id == 6850517663830 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% else %}
+{% unless customer.id == 6122948427862 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% unless customer %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/products/lav-promo-gift-box"],*[href*="/products/lav-promo-gift-box/"],*[href*="/products/lav-promo-gift-box?"],*[href*="/products/lav-promo-gift-box#"],*[data-eld-product-handle="lav-promo-gift-box"]');</script>
+{% else %}
+{% assign easylockdownHideLinks = false %}{% unless customer.id == 6122948427862 %}{% assign easylockdownHideLinks = true %}{% endunless %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/products/lav-promo-gift-box"],*[href*="/products/lav-promo-gift-box/"],*[href*="/products/lav-promo-gift-box?"],*[href*="/products/lav-promo-gift-box#"],*[data-eld-product-handle="lav-promo-gift-box"]');</script>
+{% endif %}
+{% endunless %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
 {% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
