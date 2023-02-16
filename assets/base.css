@@ -2292,7 +2292,7 @@ ul.twopro{
 /* Scroll to top */
 #scroll {
     position: fixed;
-    bottom: 60px;
+    bottom: 120px;
     right: 20px;
     font-size: 18px;
     color: var(--color-base-solid-button-labels);
