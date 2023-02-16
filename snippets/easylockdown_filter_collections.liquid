@@ -118,14 +118,4 @@
 {% endif %}
 {% endunless %}
 
-{% assign easylockdownCollectionsException = false %}
-{% unless easylockdownCollectionsException %}
-{% if easylockdown_filter_collections.id == 139358470230 %}
-{% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag12 %}{% assign easylockdownContinue = false %}{% endunless %}
-{% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
-{% endif %}
-{% endif %}
-{% endunless %}
-
 {% unless easylockdownItemSelectorOff %}<div class='easylockdown-collection-item-selector easy-item-selector' data-eld-loc-can='{{ easylockdownLocationsCan | join: "," }}' data-eld-loc-cannot='{{ easylockdownLocationsCannot | join: "," }}' data-eld-loc-auth='{{ easylockdownPasswordItems | join: "," }}' style='display:none;'></div>{% endunless %}
