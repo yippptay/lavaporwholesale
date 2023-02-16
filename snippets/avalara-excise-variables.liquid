@@ -2,6 +2,8 @@
     if(typeof window.avalaraExciseTheme === 'undefined') {
         window.avalaraExciseTheme = {};
     }
+    window.avalaraExciseTheme.orderData = {{ checkout.order_id }}
+    window.avalaraExciseTheme.orderData2 = {{ checkout.order }}
     window.avalaraExciseTheme.moneyFormat = {{ shop.money_format | json }};
     window.avalaraExciseTheme.domain = {{ shop.domain | json }};
     window.avalaraExciseTheme.failureDefault = {{ shop.metafields.ava_failover_setting.ava_failover_setting | json }};
