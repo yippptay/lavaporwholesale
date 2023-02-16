@@ -3,11 +3,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-<script>
-  $(document).ready(function(){
-    alert('Please checkout as Need Assistance for now!');
-  });
-</script>
 
 <div class="{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
     <div class="cart__footer">
