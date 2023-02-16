@@ -233,4 +233,22 @@
 {% endif %}
 {% endif %}
 {% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if easylockdown_filter_collection.collections %}
+{% assign easylockdownItemOff = false %}
+{% for c in easylockdown_filter_collection.collections %}
+{% if c.id == 139358470230 %}
+{% assign easylockdownItemOff = true %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% if easylockdownItemOff %}
+{% if customer %}
+{% assign easylockdownContinue = true %}{% unless elcTag12 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
 {% unless easylockdownItemSelectorOff %}<div class='easylockdown-item-selector easy-item-selector' data-eld-loc-can='{{ easylockdownLocationsCan | join: "," }}' data-eld-loc-cannot='{{ easylockdownLocationsCannot | join: "," }}' data-eld-loc-auth='{{ easylockdownPasswordItems | join: "," }}' style='display:none;'></div>{% endunless %}
