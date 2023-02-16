@@ -720,7 +720,7 @@
 
         </div><!-- /.product-detail -->
 
-        <div class="grid__item product__media-wrapper wbproleftimg" style="max-width: 45%;">
+        <div class="grid__item product__media-wrapper wbproleftimg" style="max-width: 49%;">
           <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
             <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
 
@@ -885,7 +885,7 @@
 
         </div><!-- /.grid__item -->
 
-        <div class="product__description rte" style="min-width: 45%; max-width: 47%; overflow-y: scroll; max-height: 450px; padding: 6px;">
+        <div class="product__description rte" style="min-width: 49%; max-width: 49%; overflow-y: scroll; max-height: 100%; padding: 6px; border: .1rem solid var(--color-wbbordercolor); border-radius: 5px;">
           {{ product.description }}
         </div>
 
