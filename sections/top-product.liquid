@@ -17,30 +17,27 @@
   {% assign selector = 0 %}
 {% endif %}
 
-{% if randomNumber > 30 and randomNumber <= 55 %}
+{% if randomNumber > 30 and randomNumber <= 50 %}
   {% assign selector = 1 %}
 {% endif %}
 
-{% if randomNumber > 56 and randomNumber <= 85 %}
+{% if randomNumber > 50 and randomNumber <= 65 %}
   {% assign selector = 2 %}
 {% endif %}
 
-{% if randomNumber > 86 and randomNumber <= 95 %}
+{% if randomNumber > 65 and randomNumber <= 95 %}
   {% assign selector = 3 %}
 {% endif %}
 
-{% if randomNumber > 96 %}
+{% if randomNumber > 95 %}
   {% assign selector = 4 %}
 {% endif %}
 
-<!-- All 30, DISP 30, HARD 20, E-LIQ 15, HEMP 5 -->
 <!-- All | HARD | E-LI | DISP | HEMP | SMOK -->
+<!-- 30  | 20   | 15   | 30   | 5    | 0    -->
 
-<!-- HARDWARE | E-LIQUID | DISPOSABLES | HEMP | SMOKE SHOP -->
-<!--    30    |    25    |     30      |  10  |      5     -->
-<!--   1-30   |   31-55  |     56-85   |86-95 |   96-100   -->
-
-  <div class="product-tab-item shadow-sm rounded"> <div class="pro-tab tabs">
+<div class="product-tab-item shadow-sm rounded">
+  <div class="pro-tab tabs">
     <h2 class="heading text-center">
       <span>{{ section.settings.m_title }}</span>
     </h2>
