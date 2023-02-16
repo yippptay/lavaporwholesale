@@ -5,7 +5,7 @@
 
 <!-- Tabbing Logic -->
 {% assign min = 0 %}
-{% assign max = 101 %}
+{% assign max = 100 %}
 {% assign diff = max | minus: min %}
 {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
 <script>

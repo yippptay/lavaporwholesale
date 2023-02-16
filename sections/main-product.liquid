@@ -407,8 +407,8 @@ $(document).ready(function() {
               <tr">
                 <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
                 <td width="30%"><strong>Options</strong></td>
-                <td width="10%" style="text-align: center;"><strong>Price</strong></td>
-                <td width="15%" style="text-align: center;"><strong>QTY</strong></td>
+                <td width="15%" style="text-align: center;"><strong>Price</strong></td>
+                <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
                 <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
               </tr>
             </tbody>
@@ -435,8 +435,9 @@ $(document).ready(function() {
                               {{ variant.title  | remove: '/' }}
                             </td>
                         
-                            <td width="10%" style="text-align: center; padding-left: 12px;">
-                              {% if customer %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
+                            <td width="15%" style="text-align: center; padding-left: 12px;">
+                              {% if customer %}
+                              {% unless variant.price == wcp_v_price %} <a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
                               {% else %}
                                 <span>
                                   <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
@@ -444,7 +445,7 @@ $(document).ready(function() {
                               {% endif %}
                             </td>
 
-                            <td width="15%" style="text-align: center; padding-left: 14px;">
+                            <td width="10%" style="text-align: center; padding-left: 14px;">
 
                               <!-- QTY input with automatic cleaning -->
                               <input tabindex="0" autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
