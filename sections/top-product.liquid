@@ -8,9 +8,6 @@
 {% assign max = 100 %}
 {% assign diff = max | minus: min %}
 {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
-<script>
-  console.log({{randomNumber}});
-</script>
 
 <!-- Selector Logic for Main Page -->
 {% if randomNumber <= 30 %}
@@ -63,7 +60,6 @@
       <div class="tab-pane fade {% if forloop.index0 == selector %}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
         <div class="rless">
           <div class="owl-toppro">
-
             {% for product in collection.products limit: 11 %}
               {% comment %}EasylockdownFilterBegin{% endcomment %}
               {% capture easylockdownFilter %}

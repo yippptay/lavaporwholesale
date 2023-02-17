@@ -235,7 +235,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                {%comment%} Webibazaar Variants Wise Product Change Over {%endcomment%}
+                {% comment %} Webibazaar Variants Wise Product Change Over {% endcomment %}
             {% else %}
             {% comment %} Temporary Image for Card {% endcomment %}
             <div class="card__content">
@@ -263,11 +263,11 @@
 
         <div class="wbproductdes">
 
+            {% comment %}
             {% if display_product_type %}
                 <p class="wbprotype hidden">{{ product_card_product.type }}</p>
             {% endif %}
-
-            
+            {% endcomment %}
         
             <h3 class="product-title"><a href="{{ product_card_product.url | default: '#' }}" >{{ product_card_product.title | escape }}</a></h3>
 
