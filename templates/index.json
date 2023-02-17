@@ -306,7 +306,7 @@
       ],
       "settings": {
         "m_title": "New Arrivals",
-        "rows": 1,
+        "rows": 2,
         "image_ratio": "square",
         "display_product_type": false,
         "show_rating": false,
