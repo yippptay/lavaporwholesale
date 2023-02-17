@@ -1,4 +1,3 @@
-{% if content_for_header contains 'shopifyorderlimits.s3.amazonaws.com' %}
 {% if shop.permanent_domain == 'la-vapor-wholesale.myshopify.com' %}
 <script type="text/javascript">
 minMaxifyContext={
@@ -10,8 +9,5 @@ minMaxifyContext={
 };
 {% if template contains 'product' %}
 minMaxifyContext.product = { "product_id": {{ product.id }}, "collection": {{ product.collections | map: 'id' | json }}, "tag": {{ product.tags | json }} };
-{% endif%}</script><script src="https://shopifyorderlimits.s3.amazonaws.com/limits/la-vapor-wholesale.myshopify.com?v=93&r=20221108011935&shop=la-vapor-wholesale.myshopify.com"></script>
-{% endif %}
-{% else %}
-<script type="text/javascript">console.error("MinMaxify is deactivated for this website. Please don't forget to remove minmaxify-head.liquid still being referenced by theme.liquid")</script>
+{% endif%}</script><script src="https://shopifyorderlimits.s3.amazonaws.com/limits/la-vapor-wholesale.myshopify.com?v=97b&r=20230217224310&shop=la-vapor-wholesale.myshopify.com"></script>
 {% endif %}
