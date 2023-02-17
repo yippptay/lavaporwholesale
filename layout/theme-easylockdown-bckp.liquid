@@ -1,7 +1,13 @@
 <!doctype html>
 
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-
+<script src="{{ 'jquery.min.js' | asset_url }}" async></script>
+<script src="{{ 'jquery.fancybox.min.js' | asset_url }}" async></script>
+<script src="{{ 'popper.min.js' | asset_url }}" async></script>
+<script src="{{ 'bootstrap.min.js' | asset_url }}" async></script>
+<script src="{{ 'slick.min.js' | asset_url }}" async></script>
+<script src="{{ 'wbcustom.js' | asset_url }}" async></script>
+<!-- <script src="{{ 'countdown.min.js' | asset_url }}"></script> -->
+<script src="{{ 'wbcartdropdown.js' | asset_url }}" async></script>
 
 <html class="no-js wbboxlt" lang="{{ request.locale.iso_code }}" {% if settings.wbboxed %} id="wbboxlayout" {% endif %}>
   <head>
@@ -179,18 +185,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    
-    
-
-    {%comment%} Webibazaar Code {%endcomment%}
-    <script src="{{ 'jquery.min.js' | asset_url }}"></script>
-    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}"></script>
-    <script src="{{ 'popper.min.js' | asset_url }}"></script>
-    <script src="{{ 'bootstrap.min.js' | asset_url }}"></script>
-    <script src="{{ 'slick.min.js' | asset_url }}"></script>
-    <script src="{{ 'wbcustom.js' | asset_url }}"></script>
-    <script src="{{ 'countdown.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'wbcartdropdown.js' | asset_url }}" ></script>
 
     {% if template == 'index' %}
         <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
