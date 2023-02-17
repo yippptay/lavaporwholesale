@@ -100,7 +100,7 @@
       <link href="https://fonts.googleapis.com/css?family={{ settings.type_base_font | remove: 'Google+' }}:400,500,600,700"  rel="stylesheet">
     {% endif %}
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-  {% render 'minmaxify-head' %}
+  {% comment %}{% render 'minmaxify-head' %}{% endcomment %}
 </head>
 
   <body class="gradient {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
@@ -247,6 +247,4 @@
     </div>
     {% endif %}
     {% comment %}Webibazaar Color Customizer Over{% endcomment %}
-
-  {% include 'wholesale-product-form' %}</body>
 </html>
