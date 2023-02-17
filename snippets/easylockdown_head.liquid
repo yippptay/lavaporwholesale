@@ -179,7 +179,7 @@
 {% endunless %}
 {% endunless %}
 
-{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 82064441430 %}
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' or template contains 'page' and page.id == 81430315094 %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "collection" or template contains "product" %}
@@ -191,14 +191,14 @@
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
 {% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-taxes{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/california-tax-included{% endcapture %}
 {% else %}
 {% unless elcTag12 %}{% assign easylockdownON = true %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
 {% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/state-taxes{% endcapture %}
+{% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/california-tax-included{% endcapture %}
 {% endif %}
 {% endunless %}
 {% endif %}
