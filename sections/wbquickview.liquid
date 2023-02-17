@@ -36,6 +36,7 @@
   {% assign  wcp_v_compare_at_price = nil %}
 {% endif %}
 
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script type="application/json" data-section-type="wbquickview" data-section-id="{{ section.id }}"></script>
 
 <section>
@@ -973,11 +974,8 @@
       {% if product.media.size > 0 %}
         <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
       {% endif %}
-
-               <!-- Jons Edits -->   
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-      
-  <script>
+               
+<script>
 function change() // no ';' here
 {
     var elem = document.getElementById("submit-table-quick");
