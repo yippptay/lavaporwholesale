@@ -14,7 +14,7 @@
         {% if recommendations.performed and recommendations.products_count > 0 %}
             <h2 class="heading text-center"><span>{{ section.settings.heading | escape }}</span></h2>
             <div class="row rless">
-                {% for recommendation in recommendations.products %}
+                {% for recommendation in recommendations.products %}{% include 'easylockdown_filter_collection' with recommendation %}
                     <div class="grid__item col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3 cless">
                         {% render 'product-card',
                         product_card_product: recommendation,
