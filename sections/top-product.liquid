@@ -41,7 +41,7 @@
 		<ul class="list-inline nav nav-tabs text-center">       
 			{%- for block in section.blocks -%}
 				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
-					<a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{block.id}}">
+					<a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{ block.id }}">
 						<span>{{ block.settings.cat_name }}</span>
 					</a>
 				</li>
@@ -52,7 +52,7 @@
 	<div class="tab-content tab-pro">
 		{%- for block in section.blocks -%}
 			{%- assign collection = collections[block.settings.collection]  -%}
-			<div class="tab-pane fade {% if forloop.index0 == selector %}show active{% endif %}" id="wbprodtab1-{{block.id}}">
+			<div class="tab-pane fade {% if forloop.index0 == selector %}show active{% endif %}" id="wbprodtab1-{{ block.id }}">
 				<div class="rless">
 					<div class="owl-toppro">
 						{% for product in collection.products limit: 11 %}

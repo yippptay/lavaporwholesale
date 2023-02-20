@@ -460,13 +460,13 @@
     </div>
 </div>
 
-{% assign wcp_prd_var = product %}
+{% comment %} {% assign wcp_prd_var = product %}
 
 {% unless wcp_prd_var == empty %}
     <script type='application/json' class='{% for wcp_v in wcp_prd_var.variants %} wcp_json_{{wcp_v.id}} {% endfor %} wcp_json_{{ wcp_prd_var.id }} wcp_json' id='wcp_json_{{ wcp_prd_var.id }}' > 
         {% render 'wcp_product_json' with wcp_prd_var %}
     </script>
-{% endunless %}
+{% endunless %} {% endcomment %}
 
 {% comment %} <style>
     #qvbutton:hover {
