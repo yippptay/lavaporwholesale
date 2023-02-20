@@ -45,7 +45,6 @@
                   <div class="owl-toppro">
                       {% for product in collection.products limit : 11 %}
                             {% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
-                            <div class="grid__item col-12 cless list-unstyled">
                             {% render 'product-card-banner',
                             product_card_product: product,
                             block_id: block.id,
@@ -56,17 +55,15 @@
                             show_variants: false,
                             show_colorswatch: section.settings.show_colorswatch,
                             display_product_type: section.settings.display_product_type  %}
-                            </div>
-
                       {% else %}
                           {%- for i in (1..6) -%}
                               <div class="twopro grid__item col-12 cless">
                                   {% render 'product-card-placeholder' %}
                               </div>
                           {%- endfor -%}
-                      {% endfor %} 
+                      {% endfor %}
                       <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
-                        <button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container" style="color: white; background-color: black; height: 308px; width: 216px">
+                        <button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container" style="color: white; background-color: black; width: -webkit-fill-available; min-height: 284.84px;">
                           <strong>View all</strong>
                           <h5>
                             <span>{{ block.settings.cat_name }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">

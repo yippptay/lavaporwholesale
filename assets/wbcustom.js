@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Slideshow
     $('.owl-slider').slick({
         dots: true,
-        arrows: false,
+        arrows: true,
         infinite: false,
         autoplay: false,
         autoplaySpeed: 2000,
@@ -98,8 +98,8 @@ $(document).ready(function() {
         dots: false,
         arrows: true,
         infinite: true,
-        autoplay: false,
-        autoplaySpeed: 2000,
+        autoplay: true,
+        autoplaySpeed: 4000,
         slidesToShow: 6,
         slidesToScroll: 1,
         responsive: [{
@@ -298,7 +298,7 @@ $(document).ready(function() {
     $('.wblogobar').slick({
         dots: false,
         arrows: false,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 3000,
         slidesToShow: 9,
