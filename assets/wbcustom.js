@@ -55,14 +55,14 @@ $(document).ready(function() {
     $(".owl-catt").show();
 
     // Home Tab Product 
-    if ($(window).width() <= 1590) {
+    if ($(window).width() <= 1401) {
         $('.owl-toppro').slick({
             dots: false,
             arrows: true,
             infinite: false,
             autoplay: false,
             autoplaySpeed: 2000,
-            slidesToShow: 4,
+            slidesToShow: 6,
             slidesToScroll: 1,
             responsive: [{
                     breakpoint: 1400,
@@ -73,7 +73,7 @@ $(document).ready(function() {
                 {
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: 3
                     }
                 },
                 {
@@ -85,7 +85,7 @@ $(document).ready(function() {
                 {
                     breakpoint: 361,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 2
                     }
                 }
             ]
@@ -173,7 +173,7 @@ $(document).ready(function() {
     $('.wbpop,.wbbestp').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 9000,
         slidesToShow: 1,
