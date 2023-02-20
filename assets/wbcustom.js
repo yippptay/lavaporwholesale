@@ -55,43 +55,6 @@ $(document).ready(function() {
     $(".owl-catt").show();
 
     // Home Tab Product 
-<<<<<<< HEAD
-    $('.owl-toppro').slick({
-        dots: false,
-        arrows: true,
-        infinite: true,
-        autoplay: false,
-        autoplaySpeed: 2000,
-        slidesToShow: 6,
-        rows: 2,
-        slidesToScroll: 1,
-        responsive: [{
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 3
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2
-            }
-        },
-        {
-            breakpoint: 576,
-            settings: {
-                slidesToShow: 2
-            }
-        },
-        {
-            breakpoint: 361,
-            settings: {
-                slidesToShow: 1
-            }
-        }
-    ]
-    });
-=======
     if ($(window).width() <= 1591) {
         $('.owl-toppro').slick({
             dots: false,
@@ -99,36 +62,35 @@ $(document).ready(function() {
             infinite: false,
             autoplay: false,
             autoplaySpeed: 2000,
-            slidesToShow: 6,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [{
                     breakpoint: 1400,
                     settings: {
-                        slidesToShow: 6
+                        slidesToShow: 3
                     }
                 },
                 {
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 6
+                        slidesToShow: 2
                     }
                 },
                 {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 3
+                        slidesToShow: 2
                     }
                 },
                 {
                     breakpoint: 361,
                     settings: {
-                        slidesToShow: 3
+                        slidesToShow: 1
                     }
                 }
             ]
         });
     };
->>>>>>> parent of 28238ac (fuck grids)
     $(".owl-toppro").show();
 
     // Home Tab Product   

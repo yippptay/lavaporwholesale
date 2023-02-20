@@ -58,18 +58,18 @@
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<script src="{{ 'product-form.js' | asset_url }}" defer></script>
-<script src="{{ 'jquery.min.js' | asset_url }}" async></script>
-<script src="{{ 'photoswipe.min.js' | asset_url }}" async></script>
-<script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}" async></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'jquery.min.js' | asset_url }}"></script>
+<script src="{{ 'photoswipe.min.js' | asset_url }}"></script>
+<script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}"></script>
 
 <script>
-  $(document).ready(function() {
-    $("tr:even").css({
-    "background-color":"#ececec",
-    "color":"#000"});
-    console.log( "Alternate Table Colors module loaded." );
-  });
+$(document).ready(function() {
+  $("tr:even").css({
+  "background-color":"#ececec",
+  "color":"#000"});
+  console.log( "Alternate Table Colors module loaded." );
+});
 </script>
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}

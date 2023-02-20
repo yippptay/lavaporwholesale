@@ -33,71 +33,6 @@
 <!-- All | HARD | E-LI | DISP | HEMP | SMOK -->
 <!-- 30  | 20   | 15   | 30   | 5    | 0    -->
 
-<<<<<<< HEAD
-  if randomNumber <= 30
-    assign selector = 0
-  endif
-
-  if randomNumber > 30 and randomNumber <= 50
-    assign selector = 1
-  endif
-
-  if randomNumber > 50 and randomNumber <= 65
-    assign selector = 2
-  endif
-
-  if randomNumber > 65 and randomNumber <= 95
-    assign selector = 3
-  endif
-
-  if randomNumber > 95
-    assign selector = 4
-  endif
-%}
-
-<div class="product-tab-item shadow-sm">
-	<div class="pro-tab tabs">
-		<h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
-		<ul class="list-inline nav nav-tabs text-center">       
-			{%- for block in section.blocks -%}
-				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
-					<a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{block.id}}">
-						<span>{{ block.settings.cat_name }}</span>
-					</a>
-				</li>
-			{%- endfor -%}
-		</ul>
-	</div>
-	<div class="clearfix"></div>
-	<div class="tab-content tab-pro">
-		{%- for block in section.blocks -%}
-			{%- assign collection = collections[block.settings.collection]  -%}
-			<div class="tab-pane fade {% if forloop.index0 == selector %}show active{% endif %}" id="wbprodtab1-{{block.id}}">
-				<div class="rless">
-					<div class="owl-toppro">
-						{% for product in collection.products limit: 11 %}
-
-							{% comment %} Easylockdown Filter Begin {% endcomment %}
-							{% capture easylockdownFilter %}
-							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
-							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
-							{% continue %}
-							{% else %}
-							{{ easylockdownFilter }}{% endif %}
-							{% comment %} Easylockdown FilterEnd {% endcomment %}
-							
-							{% render 'product-card-banner',
-							product_card_product: product,
-							block_id: block.id,
-							media_size: section.settings.image_ratio,
-							show_rating: section.settings.show_rating,
-							picker_type: section.settings.picker_type,
-							show_variants: section.settings.show_variants,
-							show_colorswatch: section.settings.show_colorswatch,
-							display_product_type: section.settings.display_product_type %}
-							
-						{% endfor %} 
-=======
 <div class="product-tab-item shadow-sm rounded">
   <div class="pro-tab tabs">
     <h2 class="heading text-center">
@@ -150,7 +85,6 @@
                 </div>
               {%- endfor -%}
             {% endfor %}
->>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
 
             <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
               <button

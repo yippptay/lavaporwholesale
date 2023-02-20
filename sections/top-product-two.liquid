@@ -28,7 +28,7 @@
 
       {%- for block in section.blocks -%}
           <li class="tab" style="margin: 0 15px;">
-            <button class="tablinks nav-link {% if forloop.first %}active {% endif %}" style="background-color: transparent; white-space: nowrap;" onclick="openTab(event, 'wbprodtab2-{{ block.id }}')"><span>{{ block.settings.cat_name }}</span></button>
+            <button class="tablinks nav-link {% if forloop.first %}active {% endif %}" style="background-color: transparent; white-space: nowrap;" onclick="openTab(event, 'wbprodtab2-{{block.id}}')"><span>{{ block.settings.cat_name }}</span></button>
           </li>
       {%- endfor -%}
       
@@ -38,8 +38,8 @@
   <div class="tab-content tab-pro">
     
       {%- for block in section.blocks -%}
-      {%- assign collection = collections[block.settings.collection] -%}
-          <div id="wbprodtab2-{{ block.id }}" class="tabcontent" {% if forloop.first %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+      {%- assign collection = collections[block.settings.collection]  -%}
+          <div id="wbprodtab2-{{block.id}}" class="tabcontent" {% if forloop.first %}style="display: block;"{% else %}style="display: none;"{% endif %}>
 
               <div class="rless">
                   <div class="owl-toppro">
@@ -55,10 +55,6 @@
                             picker_type: section.settings.picker_type,
                             show_variants: false,
                             show_colorswatch: section.settings.show_colorswatch,
-<<<<<<< HEAD
-                            display_product_type: section.settings.display_product_type %}
-                      {% endfor %}
-=======
                             display_product_type: section.settings.display_product_type  %}
                             </div>
 
@@ -69,7 +65,6 @@
                               </div>
                           {%- endfor -%}
                       {% endfor %} 
->>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
                       <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
                         <button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container" style="color: white; background-color: black; height: 308px; width: 216px">
                           <strong>View all</strong>
@@ -102,7 +97,6 @@
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-    $(".owl-toppro").slick("refresh");
   }
 </script>
 
@@ -143,17 +137,17 @@
   "class": "spaced-section",
   "settings": [
     {
-      "type": "text",
-      "id": "m_title",
-      "label": "Heading",
-      "default": "Our product"
+        "type": "text",
+        "id": "m_title",
+        "label": "Heading",
+        "default": "Our product"
     },
     {
       "type": "range",
       "id": "rows",
       "label": "Rows",
       "min": 1,
-      "max": 6,
+      "max": 5,
       "step": 1,
       "default": 1
     },
@@ -182,10 +176,10 @@
       "label": "t:sections.featured-collection.settings.image_ratio.label"
     },
     {
-      "type": "checkbox",
-      "id": "display_product_type",
-      "label": "Show Product Type?",
-      "default": true
+        "type": "checkbox",
+        "id": "display_product_type",
+        "label": "Show Product Type?",
+        "default": true
     },
     {
       "type": "checkbox",
@@ -203,7 +197,7 @@
     {
       "type": "header",
       "content": "Variants"
-    },
+    },    
     {
       "type": "checkbox",
       "id": "show_variants",
@@ -227,35 +221,35 @@
       "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
     },
     {
-      "type": "checkbox",
-      "id": "show_colorswatch",
-      "default": true,
-      "label": "Enable color swatches",
-      "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
+        "type": "checkbox",
+        "id": "show_colorswatch",
+        "default": true,
+        "label": "Enable color swatches",
+        "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
     }
   ],
   "blocks": [
-    {
-      "type": "collection",
-      "name": "Collection",
-      "settings": [
         {
-          "id": "cat_name",
-          "type": "text",
-          "label": "Tab name"
-        },
-        {
-          "type": "collection",
-          "id": "collection",
-          "label": "t:sections.featured-collection.settings.collection.label"
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+            {
+                "id": "cat_name",
+                "type": "text",
+                "label": "Tab name"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "t:sections.featured-collection.settings.collection.label"
+            }
+        ]
         }
-      ]
-    }
-  ],
+    ],
   "presets": [
     {
-      "name": "Top Product",
-      "category": "Collection"
+        "name": "Top Product",
+        "category": "Collection"
     }
   ]
 }

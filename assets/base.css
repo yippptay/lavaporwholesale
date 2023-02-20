@@ -1879,13 +1879,6 @@ ul.twopro{
 .card {
     border: none;
 }
-<<<<<<< HEAD
-@media (min-width: 1591px) {
-    .owl-toppro .grid__item:nth-child(12) {
-        border: none;
-   }
-    /* .owl-toppro .grid__item:nth-child(3) {
-=======
 @media (min-width: 1591px) { /* top-product.liquid - main-page TOP VAPE PRODUCT */
 
     .owl-toppro .grid__item:nth-child(6), .owl-toppro .grid__item:nth-child(12) {
@@ -1893,7 +1886,6 @@ ul.twopro{
    }
    /*
     .owl-toppro .grid__item:nth-child(3) {
->>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
         grid-column: 4;
         grid-row: 3;
         grid-column-start: 3;
@@ -1901,12 +1893,8 @@ ul.twopro{
         grid-row-start: 1;
         grid-row-end: 3;
         padding-top: 65px;
-<<<<<<< HEAD
-   } */
-=======
    }
    */
->>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
 }
 .pro-tab{
     position: relative;
@@ -3085,7 +3073,7 @@ variant-webiquick .js.product-form__input.inner-class {
         display: none;
    }
 }
-@media (min-width: 1400px){
+@media (min-width: 1590px){
     .homesearch {
         padding-left: 35px;
    }
@@ -3100,18 +3088,9 @@ variant-webiquick .js.product-form__input.inner-class {
     .owl-toppro {
         display: grid;
         grid-template-columns: repeat(6,1fr);
-<<<<<<< HEAD
-        grid-template-rows: repeat(2,1fr);
-<<<<<<< HEAD
-   } */
-=======
         /* grid-template-rows: repeat(2,1fr); */ /* fixes potential spacing between toppro and botpro */
         align-items: flex-end;
    }
->>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
-=======
-   }
->>>>>>> parent of 28238ac (fuck grids)
 }
 @media (min-width:1590px) and (max-width: 1829px) {
     .husercart {
