@@ -59,7 +59,7 @@
             data-id="{{ section.id }}"
             class="row rless grid product-grid"
             style="align-items: flex-end;">
-            {%- for product in collection.products -%}
+            {%- for product in collection.products -%}{% include 'easylockdown_filter_collection' with product %}
               <li class="grid__item col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 cless">
                 {% render 'product-card'
                  , product_card_product: product,

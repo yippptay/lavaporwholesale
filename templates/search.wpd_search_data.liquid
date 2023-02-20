@@ -12,7 +12,7 @@
 	"totalPages": "{{paginate.pages}}",
     "productItems":
         [
-            {% for item in search.results %}
+            {% for item in search.results %}{% include 'easylockdown_filter_search' with item %}
 				
                 {% capture wlm_check %}{% include 'wlm-search' with item %}{% endcapture %}
                	{% unless wlm_check contains "Liquid error" %}
