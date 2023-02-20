@@ -3085,7 +3085,7 @@ variant-webiquick .js.product-form__input.inner-class {
         display: none;
    }
 }
-@media (min-width: 1592px){
+@media (min-width: 1400px){
     .homesearch {
         padding-left: 35px;
    }
@@ -3097,17 +3097,21 @@ variant-webiquick .js.product-form__input.inner-class {
         flex: 0 0 82%;
         max-width: 82%;
    }
-    /* .owl-toppro {
+    .owl-toppro {
         display: grid;
         grid-template-columns: repeat(6,1fr);
 <<<<<<< HEAD
         grid-template-rows: repeat(2,1fr);
+<<<<<<< HEAD
    } */
 =======
         /* grid-template-rows: repeat(2,1fr); */ /* fixes potential spacing between toppro and botpro */
         align-items: flex-end;
    }
 >>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
+=======
+   }
+>>>>>>> parent of 28238ac (fuck grids)
 }
 @media (min-width:1590px) and (max-width: 1829px) {
     .husercart {
