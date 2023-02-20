@@ -62,30 +62,30 @@ $(document).ready(function() {
             infinite: false,
             autoplay: false,
             autoplaySpeed: 2000,
-            slidesToShow: 4,
+            slidesToShow: 6,
             slidesToScroll: 1,
             responsive: [{
                     breakpoint: 1400,
                     settings: {
-                        slidesToShow: 3
+                        slidesToShow: 6
                     }
                 },
                 {
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: 6
                     }
                 },
                 {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: 3
                     }
                 },
                 {
                     breakpoint: 361,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 3
                     }
                 }
             ]
