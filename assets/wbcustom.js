@@ -55,42 +55,41 @@ $(document).ready(function() {
     $(".owl-catt").show();
 
     // Home Tab Product 
-    if ($(window).width() <= 1591) {
-        $('.owl-toppro').slick({
-            dots: false,
-            arrows: true,
-            infinite: false,
-            autoplay: false,
-            autoplaySpeed: 2000,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            responsive: [{
-                    breakpoint: 1400,
-                    settings: {
-                        slidesToShow: 6
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 6
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                },
-                {
-                    breakpoint: 361,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }
-            ]
-        });
-    };
+    $('.owl-toppro').slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        slidesToShow: 6,
+        rows: 2,
+        slidesToScroll: 1,
+        responsive: [{
+            breakpoint: 1400,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 361,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ]
+    });
     $(".owl-toppro").show();
 
     // Home Tab Product   
@@ -101,6 +100,7 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 4000,
         slidesToShow: 6,
+        rows: 2,
         slidesToScroll: 1,
         responsive: [{
                 breakpoint: 1400,
@@ -173,7 +173,7 @@ $(document).ready(function() {
     $('.wbpop,.wbbestp').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 9000,
         slidesToShow: 1,

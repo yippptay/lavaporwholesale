@@ -3027,7 +3027,7 @@ variant-webiquick .js.product-form__input.inner-class {
         display: none;
    }
 }
-@media (min-width: 1400px){
+@media (min-width: 1592px){
     .homesearch {
         padding-left: 35px;
    }
@@ -3039,11 +3039,11 @@ variant-webiquick .js.product-form__input.inner-class {
         flex: 0 0 82%;
         max-width: 82%;
    }
-    .owl-toppro {
+    /* .owl-toppro {
         display: grid;
         grid-template-columns: repeat(6,1fr);
         grid-template-rows: repeat(2,1fr);
-   }
+   } */
 }
 @media (min-width:1590px) and (max-width: 1829px) {
     .husercart {
