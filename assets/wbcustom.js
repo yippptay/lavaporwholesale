@@ -55,7 +55,7 @@ $(document).ready(function() {
     $(".owl-catt").show();
 
     // Home Tab Product 
-    if ($(window).width() <= 1591) {
+    if ($(window).width() <= 1590) {
         $('.owl-toppro').slick({
             dots: false,
             arrows: true,

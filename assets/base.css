@@ -1848,11 +1848,11 @@ ul.twopro{
 .card {
     border: none;
 }
-/* @media (min-width: 1591px) {
-    .owl-toppro .grid__item:nth-child(5), .owl-toppro .grid__item:nth-child(9) {
+@media (min-width: 1591px) {
+    .owl-toppro .grid__item:nth-child(12) {
         border: none;
    }
-    .owl-toppro .grid__item:nth-child(3) {
+    /* .owl-toppro .grid__item:nth-child(3) {
         grid-column: 4;
         grid-row: 3;
         grid-column-start: 3;
@@ -1860,8 +1860,8 @@ ul.twopro{
         grid-row-start: 1;
         grid-row-end: 3;
         padding-top: 65px;
-   }
-} */
+   } */
+}
 .pro-tab{
     position: relative;
     margin-bottom: 30px;
@@ -3042,7 +3042,7 @@ variant-webiquick .js.product-form__input.inner-class {
     .owl-toppro {
         display: grid;
         grid-template-columns: repeat(6,1fr);
-        /* grid-template-rows: repeat(2,1fr); Potential fix */
+        grid-template-rows: repeat(2,1fr);
    }
 }
 @media (min-width:1590px) and (max-width: 1829px) {
