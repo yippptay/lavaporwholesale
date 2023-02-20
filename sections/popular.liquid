@@ -7,18 +7,24 @@
   <h2 class="heading text-left"><span><a href="/collections/{{ section.settings.collection }}" style="cursor: pointer;">{{ section.settings.ms_title }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></a></span></h2>
     <div class="rless">
       <div class="wbpop">
-        {%- assign collection = collections[section.settings.collection] -%}
+        {% assign collection = collections[section.settings.collection] %}
         {% assign num_row = section.settings.rows | times: 1 %} 
         {% assign temp = 0 %}
         {%- for product in collection.products -%}
+            {% comment %} Easylockdown Filter Begin {% endcomment %}
+							{% capture easylockdownFilter %}
+							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+							{% continue %}
+							{% else %}
+							{{ easylockdownFilter }}{% endif %}
+							{% comment %} Easylockdown FilterEnd {% endcomment %}
         {% if temp == 0 %}<ul class="twopro">{% endif %}
-        <li class="grid__item col-12 cless list-unstyled">
           {% render 'product-card-custom',
           product_card_product: product,
           media_size: section.settings.image_ratio,
           show_rating: section.settings.show_rating,
           display_product_type: section.settings.display_product_type  %}
-        </li>
         {% assign temp = temp | plus: 1 %}
         {% if temp == num_row %}</ul>{% assign temp = 0 %}{% endif %}
         {%- else -%}

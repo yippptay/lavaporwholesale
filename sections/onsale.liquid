@@ -16,6 +16,16 @@
       {% assign num_row1 = section.settings.rows | times: 1 %}
       {% assign temp1 = 0 %}
       {% for product in collection.products %}
+
+              {% comment %} Easylockdown Filter Begin {% endcomment %}
+							{% capture easylockdownFilter %}
+							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+							{% continue %}
+							{% else %}
+							{{ easylockdownFilter }}{% endif %}
+							{% comment %} Easylockdown FilterEnd {% endcomment %}
+
         {% if temp1 == 0 %}
           <ul class="twopro">
           {% endif %}
@@ -47,96 +57,106 @@
 
 
 {% schema %}
-  {
-    "name": "Onsale Products",
-    "class": "spaced-section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "ms_title",
-        "label": "Heading",
-        "default": "Onsale Products"
-      },
-      {
-        "type": "range",
-        "id": "rows",
-        "label": "Rows",
-        "min": 1,
-        "max": 5,
-        "step": 1,
-        "default": 2
-      },
-      {
-        "type": "header",
-        "content": "t:sections.featured-collection.settings.header.content"
-      },
-      {
-        "type": "select",
-        "id": "image_ratio",
-        "options": [
-          {
-            "value": "adapt",
-            "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
-          }, {
-            "value": "portrait",
-            "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
-          }, {
-            "value": "square",
-            "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
-          }
-        ],
-        "default": "adapt",
-        "label": "t:sections.featured-collection.settings.image_ratio.label"
-      }, {
-        "type": "checkbox",
-        "id": "display_product_type1",
-        "label": "Show Product Type?",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "show_rating1",
-        "default": false,
-        "label": "t:sections.featured-collection.settings.show_rating.label",
-        "info": "t:sections.featured-collection.settings.show_rating.info"
-      }, {
-        "type": "header",
-        "content": "Variants"
-      }, {
-        "type": "checkbox",
-        "id": "show_variants",
-        "default": true,
-        "label": "Show color/size variants"
-      }, {
-        "type": "select",
-        "id": "picker_type",
-        "options": [
-          {
-            "value": "dropdown",
-            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
-          }, {
-            "value": "button",
-            "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
-          }
-        ],
-        "default": "button",
-        "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-      }, {
-        "type": "checkbox",
-        "id": "show_colorswatch",
-        "default": true,
-        "label": "Enable color swatches",
-        "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
-      }, {
-        "type": "collection",
-        "id": "collection1",
-        "label": "t:sections.featured-collection.settings.collection.label"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Onsale Products",
-        "category": "Collection"
-      }
-    ]
-  }
+{
+  "name": "Onsale Products",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "ms_title",
+      "label": "Heading",
+      "default": "Onsale Products"
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Rows",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_product_type1",
+      "label": "Show Product Type?",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating1",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "header",
+      "content": "Variants"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variants",
+      "default": true,
+      "label": "Show color/size variants"
+    },
+    {
+      "type": "select",
+      "id": "picker_type",
+      "options": [
+        {
+          "value": "dropdown",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+        },
+        {
+          "value": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+        }
+      ],
+      "default": "button",
+      "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_colorswatch",
+      "default": true,
+      "label": "Enable color swatches",
+      "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
+    },
+    {
+      "type": "collection",
+      "id": "collection1",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Onsale Products",
+      "category": "Collection"
+    }
+  ]
+}
 {% endschema %}
