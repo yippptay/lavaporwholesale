@@ -3027,7 +3027,7 @@ variant-webiquick .js.product-form__input.inner-class {
         display: none;
    }
 }
-@media (min-width: 1590px){
+@media (min-width: 1400px){
     .homesearch {
         padding-left: 35px;
    }

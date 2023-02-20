@@ -24,16 +24,22 @@
       {% assign num_row = section.settings.rows | times: 1 %}
       {% assign temp = 0 %}
       {%- for product in collection.products -%}
+              {% comment %} Easylockdown Filter Begin {% endcomment %}
+							{% capture easylockdownFilter %}
+							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+							{% continue %}
+							{% else %}
+							{{ easylockdownFilter }}{% endif %}
+							{% comment %} Easylockdown FilterEnd {% endcomment %}
         {% if temp == 0 %}
           <ul class="twopro">
           {% endif %}
-          <li class="grid__item col-12 cless list-unstyled">
             {% render 'product-card-custom'
              , product_card_product: product,
              media_size: section.settings.image_ratio,
              show_rating: section.settings.show_rating,
              display_product_type: section.settings.display_product_type %}
-          </li>
           {% assign temp = temp | plus: 1 %}
           {% if temp == num_row %}
           </ul>

@@ -16,6 +16,16 @@
       {% assign num_row1 = section.settings.rows | times: 1 %}
       {% assign temp1 = 0 %}
       {% for product in collection.products %}
+
+              {% comment %} Easylockdown Filter Begin {% endcomment %}
+							{% capture easylockdownFilter %}
+							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+							{% continue %}
+							{% else %}
+							{{ easylockdownFilter }}{% endif %}
+							{% comment %} Easylockdown FilterEnd {% endcomment %}
+
         {% if temp1 == 0 %}
           <ul class="twopro">
           {% endif %}
