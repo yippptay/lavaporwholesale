@@ -58,7 +58,7 @@ $(document).ready(function() {
     $('.owl-toppro').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: false,
         autoplaySpeed: 2000,
         slidesToShow: 6,
