@@ -36,10 +36,11 @@
     background: transparent;
     transition: background-color var(--duration-long) ease;
 }
-.wbproduct-container {
+.wbproduct-container{
     background-color: var(--color-wbprodct-background);
     transition: 0.3s ease;
     position: relative;
+    border: 1px solid var(--color-wbbordercolor);
     border-radius: 4px;
 }
 .template-index .wbproduct-container {

@@ -9,6 +9,7 @@
               {% endif %}
               {% if block.settings.image != blank %}
                 <img
+                  loading="lazy"
                   src="{{ block.settings.image | img_url: '225x150' }}"
                   class="logo-bar__image img-fluid mx-auto"
                   alt="{{ block.settings.image.alt }}"
@@ -16,6 +17,7 @@
                   height="{{ block.settings.image.height }}" />
               {% else %}
                 <img
+                  loading="lazy"
                   src="https://dummyimage.com/225x150/f5f5f5"
                   class="img-fluid mx-auto"
                   alt="logobar"
@@ -35,7 +37,7 @@
 {% schema %}
   {
     "name": "Logo list",
-    // "class": "spaced-section",
+    "class": "spaced-section",
     "max_blocks": 20,
     "settings": [],
     "blocks": [

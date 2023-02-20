@@ -1,19 +1,39 @@
-<!-- RESET -->
-
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
 <!-- Tabbing Logic -->
+{% assign min = 0 %}
+{% assign max = 100 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+<!-- Selector Logic for Main Page -->
+{% if randomNumber <= 30 %}
+  {% assign selector = 0 %}
+{% endif %}
+
+{% if randomNumber > 30 and randomNumber <= 50 %}
+  {% assign selector = 1 %}
+{% endif %}
+
+{% if randomNumber > 50 and randomNumber <= 65 %}
+  {% assign selector = 2 %}
+{% endif %}
+
+{% if randomNumber > 65 and randomNumber <= 95 %}
+  {% assign selector = 3 %}
+{% endif %}
+
+{% if randomNumber > 95 %}
+  {% assign selector = 4 %}
+{% endif %}
+
 <!-- All | HARD | E-LI | DISP | HEMP | SMOK -->
 <!-- 30  | 20   | 15   | 30   | 5    | 0    -->
-{% liquid
-  assign min = 0
-  assign max = 100
-  assign diff = max | minus: min
-  assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min
 
+<<<<<<< HEAD
   if randomNumber <= 30
     assign selector = 0
   endif
@@ -77,23 +97,87 @@
 							display_product_type: section.settings.display_product_type %}
 							
 						{% endfor %} 
+=======
+<div class="product-tab-item shadow-sm rounded">
+  <div class="pro-tab tabs">
+    <h2 class="heading text-center">
+      <span>{{ section.settings.m_title }}</span>
+    </h2>
+    <ul class="list-inline nav nav-tabs text-center">
+      {%- for block in section.blocks -%}
+        <li class="nav-item{% if forloop.index0 == selector %} active{% endif %}">
+          <a
+            class="nav-link"
+            style="white-space: nowrap;"
+            href="#wbprodtab1-{{block.id}}">
+            <span>{{ block.settings.cat_name }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <div class="tab-content tab-pro">
+    {%- for block in section.blocks -%}
+      {%- assign collection = collections[block.settings.collection] -%}
+      <div class="tab-pane fade {% if forloop.index0 == selector %}show active{%- endif -%}" id="wbprodtab1-{{block.id}}">
+        <div class="rless">
+          <div class="owl-toppro">
+            {% for product in collection.products limit: 11 %}
+              {% comment %}EasylockdownFilterBegin{% endcomment %}
+              {% capture easylockdownFilter %}
+                {% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+              {% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+                {% continue %}
+              {% else %}
+                {{ easylockdownFilter }}{% endif %}
+              {% comment %}EasylockdownFilterEnd{% endcomment %}
+              <div class="grid__item col-12 cless list-unstyled">
+                {% render 'product-card-banner'
+                 , product_card_product: product,
+                 block_id: block.id,
+                 media_size: section.settings.image_ratio,
+                 show_rating: section.settings.show_rating,
+                 picker_type: section.settings.picker_type,
+                 show_variants: section.settings.show_variants,
+                 show_colorswatch: section.settings.show_colorswatch,
+                 display_product_type: section.settings.display_product_type %}
+              </div>
+            {% else %}
+              {%- for i in (1..6) -%}
+                <div class="twopro grid__item col-12 cless">
+                  {% render 'product-card-placeholder' %}
+                </div>
+              {%- endfor -%}
+            {% endfor %}
+>>>>>>> parent of b50caae (Update from Shopify for theme lavaporwholesale/main -- WPD)
 
             <div class="grid__item col-12 cless list-unstyled" style="display: flex; justify-content: center;">
-              <button id="qvbutton" type="button" onclick="location.href='collections/{{ block.settings.collection }}';" class="card-wrapper wbproduct-container" style="color: white; background-color: black; width: -webkit-fill-available; min-height: 284.84px;">
+              <button
+                id="qvbutton"
+                type="button"
+                onclick="location.href='collections/{{ block.settings.collection }}';"
+                class="card-wrapper wbproduct-container"
+                style="color: white; background-color: black; height: 308px; width: 216px">
                 <strong>View all</strong>
                 <h5>
-                  <span>{{ block.settings.cat_name }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-              </svg></span>
+                  <span>{{ block.settings.cat_name }}<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-arrow-right"
+                      viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg>
+                  </span>
                 </h5>
               </button>
             </div>
 
-					</div>
-				</div>
-			</div>
-		{%- endfor -%}
-	</div>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
@@ -103,10 +187,10 @@
   "class": "spaced-section",
   "settings": [
     {
-        "type": "text",
-        "id": "m_title",
-        "label": "Heading",
-        "default": "Our product"
+      "type": "text",
+      "id": "m_title",
+      "label": "Heading",
+      "default": "Our product"
     },
     {
       "type": "range",
@@ -142,10 +226,10 @@
       "label": "t:sections.featured-collection.settings.image_ratio.label"
     },
     {
-        "type": "checkbox",
-        "id": "display_product_type",
-        "label": "Show Product Type?",
-        "default": true
+      "type": "checkbox",
+      "id": "display_product_type",
+      "label": "Show Product Type?",
+      "default": true
     },
     {
       "type": "checkbox",
@@ -163,7 +247,7 @@
     {
       "type": "header",
       "content": "Variants"
-    },    
+    },
     {
       "type": "checkbox",
       "id": "show_variants",
@@ -187,35 +271,35 @@
       "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
     },
     {
-        "type": "checkbox",
-        "id": "show_colorswatch",
-        "default": true,
-        "label": "Enable color swatches",
-        "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
+      "type": "checkbox",
+      "id": "show_colorswatch",
+      "default": true,
+      "label": "Enable color swatches",
+      "info": "Type set to be 'Pills'. [Learn how to setup swatches](https://www.webibazaar.com/shopify/viola-doc/home#colorswatch)"
     }
   ],
   "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
         {
-        "type": "collection",
-        "name": "Collection",
-        "settings": [
-            {
-                "id": "cat_name",
-                "type": "text",
-                "label": "Tab name"
-            },
-            {
-                "type": "collection",
-                "id": "collection",
-                "label": "t:sections.featured-collection.settings.collection.label"
-            }
-        ]
+          "id": "cat_name",
+          "type": "text",
+          "label": "Tab name"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.featured-collection.settings.collection.label"
         }
-    ],
+      ]
+    }
+  ],
   "presets": [
     {
-        "name": "Top Product",
-        "category": "Collection"
+      "name": "Top Product",
+      "category": "Collection"
     }
   ]
 }
