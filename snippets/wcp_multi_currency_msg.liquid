@@ -40,7 +40,7 @@
     {% if template == 'cart' %}
       {% if cart.currency.iso_code != shop.currency %}
         <script>
-          window.location.href = "/cart?currency= {{shop.currency}}";
+          window.location.href = "/cart?currency={{shop.currency}}";
         </script>
       {% endif %}
     {% endif %}
