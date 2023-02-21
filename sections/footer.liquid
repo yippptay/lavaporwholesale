@@ -55,8 +55,8 @@
                                         {%- when 'textarea' -%}
                                         <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading | camelcase }}" style="width: fit-content;">
                                             <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading | camelcase }}">
-                                                {%- if block.settings.footer_address != blank -%}
-                                                    <li>{% render 'icon-faddress' %}<span style="padding-left: 6px;">{{ block.settings.footer_address }}</span>
+                                                {%- if block.settings.footer_address1 != blank -%}
+                                                    <li>{% render 'icon-faddress' %}<span style="padding-left: 6px;">{{ block.settings.footer_address1 }}</span>
                                                 {%- endif -%}
                                                 {%- if block.settings.footer_contact_no != blank -%}
                                                     <li>{% render 'icon-fcontact' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_no }}</span></li>
@@ -318,8 +318,14 @@
         },
         {
           "type": "textarea",
-          "id": "footer_address",
+          "id": "footer_address1",
           "label": "Address",
+          "default": "demo store United States."
+        },
+        {
+          "type": "textarea",
+          "id": "footer_address2",
+          "label": "Address2",
           "default": "demo store United States."
         },
         {
