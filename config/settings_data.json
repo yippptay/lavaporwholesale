@@ -104,18 +104,10 @@
             "type": "textarea",
             "settings": {
               "heading": "CONTACT US",
-              "footer_address2": "City of Industry, CA 91745\n\nHouston, TX 77086",
+              "footer_address": "City of Industry, CA 91745\n\nHouston, TX 77086",
               "footer_contact_no": "(626) 940-5677",
               "footer_contact_id": "info@lavaporwholesale.com",
               "show_social": true
-            }
-          },
-          "second-address": {
-            "type": "textarea",
-            "settings": {
-              "heading2": "CONTACT US",
-              "footer_address2": "City of Industry, CA 91745\n\nHouston, TX 77086",
-              "show_social2": false
             }
           }
         },
