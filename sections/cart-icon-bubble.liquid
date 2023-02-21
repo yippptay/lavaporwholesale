@@ -122,12 +122,12 @@
                                                 </div>
                                             </div>
                                             <div class="cart-item__price-wrapper">
-                                                {%- if item.original_line_price !=  wcp_line_price  -%}
+                                                {%- if item.original_line_price != wcp_line_price -%}
                                                     <dl class="cart-item__discounted-prices">
                                                         <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
                                                         <dd><s class="cart-item__old-price price price--end hidden">{{ item.original_line_price | money }}</s></dd>
                                                         <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
-                                                        <dd class="price price--end">{{  wcp_line_price  | money }}</dd>
+                                                        <dd class="price price--end">{{ wcp_line_price | money }}</dd>
                                                     </dl>
                                                 {%- else -%}
                                                     <span class="price price--end">{{ item.original_line_price | money }}</span>
@@ -194,11 +194,11 @@
                 </noscript>
                 <a href="{{ routes.cart_url }}" class="button button-primary">{{ 'wbcustomlabel.wballtext.viewcart' | t }}</a>
                 
-                <button type="submit" id="checkout" class="cart__checkout-button button hidden" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+                {% comment %} <button type="submit" id="checkout" class="cart__checkout-button button hidden" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
                     {{ 'sections.cart.checkout' | t }}
-                </button>
+                </button> {% endcomment %}
             </div>
         </div>
     </div>
 </div>
-{%comment%} Webibazaar Cart Dropdown Over {%endcomment%}
+{% comment %} Webibazaar Cart Dropdown Over {% endcomment %}
