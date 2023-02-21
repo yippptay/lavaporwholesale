@@ -53,16 +53,16 @@
                                         {%- endif -%}
 
                                         {%- when 'textarea' -%}
-                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading | camelcase }}">
+                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading | camelcase }}" style="width: fit-content;">
                                             <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading | camelcase }}">
                                                 {%- if block.settings.footer_address != blank -%}
-                                                    <li>{% render 'icon-faddress' %} <span>{{ block.settings.footer_address }}</span></li>
+                                                    <li>{% render 'icon-faddress' %}<span style="padding-left: 6px;">{{ block.settings.footer_address }}</span>
                                                 {%- endif -%}
                                                 {%- if block.settings.footer_contact_no != blank -%}
-                                                    <li>{% render 'icon-fcontact' %} <span>{{ block.settings.footer_contact_no }}</span></li>
+                                                    <li>{% render 'icon-fcontact' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_no }}</span></li>
                                                 {%- endif -%}
                                                 {%- if block.settings.footer_contact_id != blank -%}
-                                                    <li>{% render 'icon-fmail' %} <span>{{ block.settings.footer_contact_id }}</span></li>
+                                                    <li style="white-space: nowrap;">{% render 'icon-fmail' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_id }}</span></li>
                                                 {%- endif -%}
                                                 {%- if block.settings.show_social -%}
                                                     <ul class="footer__list-social" role="list">
