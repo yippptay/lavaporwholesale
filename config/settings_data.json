@@ -155,12 +155,12 @@
       "popular": {
         "type": "popular",
         "settings": {
-          "ms_title": "New Arrivals",
+          "ms_title": "New Hardware",
           "rows": 5,
           "image_ratio": "square",
           "display_product_type": false,
           "show_rating": false,
-          "collection": "newest"
+          "collection": "popular-hardware"
         }
       },
       "site-nav": {
@@ -413,12 +413,12 @@
       "popular2": {
         "type": "popular2",
         "settings": {
-          "ms_title": "Popular Restocks",
+          "ms_title": "New E-Liquid",
           "rows": 5,
           "image_ratio": "square",
           "display_product_type": false,
           "show_rating": false,
-          "collection": "popular-restocks"
+          "collection": "popular-e-liquid"
         }
       }
     },
