@@ -59,7 +59,7 @@
     color: var(--color-wbmaincolors-text);
 }
 </style>
-<div class="wbmenuup shadow rounded">
+<div class="wbmenuup shadow">
     {% if section.settings.megamenu_toggle %}
     <h3 class="whr-menu d-lg-block d-none" data-toggle="collapse" data-target="#under-menu" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" aria-label="Center Align">
@@ -77,6 +77,7 @@
             <div class="wr-menu" onclick="w3_open()">
                 <span>{% render 'icon-menubar' %}</span>
             </div>
+
             <ul id="wbmegalevel-1" class="level_1 menu-vertical">
                 <h2 class="wbmenuclose">{{ 'wbcustomlabel.wballtext.menu' | t }}<button type="button" class="closebtn float-right" aria-label="{{ 'wbcustomlabel.wballtext.menu' | t }}" onclick="w3_close()">{% include 'icon-close' %}</h2>
                 {% for block in section.blocks %}
