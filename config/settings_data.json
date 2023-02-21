@@ -155,7 +155,7 @@
       "popular": {
         "type": "popular",
         "settings": {
-          "ms_title": "Popular Hardware",
+          "ms_title": "New Hardware",
           "rows": 5,
           "image_ratio": "square",
           "display_product_type": false,
@@ -413,7 +413,7 @@
       "popular2": {
         "type": "popular2",
         "settings": {
-          "ms_title": "Popular E-Liquid",
+          "ms_title": "New E-Liquid",
           "rows": 5,
           "image_ratio": "square",
           "display_product_type": false,
