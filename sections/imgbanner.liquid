@@ -5,7 +5,7 @@
         <div class="col-sm-4 col-12 cless">
 
           <div class="beffect">
-            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif%}
+            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
             {% if block.settings.image != blank %}
             <img loading="lazy" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}" class="img-fluid mx-auto" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" />
             {% else %}
