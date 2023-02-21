@@ -109,6 +109,14 @@
               "footer_contact_id": "info@lavaporwholesale.com",
               "show_social": true
             }
+          },
+          "second-address": {
+            "type": "textarea",
+            "settings": {
+              "heading": "CONTACT US",
+              "footer_address": "City of Industry, CA 91745\n\nHouston, TX 77086",
+              "show_social": false
+            }
           }
         },
         "block_order": [
