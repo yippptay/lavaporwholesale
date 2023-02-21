@@ -139,7 +139,7 @@ header-drawer {
                 {%- if shop.customer_accounts_enabled -%}
                 <div class="slidedown_section dropdown">
                     <div class="hmuser" data-toggle="dropdown">
-                        <div class="userdrop">
+                        <div class="userdrop" style="cursor:pointer;" onclick="window.location.href='/account';">
                             <span class="svgbg d-inline-block align-middle text-center">{% render 'icon-account' %}</span>
                             <span class="d-lg-inline-block d-none text-left align-middle icon-right-part">
                                 <span class="d-block main-title">{{ 'wbcustomlabel.wballtext.account' | t }}</span>
@@ -171,12 +171,12 @@ header-drawer {
                                         {{ 'wbcustomlabel.wballtext.log_in' | t }}
                                         </a>
                                     </li>
-                                    <li class="hidden">
+                                    {% comment %} <li>
                                         <a href="/account/register" title="{{ 'wbcustomlabel.wballtext.create_accounthome' | t }}">
                                         <i class="fa fa-user"></i>
                                         {{ 'wbcustomlabel.wballtext.create_accounthome' | t }}
                                         </a>
-                                    </li>
+                                    </li> {% endcomment %}
                                     {% endif %}
                                 </ul>
 
