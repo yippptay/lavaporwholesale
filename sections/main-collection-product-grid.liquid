@@ -60,6 +60,16 @@
             class="row rless grid product-grid"
             style="align-items: flex-end;">
             {%- for product in collection.products -%}
+
+              {% comment %} Easylockdown Filter Begin {% endcomment %}
+							{% capture easylockdownFilter %}
+							{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}
+							{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}
+							{% continue %}
+							{% else %}
+							{{ easylockdownFilter }}{% endif %}
+							{% comment %} Easylockdown FilterEnd {% endcomment %}
+
               <li class="grid__item col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 cless">
                 {% render 'product-card'
                  , product_card_product: product,
