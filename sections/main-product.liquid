@@ -422,7 +422,7 @@
                         
                             <td width="15%" style="text-align: center; padding-left: 12px;">
                               {% if customer %}
-                              {% unless variant.price == wcp_v_price %} <a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
+                              {% unless variant.price == wcp_v_price %}<a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
                               {% else %}
                                 <span>
                                   <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>

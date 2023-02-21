@@ -131,8 +131,11 @@
                 {% endcomment %}
             </div>
             <div class="col-12 col-md-8 col-lg-9 right-col">
-                <div class="alert alert-warning" role="alert" style="margin-top: 12px; font-size: 16px;">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 30px; font-size: 18px;">
                   Attention! Some of our customers are having loading issues with <strong>E-Liquids</strong>. If you are experiencing issues, please order with the <strong>Quick View</strong> function in the <strong>search bar</strong> above. Thank you! 
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
                 {% render 'breadcrumbs' %}
                 {% comment %}{{ content_for_layout }}{% endcomment %}{% include 'easylockdown_body' %}

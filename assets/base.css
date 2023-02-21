@@ -1,8 +1,32 @@
 /* Reset */
 /* Custom CSS */
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+/* LA Cash */
+.Rise__widget {
+    left: 20px !important;
+    bottom: 20px !important;
+}
 .product-tab-item {
     border: 1px solid var(--color-wbbordercolor);
     border-radius: 5px;
+    padding-bottom: 30px;
 }
 .no-js:not(html) {
     display: none !important;
@@ -1841,6 +1865,7 @@ ul.twopro{
 }
 .onsale {
     border: 1px solid var(--color-wbbordercolor);
+    padding-bottom: 30px;
 }
 /*.toprated .slick-list,.newpro .slick-list,.onsale .slick-list,.latest .slick-list {
     border-right: 5px solid rgb(var(--color-background));
@@ -2508,7 +2533,7 @@ variant-webiquick .js.product-form__input.inner-class {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border: none;
-    border-bottom: 1px solid var(--color-wbbordercolor);
+    /* border-bottom: 1px solid var(--color-wbbordercolor); */
     border-radius: 0;
 }
 .wbpop .twopro li:last-child .wbproduct-container,.wbbestp .twopro li:last-child .wbproduct-container {
@@ -3874,9 +3899,9 @@ variant-webiquick .js.product-form__input.inner-class {
     .tab-pro .grid__item, .toprated .grid__item, .newpro .grid__item, .onsale .grid__item,.latest .grid__item {
         border-right: none;
    }
-    .imgbnr [class*="col-"], .salebnr [class*="col-"]:nth-child(1) {
+    /* .imgbnr [class*="col-"], .salebnr [class*="col-"]:nth-child(1) {
         margin-bottom: 10px;
-   }
+   } */
     .offerbnr {
         display: none;
    }

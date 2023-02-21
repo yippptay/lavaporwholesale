@@ -174,7 +174,7 @@ $(document).ready(function() {
         dots: false,
         arrows: true,
         infinite: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 9000,
         slidesToShow: 1,
         slidesToScroll: 1,
