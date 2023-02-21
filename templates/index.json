@@ -24,6 +24,13 @@
             "link": "shopify:\/\/collections\/candy-king"
           }
         },
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
+            "link": "shopify:\/\/collections\/elf"
+          }
+        },
         "e0f2c66c-f69b-44d4-ad65-7843206146b7": {
           "type": "logo_image",
           "settings": {
@@ -79,19 +86,13 @@
             "image": "shopify:\/\/shop_images\/Twist-Logo-2020-1.png",
             "link": "shopify:\/\/collections\/twist-eliquid"
           }
-        },
-        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
-            "link": "shopify:\/\/collections\/elf"
-          }
         }
       },
       "block_order": [
         "template--14457190613078__bfa8ebc9-730c-4037-b614-5500854e92c2-1673877898e12e9502-0",
         "9e068142-9758-45d4-8d7a-80406fc571e2",
         "2f512251-d84a-4ba8-8585-de5468668700",
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca",
         "e0f2c66c-f69b-44d4-ad65-7843206146b7",
         "56261ade-4e8e-4645-ae7a-b6e477d14db2",
         "e7c56bd6-a124-4f23-9661-f50d84533212",
@@ -99,8 +100,7 @@
         "c5ca85f5-7597-4b6d-9ed4-153850416443",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b",
-        "5977c30b-f6be-4c57-9344-f1616723409e",
-        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca"
+        "5977c30b-f6be-4c57-9344-f1616723409e"
       ],
       "settings": {
       }
