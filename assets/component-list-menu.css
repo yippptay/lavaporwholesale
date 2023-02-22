@@ -40,7 +40,7 @@ body.overflow-hidden .menupos{
     padding: 13px 0;
 }
 .whr-menu {
-    font-size: calc(var(--font-size-base) * 1.15px);
+    font-size: calc(var(--font-size-base) * 1.05px);
     /* background-color: var(--gradient-base-accent-1); */
     background-color: #202020;
     height: 50px;
