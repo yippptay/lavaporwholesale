@@ -378,6 +378,13 @@
 {% endif %}
 {% endif %}
 {% endunless %}
+{% if customer %}
+{% assign easylockdownHideLinks = false %}{% if elcTag12 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% if easylockdownHideLinks %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/california-tax-excluded"],*[data-eld-collection-handle="california-tax-excluded"]');</script>
+{% endif %}
+{% endif %}
+
 
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
