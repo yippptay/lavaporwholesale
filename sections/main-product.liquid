@@ -35,13 +35,15 @@
 {% assign  wcp_v_compare_at_price = nil %}
 {% endif %}
 
-{% include 'wcp_discount' with product %}
-{% assign current_variant = product.selected_or_first_available_variant %}
-{% include 'wcp_variant' with current_variant %}
-{% include 'wcp_vd_table_change' with product %}
-{% include 'wcp_variant' with current_variant %}
-{% include 'wcp_vd_product' with product %} 
-{% include 'wcp_variant' with current_variant %}
+{% liquid
+  include 'wcp_discount' with product
+  assign current_variant = product.selected_or_first_available_variant
+  include 'wcp_variant' with current_variant
+  include 'wcp_vd_table_change' with product
+  include 'wcp_variant' with current_variant
+  include 'wcp_vd_product' with product
+  include 'wcp_variant' with current_variant
+%}
 
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
@@ -60,8 +62,8 @@
 
 <script src="{{ 'product-form.js' | asset_url }}" defer></script>
 <script src="{{ 'jquery.min.js' | asset_url }}"></script>
-<script src="{{ 'photoswipe.min.js' | asset_url }}" async></script>
-<script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}" async></script>
+<script src="{{ 'photoswipe.min.js' | asset_url }}" defer></script>
+<script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}" defer></script>
 
 <script>
   $(document).ready(function() {
@@ -80,6 +82,7 @@
 {% endif %}
 
 <section class="">
+  {% render 'minmaxify-head' %}
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col" style="justify-content: center;">
 
   <div class="grid__item product__media-wrapper wbproleftimg">

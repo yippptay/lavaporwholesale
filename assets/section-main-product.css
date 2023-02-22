@@ -920,12 +920,12 @@ a.product__text {
     }
     .product--medium:not(.product--no-media) .product__media-wrapper,
     .product--small:not(.product--no-media) .product__info-wrapper {
-        max-width: 35%;
+        max-width: 34.5%;
         width: calc(50% - 1rem / 2);
     }
     .product--medium:not(.product--no-media) .product__info-wrapper,
     .product--small:not(.product--no-media) .product__media-wrapper {
-        max-width: 50%;
+        max-width: 64.5%;
         width: calc(50% - 1rem / 2);
     }
     .product__modal-opener .product__media-icon {

@@ -2034,7 +2034,7 @@ ul.twopro{
 .deliveryinfo li h2 {
     font-size: calc(var(--font-size-base) * 1.28px);
     text-transform: capitalize;
-    font-weight: normal;
+    font-weight: 500;
     margin-bottom: 10px;
     margin-top: 0;
     letter-spacing: 0;

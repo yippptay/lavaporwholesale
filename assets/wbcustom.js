@@ -300,8 +300,8 @@ $(document).ready(function() {
         arrows: false,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 3000,
-        slidesToShow: 9,
+        autoplaySpeed: 2000,
+        slidesToShow: 8,
         slidesToScroll: 1,
         responsive: [{
                 breakpoint: 1410,
@@ -312,19 +312,19 @@ $(document).ready(function() {
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 5
+                    slidesToShow: 6
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 4
+                    slidesToShow: 5
                 }
             },
             {
                 breakpoint: 576,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: 4
                 }
             }
         ]
