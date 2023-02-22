@@ -1,9 +1,9 @@
-<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <!-- MDB -->
-<script
+{% comment %} <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
-></script>
+></script> {% endcomment %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
@@ -203,13 +203,12 @@
             <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
               {%- for collection in collections %}
                 {%- if collection.metafields.custom.type == "Brand" %}
-                  {%  assign first_char = collection.title | slice: 0 | upcase %}
+                  {% assign first_char = collection.title | slice: 0 | upcase %}
                   {%- if first_char == letters %}
                     <div class="col-sm-3 cless brand-names {{ letters }}-item {% if collection.products_count == 0 %} hidden{% endif %}" style="margin-bottom: 4px !important;">
                       <a href="{{ collection.url }}">
-                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.products_count -}})</h7>
+                        <h7 style="white-space: nowrap;">{{- collection.title -}}&nbsp;({{- collection.all_products_count -}})</h7>
                       </a>
-
                     </div>
                   {% endif %}
                 {%- endif %}
