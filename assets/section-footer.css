@@ -213,7 +213,6 @@ footer {
 
 @media (min-width: 992px) {
     .footer-block {
-        border-right: 1px solid rgba(255,255,255,.15);
         padding-left: 30px;
     }
     .footer-block:last-child {
