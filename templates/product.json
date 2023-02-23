@@ -81,6 +81,7 @@
     },
     "8809d195-f641-401e-b18f-6791c5da3291": {
       "type": "top-product",
+      "disabled": true,
       "blocks": {
         "5766a919-e8fb-42c3-b0a0-dae2b611522d": {
           "type": "collection",
