@@ -111,6 +111,13 @@
             "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
             "link": "shopify:\/\/collections\/vaporesso"
           }
+        },
+        "946e6007-8270-4e76-bd9e-e671a29ffb24": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Jam_Monster_Logo.jpg",
+            "link": "shopify:\/\/collections\/jam-monster"
+          }
         }
       },
       "block_order": [
@@ -128,7 +135,8 @@
         "e0f2c66c-f69b-44d4-ad65-7843206146b7",
         "25863c9f-f16e-4b61-9a46-440e2ba14a17",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
-        "c5ca85f5-7597-4b6d-9ed4-153850416443"
+        "c5ca85f5-7597-4b6d-9ed4-153850416443",
+        "946e6007-8270-4e76-bd9e-e671a29ffb24"
       ],
       "settings": {
       }
