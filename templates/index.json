@@ -24,6 +24,13 @@
             "link": "shopify:\/\/collections\/candy-king"
           }
         },
+        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cloud-nerdz-footer-logo.png",
+            "link": "shopify:\/\/collections\/cloud-nurdz"
+          }
+        },
         "56261ade-4e8e-4645-ae7a-b6e477d14db2": {
           "type": "logo_image",
           "settings": {
@@ -104,19 +111,13 @@
             "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
             "link": "shopify:\/\/collections\/vaporesso"
           }
-        },
-        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Cloud-nerdz-footer-logo.png",
-            "link": "shopify:\/\/collections\/cloud-nurdz"
-          }
         }
       },
       "block_order": [
         "template--14457190613078__bfa8ebc9-730c-4037-b614-5500854e92c2-1673877898e12e9502-0",
         "9e068142-9758-45d4-8d7a-80406fc571e2",
         "2f512251-d84a-4ba8-8585-de5468668700",
+        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4",
         "56261ade-4e8e-4645-ae7a-b6e477d14db2",
         "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca",
         "63b42c66-de41-45ad-9057-bbc462e23f36",
@@ -127,8 +128,7 @@
         "e0f2c66c-f69b-44d4-ad65-7843206146b7",
         "25863c9f-f16e-4b61-9a46-440e2ba14a17",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
-        "c5ca85f5-7597-4b6d-9ed4-153850416443",
-        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4"
+        "c5ca85f5-7597-4b6d-9ed4-153850416443"
       ],
       "settings": {
       }
