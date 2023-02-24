@@ -4,7 +4,7 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
-<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart.js' | asset_url }}" defer></script>
 
 <cart-items class="{% if cart == empty %} is-empty{% endif %}">
   <div class="alert alert-danger center" role="alert">
@@ -180,7 +180,7 @@
                             {{ 'products.product.price.sale_price' | t }}
                           </dt>
                           <dd class="price price--end">
-                            {{  wcp_line_price  | money }}
+                            {{ wcp_line_price | money }}
                           </dd>
                         </dl>
                       {%- else -%}
@@ -276,7 +276,7 @@
                             {{ 'products.product.price.sale_price' | t }}
                           </dt>
                           <dd class="price price--end">
-                            {{  wcp_line_price  | money }}
+                            {{ wcp_line_price | money }}
                           </dd>
                         </dl>
                       {%- else -%}

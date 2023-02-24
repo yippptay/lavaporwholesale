@@ -13,7 +13,6 @@
 
   <head>
     {% include 'easylockdown_head' %}
-
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -147,7 +146,7 @@
           </div>
         </div>
       </main>
-      {% section 'popup-products' %}
+      {% comment %} {% section 'popup-products' %} {% endcomment %}
       {% section 'footer' %}
     </div>
     <ul hidden>
@@ -189,17 +188,17 @@
     {%- endif -%}
     
     {%comment%} Webibazaar Code {%endcomment%}
-    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}"></script>
+    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" async></script>
     <script src="{{ 'popper.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'bootstrap.min.js' | asset_url }}"></script>
-    <script src="{{ 'slick.min.js' | asset_url }}"></script>
+    <script src="{{ 'bootstrap.min.js' | asset_url }}" async></script>
+    <script src="{{ 'slick.min.js' | asset_url }}"async></script>
     <script src="{{ 'wbcustom.js' | asset_url }}" async></script>
     {% comment %} <script src="{{ 'countdown.min.js' | asset_url }}" defer></script> {% endcomment %}
     <script src="{{ 'wbcartdropdown.js' | asset_url }}" defer></script>
-    <script src="{{ 'wbquickview.js' | asset_url }}" async></script>
+    <script src="{{ 'wbquickview.js' | asset_url }}" defer></script>
 
     {% if template == 'index' %}
-        <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'product-form.js' | asset_url }}" defer></script>
     {%- endif -%}
     {% comment %}Webibazaar RTL{% endcomment %}
     {% if settings.wbenblertl or request.locale.iso_code == 'ar' %}
@@ -280,7 +279,7 @@
          
 
                {% if customer.tags.size > 0 and template == 'cart' %}
-                 {% include 'wcp_cart' %}
+                 {% render 'wcp_cart' %}
                {% endif %}
                <!-- WPD End -->
     <!--BeginCFFPersistentCartCart-->

@@ -19,15 +19,15 @@
                     {%- if cart != empty -%}
                         {%- assign wcp_total_price = 0 -%} 
                         {%- for item in cart.items -%}
-{%- assign exciseTaxExists = false -%}
-            {%- for p in item.properties -%}
-              {%- if p.first contains 'avalara_excise_tax' -%}
-              	{%- assign exciseTaxExists = true -%}
-              {%- endif -%}
-            {%- endfor -%}
-                        {%- include 'wcp_discount' with item.product -%}
-                        {%- include 'wcp_variant' with item.variant -%} 
-                        {%- include 'wcp_vd_discount' with item -%} 
+                            {%- assign exciseTaxExists = false -%}
+                            {%- for p in item.properties -%}
+                            {%- if p.first contains 'avalara_excise_tax' -%}
+                                {%- assign exciseTaxExists = true -%}
+                            {%- endif -%}
+                            {%- endfor -%}
+                        {%- render 'wcp_discount' with item.product -%}
+                        {%- render 'wcp_variant' with item.variant -%} 
+                        {%- render 'wcp_vd_discount' with item -%} 
                         {%- assign  wcp_custom_final_Price = item.final_price  -%} 
                         {%- if wcp_v_price < wcp_custom_final_Price -%}
                         {%- assign wcp_line_price = wcp_v_price | floor | minus: 0 | times: item.quantity -%}
