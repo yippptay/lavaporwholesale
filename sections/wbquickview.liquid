@@ -1,40 +1,67 @@
-  {% comment %} WCP/WPD app variables {% endcomment %}
-{% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
-{%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
-{% assign  wcp_price = wcp_price | minus: 0 %}
-{%- capture wcp_compare_at_price  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price' -%}{%- endcapture -%}
-{% if wcp_compare_at_price != blank %}
-  {% assign  wcp_compare_at_price = wcp_compare_at_price | minus: 0 %}
-{% else %}
-  {% assign  wcp_compare_at_price = nil %}
-{% endif %}
-{%- capture wcp_compare_at_price_min  -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_min' -%}{%- endcapture -%}
-{% assign  wcp_compare_at_price_min = wcp_compare_at_price_min | minus: 0 %}
-{%- capture wcp_compare_at_price_max  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_max' -%}{%- endcapture -%}
-{% assign  wcp_compare_at_price_max = wcp_compare_at_price_max | minus: 0 %}
-{%- capture wcp_price_min -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_min' -%}{%- endcapture -%}
-{% assign  wcp_price_min = wcp_price_min | minus: 0 %}
-{%- capture wcp_price_max -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_max' -%}{%- endcapture -%}
-{% assign  wcp_price_max = wcp_price_max | minus: 0 %}
-{%- capture v_discount_tag -%}{%-render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'v_discount_tag'-%}{%- endcapture -%}
-{% assign v_discount_tag = v_discount_tag | strip %}
-{%- capture p_discount_tag -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'p_discount_tag' -%}{%- endcapture -%}
-{% assign p_discount_tag = p_discount_tag | strip %}
-{% assign raw_set_prices = product.metafields.wcp_set_prices.wcp_set_prices %}
-{% assign set_prices_array = blank %}
-{% if raw_set_prices %}
-  {% assign set_prices_array = raw_set_prices | split: ',' %}
-{% endif %}
-{%- capture wcp_discount_value -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_discount_value' -%}{%- endcapture -%}
-{% capture wcp_v_discounted_prices %}{%- render 'wcp_variant' , wcp_variant:product.selected_or_first_available_variant , set_prices_array:set_prices_array , wpd_is_render:'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value -%}{%- endcapture -%}
-{%- capture wcp_v_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_price' -%}{%- endcapture -%}
-{% assign  wcp_v_price = wcp_v_price | minus: 0 %}
-{%- capture wcp_v_compare_at_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_compare_at_price' -%}{%- endcapture -%}
-{% if wcp_v_compare_at_price != blank %}
-  {% assign  wcp_v_compare_at_price = wcp_v_compare_at_price | minus: 0 %}
-{% else %}
-  {% assign  wcp_v_compare_at_price = nil %}
-{% endif %}
+{% liquid
+  capture wpd_discounted_prices
+    render 'wcp_discount'  wcp_discount: product , wpd_is_render: 'yes'
+  endcapture
+  capture wcp_price
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_price'
+  endcapture
+  capture wcp_compare_at_price
+    render 'wcp_render_discount', wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_compare_at_price'
+  endcapture
+  if wcp_compare_at_price != blank
+    assign wcp_compare_at_price = wcp_compare_at_price | minus: 0
+  else
+    assign wcp_compare_at_price = nil
+  endif
+  assign wcp_price = wcp_price | minus: 0
+  capture wcp_compare_at_price_min
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_compare_at_price_min'
+  endcapture
+  assign wcp_compare_at_price_min = wcp_compare_at_price_min | minus: 0
+  capture wcp_compare_at_price_max
+    render 'wcp_render_discount', wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_compare_at_price_max'
+  endcapture
+  assign wcp_compare_at_price_max = wcp_compare_at_price_max | minus: 0
+  capture wcp_price_min
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_price_min'
+  endcapture
+  assign wcp_price_min = wcp_price_min | minus: 0
+  capture wcp_price_max
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_price_max'
+  endcapture
+  assign wcp_price_max = wcp_price_max | minus: 0
+  capture v_discount_tag
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'v_discount_tag'
+  endcapture
+  assign v_discount_tag = v_discount_tag | strip
+  capture p_discount_tag
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'p_discount_tag'
+  endcapture
+  assign p_discount_tag = p_discount_tag | strip
+  assign raw_set_prices = product.metafields.wcp_set_prices.wcp_set_prices
+  assign set_prices_array = blank
+  if raw_set_prices
+    assign set_prices_array = raw_set_prices | split: ','
+  endif
+  capture wcp_discount_value
+    render 'wcp_render_discount' , wpd_discounted_prices: wpd_discounted_prices, price_variable: 'wcp_discount_value'
+  endcapture
+  capture wcp_v_discounted_prices
+    render 'wcp_variant' , wcp_variant: product.selected_or_first_available_variant , set_prices_array: set_prices_array , wpd_is_render: 'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value
+  endcapture
+  capture wcp_v_price
+    render 'wcp_render_discount' , wpd_discounted_prices: wcp_v_discounted_prices, price_variable: 'wcp_v_price'
+  endcapture
+  assign  wcp_v_price = wcp_v_price | minus: 0
+  capture wcp_v_compare_at_price
+    render 'wcp_render_discount' , wpd_discounted_prices: wcp_v_discounted_prices, price_variable: 'wcp_v_compare_at_price'
+  endcapture
+  if wcp_v_compare_at_price != blank
+    assign wcp_v_compare_at_price = wcp_v_compare_at_price | minus: 0
+  else
+    assign wcp_v_compare_at_price = nil
+  endif
+%}
 
 <script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <script type="application/json" data-section-type="wbquickview" data-section-id="{{ section.id }}"></script>
@@ -323,29 +350,26 @@
                   {% endunless %}
 
                   {% if customer %}
-                    <div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
-          
+                    <div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;">
                       <div>
-                        Total Qty:
-                        <strong>
+                          Total Qty:
+                          <strong>
                           <a id="qvtableTotalQty">
-                            0
+                          0
                           </a>
-                        </strong>
+                          </strong>
                       </div>
-          
                       <div>
-                        Subtotal:
-                        <strong>
+                          Subtotal:
+                          <strong>
                           <a>
-                            $
+                          $
                           </a>
                           <a id="qvtableSubtotal">
-                            0.00
+                          0.00
                           </a>
-                        </strong>
+                          </strong>
                       </div>
-          
                     </div>
                   {% endif %}
 
@@ -872,17 +896,22 @@
           <script>
             // For Image Change
             function newTopImage(x) {
-                let wbimgClickQuick = x.dataset.thumbId;
-                const newImageQuick = document.querySelector(`[data-media-id="${wbimgClickQuick}"]`);
-                const parentData = newImageQuick.parentElement;
+              let wbimgClickQuick = x.dataset.thumbId;
+              const newImageQuick = document.querySelector(
+                `[data-media-id="${wbimgClickQuick}"]`
+              );
+              const parentData = newImageQuick.parentElement;
 
-                parentData.prepend(newImageQuick);
-                newImageQuick.style.display = "block";
-                document.querySelectorAll('.slide-imagequick')
-                .forEach(thumb => thumb. classList.remove('active-thumbquick'));
-                const sliderComp = document.querySelector("slider-component");
-                document.querySelector(`[data-thumb-id="${wbimgClickQuick}"]`).classList.add('active-thumbquick');
-            } 
+              parentData.prepend(newImageQuick);
+              newImageQuick.style.display = "block";
+              document
+                .querySelectorAll(".slide-imagequick")
+                .forEach((thumb) => thumb.classList.remove("active-thumbquick"));
+              const sliderComp = document.querySelector("slider-component");
+              document
+                .querySelector(`[data-thumb-id="${wbimgClickQuick}"]`)
+                .classList.add("active-thumbquick");
+            }
           </script>
 
         </div><!-- /.grid__item -->
@@ -951,179 +980,140 @@
           }
 
           showActiveMedia() {
-            this.querySelectorAll(`[data-media-id]:not([data-media-id="${this.openedBy.getAttribute("data-media-id")}"])`).forEach((element) => {
-              element.classList.remove('active');
-            })
-            const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute("data-media-id")}"]`);
-            const activeMediaTemplate = activeMedia.querySelector('template');
-            const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
-            activeMedia.classList.add('active');
+            this.querySelectorAll(
+              `[data-media-id]:not([data-media-id="${this.openedBy.getAttribute(
+                "data-media-id"
+              )}"])`
+            ).forEach((element) => {
+              element.classList.remove("active");
+            });
+            const activeMedia = this.querySelector(
+              `[data-media-id="${this.openedBy.getAttribute("data-media-id")}"]`
+            );
+            const activeMediaTemplate = activeMedia.querySelector("template");
+            const activeMediaContent = activeMediaTemplate
+              ? activeMediaTemplate.content
+              : null;
+            activeMedia.classList.add("active");
             activeMedia.scrollIntoView();
 
             const container = this.querySelector('[role="document"]');
             container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
 
-            if (activeMedia.nodeName == 'DEFERRED-MEDIA' && activeMediaContent && activeMediaContent.querySelector('.js-youtube'))
+            if (
+              activeMedia.nodeName == "DEFERRED-MEDIA" &&
+              activeMediaContent &&
+              activeMediaContent.querySelector(".js-youtube")
+            )
               activeMedia.loadContent();
           }
         }
 
-        customElements.define('product-modal', ProductModal);
+        customElements.define("product-modal", ProductModal);
       {% endjavascript %}
 
       {% if product.media.size > 0 %}
         <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
       {% endif %}
-               
-<script>
-function change() // no ';' here
-{
-    var elem = document.getElementById("submit-table-quick");
-    if (elem.value=="Adding to Cart") elem.value = "Add to Cart";
-    else elem.value = "Adding to Cart";
-}
-  </script>
 
 <script>
-$(document).ready(function()
-{
-  $("tr:even").css({
-    "background-color":"#ececec",
-    "color":"#000"});
-});
-</script>
-
-
-<script>
-{% assign linklist = linklists['order-form'] %}
-var length = {{ product.variants.size }};
-$(document).ready(function () {
-    $("#qvquantity-0").focus();    
-    $("#submit-table-quick").click(function(e) {     
-        e.preventDefault();
-        //array for Variant Titles
-        var toAdd = new Array();
-        var qty ;
-
-        for(i=0; i < length; i++){
-            if ($("#qvquantity-"+i).val() > 0) {
-            toAdd.push({
-                variant_id: $("#quickvariant-"+i).val(),        
-                quantity_id: $("#qvquantity-"+i).val() || 0
-            });
-        }
-    }
-        function moveAlong(){
-            if (toAdd.length) {
-                var request = toAdd.shift();
-                var tempId= request.variant_id;
-                var tempQty = request.quantity_id;
-                var params = {
-                    type: 'POST',
-                    url: '/cart/add.js',
-                    data: 'quantity='+tempQty+'&id='+tempId,
-                    dataType: 'json',
-                    success: function(line_item) { 
-                        //console.log("success!");
-                      Shopify.onSuccess,
-                        moveAlong();
-                    },
-                    error: function() {
-                        //console.log("fail");
-                        moveAlong();
-                    }
-                };
-                $.ajax(params);
-            }
-            else {				
-                window.location.reload(); 
-            }  
-        };
-        moveAlong();
+  $(document).ready(function () {
+    $("tr:even").css({
+      "background-color": "#ececec",
+      color: "#000",
     });
-});
+  });
+
+  function change() {
+    // no ';' here
+    var elem = document.getElementById("submit-table-quick");
+    if (elem.value == "Adding to Cart") elem.value = "Add to Cart";
+    else elem.value = "Adding to Cart";
+  }  
 </script>
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          function isIE() {
-            const ua = window.navigator.userAgent;
-            const msie = ua.indexOf('MSIE ');
-            const trident = ua.indexOf('Trident/');
-            return (msie > 0 || trident > 0);
-          }
-          if (!isIE()) return;
-          const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
-          const noScriptInputWrapper = document.createElement('div');
-          const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
-          noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
-          variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
-          document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
-            hiddenInput.value = event.currentTarget.value;
+<script>
+  {% assign linklist = linklists['order-form'] %}
+  var length = {{ product.variants.size }};
+  $(document).ready(function () {
+    $("#qvquantity-0").focus();
+    $("#submit-table-quick").click(function (e) {
+      e.preventDefault();
+      //array for Variant Titles
+      var toAdd = new Array();
+      var qty;
+
+      for (i = 0; i < length; i++) {
+        if ($("#qvquantity-" + i).val() > 0) {
+          toAdd.push({
+            variant_id: $("#quickvariant-" + i).val(),
+            quantity_id: $("#qvquantity-" + i).val() || 0,
           });
-        });
-      </script>
+        }
+      }
+      function moveAlong() {
+        if (toAdd.length) {
+          var request = toAdd.shift();
+          var tempId = request.variant_id;
+          var tempQty = request.quantity_id;
+          var params = {
+            type: "POST",
+            url: "/cart/add.js",
+            data: "quantity=" + tempQty + "&id=" + tempId,
+            dataType: "json",
+            success: function (line_item) {
+              //console.log("success!");
+              Shopify.onSuccess, moveAlong();
+            },
+            error: function () {
+              //console.log("fail");
+              moveAlong();
+            },
+          };
+          $.ajax(params);
+        } else {
+          window.location.reload();
+        }
+      }
+      moveAlong();
+    });
+  });
+</script>
 
-      <script>
-        {% assign linklist = linklists['order-form'] %}
-        var length = {
-          {
-            product.variants.size
-          }
-        };
-        $(document).ready(function() {
-          $("#qvquantity-0").focus();
-          $("#submit-table-quick").click(function(e) {
-            e.preventDefault();
-            //array for Variant Titles
-            var toAdd = new Array();
-            var qty;
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf("MSIE ");
+      const trident = ua.indexOf("Trident/");
+      return msie > 0 || trident > 0;
+    }
+    if (!isIE()) return;
+    const hiddenInput = document.querySelector(
+      '#{{ product_form_id }} input[name="id"]'
+    );
+    const noScriptInputWrapper = document.createElement("div");
+    const variantSwitcher =
+      document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
+      document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+    noScriptInputWrapper.innerHTML = document.querySelector(
+      ".product-form__noscript-wrapper-{{ section.id }}"
+    ).textContent;
+    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+    document
+      .querySelector("#Variants-{{ section.id }}")
+      .addEventListener("change", function (event) {
+        hiddenInput.value = event.currentTarget.value;
+      });
+  });  
+</script>
 
-            for (i = 0; i < length; i++) {
-              if ($("#qvquantity-" + i).val() > 0) {
-                toAdd.push({
-                  variant_id: $("#quickvariant-" + i).val(),
-                  quantity_id: $("#qvquantity-" + i).val() || 0
-                });
-              }
-            }
-
-            function moveAlong() {
-              if (toAdd.length) {
-                var request = toAdd.shift();
-                var tempId = request.variant_id;
-                var tempQty = request.quantity_id;
-                var params = {
-                  type: 'POST',
-                  url: '/cart/add.js',
-                  data: 'quantity=' + tempQty + '&id=' + tempId,
-                  dataType: 'json',
-                  success: function(line_item) {
-                    //console.log("success!");
-                    Shopify.onSuccess,
-                      moveAlong();
-                  },
-                  error: function() {
-                    //console.log("fail");
-                    moveAlong();
-                  }
-                };
-                $.ajax(params);
-              } else {
-                window.location.reload();
-              }
-            };
-            moveAlong();
-          });
-        });
-      </script>
-
-      {%- if first_3d_model -%}
-        <script type="application/json" id="ProductJSON-{{ product.id }}">
-          {{ product.media | where: 'media_type', 'model' | json }}
-        </script>
-        <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-      {%- endif -%}
+{%- if first_3d_model -%}
+  <script type="application/json" id="ProductJSON-{{ product.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+  <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+{%- endif -%}
 
     </section> <!-- /.product-container -->
   </div> <!-- /.container -->
@@ -1134,8 +1124,8 @@ $(document).ready(function () {
     background-color: black !important;
   }
   td {
-  border: none;
-}
+    border: none;
+  }
 </style>
 
 {% schema %}
