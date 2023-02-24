@@ -10,6 +10,13 @@
             "link": "shopify:\/\/collections\/skwezed"
           }
         },
+        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Glas_Basix.png",
+            "link": "shopify:\/\/collections\/basix"
+          }
+        },
         "9e068142-9758-45d4-8d7a-80406fc571e2": {
           "type": "logo_image",
           "settings": {
@@ -118,17 +125,11 @@
             "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
             "link": "shopify:\/\/collections\/vaporesso"
           }
-        },
-        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Glas_Basix.png",
-            "link": "shopify:\/\/collections\/basix"
-          }
         }
       },
       "block_order": [
         "template--14457190613078__bfa8ebc9-730c-4037-b614-5500854e92c2-1673877898e12e9502-0",
+        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b",
         "9e068142-9758-45d4-8d7a-80406fc571e2",
         "2f512251-d84a-4ba8-8585-de5468668700",
         "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4",
@@ -143,8 +144,7 @@
         "e0f2c66c-f69b-44d4-ad65-7843206146b7",
         "25863c9f-f16e-4b61-9a46-440e2ba14a17",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
-        "c5ca85f5-7597-4b6d-9ed4-153850416443",
-        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b"
+        "c5ca85f5-7597-4b6d-9ed4-153850416443"
       ],
       "settings": {
       }
