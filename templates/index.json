@@ -86,6 +86,13 @@
             "image": "shopify:\/\/shop_images\/Twist-Logo-2020-1.png",
             "link": "shopify:\/\/collections\/twist-eliquid"
           }
+        },
+        "63b42c66-de41-45ad-9057-bbc462e23f36": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ezgif.com-webp-to-jpg_51.jpg",
+            "link": "shopify:\/\/collections\/hi-drip"
+          }
         }
       },
       "block_order": [
@@ -100,7 +107,8 @@
         "c5ca85f5-7597-4b6d-9ed4-153850416443",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b",
-        "5977c30b-f6be-4c57-9344-f1616723409e"
+        "5977c30b-f6be-4c57-9344-f1616723409e",
+        "63b42c66-de41-45ad-9057-bbc462e23f36"
       ],
       "settings": {
       }
