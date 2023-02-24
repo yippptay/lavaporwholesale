@@ -28,7 +28,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
-            "link": "shopify:\/\/collections\/elf"
+            "link": "shopify:\/\/collections\/elf-bar"
           }
         },
         "e0f2c66c-f69b-44d4-ad65-7843206146b7": {
@@ -70,7 +70,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify:\/\/shop_images\/smok-logo-vector.png",
-            "link": "shopify:\/\/collections\/smoktech"
+            "link": "shopify:\/\/collections\/smok"
           }
         },
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b": {
