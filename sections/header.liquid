@@ -147,7 +147,7 @@ header-drawer {
                             </span>
                         </div>
                     </div>
-                    <div class="dropdown-menu dropdown-menu-right shadow rounded">
+                    <div class="dropdown-menu dropdown-menu-right shadow">
                         <div class="header-panel-top">
                             <div class="customer_account text-left">
                                 <ul class="list-unstyled">
@@ -196,7 +196,7 @@ header-drawer {
                             </span>
                         </div>
                     </div>
-                    <div class="dropdown-menu dropdown-menu-right shadow rounded">
+                    <div class="dropdown-menu dropdown-menu-right shadow">
                         <webi-cart-items class="{% if cart == empty %} is-empty{% endif %}">
                             <div class="cart__warnings">
                                 <h5 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h5>
@@ -207,12 +207,12 @@ header-drawer {
                                         {%- if cart != empty -%}
                                             {%- assign wcp_total_price = 0 -%} 
                                             {%- for item in cart.items -%}
-{%- assign exciseTaxExists = false -%}
-            {%- for p in item.properties -%}
-              {%- if p.first contains 'avalara_excise_tax' -%}
-              	{%- assign exciseTaxExists = true -%}
-              {%- endif -%}
-            {%- endfor -%}
+                                              {%- assign exciseTaxExists = false -%}
+                                              {%- for p in item.properties -%}
+                                                {%- if p.first contains 'avalara_excise_tax' -%}
+                                                  {%- assign exciseTaxExists = true -%}
+                                                {%- endif -%}
+                                              {%- endfor -%}
                                             {%- include 'wcp_discount' with item.product -%}
                                             {%- include 'wcp_variant' with item.variant -%} 
                                             {%- include 'wcp_vd_discount' with item -%} 

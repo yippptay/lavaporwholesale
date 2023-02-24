@@ -295,47 +295,57 @@
             </div>
         </div>
     </div>
-    <script>
 
+     <script>
       // For Image Change
       function newTopImage(x) {
-          let wbimgClickQuick = x.dataset.thumbId;
-          const newImageQuick = document.querySelector(`[data-media-id="${wbimgClickQuick}"]`);
-          const parentData = newImageQuick.parentElement;
+        let wbimgClickQuick = x.dataset.thumbId;
+        const newImageQuick = document.querySelector(
+          `[data-media-id="${wbimgClickQuick}"]`
+        );
+        const parentData = newImageQuick.parentElement;
 
-          parentData.prepend(newImageQuick);
-          newImageQuick.style.display = "block";
-          document.querySelectorAll('.slide-imagequick')
-          .forEach(thumb => thumb. classList.remove('active-thumbquick'));
-          const sliderComp = document.querySelector("slider-component");
-          document.querySelector(`[data-thumb-id="${wbimgClickQuick}"]`).classList.add('active-thumbquick');
+        parentData.prepend(newImageQuick);
+        newImageQuick.style.display = "block";
+        document
+          .querySelectorAll(".slide-imagequick")
+          .forEach((thumb) => thumb.classList.remove("active-thumbquick"));
+        const sliderComp = document.querySelector("slider-component");
+        document
+          .querySelector(`[data-thumb-id="${wbimgClickQuick}"]`)
+          .classList.add("active-thumbquick");
       }
 
       // For Zoom
-      'use strict';
-      (function($){
-        $('.protopimg-item').click(function(event){
+      ("use strict");
+      (function ($) {
+        $(".protopimg-item").click(function (event) {
           var container = [];
-          var $link = $(this).find('img'),
-              item = {
-                src: $link.attr('src'),
-                w: $link.data('width'), 
-                h: $link.data('height'),
-                title: $link.data('caption')
-              };
+          var $link = $(this).find("img"),
+            item = {
+              src: $link.attr("src"),
+              w: $link.data("width"),
+              h: $link.data("height"),
+              title: $link.data("caption"),
+            };
           container.push(item);
           event.preventDefault();
-          var $pswp = $('.pswp')[0],
-              options = {
-                index: $(this).parent('.protopimg-item').index(),
-                bgOpacity: 0.85,
-                showHideOpacity: true
-              };
-          var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
+          var $pswp = $(".pswp")[0],
+            options = {
+              index: $(this).parent(".protopimg-item").index(),
+              bgOpacity: 0.85,
+              showHideOpacity: true,
+            };
+          var gallery = new PhotoSwipe(
+            $pswp,
+            PhotoSwipeUI_Default,
+            container,
+            options
+          );
           gallery.init();
         });
-      }(jQuery));
-      </script>
+      })(jQuery);
+    </script>
   </div>
 
   <div class="product__info-wrapper grid__item">
