@@ -66,8 +66,16 @@
             "link": "shopify:\/\/collections\/twist-eliquid"
           }
         },
+        "a2327fb7-7f5a-4130-adca-db07573e5d20": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Vapetasia-Eliquid-Logo__44552.jpg",
+            "link": "shopify:\/\/collections\/vapetasia"
+          }
+        },
         "e0f2c66c-f69b-44d4-ad65-7843206146b7": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/freemax_Box-05-05.png",
             "link": "shopify:\/\/collections\/freemax"
@@ -75,6 +83,7 @@
         },
         "25863c9f-f16e-4b61-9a46-440e2ba14a17": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/00fc1e482ffc199c4a8f829f0e4c2bc3.png",
             "link": "shopify:\/\/collections\/geekvape"
@@ -82,6 +91,7 @@
         },
         "29cc6537-a9c8-48e8-ac83-18a476d36c08": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/smok-logo-vector.png",
             "link": "shopify:\/\/collections\/smok"
@@ -89,16 +99,10 @@
         },
         "c5ca85f5-7597-4b6d-9ed4-153850416443": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
             "link": "shopify:\/\/collections\/vaporesso"
-          }
-        },
-        "a2327fb7-7f5a-4130-adca-db07573e5d20": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Vapetasia-Eliquid-Logo__44552.jpg",
-            "link": "shopify:\/\/collections\/vapetasia"
           }
         }
       },
@@ -112,11 +116,11 @@
         "e7c56bd6-a124-4f23-9661-f50d84533212",
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b",
         "5977c30b-f6be-4c57-9344-f1616723409e",
+        "a2327fb7-7f5a-4130-adca-db07573e5d20",
         "e0f2c66c-f69b-44d4-ad65-7843206146b7",
         "25863c9f-f16e-4b61-9a46-440e2ba14a17",
         "29cc6537-a9c8-48e8-ac83-18a476d36c08",
-        "c5ca85f5-7597-4b6d-9ed4-153850416443",
-        "a2327fb7-7f5a-4130-adca-db07573e5d20"
+        "c5ca85f5-7597-4b6d-9ed4-153850416443"
       ],
       "settings": {
       }
