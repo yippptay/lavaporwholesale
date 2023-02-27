@@ -51,11 +51,11 @@
 	<div class="clearfix"></div>
 	<div class="tab-content tab-pro">
 		{%- for block in section.blocks -%}
-			{%- assign collection = collections[block.settings.collection]  -%}
+			{%- assign collection = collections[block.settings.collection] -%}
 			<div class="tab-pane fade {% if forloop.index0 == selector %}show active{% endif %}" id="wbprodtab1-{{ block.id }}">
 				<div class="rless">
 					<div class="owl-toppro">
-						{% for product in collection.products limit: 11 %}
+						{% for product in collection.products %}
 
 							{% comment %} Easylockdown Filter Begin {% endcomment %}
 							{% capture easylockdownFilter %}
