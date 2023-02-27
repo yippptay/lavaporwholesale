@@ -50,20 +50,6 @@
     {% assign  wcp_v_compare_at_price = nil %}
     {% endif %}
 
-
-{% comment %}theme-check-disable TemplateLength{% endcomment %}
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
-{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
-{{ 'photoswipe.css' | asset_url | stylesheet_tag }}
-{{ 'default-skin.css' | asset_url | stylesheet_tag }}
-
     {% if customer %}
         <div class="wbmainwish">
             <h1 class="heading text-left"><span>{{ section.settings.wish_title }}</span></h1>

@@ -44,14 +44,13 @@
         <div class="rightcol">
 
 
-          {% comment %} <div class="row wbsortbar">
+          <div class="row wbsortbar">
             <div class="wbglbtn col-md-3 col-5 hidden">
               <button class="gridv wblistgridbtn active" aria-label="grid">{% render 'icon-gridview' %}</button>
               <button class="listv wblistgridbtn" aria-label="list">{% render 'icon-listview' %}</button>
             </div>
             {% render 'sorting', results: collection, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
-          </div> {% endcomment %}
-
+          </div>
           <div class="loading-overlay gradient"></div>
           <ul
             id="product-grid"

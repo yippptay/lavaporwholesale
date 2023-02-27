@@ -1,3 +1,4 @@
+
 {% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
     
     {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
@@ -48,20 +49,6 @@
     {% else %}
     {% assign  wcp_v_compare_at_price = nil %}
     {% endif %}
-
-{% comment %}theme-check-disable TemplateLength{% endcomment %}
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
-{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
-{{ 'photoswipe.css' | asset_url | stylesheet_tag }}
-{{ 'default-skin.css' | asset_url | stylesheet_tag }}
-
 {{ 'collage.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}

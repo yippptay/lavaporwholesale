@@ -24,7 +24,7 @@
           product_card_product: product,
           media_size: section.settings.image_ratio,
           show_rating: section.settings.show_rating,
-          display_product_type: section.settings.display_product_type %}
+          display_product_type: section.settings.display_product_type  %}
         {% assign temp = temp | plus: 1 %}
         {% if temp == num_row %}</ul>{% assign temp = 0 %}{% endif %}
         {%- else -%}
@@ -41,23 +41,23 @@
 
 {% schema %}
 {
-  "name": "Popular Products",
-  "class": "spaced-section",
-  "settings": [
+    "name": "Popular Products",
+    "class": "spaced-section",
+    "settings": [
     {
-      "type": "text",
-      "id": "ms_title",
-      "label": "Top Heading",
-      "default": "Popular Products"
+        "type": "text",
+        "id": "ms_title",
+        "label": "Top Heading",
+        "default": "Popular Products"
     },
     {
-      "type": "range",
-      "id": "rows",
-      "label": "Rows",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 2
+        "type": "range",
+        "id": "rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 2
     },
     {
       "type": "header",
@@ -84,28 +84,28 @@
       "label": "t:sections.featured-collection.settings.image_ratio.label"
     },
     {
-      "type": "checkbox",
-      "id": "display_product_type",
-      "label": "Show Product Type?",
-      "default": true
+        "type": "checkbox",
+        "id": "display_product_type",
+        "label": "Show Product Type?",
+        "default": true
     },
     {
-      "type": "checkbox",
-      "id": "show_rating",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.show_rating.label",
-      "info": "t:sections.featured-collection.settings.show_rating.info"
+        "type": "checkbox",
+        "id": "show_rating",
+        "default": false,
+        "label": "t:sections.featured-collection.settings.show_rating.label",
+        "info": "t:sections.featured-collection.settings.show_rating.info"
     },
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "t:sections.featured-collection.settings.collection.label"
+        "type": "collection",
+        "id": "collection",
+        "label": "t:sections.featured-collection.settings.collection.label"
     }
   ],
   "presets": [
     {
-      "name": "Popular Products",
-      "category": "Collection"
+        "name": "Popular Products",
+        "category": "Collection"
     }
   ]
 }
