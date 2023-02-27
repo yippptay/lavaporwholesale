@@ -10,6 +10,20 @@
             "link": "shopify:\/\/collections\/skwezed"
           }
         },
+        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Glas_Basix.png",
+            "link": "shopify:\/\/collections\/basix"
+          }
+        },
+        "49239d1b-4cc3-42ce-a04d-785923a44095": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BLVK_Logo.jpg",
+            "link": "shopify:\/\/collections\/blvk"
+          }
+        },
         "9e068142-9758-45d4-8d7a-80406fc571e2": {
           "type": "logo_image",
           "settings": {
@@ -24,18 +38,11 @@
             "link": "shopify:\/\/collections\/candy-king"
           }
         },
-        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
+        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
-            "link": "shopify:\/\/collections\/elf"
-          }
-        },
-        "e0f2c66c-f69b-44d4-ad65-7843206146b7": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/freemax_Box-05-05.png",
-            "link": "shopify:\/\/collections\/freemax"
+            "image": "shopify:\/\/shop_images\/Cloud-nerdz-footer-logo.png",
+            "link": "shopify:\/\/collections\/cloud-nurdz"
           }
         },
         "56261ade-4e8e-4645-ae7a-b6e477d14db2": {
@@ -45,32 +52,32 @@
             "link": "shopify:\/\/collections\/7-daze"
           }
         },
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Elf_Bar_New.png",
+            "link": "shopify:\/\/collections\/elf-bar"
+          }
+        },
+        "63b42c66-de41-45ad-9057-bbc462e23f36": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ezgif.com-webp-to-jpg_51.jpg",
+            "link": "shopify:\/\/collections\/hi-drip"
+          }
+        },
+        "946e6007-8270-4e76-bd9e-e671a29ffb24": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Jam_Monster_Logo.jpg",
+            "link": "shopify:\/\/collections\/jam-monster"
+          }
+        },
         "e7c56bd6-a124-4f23-9661-f50d84533212": {
           "type": "logo_image",
           "settings": {
             "image": "shopify:\/\/shop_images\/naked-logo_trademark.png",
             "link": "shopify:\/\/collections\/naked"
-          }
-        },
-        "25863c9f-f16e-4b61-9a46-440e2ba14a17": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/00fc1e482ffc199c4a8f829f0e4c2bc3.png",
-            "link": "shopify:\/\/collections\/geekvape"
-          }
-        },
-        "c5ca85f5-7597-4b6d-9ed4-153850416443": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
-            "link": "shopify:\/\/collections\/vaporesso"
-          }
-        },
-        "29cc6537-a9c8-48e8-ac83-18a476d36c08": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/smok-logo-vector.png",
-            "link": "shopify:\/\/collections\/smoktech"
           }
         },
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b": {
@@ -86,21 +93,66 @@
             "image": "shopify:\/\/shop_images\/Twist-Logo-2020-1.png",
             "link": "shopify:\/\/collections\/twist-eliquid"
           }
+        },
+        "a2327fb7-7f5a-4130-adca-db07573e5d20": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Vapetasia-Eliquid-Logo__44552_9b5578dd-1775-4517-9a35-be7b2d4e1c80.jpg",
+            "link": "shopify:\/\/collections\/vapetasia"
+          }
+        },
+        "e0f2c66c-f69b-44d4-ad65-7843206146b7": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/freemax_Box-05-05.png",
+            "link": "shopify:\/\/collections\/freemax"
+          }
+        },
+        "25863c9f-f16e-4b61-9a46-440e2ba14a17": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/00fc1e482ffc199c4a8f829f0e4c2bc3.png",
+            "link": "shopify:\/\/collections\/geekvape"
+          }
+        },
+        "29cc6537-a9c8-48e8-ac83-18a476d36c08": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/smok-logo-vector.png",
+            "link": "shopify:\/\/collections\/smok"
+          }
+        },
+        "c5ca85f5-7597-4b6d-9ed4-153850416443": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vaporesso_4050f65f-13ab-4cb4-85da-072da2ececfd.jpg",
+            "link": "shopify:\/\/collections\/vaporesso"
+          }
         }
       },
       "block_order": [
         "template--14457190613078__bfa8ebc9-730c-4037-b614-5500854e92c2-1673877898e12e9502-0",
+        "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b",
+        "49239d1b-4cc3-42ce-a04d-785923a44095",
         "9e068142-9758-45d4-8d7a-80406fc571e2",
         "2f512251-d84a-4ba8-8585-de5468668700",
-        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca",
-        "e0f2c66c-f69b-44d4-ad65-7843206146b7",
+        "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4",
         "56261ade-4e8e-4645-ae7a-b6e477d14db2",
+        "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca",
+        "63b42c66-de41-45ad-9057-bbc462e23f36",
+        "946e6007-8270-4e76-bd9e-e671a29ffb24",
         "e7c56bd6-a124-4f23-9661-f50d84533212",
-        "25863c9f-f16e-4b61-9a46-440e2ba14a17",
-        "c5ca85f5-7597-4b6d-9ed4-153850416443",
-        "29cc6537-a9c8-48e8-ac83-18a476d36c08",
         "824bdca5-6ee0-4ec3-b31d-77e2bde3df8b",
-        "5977c30b-f6be-4c57-9344-f1616723409e"
+        "5977c30b-f6be-4c57-9344-f1616723409e",
+        "a2327fb7-7f5a-4130-adca-db07573e5d20",
+        "e0f2c66c-f69b-44d4-ad65-7843206146b7",
+        "25863c9f-f16e-4b61-9a46-440e2ba14a17",
+        "29cc6537-a9c8-48e8-ac83-18a476d36c08",
+        "c5ca85f5-7597-4b6d-9ed4-153850416443"
       ],
       "settings": {
       }
@@ -133,7 +185,7 @@
           "settings": {
             "slidesubclr": "#bababa",
             "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/LA_Vapor_-_Homepage_Banner_Four_Seasons_2.jpg",
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_1.jpg",
             "subtitle": "",
             "heading": "",
             "heading_size": "medium",
@@ -152,7 +204,7 @@
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/LA-VAPOR-Homepage-Banner-2899x1024.jpg",
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker.jpg",
             "subtitle": "",
             "heading": "",
             "heading_size": "large",
@@ -171,7 +223,7 @@
           "settings": {
             "slidesubclr": "#bababa",
             "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/0103-1.jpg",
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_2.jpg",
             "subtitle": "",
             "heading": "",
             "heading_size": "large",
@@ -190,7 +242,7 @@
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/1.png",
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_3.jpg",
             "subtitle": "",
             "heading": "",
             "heading_size": "large",
