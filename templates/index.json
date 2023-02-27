@@ -458,6 +458,7 @@
     },
     "1645244797dfa46cce": {
       "type": "onsale",
+      "disabled": true,
       "settings": {
         "ms_title": "Featured Brand - Skwezed",
         "rows": 1,
