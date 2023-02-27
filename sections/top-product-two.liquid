@@ -43,7 +43,7 @@
 
               <div class="rless">
                   <div class="owl-toppro">
-                      {% for product in collection.products %}
+                      {% for product in collection.products limit : 11 %}
                             {% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
                             {% render 'product-card-banner',
                             product_card_product: product,
