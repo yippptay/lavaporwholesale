@@ -205,7 +205,7 @@
                       {% comment %} Table Contents {% endcomment %}
                     {% assign linklist = linklists['order-form'] %}
                     <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; max-height: 260px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; width: -webkit-fill-available;">
+                    <div class="order-form-table" style="overflow: hidden; overflow-y: scroll; max-height: 420px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; width: -webkit-fill-available;">
                       {% for variant in product.variants %}
                         {% include 'wcp_variant' with variant %}
 
@@ -1060,60 +1060,6 @@ $(document).ready(function () {
           variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
           document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
             hiddenInput.value = event.currentTarget.value;
-          });
-        });
-      </script>
-
-      <script>
-        {% assign linklist = linklists['order-form'] %}
-        var length = {
-          {
-            product.variants.size
-          }
-        };
-        $(document).ready(function() {
-          $("#qvquantity-0").focus();
-          $("#submit-table-quick").click(function(e) {
-            e.preventDefault();
-            //array for Variant Titles
-            var toAdd = new Array();
-            var qty;
-
-            for (i = 0; i < length; i++) {
-              if ($("#qvquantity-" + i).val() > 0) {
-                toAdd.push({
-                  variant_id: $("#quickvariant-" + i).val(),
-                  quantity_id: $("#qvquantity-" + i).val() || 0
-                });
-              }
-            }
-
-            function moveAlong() {
-              if (toAdd.length) {
-                var request = toAdd.shift();
-                var tempId = request.variant_id;
-                var tempQty = request.quantity_id;
-                var params = {
-                  type: 'POST',
-                  url: '/cart/add.js',
-                  data: 'quantity=' + tempQty + '&id=' + tempId,
-                  dataType: 'json',
-                  success: function(line_item) {
-                    //console.log("success!");
-                    Shopify.onSuccess,
-                      moveAlong();
-                  },
-                  error: function() {
-                    //console.log("fail");
-                    moveAlong();
-                  }
-                };
-                $.ajax(params);
-              } else {
-                window.location.reload();
-              }
-            };
-            moveAlong();
           });
         });
       </script>

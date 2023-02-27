@@ -1108,49 +1108,47 @@ endif
 <script>
   var length = {{ product.variants.size }};
   $(document).ready(function () {
-  $("#quantity-0").focus();    
-  $("#submit-table-product").click(function(e) {     
-    e.preventDefault();
-    //array for Variant Titles
-    var toAdd = new Array();
-    var qty ;
-
-    for(i=0; i < length; i++){
-        if ($("#quantity-"+i).val() > 0) {
-        toAdd.push({
-            variant_id: $("#variant-"+i).val(),        
-            quantity_id: $("#quantity-"+i).val() || 0
-        });
-    }
-  }
-    function moveAlong(){
-        if (toAdd.length) {
-            var request = toAdd.shift();
-            var tempId= request.variant_id;
-            var tempQty = request.quantity_id;
-            var params = {
-                type: 'POST',
-                url: '/cart/add.js',
-                data: 'quantity='+tempQty+'&id='+tempId,
-                dataType: 'json',
-                success: function(line_item) { 
-                    //console.log("success!");
-                  Shopify.onSuccess,
-                    moveAlong();
-                },
-                error: function() {
-                    //console.log("fail");
-                    moveAlong();
-                }
-            };
-            $.ajax(params);
+    $("#quantity-0").focus();
+    $("#submit-table-product").click(function (e) {
+      e.preventDefault();
+      //array for Variant Titles
+      var toAdd = new Array();
+      var qty;
+  
+      for (i = 0; i < length; i++) {
+        if ($("#quantity-" + i).val() > 0) {
+          toAdd.push({
+            variant_id: $("#variant-" + i).val(),
+            quantity_id: $("#quantity-" + i).val() || 0,
+          });
         }
-        else {				
-            window.location.reload(); 
-        }  
-    };
-    moveAlong();
-  });
+      }
+      function moveAlong() {
+        if (toAdd.length) {
+          var request = toAdd.shift();
+          var tempId = request.variant_id;
+          var tempQty = request.quantity_id;
+          var params = {
+            type: "POST",
+            url: "/cart/add.js",
+            data: "quantity=" + tempQty + "&id=" + tempId,
+            dataType: "json",
+            success: function (line_item) {
+              //console.log("success!");
+              Shopify.onSuccess, moveAlong();
+            },
+            error: function () {
+              //console.log("fail");
+              moveAlong();
+            },
+          };
+          $.ajax(params);
+        } else {
+          window.location.reload();
+        }
+      }
+      moveAlong();
+    });
   });
 </script>
 
