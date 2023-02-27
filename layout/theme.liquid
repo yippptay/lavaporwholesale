@@ -118,7 +118,7 @@
         <div class="container">
           <div class="row">
              <div class="col-lg-3 col-md-4 col-12 hleftw d-lg-inline-block d-none">
-                
+              {% section 'site-nav' %}
              </div>
              <div class="col-lg-9 col-md-12 col-12 rightw">
                 {% section 'cms-menu' %}
@@ -129,20 +129,14 @@
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-md-4 col-lg-3 leftw">
+            {% comment %} <div class="col-12 col-md-4 col-lg-3 leftw">
                 {% section 'site-nav' %}
                 {% section 'popular' %}
                 {% section 'popular2' %}
                 {% comment %} {% section 'bestproduct' %}
                 {% section 'secondleftbanner' %} {% endcomment %}
-            </div>
-            <div class="col-12 col-md-8 col-lg-9 right-col">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 30px; font-size: 18px;">
-                  Attention! Some of our customers are having loading issues with <strong>E-Liquids</strong>. If you are experiencing issues, please order with the <strong>Quick View</strong> function in the <strong>search bar</strong> above. Thank you! 
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+            </div> {% endcomment %}
+            <div class="col">
                 {% render 'breadcrumbs' %}
                 {% include 'easylockdown_body' %}
                 {% comment %}{{ content_for_layout }}{% endcomment %}
