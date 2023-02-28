@@ -24,7 +24,7 @@ $(document).ready(function() {
         infinite: false,
         autoplay: false,
         autoplaySpeed: 2000,
-        slidesToShow: 7,
+        slidesToShow: 6,
         slidesToScroll: 1,
         responsive: [{
                 breakpoint: 1410,
@@ -58,34 +58,35 @@ $(document).ready(function() {
     $('.owl-toppro').slick({
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
         autoplay: false,
         autoplaySpeed: 2000,
         slidesToShow: 6,
         rows: 2,
         slidesToScroll: 1,
+        swipeToSlide: true,
         responsive: [{
             breakpoint: 1400,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 5
             }
         },
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 4
             }
         },
         {
             breakpoint: 576,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 3
             }
         },
         {
             breakpoint: 361,
             settings: {
-                slidesToShow: 1
+                slidesToShow: 2
             }
         }
     ]
@@ -297,28 +298,31 @@ $(document).ready(function() {
     // Logo Slider
     $('.wblogobar').slick({
         dots: false,
+        draggable: true,
         arrows: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        slidesToShow: 8,
+        slidesToShow: 12,
         slidesToScroll: 1,
+        swipe: true,
+        swipeToSlide: true,
         responsive: [{
                 breakpoint: 1410,
                 settings: {
-                    slidesToShow: 7
+                    slidesToShow: 10
                 }
             },
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 6
+                    slidesToShow: 8
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 5
+                    slidesToShow: 6
                 }
             },
             {

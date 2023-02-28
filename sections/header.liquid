@@ -132,7 +132,7 @@ header-drawer {
                 <div class="header-support d-xl-inline-block d-none">
                   <span class="svgbg d-inline-block align-middle text-center">{% render 'icon-hphn' %}</span>
                     <span class="d-lg-inline-block d-none text-left align-middle icon-right-part">
-                        <span class="d-block main-title">{{ section.settings.head_no}}</span>
+                        <span class="d-block main-title">{{ section.settings.head_no }}</span>
                         <span class="d-block sub-title">{{ 'wbcustomlabel.wballtext.cust_supp' | t }}</span>
                     </span>
                 </div>
@@ -189,7 +189,7 @@ header-drawer {
                 <div class="dropdown" id="cart-icon-bubble">
                     <div data-toggle="dropdown"> 
                         <div class="wbhcart">
-                            <span class="svgbg d-inline-block align-middle text-center">{% render 'icon-hcart' %}</span>
+                            <span class="svgbg d-inline-block align-middle text-center">{% if cart.item_count == 0 %}{% render 'icon-cart-empty' %}{% else %}{% render 'icon-cart' %}{% endif %}</span>
                             <span class="d-lg-inline-block text-left align-middle icon-right-part">
                                 <span class="d-lg-block main-title d-none">{{ 'wbcustomlabel.wballtext.mycart' | t }}</span>
                                 <span class="d-block sub-title"><span class="wbhcartitem">{{ cart.item_count }} <span class="d-lg-inline-block d-none">{{ 'wbcustomlabel.wballtext.cartitem' | t }}</span></span></span>
