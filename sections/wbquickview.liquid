@@ -519,7 +519,7 @@
                             endif
                           endif
                         -%}
-                        <div class="product-info-block{% if block.settings.icon != blank or block.settings.custom_icon != blank %} with-icon{% endif %}{% if block.settings.enable_box %} text-box{% endif %}" {% if block.settings.enable_box %}style="--box-color: {{ block.settings.box_color }}; --box-text-color: {{ text_col }}"{% endif %}>
+                        {% comment %} <div class="product-info-block{% if block.settings.icon != blank or block.settings.custom_icon != blank %} with-icon{% endif %}{% if block.settings.enable_box %} text-box{% endif %}" {% if block.settings.enable_box %}style="--box-color: {{ block.settings.box_color }}; --box-text-color: {{ text_col }}"{% endif %}>
                           {%- if block.settings.icon == blank and block.settings.custom_icon == blank -%}
                             {{- block.settings.text -}}
                           {%- else -%}
@@ -530,7 +530,7 @@
                             {% endif %}
                             <span class="with-icon__beside">{{ block.settings.text }}</span>
                           {%- endif -%}
-                        </div>
+                        </div> {% endcomment %}
                       </div>
                     {% endif %}
 
@@ -598,10 +598,10 @@
                       <div class="lightly-spaced-row{% unless block.settings.show_in_quickbuy %} not-in-quickbuy{% endunless %}" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
                     {% endif %}
 
-                  {% when 'sharing' %}
+                  {% comment %} {% when 'sharing' %}
                     <div class="lightly-spaced-row not-in-quickbuy" {{ block.shopify_attributes }}>
                       {% render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-                    </div>
+                    </div> {% endcomment %}
 
                   {% when 'divider' %}
                     <hr {% unless block.settings.show_in_quickbuy %}class="not-in-quickbuy"{% endunless %} {{ block.shopify_attributes }}>
