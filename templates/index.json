@@ -369,48 +369,6 @@
         "show_colorswatch": false
       }
     },
-    "3ade3749-3fd1-4883-8da7-7c395b182f5a": {
-      "type": "top-product-two",
-      "blocks": {
-        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1": {
-          "type": "collection",
-          "settings": {
-            "cat_name": "RESTOCKS",
-            "collection": "popular-restocks"
-          }
-        },
-        "842b9a99-6786-4ef9-8115-cf14e19f6c4c": {
-          "type": "collection",
-          "settings": {
-            "cat_name": "ON SALE",
-            "collection": "sale"
-          }
-        },
-        "098f6d3e-0273-48db-820b-f4b57545d5ba": {
-          "type": "collection",
-          "settings": {
-            "cat_name": "CLEARANCE",
-            "collection": "deals-clearance"
-          }
-        }
-      },
-      "block_order": [
-        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1",
-        "842b9a99-6786-4ef9-8115-cf14e19f6c4c",
-        "098f6d3e-0273-48db-820b-f4b57545d5ba"
-      ],
-      "settings": {
-        "m_title": "Popular Categories",
-        "rows": 1,
-        "image_ratio": "square",
-        "display_product_type": false,
-        "show_rating": false,
-        "show_vendor": false,
-        "show_variants": false,
-        "picker_type": "button",
-        "show_colorswatch": false
-      }
-    },
     "1645186132b9355fa7": {
       "type": "imgbanner",
       "blocks": {
@@ -456,6 +414,48 @@
       "settings": {
       }
     },
+    "3ade3749-3fd1-4883-8da7-7c395b182f5a": {
+      "type": "top-product-two",
+      "blocks": {
+        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "RESTOCKS",
+            "collection": "popular-restocks"
+          }
+        },
+        "842b9a99-6786-4ef9-8115-cf14e19f6c4c": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "ON SALE",
+            "collection": "sale"
+          }
+        },
+        "098f6d3e-0273-48db-820b-f4b57545d5ba": {
+          "type": "collection",
+          "settings": {
+            "cat_name": "CLEARANCE",
+            "collection": "deals-clearance"
+          }
+        }
+      },
+      "block_order": [
+        "77c00f5b-3843-456b-80d1-88ebbdbfd5e1",
+        "842b9a99-6786-4ef9-8115-cf14e19f6c4c",
+        "098f6d3e-0273-48db-820b-f4b57545d5ba"
+      ],
+      "settings": {
+        "m_title": "Popular Categories",
+        "rows": 1,
+        "image_ratio": "square",
+        "display_product_type": false,
+        "show_rating": false,
+        "show_vendor": false,
+        "show_variants": false,
+        "picker_type": "button",
+        "show_colorswatch": false
+      }
+    },
     "1645244797dfa46cce": {
       "type": "onsale",
       "disabled": true,
@@ -477,8 +477,8 @@
     "1641460486cee907a2",
     "1641556802093be1f1",
     "16542455861c80cea1",
-    "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645186132b9355fa7",
+    "3ade3749-3fd1-4883-8da7-7c395b182f5a",
     "1645244797dfa46cce"
   ]
 }
