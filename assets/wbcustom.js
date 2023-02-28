@@ -93,6 +93,45 @@ $(document).ready(function() {
     });
     $(".owl-toppro").show();
 
+    // Home Tab Product 
+    $('.owl-toppro2').slick({
+        dots: false,
+        arrows: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        slidesToShow: 6,
+        rows: 2,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        responsive: [{
+            breakpoint: 1400,
+            settings: {
+                slidesToShow: 5
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 4
+            }
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 361,
+            settings: {
+                slidesToShow: 2
+            }
+        }
+    ]
+    });
+    $(".owl-toppro2").show();
+
     // Home Tab Product   
     $('.wbtopr,.wbnewpro,.wbsale').slick({
         dots: false,

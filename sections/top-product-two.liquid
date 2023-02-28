@@ -42,7 +42,7 @@
           <div id="wbprodtab2-{{ block.id }}" class="tabcontent" {% if forloop.first %}style="display: block;"{% else %}style="display: none;"{% endif %}>
 
               <div class="rless">
-                  <div class="owl-toppro">
+                  <div class="owl-toppro2">
                       {% for product in collection.products limit : 14 %}
                             {% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
                             {% render 'product-card-banner',
@@ -88,7 +88,7 @@
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-    $(".owl-toppro").slick("refresh");
+    $(".owl-toppro2").slick("refresh");
   }
 </script>
 
