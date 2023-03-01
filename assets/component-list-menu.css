@@ -53,6 +53,9 @@ body.overflow-hidden .menupos{
     text-transform: uppercase;
     color: white;
 }
+.whr-menu:hover {
+    background-color: #505050;
+}
 .whr-menu span {
     margin: 0 15px;
 }
