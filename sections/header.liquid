@@ -376,10 +376,8 @@ header-drawer {
                                     <noscript>
                                         <button type="submit" class="cart__update-button button button--secondary" form="cart">{{ 'sections.cart.update' | t }}</button>
                                     </noscript>
-                                    <a href="{{ routes.cart_url }}" class="button button-primary">{{ 'wbcustomlabel.wballtext.viewcart' | t }}</a>
-                                    <button type="submit" id="checkout" class="cart__checkout-button button hidden" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
-                                        {{ 'sections.cart.checkout' | t }}
-                                    </button>
+                                    <a href="{{ routes.cart_url }}" class="btn btn-primary" style="width: 50% !important;">{{ 'wbcustomlabel.wballtext.viewcart' | t }}</a>
+                                    <a href="{{ routes.cart_clear_url }}" onclick="clicked(event)" class="btn btn-danger" style="width: 50% !important;">Delete Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -394,6 +392,15 @@ header-drawer {
     {%- render 'cart-notification' -%}
 </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
+
+<script>
+  function clicked(e)
+  {
+    if(!confirm('Are you sure you want to clear your Cart?')) {
+        e.preventDefault();
+    }
+  }
+</script>
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {
