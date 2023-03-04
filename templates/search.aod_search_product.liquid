@@ -14,7 +14,7 @@
 				{% assign aod_price_min = product.price_min %}
 				{% assign aod_price_max = product.price_max %}
 
-				{% unless aod_check_file contains "Liquid error:" %}{%- include "aod_change_price" with product:product,variant:product.selected_or_first_available_variant , type:"product" -%}{% endunless %}
+				{% unless aod_check_file contains "Liquid error" %}{%- include "aod_change_price" with product:product,variant:product.selected_or_first_available_variant , type:"product" -%}{% endunless %}
                 {
 				     "id"  : "{{product.id}}"
 					,"vendor" :{{product.vendor | json}}
@@ -35,7 +35,7 @@
 						{% assign aod_price = variant.price %}
 						{% assign aod_compare_at_price = variant.compare_at_price %}
 
-						{% unless aod_check_file contains "Liquid error:" %}{%- include "aod_change_price" with product:product , variant:variant  type:"variant" -%}{% endunless %}
+						{% unless aod_check_file contains "Liquid error" %}{%- include "aod_change_price" with product:product , variant:variant  type:"variant" -%}{% endunless %}
 							{ 
                                 {% assign variant_thumbImage = variant.image  %}
 
