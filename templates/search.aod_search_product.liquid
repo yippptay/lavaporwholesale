@@ -10,20 +10,17 @@
                 {% assign resultURL = product.url %}
                 {% assign thumbImage = product.images[0] | product_img_url: 'thumb' %}
                 {% assign MediumImage = product.images[0] | product_img_url: 'medium' %}
+				
 				{% assign aod_price_min = product.price_min %}
 				{% assign aod_price_max = product.price_max %}
-<<<<<<< HEAD
-				{% unless aod_check_file contains "Liquid error:" %}{%- include "aod_change_price" with product:product,variant:product.selected_or_first_available_variant , type:"product" -%}{% endunless %}
-=======
 
 				{% unless aod_check_file contains "Liquid error" %}{%- include "aod_change_price" with product:product,variant:product.selected_or_first_available_variant , type:"product" -%}{% endunless %}
->>>>>>> 5ab059e6f21455a243de6d5dfc6418cc1d5cc2e9
                 {
-				     "id"  : "{{ product.id }}"
-					,"vendor" :{{ product.vendor | json}}
+				     "id"  : "{{product.id}}"
+					,"vendor" :{{product.vendor | json}}
                     ,"options":{{ product.options | json}}
 					,"title":{{ product.title | json }}
-                    ,"min_price":"{{ aod_price_min }}"
+                    ,"min_price":"{{aod_price_min }}"
                     ,"max_price":"{{ aod_price_max }}"
 					,"image":{{ product.media |json }}
 					{% if product.featured_image == blank %}

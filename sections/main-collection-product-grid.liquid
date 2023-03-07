@@ -57,7 +57,7 @@
             data-id="{{ section.id }}"
             class="row rless grid product-grid"
             style="align-items: flex-end;">
-            {%- for product in collection.products -%}
+            {%- for product in collection.products -%}{% include 'easylockdown_filter_collection' with product %}
 
               {% comment %} Easylockdown Filter Begin {% endcomment %}
 							{% capture easylockdownFilter %}
