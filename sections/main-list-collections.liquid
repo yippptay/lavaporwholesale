@@ -20,7 +20,7 @@
       <a class="brand-img" href="/collections/7daze" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/7_daze.jpg" width="auto" height="130px"></a>
       <a class="brand-img" href="/collections/pod-juice" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.elementvape.com/media//amasty/shopby/option_images/slider/Pod_Juice_Color_Transparent.png" width="auto" height="130px"></a>
       <a class="brand-img" href="/collections/naked" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0660/0031/files/naked-100-logo_240x240.jpg?v=1569517459" width="auto" height="130px"></a>
-      <a class="brand-img" href="/collections/elf-bar" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.unishowinc.com/wp-content/uploads/2022/01/Elf-Bar-Logo.jpg" width="auto" height="130px"></a>
+      <!-- <a class="brand-img" href="/collections/elf-bar" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://www.unishowinc.com/wp-content/uploads/2022/01/Elf-Bar-Logo.jpg" width="auto" height="130px"></a> -->
       <a class="brand-img" href="/collections/coastal-clouds" style="flex-shrink: 1; padding-top: 12px; padding-bottom: 12px"><img src="https://cdn.shopify.com/s/files/1/0882/1942/collections/costal-clouds-vape-juice.png?v=1611868927" width="auto" height="130px"></a>
     </div>
     <div class="brands-container" style="display: flex; flex-wrap: wrap; justify-content: space-evenly; padding-top: 16px; padding-bottom: 22px; align-items: center;">
@@ -111,7 +111,7 @@
 
       <div class="list">
         <div class="rless row wballcatpage" style="flex-wrsap: wrap; padding-bottom: 1px">
-          {%- for collection in collections %}{% include 'easylockdown_filter_collections' with collection %}
+          {%- for collection in collections %}
             {%- if collection.metafields.custom.type == "Brand" %}
               {%  assign first_char = collection.title | slice: 0 | upcase %}
   
@@ -201,7 +201,7 @@
             <hr style="margin-top: 0px !important;"/>
           
             <div class="rless row wballcatpage" style="flex-wrap: wrap; padding-bottom: 28px">
-              {%- for collection in collections %}{% include 'easylockdown_filter_collections' with collection %}
+              {%- for collection in collections %}
                 {%- if collection.metafields.custom.type == "Brand" %}
                   {% assign first_char = collection.title | slice: 0 | upcase %}
                   {%- if first_char == letters %}
