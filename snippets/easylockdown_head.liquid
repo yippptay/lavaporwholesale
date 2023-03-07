@@ -56,6 +56,28 @@
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
+{% if template contains "collection" or template contains "product" %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 267272323158 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 267272323158 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% endif %}
+{% if template contains "product" and product %}{% if product.id == 6722957017174 or product.id == 6852026007638 or product.id == 6852026105942 or product.id == 6837368717398 or product.id == 6841215025238 or product.id == 6849055195222 or product.id == 6846495391830 or product.id == 6816345849942 or product.id == 6853120589910 or product.id == 6851951198294 or product.id == 6849055326294 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com{% endcapture %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% unless customer %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/elf-bar"],*[data-eld-collection-handle="elf-bar"],*[href$="/products/elf-bar-bc-3500-disposable"],*[href*="/products/elf-bar-bc-3500-disposable/"],*[href*="/products/elf-bar-bc-3500-disposable?"],*[href*="/products/elf-bar-bc-3500-disposable#"],*[data-eld-product-handle="elf-bar-bc-3500-disposable"],*[href$="/products/elf-bar-bc-5000-disposable-13ml-pack-11"],*[href*="/products/elf-bar-bc-5000-disposable-13ml-pack-11/"],*[href*="/products/elf-bar-bc-5000-disposable-13ml-pack-11?"],*[href*="/products/elf-bar-bc-5000-disposable-13ml-pack-11#"],*[data-eld-product-handle="elf-bar-bc-5000-disposable-13ml-pack-11"],*[href$="/products/copy-of-elf-bar-bc-5000-disposable-13ml-pack-10"],*[href*="/products/copy-of-elf-bar-bc-5000-disposable-13ml-pack-10/"],*[href*="/products/copy-of-elf-bar-bc-5000-disposable-13ml-pack-10?"],*[href*="/products/copy-of-elf-bar-bc-5000-disposable-13ml-pack-10#"],*[data-eld-product-handle="copy-of-elf-bar-bc-5000-disposable-13ml-pack-10"],*[href$="/products/elf-bar-bc-5000-ultra-disposable"],*[href*="/products/elf-bar-bc-5000-ultra-disposable/"],*[href*="/products/elf-bar-bc-5000-ultra-disposable?"],*[href*="/products/elf-bar-bc-5000-ultra-disposable#"],*[data-eld-product-handle="elf-bar-bc-5000-ultra-disposable"],*[href$="/products/130ml-elf-bar-bc-5000-ultra-disposable"],*[href*="/products/130ml-elf-bar-bc-5000-ultra-disposable/"],*[href*="/products/130ml-elf-bar-bc-5000-ultra-disposable?"],*[href*="/products/130ml-elf-bar-bc-5000-ultra-disposable#"],*[data-eld-product-handle="130ml-elf-bar-bc-5000-ultra-disposable"],*[href$="/products/elf-bar-funky-republic-ti7000-disposable-17ml-pack-5"],*[href*="/products/elf-bar-funky-republic-ti7000-disposable-17ml-pack-5/"],*[href*="/products/elf-bar-funky-republic-ti7000-disposable-17ml-pack-5?"],*[href*="/products/elf-bar-funky-republic-ti7000-disposable-17ml-pack-5#"],*[data-eld-product-handle="elf-bar-funky-republic-ti7000-disposable-17ml-pack-5"],*[href$="/products/elf-bar-lost-mary-mo5000-disposable-13ml-pack-5"],*[href*="/products/elf-bar-lost-mary-mo5000-disposable-13ml-pack-5/"],*[href*="/products/elf-bar-lost-mary-mo5000-disposable-13ml-pack-5?"],*[href*="/products/elf-bar-lost-mary-mo5000-disposable-13ml-pack-5#"],*[data-eld-product-handle="elf-bar-lost-mary-mo5000-disposable-13ml-pack-5"],*[href$="/products/no-ca-elf-bar-lost-mary-os5000-disposable-5"],*[href*="/products/no-ca-elf-bar-lost-mary-os5000-disposable-5/"],*[href*="/products/no-ca-elf-bar-lost-mary-os5000-disposable-5?"],*[href*="/products/no-ca-elf-bar-lost-mary-os5000-disposable-5#"],*[data-eld-product-handle="no-ca-elf-bar-lost-mary-os5000-disposable-5"],*[href$="/products/elf-bar-lost-mary-os5000-disposable-13ml-pack-10"],*[href*="/products/elf-bar-lost-mary-os5000-disposable-13ml-pack-10/"],*[href*="/products/elf-bar-lost-mary-os5000-disposable-13ml-pack-10?"],*[href*="/products/elf-bar-lost-mary-os5000-disposable-13ml-pack-10#"],*[data-eld-product-handle="elf-bar-lost-mary-os5000-disposable-13ml-pack-10"],*[href$="/products/elf-bar-pod-king-xc5000-disposable-13-5ml-pack-10"],*[href*="/products/elf-bar-pod-king-xc5000-disposable-13-5ml-pack-10/"],*[href*="/products/elf-bar-pod-king-xc5000-disposable-13-5ml-pack-10?"],*[href*="/products/elf-bar-pod-king-xc5000-disposable-13-5ml-pack-10#"],*[data-eld-product-handle="elf-bar-pod-king-xc5000-disposable-13-5ml-pack-10"],*[href$="/products/elf-bar-te5000-disposable-13ml-pack-10"],*[href*="/products/elf-bar-te5000-disposable-13ml-pack-10/"],*[href*="/products/elf-bar-te5000-disposable-13ml-pack-10?"],*[href*="/products/elf-bar-te5000-disposable-13ml-pack-10#"],*[data-eld-product-handle="elf-bar-te5000-disposable-13ml-pack-10"]');</script>
+{% endunless %}
+
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
 {% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}

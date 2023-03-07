@@ -52,6 +52,13 @@
 {% endfor %}
 {% assign easylockdownCollectionsException = false %}
 {% unless easylockdownCollectionsException %}
+{% if easylockdown_filter_collections.id == 267272323158 %}
+{% unless customer %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% assign easylockdownCollectionsException = false %}
+{% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 267926437974 %}
 {% if customer %}
 {% assign easylockdownContinue = true %}{% unless elcTag12 %}{% assign easylockdownContinue = false %}{% endunless %}
