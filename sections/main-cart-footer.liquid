@@ -68,6 +68,11 @@
                 <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
                   {{ 'sections.cart.checkout' | t }}
                 </button>
+                
+                <div class="cart__submit-controls">
+                  {% include "aod_save_cart" %}
+                </div>
+
               </div>
 
               {%- if additional_checkout_buttons -%}

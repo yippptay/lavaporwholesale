@@ -1,18 +1,9 @@
 <!doctype html>
-
-<script src="{{ 'jquery.min.js' | asset_url }}" async></script>
-
+<script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <html class="no-js wbboxlt" lang="{{ request.locale.iso_code }}" {% if settings.wbboxed %} id="wbboxlayout" {% endif %}>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-      w3_close();
-      console.log("Fire at will!");
-  });
-  </script>
-
   <head>
-{% include 'easylockdown_head' %}
+  {% include 'easylockdown_head' %}
 
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,7 +94,8 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   {% render 'minmaxify-head' %}
   {% render 'avalara-excise-variables' %}
-</head>
+
+  </head>
 
   <body class="gradient {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
@@ -188,11 +180,11 @@
     {%comment%} Webibazaar Code {%endcomment%}
     <script src="{{ 'jquery.min.js' | asset_url }}"></script>
     <script src="{{ 'jquery.fancybox.min.js' | asset_url }}"></script>
-    <script src="{{ 'popper.min.js' | asset_url }}" defer></script>
+    {% comment %} <script src="{{ 'popper.min.js' | asset_url }}" defer></script> {% endcomment %}
     <script src="{{ 'bootstrap.min.js' | asset_url }}"></script>
     <script src="{{ 'slick.min.js' | asset_url }}"></script>
     <script src="{{ 'wbcustom.js' | asset_url }}" async></script>
-    <script src="{{ 'countdown.min.js' | asset_url }}" defer></script>
+    {% comment %} <script src="{{ 'countdown.min.js' | asset_url }}" defer></script> {% endcomment %}
     <script src="{{ 'wbcartdropdown.js' | asset_url }}" defer></script>
 
     {% if template == 'index' %}
@@ -282,24 +274,21 @@
                {% endif %}
                <!-- WPD End -->
   <!--BeginCFFPersistentCartCart-->
-{% if customer %}
-<script>
-
+  {% if customer %}
+  <script>
     window.cffCustomer = {
         name: '{{customer.name}}',
         email: '{{customer.email}}',
         hasAccount: '{{customer.has_account}}',
         id: '{{customer.id}}'
     };
+  </script>
 
+  {% endif %}
 
-</script>
+  <script>
+      window.cffPCLiquidPlaced = true
+  </script>
 
-{% endif %}
-
-<script>
-    window.cffPCLiquidPlaced = true
-</script>
-
-<!--EndCFFPersistentCartCart--></body>
+  <!--EndCFFPersistentCartCart--></body>
 </html>

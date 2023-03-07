@@ -32,18 +32,18 @@
                             {%- for block in section.blocks -%}
                                 <div class="footer-block col-md-3 col-12" {{ block.shopify_attributes }}>
                                     {%- if block.settings.heading != blank -%}
-                                        <h5 data-toggle="collapse" data-target="#wb-{{ block.settings.heading | camelcase }}" class="toggle collapsed">{{- block.settings.heading | escape -}}</h5>
+                                        <h5 data-toggle="collapse" data-target="#wb-{{ block.settings.heading }}" class="toggle collapsed">{{- block.settings.heading | escape -}}</h5>
                                     {%- endif -%}
 
                                     {%- case block.type -%}
                                         {%- when 'text' -%}
-                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading | camelcase }}">
+                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading }}">
                                             {{ block.settings.subtext }}
                                         </div>
 
                                         {%- when 'link_list' -%}
                                         {%- if block.settings.menu != blank and block.settings.heading != blank -%}
-                                        <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading | camelcase }}">
+                                        <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading }}">
                                             {%- for link in block.settings.menu.links -%}
                                             <li>
                                                 <a href="{{ link.url }}" class="{% if link.active %} list-menu__item--active{% endif %}">{{ link.title }}</a>
@@ -53,8 +53,8 @@
                                         {%- endif -%}
 
                                         {%- when 'textarea' -%}
-                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading | camelcase }}" style="width: fit-content;">
-                                            <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading | camelcase }}">
+                                        <div class="wbfootcont collapse footer-collapse" id="wb-{{ block.settings.heading }}" style="width: fit-content;">
+                                            <ul class="wbfootcont collapse footer-collapse list-unstyled" id="wb-{{ block.settings.heading }}">
                                                 {%- if block.settings.footer_address != blank -%}
                                                     <li style="display:flex;">
                                                       <div>{% render 'icon-faddress' %}{% render 'icon-faddress' %}</div>
@@ -65,7 +65,7 @@
                                                     <li>{% render 'icon-fcontact' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_no }}</span></li>
                                                 {%- endif -%}
                                                 {%- if block.settings.footer_contact_id != blank -%}
-                                                    <li style="white-space: nowrap;">{% render 'icon-fmail' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_id }}</span></li>
+                                                    <li style="white-space: nowrap; text-transform: inherit;">{% render 'icon-fmail' %} <span style="padding-left: 6px;">{{ block.settings.footer_contact_id | downcase }}</span></li>
                                                 {%- endif -%}
                                                 {%- if block.settings.show_social -%}
                                                     <ul class="footer__list-social" role="list">
