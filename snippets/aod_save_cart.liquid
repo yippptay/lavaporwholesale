@@ -1,9 +1,9 @@
 {% if shop.metafields.AOD_Cart_Saver.EnableApp != 'Disabled' %}
-<div>
+<div style='margin: 0px 10px;'>
     {% if cart.item_count > 0 %}
-      <button type='button' class='btn btn-info aodSaveCart' style='max-width: 20rem; margin-top: 1rem;'>{{shop.metafields.AOD_Cart_Saver.btn_save_cart | default:'save this cart'}}</button>
+      <button type='button' class='btn aodSaveCart'>{{shop.metafields.AOD_Cart_Saver.btn_save_cart | default:'save this cart'}}</button>
     {% endif %}
-    <button type='button' class='btn btn-info aodViewCart' style='max-width: 20rem; margin-top: 1rem;'>{{shop.metafields.AOD_Cart_Saver.btn_view_cart | default:'View saved cart'}}</button>
+    <button type='button' class='btn aodViewCart'>{{shop.metafields.AOD_Cart_Saver.btn_view_cart | default:'View saved cart'}}</button>
 </div>
 <script>
       var aod_domain = "/apps/savedcart/cart_saver.php?fn=";
@@ -96,5 +96,4 @@
         });
     }(window, document));
 </script>
-
 {% endif %}
