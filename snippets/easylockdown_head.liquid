@@ -61,23 +61,30 @@
 {% if collection %}{% if collection.id == 267941380182 or collection.id == 264852406358 or collection.id == 161815232598 or collection.id == 267805786198 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% endif %}
 {% if easylockdownLockedContent %}
-{% if customer %}
-{% assign easylockdownON = true %}{% unless customer.id == 6122948427862 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
+{% else %}
+{% unless customer.id == 6122948427862 %}{% assign easylockdownON = true %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
 {% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
 {% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
 {% endif %}
-{% endif %}
+{% endunless %}
 {% endif %}
 {% endunless %}
-{% if customer %}
-{% assign easylockdownHideLinks = false %}{% if customer.id == 6122948427862 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% unless customer %}
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/all-smoke-shop"],*[data-eld-collection-handle="all-smoke-shop"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/disposables"],*[data-eld-collection-handle="disposables"],*[href$="/collections/smoke-shop"],*[data-eld-collection-handle="smoke-shop"]');</script>
+{% else %}
+{% assign easylockdownHideLinks = false %}{% unless customer.id == 6122948427862 %}{% assign easylockdownHideLinks = true %}{% endunless %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/all-smoke-shop"],*[data-eld-collection-handle="all-smoke-shop"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/disposables"],*[data-eld-collection-handle="disposables"],*[href$="/collections/smoke-shop"],*[data-eld-collection-handle="smoke-shop"]');</script>
 {% endif %}
-{% endif %}
+{% endunless %}
 
 
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
