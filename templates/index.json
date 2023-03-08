@@ -330,6 +330,7 @@
         },
         "71b9c2d5-bb14-4545-80b9-d1c81c7b59a6": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "cat_name": "DISPOSABLES",
             "collection": "disposables"
@@ -337,6 +338,7 @@
         },
         "a3815c4e-2bfc-4242-81d1-ef66f4a5d42f": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "cat_name": "HEMP",
             "collection": "new-hemp"
@@ -344,6 +346,7 @@
         },
         "6c322285-1937-4ddf-8411-dd04a10fd5b6": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "cat_name": "SMOKE SHOP",
             "collection": "smoke-shop"
