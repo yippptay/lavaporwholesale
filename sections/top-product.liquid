@@ -15,23 +15,23 @@
   assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min
 
   if randomNumber <= 30
-    assign selector = 1
+    assign selector = 0
   endif
 
   if randomNumber > 30 and randomNumber <= 50
-    assign selector = 1
+    assign selector = 0
   endif
 
   if randomNumber > 50 and randomNumber <= 65
-    assign selector = 1
+    assign selector = 0
   endif
 
   if randomNumber > 65 and randomNumber <= 95
-    assign selector = 1
+    assign selector = 0
   endif
 
   if randomNumber > 95
-    assign selector = 1
+    assign selector = 0
   endif
 %}
 
