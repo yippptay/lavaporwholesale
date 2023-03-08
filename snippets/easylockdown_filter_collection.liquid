@@ -61,11 +61,7 @@
 {% endif %}
 {% endfor %}
 {% if easylockdownItemOff %}
-{% unless customer %}
-{% if easylockdownRender %}continue{% endif %}{% continue %}
-{% else %}
-{% unless customer.id == 6122948427862 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
-{% endunless %}
+{% unless customer %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
 {% endif %}
 {% endif %}
 {% endunless %}
