@@ -54,7 +54,6 @@
         },
         "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
           "type": "logo_image",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Mints_Logo.png",
             "link": "shopify:\/\/collections\/mints"
