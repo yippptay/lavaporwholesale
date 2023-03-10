@@ -3,6 +3,7 @@
 <html class="no-js wbboxlt" lang="{{ request.locale.iso_code }}" {% if settings.wbboxed %} id="wbboxlayout" {% endif %}>
 
   <head>
+{% include 'easylockdown_head' %}
 
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NXB97C5M1"></script>
@@ -144,7 +145,7 @@
             <div class="col">
                 {% render 'breadcrumbs' %}
                 
-                {{ content_for_layout }}
+                {% comment %}{{ content_for_layout }}{% endcomment %}{% include 'easylockdown_body' %}
             </div>
           </div>
         </div>
