@@ -3200,7 +3200,7 @@ variant-webiquick .js.product-form__input.inner-class {
         padding-left: 0;
    }
     .hmenu {
-        max-width: 68%;
+        max-width: 100%;
         flex: 0 0 68%;
    }
     .offer-icon {
