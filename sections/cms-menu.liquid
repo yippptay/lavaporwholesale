@@ -295,14 +295,15 @@
           </div>
         </li>
 
-        <li class="nav-item">
-          <!-- Flavor Shots -->
-          <a
-            class="nav-link localization-selector link link--text caption-large"
-            style="color: #ffffff; border-right: 0 !important;"
-            href="/pages/current-deals">Current Deals
-          </a>
-        </li>
+        {% comment %} {% if customer %}
+          <li class="nav-item">
+            <a
+              class="nav-link localization-selector link link--text caption-large"
+              style="color: #ffffff; border-right: 0 !important;"
+              href="/pages/current-deals">Current Deals
+            </a>
+          </li>
+        {% endif %} {% endcomment %}
 
       </ul>
     </div>
