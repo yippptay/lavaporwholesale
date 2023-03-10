@@ -148,7 +148,7 @@
               class="grid product-grid row rless"
               role="list"
               style="flex-wrap: wrap !important;">
-              {%- for item in search.results -%}{% include 'easylockdown_filter_search' with item %}
+              {%- for item in search.results -%}
 
                 {% if item.object_type == 'product' and item.available == true %}
                   <li class="grid__item col-6 col-sm-4 col-md-6 col-lg-6 col-xl-3 cless">
