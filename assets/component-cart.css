@@ -1,3 +1,7 @@
+/* Cart Saver */
+.aodSaveCart, .aodViewCart {max-width:20rem;margin-top:1rem;color:#fff;background-color:#17a2b8;border-color:#17a2b8;}
+.aodSaveCart:hover, .aodViewCart:hover {color:#fff;background-color:#138496;border-color:#117a8b;}
+
 .carthead .heading {
   font-size: calc(var(--font-size-base) * 2px);
   border: none;
