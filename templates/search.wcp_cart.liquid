@@ -14,7 +14,7 @@
 "total_weight":{{cart.total_weight}},
 "items" :[
      
-    {% for item in cart.items %}{% include 'easylockdown_filter_search' with item %}              
+    {% for item in cart.items %}              
       {% include 'wcp_discount' with item.product , wpd_discount_variant:item.variant %}
       {% include 'wcp_variant' with item.variant %}
       {% if wcp_v_price > item.final_price %}   
