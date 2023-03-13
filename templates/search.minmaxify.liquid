@@ -1,6 +1,6 @@
 {% layout none %}
 [
-    {%- for item in cart.items -%}{% include 'easylockdown_filter_search' with item %}
+    {%- for item in cart.items -%}
     {
         "id": {{ item.id }},
         "product_id": {{ item.product_id }},
