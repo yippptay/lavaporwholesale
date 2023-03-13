@@ -40,7 +40,7 @@
 		<h2 class="heading text-center"><span>{{ section.settings.m_title }}</span></h2>
 		<ul class="list-inline nav nav-tabs text-center">       
 			{%- for block in section.blocks -%}
-				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}">
+				<li class="nav-item {% if forloop.index0 == selector %}active{% endif %}{% unless customer %}{% if forloop.index0 > 2 %}hidden{% endif %}{% endunless %}">
 					<a class="nav-link" data-toggle="tab" href="#wbprodtab1-{{ block.id }}">
 						<span>{{ block.settings.cat_name }}</span>
 					</a>
