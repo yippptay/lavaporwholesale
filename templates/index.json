@@ -264,7 +264,7 @@
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4"
       ],
       "settings": {
-        "layout": "grid",
+        "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
         "pagicolor": "#f8ca23",
