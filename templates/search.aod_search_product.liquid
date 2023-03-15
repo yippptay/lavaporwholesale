@@ -5,7 +5,7 @@
 {	
     "Products":
         [
-            {% for product in search.results %}{% include 'easylockdown_filter_search' with product %}
+            {% for product in search.results %}
 			
                 {% assign resultURL = product.url %}
                 {% assign thumbImage = product.images[0] | product_img_url: 'thumb' %}

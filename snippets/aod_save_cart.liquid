@@ -1,5 +1,5 @@
 {% if shop.metafields.AOD_Cart_Saver.EnableApp != 'Disabled' %}
-<div>
+<div style='margin: 0px 10px;'>
     {% if cart.item_count > 0 %}
       <button type='button' class='btn aodSaveCart'>{{shop.metafields.AOD_Cart_Saver.btn_save_cart | default:'save this cart'}}</button>
     {% endif %}
