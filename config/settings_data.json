@@ -168,6 +168,7 @@
         "blocks": {
           "2be6eae6-1e5c-474c-b2a7-b248ddb25206": {
             "type": "link-simple",
+            "disabled": true,
             "settings": {
               "title": "Arrival List",
               "link": "shopify:\/\/pages\/new-arrival",
