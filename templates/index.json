@@ -179,6 +179,25 @@
             "text_alignment_mobile": "center"
           }
         },
+        "c580c1d5-e69f-42b9-b22f-363292813133": {
+          "type": "slide",
+          "settings": {
+            "slidesubclr": "#bababa",
+            "slideheadclr": "#ffffff",
+            "image": "shopify:\/\/shop_images\/LA_Vapor__Homepage_Banner-Graham_Slam_100ml.jpg",
+            "subtitle": "",
+            "heading": "",
+            "heading_size": "medium",
+            "subheading": "",
+            "button_label": "",
+            "link": "https:\/\/www.lavaporwholesale.com\/products\/the-graham-100ml?_pos=1&_psq=graham+slam&_ss=e&_v=1.0",
+            "box_align": "middle-right",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "text_alignment_mobile": "center"
+          }
+        },
         "bd1117da-a726-46de-97e0-20a628f524bd": {
           "type": "slide",
           "settings": {
@@ -217,25 +236,6 @@
             "text_alignment_mobile": "center"
           }
         },
-        "c580c1d5-e69f-42b9-b22f-363292813133": {
-          "type": "slide",
-          "settings": {
-            "slidesubclr": "#bababa",
-            "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/LA_Vapor__Homepage_Banner-Graham_Slam_100ml.jpg",
-            "subtitle": "",
-            "heading": "",
-            "heading_size": "medium",
-            "subheading": "",
-            "button_label": "",
-            "link": "https:\/\/www.lavaporwholesale.com\/products\/the-graham-100ml?_pos=1&_psq=graham+slam&_ss=e&_v=1.0",
-            "box_align": "middle-right",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "text_alignment_mobile": "center"
-          }
-        },
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4": {
           "type": "slide",
           "settings": {
@@ -258,9 +258,9 @@
       },
       "block_order": [
         "f527ba75-0e4f-4578-8eb2-8a81fd4c9868",
+        "c580c1d5-e69f-42b9-b22f-363292813133",
         "bd1117da-a726-46de-97e0-20a628f524bd",
         "18931b3d-de0d-4852-94ab-90d84aa9c684",
-        "c580c1d5-e69f-42b9-b22f-363292813133",
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4"
       ],
       "settings": {
