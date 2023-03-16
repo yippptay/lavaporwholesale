@@ -1,1 +1,22 @@
-{"sections":{"main":{"type":"main-page","custom_css":["h3 {text-align: center;}"],"settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h3 {text-align: center;}"
+      ],
+      "settings": {
+      }
+    },
+    "a418db7d-6add-4d39-9aea-f681c1803445": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-container\"> \n    <h1> \n      {% if settings.language_enable %}\n      <span class=\"lang1\">{{ page.title | split: '|' | first }}<\/span>\n      <span class=\"lang2\">{{ page.title | split: '|' | last }}<\/span>\n      {% else %}\n      {{ page.title | split: '|' | first }}\n      {% endif %}\n    <\/h1> \n   \n\n<iframe src=\"https:\/\/calendar.google.com\/calendar\/embed?height=900&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=Y19ncDZuYjVsYm81ZDNsbDZsdjRxM3ExOGR1a0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=bGF2YXBvcndob2xlc2FsZS5jb21fNDQ3dTlmbnJmdXA5M2RsZ2l0N29yNXFqaDBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=bGF2YXBvcndob2xlc2FsZS5jb21fbnJpOGw0dWsxMWZuYTZiM3YycW0zbmk4ZzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%233F51B5&amp;color=%23F6BF26&amp;color=%2333B679&amp;showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0\" style=\"border-width:0\" width=\"1100\" height=\"900\" frameborder=\"0\" scrolling=\"no\"><\/iframe>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "a418db7d-6add-4d39-9aea-f681c1803445"
+  ]
+}
