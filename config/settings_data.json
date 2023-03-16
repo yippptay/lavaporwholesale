@@ -217,7 +217,7 @@
             "type": "link-simple",
             "settings": {
               "title": "New Arrivals",
-              "link": "shopify:\/\/collections\/newest",
+              "link": "shopify:\/\/collections\/new-arrivals",
               "badge_text": "",
               "bg_color": "#ff0000"
             }
