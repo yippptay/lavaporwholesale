@@ -1,6 +1,10 @@
 /* Reset */
 /* Custom CSS */
 
+/* smooth scroll */
+html {
+  scroll-behavior: smooth !important;
+}
 /* scroll bar */
 /* width */
 ::-webkit-scrollbar {
