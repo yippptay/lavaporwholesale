@@ -10,12 +10,15 @@
     },
     "9cfcb651-c567-4cd8-a64d-e93a50d396df": {
       "type": "offerbanner",
+      "custom_css": [
+        "* {text-align: center;}"
+      ],
       "settings": {
         "link": "",
-        "subtitle": "Shop By Brand",
-        "storytitle": "Beautiful Princess Dress For Your Kid",
-        "storysubtitle": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<\/p>",
-        "btntxt": "Shop Deal Now"
+        "subtitle": "",
+        "storytitle": "",
+        "storysubtitle": "",
+        "btntxt": ""
       }
     },
     "a418db7d-6add-4d39-9aea-f681c1803445": {
