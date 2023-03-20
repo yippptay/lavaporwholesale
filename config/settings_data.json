@@ -88,6 +88,7 @@
           },
           "69ead097-e515-4cc8-9160-9b1c6912dc42": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "heading": "INFORMATION",
               "menu": "footer"

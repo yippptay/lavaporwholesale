@@ -162,6 +162,7 @@
       "blocks": {
         "f527ba75-0e4f-4578-8eb2-8a81fd4c9868": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
@@ -219,6 +220,7 @@
         },
         "18931b3d-de0d-4852-94ab-90d84aa9c684": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
@@ -238,6 +240,7 @@
         },
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#bababa",
             "slideheadclr": "#ffffff",
@@ -370,6 +373,7 @@
     },
     "1645186132b9355fa7": {
       "type": "imgbanner",
+      "disabled": true,
       "blocks": {
         "584e7296-6428-4aec-9374-e11484e3803f": {
           "type": "Image",
