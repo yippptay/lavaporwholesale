@@ -57,28 +57,6 @@
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "collection" or template contains "product" %}
-{% if product.collections %}{% for c in product.collections %}{% if c.id == 267941380182 or c.id == 267270881366 or c.id == 267271209046 or c.id == 267271733334 or c.id == 267278385238 or c.id == 267269439574 or c.id == 267277992022 or c.id == 267275206742 or c.id == 267269505110 or c.id == 264852406358 or c.id == 161815232598 or c.id == 267805786198 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
-{% if collection %}{% if collection.id == 267941380182 or collection.id == 267270881366 or collection.id == 267271209046 or collection.id == 267271733334 or collection.id == 267278385238 or collection.id == 267269439574 or collection.id == 267277992022 or collection.id == 267275206742 or collection.id == 267269505110 or collection.id == 264852406358 or collection.id == 161815232598 or collection.id == 267805786198 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
-{% endif %}
-{% if template contains "product" and product %}{% if product.id == 6787468001366 or product.id == 6787467640918 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
-{% if easylockdownLockedContent %}
-{% unless customer %}
-{% assign easylockdownON = true %}
-{% capture easylockdownPage404Title %}Page not found{% endcapture %}
-{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com/{% endcapture %}
-{% endunless %}
-{% endif %}
-{% endunless %}
-{% unless customer %}
-<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/all-smoke-shop"],*[data-eld-collection-handle="all-smoke-shop"],*[href$="/collections/boulder"],*[data-eld-collection-handle="boulder"],*[href$="/collections/ccell"],*[data-eld-collection-handle="ccell"],*[href$="/collections/delta-munchies"],*[data-eld-collection-handle="delta-munchies"],*[href$="/collections/rhino"],*[data-eld-collection-handle="rhino"],*[href$="/collections/white-rhino"],*[data-eld-collection-handle="white-rhino"],*[href$="/collections/puffco"],*[data-eld-collection-handle="puffco"],*[href$="/collections/kalibloom"],*[data-eld-collection-handle="kalibloom"],*[href$="/collections/yocan"],*[data-eld-collection-handle="yocan"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/disposables"],*[data-eld-collection-handle="disposables"],*[href$="/collections/smoke-shop"],*[data-eld-collection-handle="smoke-shop"],*[href$="/products/pod-juice-mesh-5500-disposable-120ml-pack-10"],*[href*="/products/pod-juice-mesh-5500-disposable-120ml-pack-10/"],*[href*="/products/pod-juice-mesh-5500-disposable-120ml-pack-10?"],*[href*="/products/pod-juice-mesh-5500-disposable-120ml-pack-10#"],*[data-eld-product-handle="pod-juice-mesh-5500-disposable-120ml-pack-10"],*[href$="/products/pod-juice-mesh-flo-disposable-100ml-pack-10"],*[href*="/products/pod-juice-mesh-flo-disposable-100ml-pack-10/"],*[href*="/products/pod-juice-mesh-flo-disposable-100ml-pack-10?"],*[href*="/products/pod-juice-mesh-flo-disposable-100ml-pack-10#"],*[data-eld-product-handle="pod-juice-mesh-flo-disposable-100ml-pack-10"]');</script>
-{% endunless %}
-
-
-{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
-{% assign easylockdownLockedContent = false %}
-{% assign easylockdownHiddenContent = false %}
-{% if template contains "collection" or template contains "product" %}
 {% if product.collections %}{% for c in product.collections %}{% if c.id == 267281170518 or c.id == 268026052694 or c.id == 268026282070 or c.id == 267272323158 or c.id == 267272355926 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
 {% if collection %}{% if collection.id == 267281170518 or collection.id == 268026052694 or collection.id == 268026282070 or collection.id == 267272323158 or collection.id == 267272355926 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% endif %}
