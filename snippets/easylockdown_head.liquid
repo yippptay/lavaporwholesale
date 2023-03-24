@@ -339,7 +339,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag26 or elcTag39 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag39 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
