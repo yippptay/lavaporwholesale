@@ -570,6 +570,7 @@ window.avalaraExcise = {
         if (!CheckoutJSON.avalaraProduct) {
             return;
         }
+
         $exciseProduct = document.querySelector('[data-variant-id="' + variantAvalara + '"]');
         if ($exciseProduct) {
             $exciseProduct.style.display = "none";
@@ -610,6 +611,7 @@ window.avalaraExcise = {
         });
 
         avalaraData = {
+            draft_order: localStorage.getItem('AVALARA_DRAFT_ORDER') || null,
             customer_id: avalaraSelectors.customerId,
             cart_items: prodItems,
             shipping_address: {
@@ -688,6 +690,9 @@ window.avalaraExcise = {
                 apiError = (responseJSON && responseJSON.error) ? responseJSON.error : '';
                 if (responseJSON.required_excise === false) {
                     if (CheckoutJSON.avalaraProduct != null && CheckoutJSON.avalaraProduct != 'null') {
+                        if (this.checkDraftOrder) {
+                            this.manageDraftOrder(responseJSON)
+                        }
                         const transactionID = 'N/A';
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, transactionID, transactionLogId, '').then(response => {
                             window.avalaraExcise._disableSubmitButtons();
@@ -707,6 +712,9 @@ window.avalaraExcise = {
                         }
                     }
                     if (CheckoutJSON.avalaraProduct && parseFloat(CheckoutJSON.avalaraProduct.taxPrice) == responseTax) {
+                        if (this.checkDraftOrder) {
+                            this.manageDraftOrder(responseJSON)
+                        }
                         avalaraExcise._updateTaxDetailsFromProduct();
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, responseTax, transactionID, transactionLogId, apiError).then(response => {
                             window.avalaraExcise._disableSubmitButtons();
@@ -714,12 +722,18 @@ window.avalaraExcise = {
                         });
 
                     } else if (CheckoutJSON.avalaraProduct && responseTax.toString() === 'NaN' || responseTax <= 0) {
+                        if (this.checkDraftOrder) {
+                            this.manageDraftOrder(responseJSON)
+                        }
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, transactionID, transactionLogId).then(response => {
                             window.avalaraExcise._disableSubmitButtons();
                             location.reload(true);
                         });
                     } else if (responseTax >= 0) {
                         if (CheckoutJSON.avalaraProduct) {
+                            if(window.avalaraExcise.checkDraftOrder()) {
+                                window.avalaraExcise.manageDraftOrder(responseJSON)
+                            }
                             avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, responseTax, transactionID, transactionLogId, apiError).then(response => {
                                 window.avalaraExcise._disableSubmitButtons();
                                 location.reload(true);
@@ -730,15 +744,22 @@ window.avalaraExcise = {
                         }
                     }
                 }
+
             }).catch(function (request) {
                 window.avalaraExcise._enableSubmitButtons();
                 apiError = (request && request.error) ? request.error.error : '';
                 if (request.status >= 500) {
-                    Rollbar.error('Code[5]: API status failure while calculating excise tax.', request.error || null);
+                    // Rollbar.error('Code[5]: API status failure while calculating excise tax.', request.error || null);
+                    if (this.checkDraftOrder) {
+                        this.manageDraftOrder(request.error)
+                    }
                     apiError = (window.avalaraExciseTheme) ? window.avalaraExciseTheme.failureDefault.place_order : '';
                 } else {
                     const transactionLogId = (request && request.transaction_log_id) ? request.transaction_log_id : 'N/A';
                     if (CheckoutJSON.avalaraProduct && CheckoutJSON.avalaraProduct.line) {
+                        if (window.avalaraExcise.checkDraftOrder()) {
+                            window.avalaraExcise.manageDraftOrder(request.error)
+                        }
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, 'N/A', transactionLogId, apiError).then(response => {
                             window.avalaraExcise._disableSubmitButtons();
                             location.reload(true);
@@ -809,7 +830,7 @@ window.avalaraExcise = {
         request.send(formdata);
         request.onload = function (response) {
             if (!request.status.toString().startsWith('2')) {
-                Rollbar.error('Code[6]: Unable to remove item from cart.', this.response);
+                // Rollbar.error('Code[6]: Unable to remove item from cart.', this.response);
             }
             location.reload(true);
         }
@@ -823,7 +844,7 @@ window.avalaraExcise = {
         }).then(response => {
             location.reload(true);
         }).catch(error => {
-            Rollbar.error('Code[6]: Unable to remove item from cart.', error);
+            // Rollbar.error('Code[6]: Unable to remove item from cart.', error);
         });
     },
 
@@ -859,7 +880,7 @@ window.avalaraExcise = {
                 params: JSON.stringify(data),
             });
         } catch (error) {
-            Rollbar.error('Code[7]: Unable to update Excise tax. ', error);
+            // Rollbar.error('Code[7]: Unable to update Excise tax. ', error);
             return false;
         }
 
@@ -916,6 +937,35 @@ window.avalaraExcise = {
             }
             xhr.send(request.params);
         });
+    },
+
+    /* ----------------- Manage Draft Order ---------------- */
+    manageDraftOrder: function (response) {
+        if (response.invoice_url !== undefined && response.invoice_url != null) {
+            let draftOrder = localStorage.getItem('AVALARA_DRAFT_ORDER');
+            draftOrder = JSON.parse(draftOrder);
+
+            let exciseLineItem = response.excise_line_item;
+            for (let i = 0; i < draftOrder.line_items.length; i++) {
+                if (draftOrder.line_items[i].properties.some(prop => prop.name === 'avalara_excise_tax')) {
+                    draftOrder.line_items[i].properties = exciseLineItem['properties'];
+                    draftOrder.line_items[i].applied_discount = exciseLineItem['applied_discount'];
+                    break;
+                }
+            }
+
+            localStorage.setItem('AVALARA_DRAFT_ORDER', JSON.stringify(draftOrder))
+            setTimeout(function () {
+                window.location.replace(response.invoice_url);
+            }, 1000);
+            return true;
+        }
+        return false;
+    },
+
+    checkDraftOrder: function () {
+        let draftOrder = localStorage.getItem('AVALARA_DRAFT_ORDER');
+        return draftOrder !== undefined && draftOrder !== null;
     }
 };
 
@@ -958,7 +1008,7 @@ window.avalaraExcise = {
                     errorMsg = (CheckoutJSON.avalaraProduct) ? CheckoutJSON.avalaraProduct.error : null;
                 }
             }).catch(error => {
-                Rollbar.error('Code[8]: Unable to fetch cart data at checkout.', error);
+                // Rollbar.error('Code[8]: Unable to fetch cart data at checkout.', error);
             });
 
             if (event.type === 'page:load') {
@@ -973,3 +1023,4 @@ window.avalaraExcise = {
         }
     });
 })(Checkout.$);
+
