@@ -749,7 +749,7 @@ window.avalaraExcise = {
                 window.avalaraExcise._enableSubmitButtons();
                 apiError = (request && request.error) ? request.error.error : '';
                 if (request.status >= 500) {
-                    // Rollbar.error('Code[5]: API status failure while calculating excise tax.', request.error || null);
+                    Rollbar.error('Code[5]: API status failure while calculating excise tax.', request.error || null);
                     if (this.checkDraftOrder) {
                         this.manageDraftOrder(request.error)
                     }
@@ -830,7 +830,7 @@ window.avalaraExcise = {
         request.send(formdata);
         request.onload = function (response) {
             if (!request.status.toString().startsWith('2')) {
-                // Rollbar.error('Code[6]: Unable to remove item from cart.', this.response);
+                Rollbar.error('Code[6]: Unable to remove item from cart.', this.response);
             }
             location.reload(true);
         }
@@ -844,7 +844,7 @@ window.avalaraExcise = {
         }).then(response => {
             location.reload(true);
         }).catch(error => {
-            // Rollbar.error('Code[6]: Unable to remove item from cart.', error);
+            Rollbar.error('Code[6]: Unable to remove item from cart.', error);
         });
     },
 
@@ -880,7 +880,7 @@ window.avalaraExcise = {
                 params: JSON.stringify(data),
             });
         } catch (error) {
-            // Rollbar.error('Code[7]: Unable to update Excise tax. ', error);
+            Rollbar.error('Code[7]: Unable to update Excise tax. ', error);
             return false;
         }
 
@@ -1008,7 +1008,7 @@ window.avalaraExcise = {
                     errorMsg = (CheckoutJSON.avalaraProduct) ? CheckoutJSON.avalaraProduct.error : null;
                 }
             }).catch(error => {
-                // Rollbar.error('Code[8]: Unable to fetch cart data at checkout.', error);
+                Rollbar.error('Code[8]: Unable to fetch cart data at checkout.', error);
             });
 
             if (event.type === 'page:load') {
