@@ -405,12 +405,24 @@
             "btn": "",
             "btnlink": ""
           }
+        },
+        "99f19baa-d66e-4f5e-a994-3689df8fe69d": {
+          "type": "Image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_2023_02_16T17_11_22_393Z.png",
+            "link": "shopify:\/\/collections\/mi-pod",
+            "storytitle": "",
+            "storysubtitle": "",
+            "btn": "Shop Now",
+            "btnlink": ""
+          }
         }
       },
       "block_order": [
         "584e7296-6428-4aec-9374-e11484e3803f",
         "691702c5-a8d1-43b0-acbe-be2bcb6e8de1",
-        "a9f0f4c5-47d4-47a3-bfc5-91413b6aa790"
+        "a9f0f4c5-47d4-47a3-bfc5-91413b6aa790",
+        "99f19baa-d66e-4f5e-a994-3689df8fe69d"
       ],
       "settings": {
       }
