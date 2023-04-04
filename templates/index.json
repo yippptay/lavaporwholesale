@@ -162,6 +162,7 @@
       "blocks": {
         "bd1117da-a726-46de-97e0-20a628f524bd": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
@@ -384,6 +385,7 @@
         },
         "691702c5-a8d1-43b0-acbe-be2bcb6e8de1": {
           "type": "Image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/dm-LAVapor-Banners-1500x894_c859a438-8396-4050-8126-1dd824304732.png",
             "link": "shopify:\/\/collections\/delta-munchies",
