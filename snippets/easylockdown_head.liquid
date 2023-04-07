@@ -83,8 +83,8 @@
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "collection" or template contains "product" %}
-{% if product.collections %}{% for c in product.collections %}{% if c.id == 267926437974 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
-{% if collection %}{% if collection.id == 267926437974 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if product.collections %}{% for c in product.collections %}{% if c.id == 267391434838 or c.id == 268249104470 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
+{% if collection %}{% if collection.id == 267391434838 or collection.id == 268249104470 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
@@ -101,7 +101,7 @@
 {% if customer %}
 {% assign easylockdownHideLinks = false %}{% if elcTag12 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
-<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-ca-no-access"],*[data-eld-collection-handle="sugar-ca-no-access"]');</script>
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-1"],*[data-eld-collection-handle="sugar-1"],*[href$="/collections/sugar-ca-no-access"],*[data-eld-collection-handle="sugar-ca-no-access"]');</script>
 {% endif %}
 {% endif %}
 
@@ -152,7 +152,7 @@
 {% assign easylockdownException = false %}
 {% if template contains "collection" or template contains "product" %}
 {% if product.collections %}{% for c in product.collections %}{% if c.id == 264044314710 or c.id == 265108127830 or c.id == 173059309654 or c.id == 57342165078 or c.id == 173059473494 or c.id == 263268958294 or c.id == 57135005782 or c.id == 267271045206 or c.id == 267270553686 or c.id == 267280056406 or c.id == 267391434838 or c.id == 174870855766 or c.id == 264786411606 or c.id == 173062357078 or c.id == 174871117910 or c.id == 260571725910 or c.id == 172747358294 %}{% assign easylockdownException = true %}{% break %}{% endif %}{% endfor %}{% endif %}
-{% if collection %}{% if collection.id == 264044314710 or collection.id == 265108127830 or collection.id == 173059309654 or collection.id == 57342165078 or collection.id == 173059473494 or collection.id == 263268958294 or collection.id == 57135005782 or collection.id == 267271045206 or collection.id == 267270553686 or collection.id == 267280056406 or collection.id == 267391434838 or collection.id == 174870855766 or collection.id == 264786411606 or collection.id == 173062357078 or collection.id == 174871117910 or collection.id == 260571725910 or collection.id == 172747358294 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
+{% if collection %}{% if collection.id == 264044314710 or collection.id == 265108127830 or collection.id == 173059309654 or collection.id == 57342165078 or collection.id == 173059473494 or collection.id == 263268958294 or collection.id == 57135005782 or collection.id == 267271045206 or collection.id == 267270553686 or collection.id == 267391434838 or collection.id == 174870855766 or collection.id == 264786411606 or collection.id == 173062357078 or collection.id == 174871117910 or collection.id == 260571725910 or collection.id == 172747358294 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
 {% if template contains "list-collections" %}{% assign easylockdownException = true %}{% endif %}
 {% endif %}
 {% if template contains "product" and product %}{% if elpTag3 %}{% assign easylockdownException = true %}{% endif %}{% endif %}
