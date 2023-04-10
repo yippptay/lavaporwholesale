@@ -162,6 +162,7 @@
       "blocks": {
         "bd1117da-a726-46de-97e0-20a628f524bd": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
