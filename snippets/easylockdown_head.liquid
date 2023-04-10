@@ -84,7 +84,7 @@
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "collection" or template contains "product" %}
 {% if product.collections %}{% for c in product.collections %}{% if c.id == 267391434838 or c.id == 268249104470 %}{% assign easylockdownLockedContent = true %}{% break %}{% endif %}{% endfor %}{% endif %}
-{% if collection %}{% if collection.id == 267391434838 or collection.id == 268249104470 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if collection %}{% if collection.id == 267391434838 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
@@ -101,7 +101,7 @@
 {% if customer %}
 {% assign easylockdownHideLinks = false %}{% if elcTag12 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
-<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-1"],*[data-eld-collection-handle="sugar-1"],*[href$="/collections/sugar-ca-no-access"],*[data-eld-collection-handle="sugar-ca-no-access"]');</script>
+<script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-1"],*[data-eld-collection-handle="sugar-1"]');</script>
 {% endif %}
 {% endif %}
 
@@ -236,7 +236,7 @@
 {% if template contains "product" and product %}{% if elpTag4 or elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag24 or elcTag31 or elcTag4 or elcTag22 or elcTag32 or elcTag33 or elcTag34 or elcTag23 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag4 or elcTag32 or elcTag33 or elcTag34 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -247,7 +247,7 @@
 {% endif %}
 {% endunless %}
 {% if customer %}
-{% assign easylockdownHideLinks = false %}{% if elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag24 or elcTag31 or elcTag4 or elcTag22 or elcTag32 or elcTag33 or elcTag34 or elcTag23 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% assign easylockdownHideLinks = false %}{% if elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag19 or elcTag20 or elcTag5 or elcTag21 or elcTag22 or elcTag23 or elcTag8 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag1 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag4 or elcTag32 or elcTag33 or elcTag34 or elcTag9 or elcTag35 or elcTag36 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/hemp-cartridges"],*[data-eld-collection-handle="hemp-cartridges"],*[href$="/collections/hhc"],*[data-eld-collection-handle="hhc"],*[href$="/collections/thco"],*[data-eld-collection-handle="thco"],*[href$="/collections/new-hemp"],*[data-eld-collection-handle="new-hemp"],*[href$="/collections/delta-10"],*[data-eld-collection-handle="delta-10"],*[href$="/collections/hemp-disposables"],*[data-eld-collection-handle="hemp-disposables"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/hemp-drinks"],*[data-eld-collection-handle="hemp-drinks"],*[href$="/collections/hemp-tinctures"],*[data-eld-collection-handle="hemp-tinctures"],*[href$="/collections/dabs"],*[data-eld-collection-handle="dabs"],*[href$="/collections/delta-8-edibles"],*[data-eld-collection-handle="delta-8-edibles"],*[href$="/collections/gummies-edibles"],*[data-eld-collection-handle="gummies-edibles"],*[href$="/collections/flower"],*[data-eld-collection-handle="flower"],*[href$="/collections/prerolls"],*[data-eld-collection-handle="prerolls"],*[href$="/collections/vapeables"],*[data-eld-collection-handle="vapeables"],*[href$="/collections/delta-8"],*[data-eld-collection-handle="delta-8"]');</script>
 {% endif %}
