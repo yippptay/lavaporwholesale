@@ -217,25 +217,6 @@
             "text_alignment_mobile": "center"
           }
         },
-        "d19adeda-d74f-43fd-ad13-f8e3ed5102c4": {
-          "type": "slide",
-          "settings": {
-            "slidesubclr": "#bababa",
-            "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/BLUE.png",
-            "subtitle": "",
-            "heading": "",
-            "heading_size": "large",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify:\/\/pages\/current-deals",
-            "box_align": "middle-right",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "text_alignment_mobile": "center"
-          }
-        },
         "f527ba75-0e4f-4578-8eb2-8a81fd4c9868": {
           "type": "slide",
           "settings": {
@@ -254,14 +235,33 @@
             "image_overlay_opacity": 0,
             "text_alignment_mobile": "center"
           }
+        },
+        "d19adeda-d74f-43fd-ad13-f8e3ed5102c4": {
+          "type": "slide",
+          "settings": {
+            "slidesubclr": "#bababa",
+            "slideheadclr": "#ffffff",
+            "image": "shopify:\/\/shop_images\/BLUE.png",
+            "subtitle": "",
+            "heading": "",
+            "heading_size": "large",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify:\/\/pages\/current-deals",
+            "box_align": "middle-right",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
         "bd1117da-a726-46de-97e0-20a628f524bd",
         "18931b3d-de0d-4852-94ab-90d84aa9c684",
         "c580c1d5-e69f-42b9-b22f-363292813133",
-        "d19adeda-d74f-43fd-ad13-f8e3ed5102c4",
-        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868"
+        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868",
+        "d19adeda-d74f-43fd-ad13-f8e3ed5102c4"
       ],
       "settings": {
         "layout": "full_bleed",
