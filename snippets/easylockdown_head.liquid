@@ -5,45 +5,46 @@
 {% assign easylockdownNow = 'now' | date:'%s' | times: 1 %}{% assign easylockdownNowWeekDay = easylockdownNow | date:'%u' %}{% assign easylockdownNowMonthDay = easylockdownNow | date:'%d' %}{% assign easylockdownNowHM = easylockdownNow | date:'%H%M' | times: 1 %}{% if customer %}{% assign easylockdownPlacedOrder = customer.orders.first.created_at | date:'%s' %}{% assign easylockdownOldestPlacedOrder = customer.orders.last.created_at | date:'%s' %}{% assign easylockdownDateDifference = easylockdownNow | minus: easylockdownPlacedOrder %}{% endif %}
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'connecticut' %}{% assign elcTag1 = true %}{% endif %}
-{% if tag == 'delaware' %}{% assign elcTag2 = true %}{% endif %}
-{% if tag == 'district of columbia' %}{% assign elcTag3 = true %}{% endif %}
-{% if tag == 'massachusetts' %}{% assign elcTag4 = true %}{% endif %}
-{% if tag == 'mississippi' %}{% assign elcTag5 = true %}{% endif %}
-{% if tag == 'ohio' %}{% assign elcTag6 = true %}{% endif %}
-{% if tag == 'puerto rico' %}{% assign elcTag7 = true %}{% endif %}
-{% if tag == 'rhode island' %}{% assign elcTag8 = true %}{% endif %}
-{% if tag == 'vermont' %}{% assign elcTag9 = true %}{% endif %}
-{% if tag == 'west virginia' %}{% assign elcTag10 = true %}{% endif %}
-{% if tag == 'wyoming' %}{% assign elcTag11 = true %}{% endif %}
-{% if tag == 'california' %}{% assign elcTag12 = true %}{% endif %}
-{% if tag == 'no nic' %}{% assign elcTag13 = true %}{% endif %}
-{% if tag == 'alt&hemp' %}{% assign elcTag14 = true %}{% endif %}
-{% if tag == 'alaska' %}{% assign elcTag15 = true %}{% endif %}
-{% if tag == 'arizona' %}{% assign elcTag16 = true %}{% endif %}
-{% if tag == 'arkansas' %}{% assign elcTag17 = true %}{% endif %}
-{% if tag == 'colorado' %}{% assign elcTag18 = true %}{% endif %}
-{% if tag == 'georgia' %}{% assign elcTag19 = true %}{% endif %}
-{% if tag == 'idaho' %}{% assign elcTag20 = true %}{% endif %}
-{% if tag == 'illinois' %}{% assign elcTag21 = true %}{% endif %}
-{% if tag == 'iowa' %}{% assign elcTag22 = true %}{% endif %}
-{% if tag == 'kansas' %}{% assign elcTag23 = true %}{% endif %}
-{% if tag == 'kentucky' %}{% assign elcTag24 = true %}{% endif %}
-{% if tag == 'maryland' %}{% assign elcTag25 = true %}{% endif %}
-{% if tag == 'michigan' %}{% assign elcTag26 = true %}{% endif %}
-{% if tag == 'montana' %}{% assign elcTag27 = true %}{% endif %}
-{% if tag == 'nevada' %}{% assign elcTag28 = true %}{% endif %}
-{% if tag == 'new jersey' %}{% assign elcTag29 = true %}{% endif %}
-{% if tag == 'new york' %}{% assign elcTag30 = true %}{% endif %}
-{% if tag == 'north dakota' %}{% assign elcTag31 = true %}{% endif %}
-{% if tag == 'oregon' %}{% assign elcTag32 = true %}{% endif %}
-{% if tag == 'pennsylvania' %}{% assign elcTag33 = true %}{% endif %}
-{% if tag == 'utah' %}{% assign elcTag34 = true %}{% endif %}
-{% if tag == 'virginia' %}{% assign elcTag35 = true %}{% endif %}
-{% if tag == 'washington' %}{% assign elcTag36 = true %}{% endif %}
-{% if tag == 'auction blocked' %}{% assign elcTag37 = true %}{% endif %}
-{% if tag == 'no pa' %}{% assign elcTag38 = true %}{% endif %}
-{% if tag == 'san francisco' %}{% assign elcTag39 = true %}{% endif %}
+{% if tag == 'slimz bc5000' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'connecticut' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'delaware' %}{% assign elcTag3 = true %}{% endif %}
+{% if tag == 'district of columbia' %}{% assign elcTag4 = true %}{% endif %}
+{% if tag == 'massachusetts' %}{% assign elcTag5 = true %}{% endif %}
+{% if tag == 'mississippi' %}{% assign elcTag6 = true %}{% endif %}
+{% if tag == 'ohio' %}{% assign elcTag7 = true %}{% endif %}
+{% if tag == 'puerto rico' %}{% assign elcTag8 = true %}{% endif %}
+{% if tag == 'rhode island' %}{% assign elcTag9 = true %}{% endif %}
+{% if tag == 'vermont' %}{% assign elcTag10 = true %}{% endif %}
+{% if tag == 'west virginia' %}{% assign elcTag11 = true %}{% endif %}
+{% if tag == 'wyoming' %}{% assign elcTag12 = true %}{% endif %}
+{% if tag == 'california' %}{% assign elcTag13 = true %}{% endif %}
+{% if tag == 'no nic' %}{% assign elcTag14 = true %}{% endif %}
+{% if tag == 'alt&hemp' %}{% assign elcTag15 = true %}{% endif %}
+{% if tag == 'alaska' %}{% assign elcTag16 = true %}{% endif %}
+{% if tag == 'arizona' %}{% assign elcTag17 = true %}{% endif %}
+{% if tag == 'arkansas' %}{% assign elcTag18 = true %}{% endif %}
+{% if tag == 'colorado' %}{% assign elcTag19 = true %}{% endif %}
+{% if tag == 'georgia' %}{% assign elcTag20 = true %}{% endif %}
+{% if tag == 'idaho' %}{% assign elcTag21 = true %}{% endif %}
+{% if tag == 'illinois' %}{% assign elcTag22 = true %}{% endif %}
+{% if tag == 'iowa' %}{% assign elcTag23 = true %}{% endif %}
+{% if tag == 'kansas' %}{% assign elcTag24 = true %}{% endif %}
+{% if tag == 'kentucky' %}{% assign elcTag25 = true %}{% endif %}
+{% if tag == 'maryland' %}{% assign elcTag26 = true %}{% endif %}
+{% if tag == 'michigan' %}{% assign elcTag27 = true %}{% endif %}
+{% if tag == 'montana' %}{% assign elcTag28 = true %}{% endif %}
+{% if tag == 'nevada' %}{% assign elcTag29 = true %}{% endif %}
+{% if tag == 'new jersey' %}{% assign elcTag30 = true %}{% endif %}
+{% if tag == 'new york' %}{% assign elcTag31 = true %}{% endif %}
+{% if tag == 'north dakota' %}{% assign elcTag32 = true %}{% endif %}
+{% if tag == 'oregon' %}{% assign elcTag33 = true %}{% endif %}
+{% if tag == 'pennsylvania' %}{% assign elcTag34 = true %}{% endif %}
+{% if tag == 'utah' %}{% assign elcTag35 = true %}{% endif %}
+{% if tag == 'virginia' %}{% assign elcTag36 = true %}{% endif %}
+{% if tag == 'washington' %}{% assign elcTag37 = true %}{% endif %}
+{% if tag == 'auction blocked' %}{% assign elcTag38 = true %}{% endif %}
+{% if tag == 'no pa' %}{% assign elcTag39 = true %}{% endif %}
+{% if tag == 'san francisco' %}{% assign elcTag40 = true %}{% endif %}
 {% endfor %}
 {% for t in product.tags %}
 {% assign tag = t | downcase %}
@@ -56,11 +57,27 @@
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
-{% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if template contains "product" and product %}{% if product.id == 6859450089558 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
 {% assign easylockdownON = true %}{% unless elcTag1 %}{% assign easylockdownON = false %}{% endunless %}
-{% unless elcTag2 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://www.lavaporwholesale.com{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag2 %}{% assign easylockdownON = false %}{% endunless %}
 {% unless elcTag3 %}{% assign easylockdownON = false %}{% endunless %}
 {% unless elcTag4 %}{% assign easylockdownON = false %}{% endunless %}
 {% unless elcTag5 %}{% assign easylockdownON = false %}{% endunless %}
@@ -70,6 +87,7 @@
 {% unless elcTag9 %}{% assign easylockdownON = false %}{% endunless %}
 {% unless elcTag10 %}{% assign easylockdownON = false %}{% endunless %}
 {% unless elcTag11 %}{% assign easylockdownON = false %}{% endunless %}
+{% unless elcTag12 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -88,7 +106,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag12 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag13 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -99,7 +117,7 @@
 {% endif %}
 {% endunless %}
 {% if customer %}
-{% assign easylockdownHideLinks = false %}{% if elcTag12 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% assign easylockdownHideLinks = false %}{% if elcTag13 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/sugar-1"],*[data-eld-collection-handle="sugar-1"]');</script>
 {% endif %}
@@ -130,7 +148,7 @@
 {% if template contains "product" and product %}{% if elpTag2 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag13 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag14 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -141,7 +159,7 @@
 {% endif %}
 {% endunless %}
 {% if customer %}
-{% assign easylockdownHideLinks = false %}{% if elcTag13 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% assign easylockdownHideLinks = false %}{% if elcTag14 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/disposables"],*[data-eld-collection-handle="disposables"],*[href$="/collections/synthetic-nicotine"],*[data-eld-collection-handle="synthetic-nicotine"]');</script>
 {% endif %}
@@ -167,7 +185,7 @@
 {% assign easylockdownLockedContent = true %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag14 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag15 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -193,7 +211,7 @@
 {% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
 {% capture easylockdownRedirectURL %}{{ easylockdownLocaleRootUrl }}/pages/california-tax-included{% endcapture %}
 {% else %}
-{% unless elcTag12 %}{% assign easylockdownON = true %}{% endunless %}
+{% unless elcTag13 %}{% assign easylockdownON = true %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -236,7 +254,7 @@
 {% if template contains "product" and product %}{% if elpTag4 or elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag1 or elcTag2 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag4 or elcTag26 or elcTag5 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag8 or elcTag34 or elcTag35 or elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag19 or elcTag2 or elcTag3 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag5 or elcTag27 or elcTag6 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag34 or elcTag9 or elcTag35 or elcTag36 or elcTag37 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -247,7 +265,7 @@
 {% endif %}
 {% endunless %}
 {% if customer %}
-{% assign easylockdownHideLinks = false %}{% if elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag1 or elcTag2 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag4 or elcTag26 or elcTag5 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag8 or elcTag34 or elcTag35 or elcTag36 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% assign easylockdownHideLinks = false %}{% if elcTag16 or elcTag17 or elcTag18 or elcTag19 or elcTag2 or elcTag3 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag5 or elcTag27 or elcTag6 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag34 or elcTag9 or elcTag35 or elcTag36 or elcTag37 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/hemp-cartridges"],*[data-eld-collection-handle="hemp-cartridges"],*[href$="/collections/hhc"],*[data-eld-collection-handle="hhc"],*[href$="/collections/thco"],*[data-eld-collection-handle="thco"],*[href$="/collections/new-hemp"],*[data-eld-collection-handle="new-hemp"],*[href$="/collections/delta-10"],*[data-eld-collection-handle="delta-10"],*[href$="/collections/hemp-disposables"],*[data-eld-collection-handle="hemp-disposables"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/hemp-drinks"],*[data-eld-collection-handle="hemp-drinks"],*[href$="/collections/hemp-tinctures"],*[data-eld-collection-handle="hemp-tinctures"],*[href$="/collections/dabs"],*[data-eld-collection-handle="dabs"],*[href$="/collections/delta-8-edibles"],*[data-eld-collection-handle="delta-8-edibles"],*[href$="/collections/gummies-edibles"],*[data-eld-collection-handle="gummies-edibles"],*[href$="/collections/flower"],*[data-eld-collection-handle="flower"],*[href$="/collections/prerolls"],*[data-eld-collection-handle="prerolls"],*[href$="/collections/vapeables"],*[data-eld-collection-handle="vapeables"],*[href$="/collections/delta-8"],*[data-eld-collection-handle="delta-8"]');</script>
 {% endif %}
@@ -284,7 +302,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag37 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag38 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -304,7 +322,7 @@
 {% assign easylockdownLockedContent = true %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag38 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag39 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -339,7 +357,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag39 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag40 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -359,7 +377,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag12 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag13 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}

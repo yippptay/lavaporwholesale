@@ -2,45 +2,46 @@
 {% assign easylockdownNow = 'now' | date:'%s' | times: 1 %}{% assign easylockdownNowWeekDay = easylockdownNow | date:'%u' %}{% assign easylockdownNowMonthDay = easylockdownNow | date:'%d' %}{% assign easylockdownNowHM = easylockdownNow | date:'%H%M' | times: 1 %}{% if customer %}{% assign easylockdownPlacedOrder = customer.orders.first.created_at | date:'%s' %}{% assign easylockdownOldestPlacedOrder = customer.orders.last.created_at | date:'%s' %}{% assign easylockdownDateDifference = easylockdownNow | minus: easylockdownPlacedOrder %}{% endif %}
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'connecticut' %}{% assign elcTag1 = true %}{% endif %}
-{% if tag == 'delaware' %}{% assign elcTag2 = true %}{% endif %}
-{% if tag == 'district of columbia' %}{% assign elcTag3 = true %}{% endif %}
-{% if tag == 'massachusetts' %}{% assign elcTag4 = true %}{% endif %}
-{% if tag == 'mississippi' %}{% assign elcTag5 = true %}{% endif %}
-{% if tag == 'ohio' %}{% assign elcTag6 = true %}{% endif %}
-{% if tag == 'puerto rico' %}{% assign elcTag7 = true %}{% endif %}
-{% if tag == 'rhode island' %}{% assign elcTag8 = true %}{% endif %}
-{% if tag == 'vermont' %}{% assign elcTag9 = true %}{% endif %}
-{% if tag == 'west virginia' %}{% assign elcTag10 = true %}{% endif %}
-{% if tag == 'wyoming' %}{% assign elcTag11 = true %}{% endif %}
-{% if tag == 'california' %}{% assign elcTag12 = true %}{% endif %}
-{% if tag == 'no nic' %}{% assign elcTag13 = true %}{% endif %}
-{% if tag == 'alt&hemp' %}{% assign elcTag14 = true %}{% endif %}
-{% if tag == 'alaska' %}{% assign elcTag15 = true %}{% endif %}
-{% if tag == 'arizona' %}{% assign elcTag16 = true %}{% endif %}
-{% if tag == 'arkansas' %}{% assign elcTag17 = true %}{% endif %}
-{% if tag == 'colorado' %}{% assign elcTag18 = true %}{% endif %}
-{% if tag == 'georgia' %}{% assign elcTag19 = true %}{% endif %}
-{% if tag == 'idaho' %}{% assign elcTag20 = true %}{% endif %}
-{% if tag == 'illinois' %}{% assign elcTag21 = true %}{% endif %}
-{% if tag == 'iowa' %}{% assign elcTag22 = true %}{% endif %}
-{% if tag == 'kansas' %}{% assign elcTag23 = true %}{% endif %}
-{% if tag == 'kentucky' %}{% assign elcTag24 = true %}{% endif %}
-{% if tag == 'maryland' %}{% assign elcTag25 = true %}{% endif %}
-{% if tag == 'michigan' %}{% assign elcTag26 = true %}{% endif %}
-{% if tag == 'montana' %}{% assign elcTag27 = true %}{% endif %}
-{% if tag == 'nevada' %}{% assign elcTag28 = true %}{% endif %}
-{% if tag == 'new jersey' %}{% assign elcTag29 = true %}{% endif %}
-{% if tag == 'new york' %}{% assign elcTag30 = true %}{% endif %}
-{% if tag == 'north dakota' %}{% assign elcTag31 = true %}{% endif %}
-{% if tag == 'oregon' %}{% assign elcTag32 = true %}{% endif %}
-{% if tag == 'pennsylvania' %}{% assign elcTag33 = true %}{% endif %}
-{% if tag == 'utah' %}{% assign elcTag34 = true %}{% endif %}
-{% if tag == 'virginia' %}{% assign elcTag35 = true %}{% endif %}
-{% if tag == 'washington' %}{% assign elcTag36 = true %}{% endif %}
-{% if tag == 'auction blocked' %}{% assign elcTag37 = true %}{% endif %}
-{% if tag == 'no pa' %}{% assign elcTag38 = true %}{% endif %}
-{% if tag == 'san francisco' %}{% assign elcTag39 = true %}{% endif %}
+{% if tag == 'slimz bc5000' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'connecticut' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'delaware' %}{% assign elcTag3 = true %}{% endif %}
+{% if tag == 'district of columbia' %}{% assign elcTag4 = true %}{% endif %}
+{% if tag == 'massachusetts' %}{% assign elcTag5 = true %}{% endif %}
+{% if tag == 'mississippi' %}{% assign elcTag6 = true %}{% endif %}
+{% if tag == 'ohio' %}{% assign elcTag7 = true %}{% endif %}
+{% if tag == 'puerto rico' %}{% assign elcTag8 = true %}{% endif %}
+{% if tag == 'rhode island' %}{% assign elcTag9 = true %}{% endif %}
+{% if tag == 'vermont' %}{% assign elcTag10 = true %}{% endif %}
+{% if tag == 'west virginia' %}{% assign elcTag11 = true %}{% endif %}
+{% if tag == 'wyoming' %}{% assign elcTag12 = true %}{% endif %}
+{% if tag == 'california' %}{% assign elcTag13 = true %}{% endif %}
+{% if tag == 'no nic' %}{% assign elcTag14 = true %}{% endif %}
+{% if tag == 'alt&hemp' %}{% assign elcTag15 = true %}{% endif %}
+{% if tag == 'alaska' %}{% assign elcTag16 = true %}{% endif %}
+{% if tag == 'arizona' %}{% assign elcTag17 = true %}{% endif %}
+{% if tag == 'arkansas' %}{% assign elcTag18 = true %}{% endif %}
+{% if tag == 'colorado' %}{% assign elcTag19 = true %}{% endif %}
+{% if tag == 'georgia' %}{% assign elcTag20 = true %}{% endif %}
+{% if tag == 'idaho' %}{% assign elcTag21 = true %}{% endif %}
+{% if tag == 'illinois' %}{% assign elcTag22 = true %}{% endif %}
+{% if tag == 'iowa' %}{% assign elcTag23 = true %}{% endif %}
+{% if tag == 'kansas' %}{% assign elcTag24 = true %}{% endif %}
+{% if tag == 'kentucky' %}{% assign elcTag25 = true %}{% endif %}
+{% if tag == 'maryland' %}{% assign elcTag26 = true %}{% endif %}
+{% if tag == 'michigan' %}{% assign elcTag27 = true %}{% endif %}
+{% if tag == 'montana' %}{% assign elcTag28 = true %}{% endif %}
+{% if tag == 'nevada' %}{% assign elcTag29 = true %}{% endif %}
+{% if tag == 'new jersey' %}{% assign elcTag30 = true %}{% endif %}
+{% if tag == 'new york' %}{% assign elcTag31 = true %}{% endif %}
+{% if tag == 'north dakota' %}{% assign elcTag32 = true %}{% endif %}
+{% if tag == 'oregon' %}{% assign elcTag33 = true %}{% endif %}
+{% if tag == 'pennsylvania' %}{% assign elcTag34 = true %}{% endif %}
+{% if tag == 'utah' %}{% assign elcTag35 = true %}{% endif %}
+{% if tag == 'virginia' %}{% assign elcTag36 = true %}{% endif %}
+{% if tag == 'washington' %}{% assign elcTag37 = true %}{% endif %}
+{% if tag == 'auction blocked' %}{% assign elcTag38 = true %}{% endif %}
+{% if tag == 'no pa' %}{% assign elcTag39 = true %}{% endif %}
+{% if tag == 'san francisco' %}{% assign elcTag40 = true %}{% endif %}
 {% endfor %}
 {% for t in easylockdown_filter_collections.tags %}
 {% assign tag = t | downcase %}
@@ -54,7 +55,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 267391434838 or easylockdown_filter_collections.id == 268249104470 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag12 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag13 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -64,7 +65,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 161815232598 or easylockdown_filter_collections.id == 263601717334 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag13 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag14 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -76,7 +77,7 @@
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}
-{% unless elcTag12 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% unless elcTag13 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
 {% endunless %}
 {% endif %}
 {% endunless %}
@@ -92,7 +93,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 267902320726 or easylockdown_filter_collections.id == 267902058582 or easylockdown_filter_collections.id == 267902124118 or easylockdown_filter_collections.id == 267648401494 or easylockdown_filter_collections.id == 267902025814 or easylockdown_filter_collections.id == 267902287958 or easylockdown_filter_collections.id == 264852406358 or easylockdown_filter_collections.id == 267942690902 or easylockdown_filter_collections.id == 267942887510 or easylockdown_filter_collections.id == 267937710166 or easylockdown_filter_collections.id == 267936038998 or easylockdown_filter_collections.id == 267902189654 or easylockdown_filter_collections.id == 267937677398 or easylockdown_filter_collections.id == 267937316950 or easylockdown_filter_collections.id == 267938594902 or easylockdown_filter_collections.id == 267901993046 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag15 or elcTag16 or elcTag17 or elcTag18 or elcTag1 or elcTag2 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag4 or elcTag26 or elcTag5 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag8 or elcTag34 or elcTag35 or elcTag36 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag19 or elcTag2 or elcTag3 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag5 or elcTag27 or elcTag6 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag33 or elcTag34 or elcTag9 or elcTag35 or elcTag36 or elcTag37 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -102,7 +103,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 174658256982 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag37 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag38 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -112,7 +113,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 158126473302 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag39 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag40 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -122,7 +123,7 @@
 {% unless easylockdownCollectionsException %}
 {% if easylockdown_filter_collections.id == 139358470230 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag12 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag13 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
