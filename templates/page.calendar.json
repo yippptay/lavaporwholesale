@@ -20,7 +20,7 @@
     "13f1e5df-14d0-45d9-aced-05c661b5fa44": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": ""
+        "custom_liquid": "<style>\n.row1 {\n\n.column {\n    flex: 50%;\n}\n}\n.column11 {flex: 50%;\n}\n<\/style>"
       }
     },
     "e8cd25d6-25bd-4473-9fd2-c9c852ffdd23": {
