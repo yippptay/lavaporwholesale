@@ -160,25 +160,6 @@
     "1641460486cee907a2": {
       "type": "slideshow",
       "blocks": {
-        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868": {
-          "type": "slide",
-          "settings": {
-            "slidesubclr": "#ffffff",
-            "slideheadclr": "#ffffff",
-            "image": "shopify:\/\/shop_images\/Artboard_2-100.jpg",
-            "subtitle": "",
-            "heading": "",
-            "heading_size": "large",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify:\/\/collections\/so-soul",
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "text_alignment_mobile": "center"
-          }
-        },
         "18931b3d-de0d-4852-94ab-90d84aa9c684": {
           "type": "slide",
           "settings": {
@@ -211,6 +192,25 @@
             "button_label": "",
             "link": "https:\/\/www.lavaporwholesale.com\/products\/four-seasons-60ml?_pos=1&_psq=four+seasons&_ss=e&_v=1.0",
             "box_align": "middle-right",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "text_alignment_mobile": "center"
+          }
+        },
+        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868": {
+          "type": "slide",
+          "settings": {
+            "slidesubclr": "#ffffff",
+            "slideheadclr": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Artboard_2-100.jpg",
+            "subtitle": "",
+            "heading": "",
+            "heading_size": "large",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify:\/\/collections\/so-soul",
+            "box_align": "middle-center",
             "show_text_box": true,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
@@ -257,9 +257,9 @@
         }
       },
       "block_order": [
-        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868",
         "18931b3d-de0d-4852-94ab-90d84aa9c684",
         "c580c1d5-e69f-42b9-b22f-363292813133",
+        "f527ba75-0e4f-4578-8eb2-8a81fd4c9868",
         "bd1117da-a726-46de-97e0-20a628f524bd",
         "d19adeda-d74f-43fd-ad13-f8e3ed5102c4"
       ],
