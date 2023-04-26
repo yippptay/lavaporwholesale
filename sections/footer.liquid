@@ -267,9 +267,11 @@
 </div>
 
 <script>
+  {% if customer %}
   window.onload = function() {
     document.getElementById('wb-THC Disclaimer').style.display = 'none';
   };
+  {% endif %}
 </script>
 
 {% schema %}
