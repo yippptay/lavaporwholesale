@@ -265,14 +265,14 @@
         </div>
     </div>
 </div>
-
-<script>
-  {% if customer %}
-  window.onload = function() {
-    document.getElementById('wb-THC Disclaimer').style.display = 'none';
-  };
-  {% endif %}
-</script>
+                                              
+{% if customer %}
+  <script>
+    window.onload = function() {
+      document.getElementById('wb-THC Disclaimer').style.display = 'none';
+    };
+  </script>
+{% endif %}
 
 {% schema %}
 {
