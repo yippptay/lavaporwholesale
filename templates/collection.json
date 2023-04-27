@@ -7,7 +7,7 @@
       ],
       "settings": {
         "show_collection_description": true,
-        "show_collection_image": false
+        "show_collection_image": true
       }
     },
     "product-grid": {
