@@ -7,26 +7,68 @@
 	{% if shop.metafields.wcp_net.IsOverrideIndividualPrice == "true" or shop.metafields.wcp_net.IsOverrideIndividualPrice == '1' %}
 		{% assign wcp_vd_table_v_price = wcp_v_price %}
 	{% endif %}
-	{% assign wcp_vd_HTML_table ='' %}
+	{% assign wcp_vd_HTML_table ='' %}    
 	{% assign Tag = p_discount_tag %}
 	{% assign Discount = p_discount_value %}
-	{% capture discount_key %}{{Tag}}-{{Discount}}{% endcapture %}
-	{% if shop.metafields.wcp_vd[discount_key] contains wcp_vd_product.id %}
-		{% assign wcp_vd_meta_data = shop.metafields.wcp_vd[discount_key] %}
-		{% assign Master = wcp_vd_meta_data | split: '||' %}
-		{% assign calculation_mode = Master[0] %}
-		{% assign vd_Ids = Master[1] %}
-		{% assign vd_Ids = vd_Ids |split: "^" %}
+	{% capture discount_key %}{{Tag}}-{{Discount}}{% endcapture %}  
+   
+    {% assign Discounts_values_with_qty ='' %}  
+    {% assign wcp_apply_vd = "false" %}    
+    {% assign wcp_vd_metafield_data = shop.metafields.wcp_vd[discount_key] %}
+    {% assign wcp_vd_on = wcp_vd_metafield_data | split:'||' %}
+    {% assign calculation_mode = wcp_vd_on[0] %}
+    {% assign wcp_vd_data = wcp_vd_on[1] |split: "^" %}
+    {% assign wcp_vd_on = wcp_vd_on[2] %}    
+    {% if wcp_vd_on == blank %}{% assign wcp_vd_on = 'p' %}{% endif %} 
+  
+    {% case wcp_vd_on %}      
+      {% when 'p' %}
+        {% if wcp_vd_metafield_data contains wcp_vd_product.id %}
+          {% assign wcp_apply_vd = "true" %}
+          {% for wcp_vd_id in wcp_vd_data %}
+			{% if wcp_vd_id contains wcp_vd_product.id %}
+              {% assign Discounts_values_with_qty = wcp_vd_id |split: "~~" %}
+    		  {% assign Discounts_values_with_qty = Discounts_values_with_qty[1] | split: "," %}  
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}      
+      {% when 'c' %}      
+		{% for wcp_vd_id in wcp_vd_data %}
+            {% assign vd_Id = wcp_vd_id |split: "~~" %}
+            {% assign Discounts_values_with_qty = vd_Id[1] | split: "," %}  
+            {% assign vd_Id = vd_Id[0] %}   
+            {% assign vd_Id = vd_Id | minus: 0 %}               
+            {% assign is_id_found = wcp_vd_product.collections | where: "id" , vd_Id %}              
+            {% if is_id_found != blank %}
+              {% assign wcp_apply_vd = "true" %}              
+              {% break %}
+            {% endif %}
+        {% endfor %}      
+      {% when 'v' %}          
+       {% if wcp_vd_metafield_data contains wcp_vd_product.selected_or_first_available_variant.id %}
+          {% assign wcp_apply_vd = "true" %}
+          {% for wcp_vd_id in wcp_vd_data %}            
+            {% if wcp_vd_id contains wcp_vd_product.selected_or_first_available_variant.id %}              
+              {% assign Discounts_values_with_qty = wcp_vd_id |split: "~~" %}
+              {% assign Discounts_values_with_qty = Discounts_values_with_qty[1] | split: "," %}              
+              {% break %}
+            {% endif %}
+          {% endfor %}          
+        {% endif %}        
+      {% unless wcp_vd_metafield_data contains wcp_vd_product.selected_or_first_available_variant.id %}   
+        {% assign wcp_apply_vd = "true" %}
+       {%- capture wcp_vd_empty_table -%}<tr><td>-</td><td>-</td><td>-</td></tr>{% endcapture %}       
+      {% endunless %}
+    {% endcase %}      
+	{% if wcp_apply_vd == "true" %}               
 		{% assign Discount_Price = 0 %}
-		{% for vd_Id in vd_Ids %}
-			{% if vd_Id contains wcp_vd_product.id %}
-			{% assign Discounts_values_with_qty = vd_Id |split: "~~" %}
-			{% assign Discounts_values_with_qty = Discounts_values_with_qty[1] | split: "," %}
-			{%- capture wcp_vd_HTML_table -%}
-				<table>
+    	{%- capture wcp_vd_HTML_table -%}
+				<table {{ wcp_vd_HTML_table_style }}>
   					<th class=Wpd_Qty_head>Quantity</th>
   					<th class=Wpd_disc_head>Discount</th>
   					<th class=Wpd_Discount_head>Price</th>
+                    {% if wcp_vd_empty_table == blank %}
   					{% for Discounts_value_with_qty in Discounts_values_with_qty %}
   						{% assign Qty_Discount = Discounts_value_with_qty | split: '-' %}
   						<tr>
@@ -73,7 +115,7 @@
     								{% assign wcp_vd_percentage = 100.00  %}                     
     								{% assign Discount_Price = 0.0 %}                      
     							{% when '2' %}                          
-    								{% assign wcp_vd_percentage = 0.0 %}                     
+    								{% assign wcp_vd_percentage = 0.0 %}                      
     								{% assign Discount_Price = wcp_table_current_variant.price %}                                                                
     							{% else %}
     								{% assign wcp_discount_group_price = wcp_v_price %}                      
@@ -93,10 +135,10 @@
     						<td class=Wpd_Discount_Price>{{ Discount_Price | floor | money}}</td>
   						</tr>
   					{% endfor %}
+                    {% else %}
+                      {{ wcp_vd_empty_table }}
+                    {% endif %}
 				</table>
-				{%- endcapture -%}
-			{% break %}
-		{% endif %}
-	{% endfor %}
+		{%- endcapture -%}
 {% endif %} 
 {% endif %}
