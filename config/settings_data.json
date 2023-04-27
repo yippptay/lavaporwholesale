@@ -29,6 +29,7 @@
     "displaycustomizer": false,
     "wbboxed": false,
     "wbenblertl": false,
+    "show_timer": false,
     "timer_text": "",
     "wb_enablewish": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/black_logo.png",
