@@ -127,7 +127,7 @@
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
-{% if template contains "product" and product %}{% if product.id == 6843217510486 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if template contains "product" and product %}{% if product.id == 6862781972566 or product.id == 6853677252694 or product.id == 6843217510486 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% unless customer %}
 {% assign easylockdownON = true %}
