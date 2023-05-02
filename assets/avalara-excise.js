@@ -690,9 +690,7 @@ window.avalaraExcise = {
                 apiError = (responseJSON && responseJSON.error) ? responseJSON.error : '';
                 if (responseJSON.required_excise === false) {
                     if (CheckoutJSON.avalaraProduct != null && CheckoutJSON.avalaraProduct != 'null') {
-                        console.log('1')
                         if (window.avalaraExcise.checkDraftOrder) {
-                            console.log('2')
                             window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         const transactionID = 'N/A';
@@ -702,24 +700,19 @@ window.avalaraExcise = {
                         });
                     }
                 } else {
-                    console.log('3')
                     const transactionID = responseJSON.TranId || 'N/A';
                     const responseTax = parseFloat(responseJSON.TotalTaxAmount) * 100;
                     if (avalaraSelectors.avalaraForm) {
-                        console.log('4')
                         avalaraSelectors.avalaraForm.querySelector('#avalara-transaction-id').value = transactionID;
                         avalaraSelectors.avalaraForm.querySelector('#transaction-log-id').value = transactionLogId;
                         if (!responseJSON.TotalTaxAmount) {
                             avalaraSelectors.avalaraForm.querySelector('#excise_properties').value = 0;
                         } else {
-                            console.log('5')
                             avalaraSelectors.avalaraForm.querySelector('#excise_properties').value = responseTax;
                         }
                     }
                     if (CheckoutJSON.avalaraProduct && parseFloat(CheckoutJSON.avalaraProduct.taxPrice) == responseTax) {
-                        console.log('6')
                         if (window.avalaraExcise.checkDraftOrder) {
-                            console.log('7')
                             window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         avalaraExcise._updateTaxDetailsFromProduct();
@@ -729,10 +722,8 @@ window.avalaraExcise = {
                         });
 
                     } else if (CheckoutJSON.avalaraProduct && responseTax.toString() === 'NaN' || responseTax <= 0) {
-                        console.log('8')
                         console.log(responseTax)
                         if (window.avalaraExcise.checkDraftOrder) {
-                            console.log('9')
                             window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, transactionID, transactionLogId).then(response => {
@@ -740,11 +731,8 @@ window.avalaraExcise = {
                             location.reload(true);
                         });
                     } else if (responseTax >= 0) {
-                        console.log('10')
                         if (CheckoutJSON.avalaraProduct) {
-                            console.log('11')
                             if(window.avalaraExcise.checkDraftOrder()) {
-                                console.log('12')
                                 window.avalaraExcise.manageDraftOrder(responseJSON)
                             }
                             avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, responseTax, transactionID, transactionLogId, apiError).then(response => {
@@ -752,7 +740,6 @@ window.avalaraExcise = {
                                 location.reload(true);
                             });
                         } else {
-                            console.log('13')
                             let formdata = new FormData(avalaraSelectors.avalaraForm);
                             avalaraExcise.addExciseTax(formdata);
                         }
