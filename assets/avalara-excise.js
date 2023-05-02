@@ -691,9 +691,9 @@ window.avalaraExcise = {
                 if (responseJSON.required_excise === false) {
                     if (CheckoutJSON.avalaraProduct != null && CheckoutJSON.avalaraProduct != 'null') {
                         console.log('1')
-                        if (this.checkDraftOrder) {
+                        if (window.avalaraExcise.checkDraftOrder) {
                             console.log('2')
-                            this.manageDraftOrder(responseJSON)
+                            window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         const transactionID = 'N/A';
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, transactionID, transactionLogId, '').then(response => {
@@ -718,9 +718,9 @@ window.avalaraExcise = {
                     }
                     if (CheckoutJSON.avalaraProduct && parseFloat(CheckoutJSON.avalaraProduct.taxPrice) == responseTax) {
                         console.log('6')
-                        if (this.checkDraftOrder) {
+                        if (window.avalaraExcise.checkDraftOrder) {
                             console.log('7')
-                            this.manageDraftOrder(responseJSON)
+                            window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         avalaraExcise._updateTaxDetailsFromProduct();
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, responseTax, transactionID, transactionLogId, apiError).then(response => {
@@ -730,9 +730,9 @@ window.avalaraExcise = {
 
                     } else if (CheckoutJSON.avalaraProduct && responseTax.toString() === 'NaN' || responseTax <= 0) {
                         console.log('8')
-                        if (this.checkDraftOrder) {
+                        if (window.avalaraExcise.checkDraftOrder) {
                             console.log('9')
-                            this.manageDraftOrder(responseJSON)
+                            window.avalaraExcise.manageDraftOrder(responseJSON)
                         }
                         avalaraExcise.updateExciseTax(CheckoutJSON.avalaraProduct.line, 0, transactionID, transactionLogId).then(response => {
                             window.avalaraExcise._disableSubmitButtons();
