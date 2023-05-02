@@ -730,6 +730,7 @@ window.avalaraExcise = {
 
                     } else if (CheckoutJSON.avalaraProduct && responseTax.toString() === 'NaN' || responseTax <= 0) {
                         console.log('8')
+                        console.log(responseTax)
                         if (window.avalaraExcise.checkDraftOrder) {
                             console.log('9')
                             window.avalaraExcise.manageDraftOrder(responseJSON)
