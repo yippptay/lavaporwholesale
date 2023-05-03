@@ -12,6 +12,8 @@
 {% assign wcp_price_max = wcp_discount.price_max %}
 {% assign wcp_price = wcp_discount.price %}
 {% assign v_discount_tag = null %}
+{% assign p_discount_tag = blank %}
+{% assign p_key_before_small_case = blank %}
 
 {% assign customer_tags = blank %}
 {% for tag in customer.tags %}
