@@ -24,25 +24,24 @@
 {% if tag == 'arizona' %}{% assign elcTag17 = true %}{% endif %}
 {% if tag == 'colorado' %}{% assign elcTag18 = true %}{% endif %}
 {% if tag == 'idaho' %}{% assign elcTag19 = true %}{% endif %}
-{% if tag == 'illinois' %}{% assign elcTag20 = true %}{% endif %}
-{% if tag == 'iowa' %}{% assign elcTag21 = true %}{% endif %}
-{% if tag == 'kansas' %}{% assign elcTag22 = true %}{% endif %}
-{% if tag == 'kentucky' %}{% assign elcTag23 = true %}{% endif %}
-{% if tag == 'maryland' %}{% assign elcTag24 = true %}{% endif %}
-{% if tag == 'michigan' %}{% assign elcTag25 = true %}{% endif %}
-{% if tag == 'montana' %}{% assign elcTag26 = true %}{% endif %}
-{% if tag == 'nevada' %}{% assign elcTag27 = true %}{% endif %}
-{% if tag == 'new jersey' %}{% assign elcTag28 = true %}{% endif %}
-{% if tag == 'new york' %}{% assign elcTag29 = true %}{% endif %}
-{% if tag == 'north dakota' %}{% assign elcTag30 = true %}{% endif %}
-{% if tag == 'oregon' %}{% assign elcTag31 = true %}{% endif %}
-{% if tag == 'pennsylvania' %}{% assign elcTag32 = true %}{% endif %}
-{% if tag == 'utah' %}{% assign elcTag33 = true %}{% endif %}
-{% if tag == 'virginia' %}{% assign elcTag34 = true %}{% endif %}
-{% if tag == 'washington' %}{% assign elcTag35 = true %}{% endif %}
-{% if tag == 'auction blocked' %}{% assign elcTag36 = true %}{% endif %}
-{% if tag == 'no pa' %}{% assign elcTag37 = true %}{% endif %}
-{% if tag == 'san francisco' %}{% assign elcTag38 = true %}{% endif %}
+{% if tag == 'iowa' %}{% assign elcTag20 = true %}{% endif %}
+{% if tag == 'kansas' %}{% assign elcTag21 = true %}{% endif %}
+{% if tag == 'kentucky' %}{% assign elcTag22 = true %}{% endif %}
+{% if tag == 'maryland' %}{% assign elcTag23 = true %}{% endif %}
+{% if tag == 'michigan' %}{% assign elcTag24 = true %}{% endif %}
+{% if tag == 'montana' %}{% assign elcTag25 = true %}{% endif %}
+{% if tag == 'nevada' %}{% assign elcTag26 = true %}{% endif %}
+{% if tag == 'new jersey' %}{% assign elcTag27 = true %}{% endif %}
+{% if tag == 'new york' %}{% assign elcTag28 = true %}{% endif %}
+{% if tag == 'north dakota' %}{% assign elcTag29 = true %}{% endif %}
+{% if tag == 'oregon' %}{% assign elcTag30 = true %}{% endif %}
+{% if tag == 'pennsylvania' %}{% assign elcTag31 = true %}{% endif %}
+{% if tag == 'utah' %}{% assign elcTag32 = true %}{% endif %}
+{% if tag == 'virginia' %}{% assign elcTag33 = true %}{% endif %}
+{% if tag == 'washington' %}{% assign elcTag34 = true %}{% endif %}
+{% if tag == 'auction blocked' %}{% assign elcTag35 = true %}{% endif %}
+{% if tag == 'no pa' %}{% assign elcTag36 = true %}{% endif %}
+{% if tag == 'san francisco' %}{% assign elcTag37 = true %}{% endif %}
 {% endfor %}
 {% for t in product.tags %}
 {% assign tag = t | downcase %}
@@ -252,7 +251,7 @@
 {% if template contains "product" and product %}{% if elpTag4 or elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag5 or elcTag25 or elcTag6 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag9 or elcTag33 or elcTag34 or elcTag35 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag5 or elcTag24 or elcTag6 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag9 or elcTag32 or elcTag33 or elcTag34 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -263,7 +262,7 @@
 {% endif %}
 {% endunless %}
 {% if customer %}
-{% assign easylockdownHideLinks = false %}{% if elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag24 or elcTag5 or elcTag25 or elcTag6 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag32 or elcTag9 or elcTag33 or elcTag34 or elcTag35 %}{% assign easylockdownHideLinks = true %}{% endif %}
+{% assign easylockdownHideLinks = false %}{% if elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag22 or elcTag23 or elcTag5 or elcTag24 or elcTag6 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag30 or elcTag31 or elcTag9 or elcTag32 or elcTag33 or elcTag34 %}{% assign easylockdownHideLinks = true %}{% endif %}
 {% if easylockdownHideLinks %}
 <script type='text/javascript'>easylockdown.hideLinks.push('*[href$="/collections/hemp-cartridges"],*[data-eld-collection-handle="hemp-cartridges"],*[href$="/collections/hhc"],*[data-eld-collection-handle="hhc"],*[href$="/collections/thco"],*[data-eld-collection-handle="thco"],*[href$="/collections/new-hemp"],*[data-eld-collection-handle="new-hemp"],*[href$="/collections/delta-10"],*[data-eld-collection-handle="delta-10"],*[href$="/collections/hemp-disposables"],*[data-eld-collection-handle="hemp-disposables"],*[href$="/collections/hemp-products"],*[data-eld-collection-handle="hemp-products"],*[href$="/collections/hemp-drinks"],*[data-eld-collection-handle="hemp-drinks"],*[href$="/collections/hemp-tinctures"],*[data-eld-collection-handle="hemp-tinctures"],*[href$="/collections/dabs"],*[data-eld-collection-handle="dabs"],*[href$="/collections/delta-8-edibles"],*[data-eld-collection-handle="delta-8-edibles"],*[href$="/collections/gummies-edibles"],*[data-eld-collection-handle="gummies-edibles"],*[href$="/collections/flower"],*[data-eld-collection-handle="flower"],*[href$="/collections/prerolls"],*[data-eld-collection-handle="prerolls"],*[href$="/collections/vapeables"],*[data-eld-collection-handle="vapeables"],*[href$="/collections/delta-8"],*[data-eld-collection-handle="delta-8"]');</script>
 {% endif %}
@@ -300,7 +299,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag35 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -320,7 +319,7 @@
 {% assign easylockdownLockedContent = true %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag37 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag36 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
@@ -355,7 +354,7 @@
 {% endif %}
 {% if easylockdownLockedContent %}
 {% if customer %}
-{% assign easylockdownON = true %}{% unless elcTag38 %}{% assign easylockdownON = false %}{% endunless %}
+{% assign easylockdownON = true %}{% unless elcTag37 %}{% assign easylockdownON = false %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
