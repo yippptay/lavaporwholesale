@@ -26,17 +26,16 @@
 {% if tag == 'michigan' %}{% assign elcTag22 = true %}{% endif %}
 {% if tag == 'montana' %}{% assign elcTag23 = true %}{% endif %}
 {% if tag == 'nevada' %}{% assign elcTag24 = true %}{% endif %}
-{% if tag == 'new jersey' %}{% assign elcTag25 = true %}{% endif %}
-{% if tag == 'new york' %}{% assign elcTag26 = true %}{% endif %}
-{% if tag == 'north dakota' %}{% assign elcTag27 = true %}{% endif %}
-{% if tag == 'oregon' %}{% assign elcTag28 = true %}{% endif %}
-{% if tag == 'pennsylvania' %}{% assign elcTag29 = true %}{% endif %}
-{% if tag == 'utah' %}{% assign elcTag30 = true %}{% endif %}
-{% if tag == 'virginia' %}{% assign elcTag31 = true %}{% endif %}
-{% if tag == 'washington' %}{% assign elcTag32 = true %}{% endif %}
-{% if tag == 'auction blocked' %}{% assign elcTag33 = true %}{% endif %}
-{% if tag == 'no pa' %}{% assign elcTag34 = true %}{% endif %}
-{% if tag == 'san francisco' %}{% assign elcTag35 = true %}{% endif %}
+{% if tag == 'new york' %}{% assign elcTag25 = true %}{% endif %}
+{% if tag == 'north dakota' %}{% assign elcTag26 = true %}{% endif %}
+{% if tag == 'oregon' %}{% assign elcTag27 = true %}{% endif %}
+{% if tag == 'pennsylvania' %}{% assign elcTag28 = true %}{% endif %}
+{% if tag == 'utah' %}{% assign elcTag29 = true %}{% endif %}
+{% if tag == 'virginia' %}{% assign elcTag30 = true %}{% endif %}
+{% if tag == 'washington' %}{% assign elcTag31 = true %}{% endif %}
+{% if tag == 'auction blocked' %}{% assign elcTag32 = true %}{% endif %}
+{% if tag == 'no pa' %}{% assign elcTag33 = true %}{% endif %}
+{% if tag == 'san francisco' %}{% assign elcTag34 = true %}{% endif %}
 {% endfor %}
 {% for t in easylockdown_filter_search.tags %}
 {% assign tag = t | downcase %}
@@ -190,7 +189,7 @@
 {% if easylockdown_filter_search.object_type == 'product' %}
 {% if elpTag4 or elpTag5 %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag5 or elcTag22 or elcTag6 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag9 or elcTag30 or elcTag31 or elcTag32 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag5 or elcTag22 or elcTag6 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag9 or elcTag29 or elcTag30 or elcTag31 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -205,7 +204,7 @@
 {% endfor %}
 {% if easylockdownItemOff %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag5 or elcTag22 or elcTag6 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag29 or elcTag9 or elcTag30 or elcTag31 or elcTag32 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag16 or elcTag17 or elcTag18 or elcTag2 or elcTag3 or elcTag19 or elcTag20 or elcTag21 or elcTag5 or elcTag22 or elcTag6 or elcTag23 or elcTag24 or elcTag25 or elcTag26 or elcTag27 or elcTag28 or elcTag9 or elcTag29 or elcTag30 or elcTag31 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -223,7 +222,7 @@
 {% endfor %}
 {% if easylockdownItemOff %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag33 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag32 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
@@ -249,7 +248,7 @@
 {% endfor %}
 {% if easylockdownItemOff %}
 {% if customer %}
-{% assign easylockdownContinue = true %}{% unless elcTag35 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% assign easylockdownContinue = true %}{% unless elcTag34 %}{% assign easylockdownContinue = false %}{% endunless %}
 {% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
 {% endif %}
 {% endif %}
