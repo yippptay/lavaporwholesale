@@ -124,7 +124,7 @@ reqJquery(function($){
         });  
   {% endif %}
   function wcpolesaleCheckout(){
-    if(window.location.host == "tungstenandtool.com"){
+    if(window.location.host == "tungstenandtool.com" || window.location.host == "trickstercompany.com"){
       if(draftAPIRequestProcessing == true){return false;}
       draftAPIRequestProcessing = true;
     }
