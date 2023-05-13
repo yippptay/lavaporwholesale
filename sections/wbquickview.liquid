@@ -131,7 +131,7 @@
 
                   {% when 'title' %}
                     <div class="title-row" {{ block.shopify_attributes }}>
-                      <h1 class="title">{{ product.title }}</h1>
+                      <h1 class="title" id="product__title_qv" >{{ product.title }}</h1>
                     </div>
 
                   {% when 'price' %}
@@ -1018,10 +1018,16 @@ $(document).ready(function () {
                 var request = toAdd.shift();
                 var tempId= request.variant_id;
                 var tempQty = request.quantity_id;
+                var tempLoc = "TEXASLAV01"
+                var dropship = "[DROPSHIP]";
+                let title = document.getElementById("product__title_qv").innerHTML;
+                if (title.includes("DROPSHIP")) {
+                  tempLoc = dropship;
+                }
                 var params = {
                     type: 'POST',
                     url: '/cart/add.js',
-                    data: 'quantity='+tempQty+'&id='+tempId,
+                    data: { quantity: tempQty, id: tempId, properties: { 'LOCATION' : tempLoc } },
                     dataType: 'json',
                     success: function(line_item) { 
                         //console.log("success!");

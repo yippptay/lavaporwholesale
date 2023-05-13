@@ -64,6 +64,7 @@
 <script src="{{ 'jquery.min.js' | asset_url }}"></script>
 <script src="{{ 'photoswipe.min.js' | asset_url }}" defer></script>
 <script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
   $(document).ready(function() {
@@ -328,7 +329,7 @@
             <p class="product__text" {{ block.shopify_attributes }}>{{- block.settings.text -}}</p> {% endcomment %}
 
             {% when 'title' %}
-            <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title | escape }}</h1>
+            <h1 class="product__title" id="product__title" {{ block.shopify_attributes }}>{{ product.title | escape }}</h1>
 
             {% when 'stock_countdown' %}
               {% comment %} Inventory tracking on product page {% endcomment %}
@@ -369,126 +370,277 @@
                   {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
               </div>
 
-            <table width="100%">
-              <tbody>
-                <tr>
-                  <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
-                  <td width="30%"><strong>Options</strong></td>
-                  <td width="15%" style="text-align: center;"><strong>Price</strong></td>
-                  <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                  <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
-                </tr>
-              </tbody>
-            </table> <!-- /.table -->
+              <div class="pro-tab tabs" id="select">
+                <h2 class="heading text-center"><span>SELECT WAREHOUSE</span></h2>
+                  <ul class="list-inline nav nav-tabs text-center">       
+                    <li class="nav-item active" style="width: 40%;">
+                        <a class="nav-link" data-toggle="tab" href="#LAV01">
+                            <span>CALIFORNIA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="width: 40%;">
+                      <a class="nav-link" data-toggle="tab" href="#TX01">
+                          <span>TEXAS</span>
+                      </a>
+                  </li>
+                  </ul>
+              </div>
 
-              {% comment %} Table Contents {% endcomment %}
-              {% assign linklist = linklists['order-form'] %}
-              <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
-              <div style="overflow-y: scroll; max-height: 420px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
-                {% for variant in product.variants %}
-                  {% include 'wcp_variant' with variant %}
+              <div class="tab-content tab-pro">
+                <div class="tab-pane fade show active" id="LAV01"> <!-- CA FORM -->
 
-                    <div style="font-size: 14px;">
-                      <div style="z-index:9999999;">
-                        <table width="100%" style="z-index:9999999;">
-                          <tbody>
-                            <tr>
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
+                        <td width="30%"><strong>Options</strong></td>
+                        <td width="15%" style="text-align: center;"><strong>Price</strong></td>
+                        <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
+                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong id="castockheader">CA Stock</strong></td>    
+                      </tr>
+                    </tbody>
+                  </table> <!-- /.table -->
 
-                              <td width="15%" style="padding-left: 8px;">
-                                {{ variant.sku }}
-                              </td>
-                            
-                              <td width="30%">
-                                {{ variant.title | remove: '/' }}
-                              </td>
-                          
-                              <td width="15%" style="text-align: center; padding-left: 12px;">
-                                {% if customer %}
-                                {% unless variant.price == wcp_v_price %}<a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
-                                {% else %}
-                                  <span>
-                                    <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
-                                  </span>
-                                {% endif %}
-                              </td>
+                  {% comment %} Table Contents {% endcomment %}
+                  {% assign linklist = linklists['order-form'] %}
+                  <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
+                  <div style="overflow-y: scroll; max-height: 420px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
+                    {% for variant in product.variants %}
+                      {% include 'wcp_variant' with variant %}
 
-                              <td width="10%" style="text-align: center; padding-left: 14px;">
+                        <div style="font-size: 14px;">
+                          <div style="z-index:9999999;">
+                            <table width="100%" style="z-index:9999999;">
+                              <tbody>
+                                <tr>
 
-                                <!-- QTY input with automatic cleaning -->
-                                <input tabindex="0" autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                  <td width="15%" style="padding-left: 8px;">
+                                    {{ variant.sku }}
+                                  </td>
                                 
-                                oninput="(
-                                  function() {
-                                    let variantIndex = parseInt({{ forloop.length }}) - 1;
-                                    let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
-                                    let invVar = 'shopify';
+                                  <td width="30%">
+                                    {{ variant.title | remove: '/' }}
+                                  </td>
+                              
+                                  <td width="15%" style="text-align: center; padding-left: 12px;">
+                                    {% if customer %}
+                                    {% unless variant.price == wcp_v_price %}<a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
+                                    {% else %}
+                                      <span>
+                                        <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
+                                      </span>
+                                    {% endif %}
+                                  </td>
 
-                                    // remove non numbers
-                                    if(isNaN(input)) {
-                                      setTimeout(() => {
-                                        document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75)
-                                    }
+                                  <td width="10%" style="text-align: center; padding-left: 14px;">
 
-                                    // update quantity if it's over limit and if it's not dropship
-                                    if(input > {{ variant.inventory_quantity }} && invVar == '{{ variant.inventory_management }}' ) {
-                                      setTimeout(() => {
-                                        document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
-                                      },75)
-                                    }
-                                  })();"
+                                    <!-- QTY input with automatic cleaning -->
+                                    <input tabindex="0" autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                    
+                                    oninput="(
+                                      function() {
+                                        let variantIndex = parseInt({{ forloop.length }}) - 1;
+                                        let input = document.getElementById('quantity-{{ forloop.index0 }}').value;
+                                        let invVar = 'shopify';
 
-                                onblur="(
-                                  function() {
-                                    let totalSubtotal = 0;
-                                    let totalQty = 0;
-                                    let maxVar = parseInt({{ forloop.length }});
+                                        // remove non numbers
+                                        if(isNaN(input)) {
+                                          setTimeout(() => {
+                                            document.getElementById('quantity-{{ forloop.index0 }}').value = '';},75)
+                                        }
 
-                                    for(let y = 0; y < maxVar; y++) {
-                                      if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
-                                        totalQty += 0;
-                                      } else {
-                                        totalQty = totalQty + parseInt(document.getElementById('quantity-' + String(y)).value)
-                                      }            
-                                    }
+                                        // update quantity if it's over limit and if it's not dropship
+                                        if(input > {{ variant.inventory_quantity }} && invVar == '{{ variant.inventory_management }}' ) {
+                                          setTimeout(() => {
+                                            document.getElementById('quantity-{{ forloop.index0 }}').value = {{ variant.inventory_quantity }};
+                                          },75)
+                                        }
+                                      })();"
 
-                                    for(let y = 0; y < maxVar; y++) {
-                                      if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
-                                        totalSubtotal += 0;
-                                        } else {
-                                        let valFix = (document.getElementById('pricing-' + String(y)).innerHTML).replace('$','')
-                                        totalSubtotal += parseFloat(valFix).toFixed(2) * parseInt(document.getElementById('quantity-' + String(y)).value).toFixed(2);
-                                      }
-                                    }
-                                    document.getElementById('tableSubtotal').innerHTML = totalSubtotal.toFixed(2);
-                                    document.getElementById('tableTotalQty').innerHTML = totalQty;
-                                  })();"
+                                      onblur="(
+                                        function() {
+                                          let totalSubtotal = 0;
+                                          let totalQty = 0;
+                                          let maxVar = parseInt({{ forloop.length }});
+      
+                                          for(let y = 0; y < maxVar; y++) {
+                                            if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value)) & isNaN(parseInt(document.getElementById('txquantityinput-' + String(y)).value))) {
+                                              totalQty += 0;
+                                            } else {
+                                              if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
+                                                totalQty = totalQty + parseInt(document.getElementById('txquantityinput-' + String(y)).value)
+                                            } else {
+                                              if(isNaN(parseInt(document.getElementById('txquantityinput-' + String(y)).value))) {
+                                                totalQty = totalQty + parseInt(document.getElementById('quantity-' + String(y)).value)
+                                            }
+                                          }
+      
+                                          for(let y = 0; y < maxVar; y++) {
+                                            if(isNaN(parseInt(document.getElementById('quantity-' + String(y)).value))) {
+                                              totalSubtotal += 0;
+                                              } else {
+                                              let valFix = (document.getElementById('pricing-' + String(y)).innerHTML).replace('$','')
+                                              totalSubtotal += parseFloat(valFix).toFixed(2) * parseInt(document.getElementById('quantity-' + String(y)).value).toFixed(2);
+                                            }
+                                          }
+                                          document.getElementById('tableSubtotal').innerHTML = totalSubtotal.toFixed(2);
+                                          document.getElementById('tableTotalQty').innerHTML = totalQty;
+                                        })();"
 
-                                type="text" name="qty" size="4" placeholder="0" max="{{ variant.inventory_quantity }}" id="quantity-{{ forloop.index0 }}" {% if item.variant.inventory_management != '' and item.variant.inventory_policy == 'deny' %} max="{{ item.variant.inventory_quantity }}" {% endif %} {% unless variant.inventory_management != "shopify" %}{% if variant.inventory_quantity < 1 %}disabled{% endif %}{% endunless %}/>    
-                              </td>
-                      
-                              <td width="30%" style="text-align: center;">
-                                {% if true %}
-                                  {% if variant.inventory_management != "shopify" %}
-                                    <strong>In Stock</strong>
-                                  {% elsif variant.inventory_quantity > 0 %}
-                                    <strong>{{ variant.inventory_quantity }}</strong> In Stock
-                                  {% else %}
-                                    <span style="color:red; font-weight:bold;">Out Of Stock</span>
-                                  {% endif %}
-                                {% endif %}
-                              </td>
+                                    type="text" name="qty" size="4" placeholder="0" id="quantity-{{ forloop.index0 }}">    
+                                  </td>
+                          
+                                  <td width="30%" style="text-align: center;">
+                                    {% if true %}
+                                      {% if variant.inventory_management != "shopify" %}
+                                        <strong>In Stock</strong>
+                                      {% else %}
+                                      <strong><span id="caquantity-{{ forloop.index0 }}">Loading...</span></strong>
+                                      {% endif %}
+                                    {% endif %}
+                                  </td>
 
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
 
-                  <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
+                      <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
 
-                {% endfor %}
+                    {% endfor %}
 
-              </div> <!-- TABLE WITHIN QUICK ORDER -->
+                  </div> <!-- TABLE WITHIN QUICK ORDER -->
+
+                </div>
+              </div>
+
+              <div class="tab-content tab-pro">
+                <div class="tab-pane fade" id="TX01"> <!-- TEXAS FORM -->
+
+                  <table width="100%" style="background-color: rgb(236, 236, 236);">
+                    <tbody>
+                      <tr>
+                        <td width="15%" style="padding-left: 8px; border-radius: 4px 0 0 0;"><strong>SKU</strong></td>
+                        <td width="30%"><strong>Options</strong></td>
+                        <td width="15%" style="text-align: center;"><strong>Price</strong></td>
+                        <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
+                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>TX Stock</strong></td>    
+                      </tr>
+                    </tbody>
+                  </table> <!-- /.table -->
+
+                  {% comment %} Table Contents {% endcomment %}
+                  {% assign linklist = linklists['order-form'] %}
+                  <form style="border: 1px #4d4d4d; z-index:999999999;"></form>
+                  <div style="overflow-y: scroll; max-height: 420px; border-top: solid #f8ca23 3px; border-bottom: solid #f8ca23 3px; scroll-behavior: smooth;">
+                    {% for variant in product.variants %}
+                      {% include 'wcp_variant' with variant %}
+
+                        <div style="font-size: 14px;">
+                          <div style="z-index:9999999;">
+                            <table width="100%" style="z-index:9999999;">
+                              <tbody>
+                                <tr>
+
+                                  <td width="15%" style="padding-left: 8px;">
+                                    {{ variant.sku }}
+                                  </td>
+                                
+                                  <td width="30%">
+                                    {{ variant.title | remove: '/' }}
+                                  </td>
+                              
+                                  <td width="15%" style="text-align: center; padding-left: 12px;">
+                                    {% if customer %}
+                                    {% unless variant.price == wcp_v_price %}<a style="text-decoration: line-through; color: #95c4c6; padding-right: 4px;">{{ variant.price | money }}</a>{% endunless %}<strong><a id="pricing-{{ forloop.index0 }}">{{ wcp_v_price | money }}</a></strong>
+                                    {% else %}
+                                      <span>
+                                        <a tabindex="-1" style="font-weight:bold;color:#95c4c6 !important;" href="/account/login">Log in</a>
+                                      </span>
+                                    {% endif %}
+                                  </td>
+
+                                  <td width="10%" style="text-align: center; padding-left: 14px;">
+
+                                    <!-- QTY input with automatic cleaning -->
+                                    <input tabindex="0" autocomplete="off" style="z-index:999999999; border-style: solid; border-width: 2px; width:100%; text-align:center;"
+                                    
+                                    oninput="(
+                                      function() {
+                                        let variantIndex = parseInt({{ forloop.length }}) - 1;
+                                        let input = document.getElementById('txquantityinput-{{ forloop.index0 }}').value;
+                                        let invVar = 'shopify';
+                                        let varQty = parseInt(document.getElementById('txquantity-{{ forloop.index0 }}').innerHTML);
+
+                                        // remove non numbers
+                                        if(isNaN(input)) {
+                                          setTimeout(() => {
+                                            document.getElementById('txquantityinput-{{ forloop.index0 }}').value = '';},75)
+                                        }
+
+                                        // update quantity if it's over limit and if it's not dropship
+                                        if(input > varQty && invVar == '{{ variant.inventory_management }}' ) {
+                                          setTimeout(() => {
+                                            document.getElementById('txquantityinput-{{ forloop.index0 }}').value = varQty;
+                                          },75)
+                                        }
+                                      })();"
+
+                                    onblur="(
+                                      function() {
+                                        let totalSubtotal = 0;
+                                        let totalQty = 0;
+                                        let maxVar = parseInt({{ forloop.length }});
+
+                                        for(let y = 0; y < maxVar; y++) {
+                                          if(isNaN(parseInt(document.getElementById('txquantityinput-' + String(y)).value))) {
+                                            totalQty += 0;
+                                          } else {
+                                            totalQty = totalQty + parseInt(document.getElementById('txquantityinput-' + String(y)).value)
+                                            totalQty = totalQty + parseInt(document.getElementById('quantity-' + String(y)).value)
+                                          }            
+                                        }
+
+                                        for(let y = 0; y < maxVar; y++) {
+                                          if(isNaN(parseInt(document.getElementById('txquantityinput-' + String(y)).value))) {
+                                            totalSubtotal += 0;
+                                            } else {
+                                            let valFix = (document.getElementById('pricing-' + String(y)).innerHTML).replace('$','')
+                                            totalSubtotal += parseFloat(valFix).toFixed(2) * parseInt(document.getElementById('txquantityinput-' + String(y)).value).toFixed(2);
+                                          }
+                                        }
+                                        document.getElementById('tableSubtotal').innerHTML = totalSubtotal.toFixed(2);
+                                        document.getElementById('tableTotalQty').innerHTML = totalQty;
+                                      })();"
+
+                                    type="text" name="qty" size="4" placeholder="0" id="txquantityinput-{{ forloop.index0 }}"/>    
+                                  </td>
+                          
+                                  <td width="30%" style="text-align: center;">
+                                    {% if true %}
+                                      {% if variant.inventory_management != "shopify" %}
+                                        <strong>In Stock</strong>
+                                      {% else %}
+                                      <strong><span id="txquantity-{{ forloop.index0 }}">Loading...</span></strong>
+                                      {% endif %}
+                                    {% endif %}
+                                  </td>
+
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                      <input type="hidden"  value="{{ variant.id }}" id="variant-{{ forloop.index0 }}"/>
+
+                    {% endfor %}
+
+                  </div> <!-- TABLE WITHIN QUICK ORDER -->
+
+                </div>
+              </div>
 
                 {% comment %} Login Condition {% endcomment %}  
               {% unless customer %}
@@ -506,7 +658,7 @@
             {% endunless %}
 
             {% if customer %}
-              <div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
+              <div class="hidden" style="display: flex; flex-direction: row-reverse; justify-content: space-evenly; padding: 8px;"> {% comment %} Live Update QTY and Subtotal {% endcomment %}
 
                 <div>
                   Total Qty:
@@ -531,7 +683,6 @@
 
               </div>
             {% endif %}
-
 
                 {% comment %} Purchase Section {% endcomment %}
               <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}" style="text-align: right;">
@@ -1064,49 +1215,150 @@
 
 <script>
   var length = {{ product.variants.size }};
+
+  // Order for LAV01
   $(document).ready(function () {
-    $("#quantity-0").focus();
     $("#submit-table-product").click(function (e) {
       e.preventDefault();
+
       //array for Variant Titles
-      var toAdd = new Array();
-      var qty;
+      var finalArr = new Array();
   
+      //push array LAV
       for (i = 0; i < length; i++) {
         if ($("#quantity-" + i).val() > 0) {
-          toAdd.push({
+          finalArr.push({
             variant_id: $("#variant-" + i).val(),
             quantity_id: $("#quantity-" + i).val() || 0,
+            location_id: 'LAV01'
           });
         }
       }
-      function moveAlong() {
-        if (toAdd.length) {
-          var request = toAdd.shift();
-          var tempId = request.variant_id;
-          var tempQty = request.quantity_id;
-          var params = {
-            type: "POST",
-            url: "/cart/add.js",
-            data: "quantity=" + tempQty + "&id=" + tempId,
-            dataType: "json",
-            success: function (line_item) {
-              //console.log("success!");
-              Shopify.onSuccess, moveAlong();
-            },
-            error: function () {
-              //console.log("fail");
-              moveAlong();
-            },
-          };
-          $.ajax(params);
-        } else {
-          window.location.reload();
+
+      //push array TX
+      for (i = 0; i < length; i++) {
+        if ($("#txquantityinput-" + i).val() > 0) {
+          finalArr.push({
+            variant_id: $("#variant-" + i).val(),
+            quantity_id: $("#txquantityinput-" + i).val() || 0,
+            location_id: 'TEXASLAV01'
+          });
         }
       }
+
+      console.log(finalArr);
+
+      function moveAlong(){
+        if (finalArr.length) {
+          var request = finalArr.shift();
+          var tempId = request.variant_id;
+          var tempQty = request.quantity_id;
+          var tempLoc = request.location_id;
+          var dropship = "[DROPSHIP]";
+          let title = document.getElementById("product__title").innerHTML;
+          if (title.includes("DROPSHIP")) {
+            tempLoc = dropship;
+          }
+
+          var params = {
+            type: 'POST',
+            url: '/cart/add.js',
+            data: { quantity: tempQty, id: tempId, properties: { 'LOCATION' : tempLoc } },
+            dataType: 'json',
+            success: function(line_item) { 
+              //console.log("success!");
+              Shopify.onSuccess,
+              moveAlong();
+            },
+            error: function() {
+              //console.log("fail");
+              moveAlong();
+            }
+          };
+          $.ajax(params);
+        }
+        else {				
+          window.location.reload(); 
+        }  
+      };
       moveAlong();
     });
   });
+
+</script>
+
+<script>
+
+  var variantArr = new Array;
+  let apiUrl = 'https://api.shopify-inventory.jtcinteractive.com/shop/la-vapor-wholesale.myshopify.com/multi_variant_locations/';
+
+  {% for variant in product.variants %}
+    variantArr.push(parseInt({{variant.id}}));
+  {% endfor %}
+
+  var castockarr = [...variantArr];
+  castockarr = [];
+  var txstockarr = [...variantArr];
+  txstockarr = [];
+  var caStockVariantArr = [...variantArr];
+  var txStockVariantArr = [...variantArr];
+  var startIndex = 0;
+  var endIndex = 20;
+
+  function pull(s, e) {
+    console.log(apiUrl);
+    axios.get(apiUrl).then((res) => {
+      for (let k = s; k < e; k++) {
+        document.getElementById('caquantity-'.concat(k)).textContent = res.data[caStockVariantArr[k]].locations[0].stock;
+      }
+      for (let z = s; z < e; z++) {
+        document.getElementById('txquantity-'.concat(z)).textContent = res.data[caStockVariantArr[z]].locations[1].stock;
+        if (document.getElementById('txquantity-'.concat(z)).textContent == '') {
+          document.getElementById('txquantity-'.concat(z)).textContent = '0';
+        }
+      }
+    })
+    .catch((err) => console.log(err));
+  }
+  main();
+
+  function main() {
+    if (endIndex < variantArr.length) {
+      for (let i = startIndex; i < endIndex; i++) {
+        if (i == startIndex) {
+          apiUrl = apiUrl.concat(caStockVariantArr[i]);
+        } else {
+          apiUrl = apiUrl.concat(',',caStockVariantArr[i]);
+        }
+      }
+      pull(startIndex, endIndex);
+      endIndex += 20;
+      startIndex += 20;
+      main();
+    } else {
+      if (endIndex > variantArr.length) {
+        apiUrl = 'https://api.shopify-inventory.jtcinteractive.com/shop/la-vapor-wholesale.myshopify.com/multi_variant_locations/'
+        for (let j = startIndex; j < variantArr.length; j++) {
+          if (j == startIndex) {
+            apiUrl = apiUrl.concat(caStockVariantArr[j]);
+          } else {
+            apiUrl = apiUrl.concat(",",caStockVariantArr[j]);
+          }
+        }
+        pull(startIndex, variantArr.length);
+      }
+    }
+  }
+  apiUrl = 'https://api.shopify-inventory.jtcinteractive.com/shop/la-vapor-wholesale.myshopify.com/multi_variant_locations/'
+
+</script>
+
+<script>
+  let title = document.getElementById("product__title").innerHTML;
+  if (title.includes("DROPSHIP")) {
+    document.getElementById("select").style.display = "none";
+    document.getElementById("castockheader").innerHTML = "Stock Level";
+  }
 </script>
 
 <style>
