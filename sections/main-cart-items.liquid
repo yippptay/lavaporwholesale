@@ -8,12 +8,6 @@
 
 <cart-items class="{% if cart == empty %} is-empty{% endif %}">
   {% render 'minmaxify-head' %}
-  <div class="alert alert-danger center" role="alert">
-    We are currently experiencing some cart issues with taxes, if you are having problems please temporarily check out as 'Need Assistance' to complete your order.
-  </div>
-  <div class="alert alert-warning center" role="alert">
-    We are currently expecting some shipping delays. Thank you for being patient while we continue to serve you.
-  </div>
   <div class="carthead">
     <h1 class="heading text-left">{{ 'sections.cart.title' | t }}</h1>
     <a href="/cart/clear" class="underlined-link">Clear cart</a>
