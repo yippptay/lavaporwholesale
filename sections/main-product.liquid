@@ -372,22 +372,22 @@
 
               <div class="pro-tab tabs" id="select">
                 <h2 class="heading text-center"><span>SELECT WAREHOUSE</span></h2>
-                  <ul class="list-inline nav nav-tabs text-center">       
+                  <ul class="list-inline nav nav-tabs text-center">
                     <li class="nav-item active" style="width: 40%;">
+                      <a class="nav-link" data-toggle="tab" href="#TX01">
+                          <span>TEXAS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item" style="width: 40%;">
                         <a class="nav-link" data-toggle="tab" href="#LAV01">
                             <span>CALIFORNIA</span>
                         </a>
                     </li>
-                    <li class="nav-item" style="width: 40%;">
-                      <a class="nav-link" data-toggle="tab" href="#TX01">
-                          <span>TEXAS</span>
-                      </a>
-                  </li>
                   </ul>
               </div>
 
               <div class="tab-content tab-pro">
-                <div class="tab-pane fade show active" id="LAV01"> <!-- CA FORM -->
+                <div class="tab-pane fade" id="LAV01"> <!-- CA FORM -->
 
                   <table width="100%">
                     <tbody>
@@ -516,7 +516,7 @@
               </div>
 
               <div class="tab-content tab-pro">
-                <div class="tab-pane fade" id="TX01"> <!-- TEXAS FORM -->
+                <div class="tab-pane fade show active" id="TX01"> <!-- TEXAS FORM -->
 
                   <table width="100%" style="background-color: rgb(236, 236, 236);">
                     <tbody>
@@ -1303,7 +1303,7 @@
   var caStockVariantArr = [...variantArr];
   var txStockVariantArr = [...variantArr];
   var startIndex = 0;
-  var endIndex = 20;
+  var endIndex = 19;
 
   function pull(s, e) {
     console.log(apiUrl);
@@ -1332,8 +1332,9 @@
         }
       }
       pull(startIndex, endIndex);
-      endIndex += 20;
-      startIndex += 20;
+      endIndex += 19;
+      startIndex += 19;
+      apiUrl = 'https://api.shopify-inventory.jtcinteractive.com/shop/la-vapor-wholesale.myshopify.com/multi_variant_locations/'
       main();
     } else {
       if (endIndex > variantArr.length) {
