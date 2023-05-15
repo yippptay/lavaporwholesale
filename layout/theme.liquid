@@ -11,7 +11,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-7NXB97C5M1');
   </script>
 
@@ -108,26 +107,6 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   
   {% render 'avalara-excise-variables' %}
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% render 'minmaxify-head' %}
 </head>
 
@@ -152,8 +131,17 @@
           </div>
         </div>
       </div>
+      
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
         <div class="container">
+
+          <div class="alert alert-warning" style="margin-top: 24px; text-align: center;" role="alert">
+            We have implemented a <strong>NEW</strong> system offering the option to select the warehouse in which your products will be coming from! Please use the <strong>Product Page</strong> as the <strong>Quick View</strong> does <strong>NOT</strong> currently support the new system and will default to <strong>CALIFORNIA</strong>.
+          </div>
+          <div class="alert alert-danger" style="margin-top: 24px; text-align: center;" role="alert">
+            If you are using the <strong>Saved Cart</strong> function, please <strong>DELETE</strong> and <strong>RE-CREATE</strong> your saved carts as they will <strong>NOT</strong> support the new locations system. Please check if your line items include a <strong>"LOCATION"</strong> tag.
+          </div>
+
           <div class="row">
             {% comment %} <div class="col-12 col-md-4 col-lg-3 leftw">
                 {% section 'site-nav' %}
