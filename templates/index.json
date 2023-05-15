@@ -200,6 +200,7 @@
         },
         "18931b3d-de0d-4852-94ab-90d84aa9c684": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slidesubclr": "#ffffff",
             "slideheadclr": "#ffffff",
