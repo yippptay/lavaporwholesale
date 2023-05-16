@@ -68,7 +68,6 @@
     text-decoration: line-through;
     font-weight: 400;
     color: rgb(var(--color-base-text),0.6);
-    display: none;
     font-size: calc(var(--font-size-base) * .85px);
 }
 
