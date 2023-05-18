@@ -67,6 +67,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+  console.log("PRODUCT URL: " + "https://la-vapor-wholesale.myshopify.com/admin/products/" + {{ product.id }});
   $(document).ready(function() {
     $("tr:even").css({
     "background-color":"#ececec",
@@ -1300,7 +1301,7 @@
   var endIndex = 19;
 
   function pull(s, e) {
-    console.log(apiUrl);
+    console.log("APIURL " + apiUrl);
     axios.get(apiUrl).then((res) => {
       for (let k = s; k < e; k++) {
         document.getElementById('caquantity-'.concat(k)).textContent = res.data[caStockVariantArr[k]].locations[0].stock;
