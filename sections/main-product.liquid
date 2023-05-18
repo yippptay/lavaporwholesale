@@ -67,7 +67,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-  console.log("PRODUCT URL: " + "https://la-vapor-wholesale.myshopify.com/admin/products/" + {{ product.id }});
   $(document).ready(function() {
     $("tr:even").css({
     "background-color":"#ececec",
@@ -330,7 +329,7 @@
             <p class="product__text" {{ block.shopify_attributes }}>{{- block.settings.text -}}</p> {% endcomment %}
 
             {% when 'title' %}
-            <h1 class="product__title" id="product__title" {{ block.shopify_attributes }}>{{ product.title | escape }}</h1>
+            <h1 class="product__title" id="product__title" {{ block.shopify_attributes }}><a href="https://la-vapor-wholesale.myshopify.com/admin/products/{{ product.id }}">{{ product.title | escape }}</a></h1>
 
             {% when 'stock_countdown' %}
               {% comment %} Inventory tracking on product page {% endcomment %}
