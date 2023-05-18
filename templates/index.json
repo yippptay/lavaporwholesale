@@ -17,8 +17,16 @@
             "link": "shopify:\/\/collections\/basix"
           }
         },
+        "33fa9844-e90f-4ffb-a3ff-38b38cbdac4c": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_2023_05_18T22_13_33_233Z_1.png",
+            "link": "shopify:\/\/collections\/humble"
+          }
+        },
         "49239d1b-4cc3-42ce-a04d-785923a44095": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/BLVK_Logo.jpg",
             "link": "shopify:\/\/collections\/blvk"
@@ -52,8 +60,16 @@
             "link": "shopify:\/\/collections\/7-daze"
           }
         },
+        "c44956ca-12c8-48d6-812a-0114355b0fc9": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_2023_05_18T22_14_52_818Z_1.png",
+            "link": "shopify:\/\/collections\/noms"
+          }
+        },
         "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca": {
           "type": "logo_image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Mints_Logo.png",
             "link": "shopify:\/\/collections\/mints"
@@ -137,11 +153,13 @@
       "block_order": [
         "template--14457190613078__bfa8ebc9-730c-4037-b614-5500854e92c2-1673877898e12e9502-0",
         "839dde9c-5e2b-472e-ab40-f2ce4ece7c4b",
+        "33fa9844-e90f-4ffb-a3ff-38b38cbdac4c",
         "49239d1b-4cc3-42ce-a04d-785923a44095",
         "9e068142-9758-45d4-8d7a-80406fc571e2",
         "2f512251-d84a-4ba8-8585-de5468668700",
         "6c5e27de-6d36-4ed2-9e83-0b5ec7b774c4",
         "56261ade-4e8e-4645-ae7a-b6e477d14db2",
+        "c44956ca-12c8-48d6-812a-0114355b0fc9",
         "c56c5f8d-62e1-4b70-9041-a01bc4ced6ca",
         "63b42c66-de41-45ad-9057-bbc462e23f36",
         "946e6007-8270-4e76-bd9e-e671a29ffb24",
