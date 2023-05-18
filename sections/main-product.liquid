@@ -370,6 +370,7 @@
                   {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
               </div>
 
+              {% if product.vendor == 'LA Vapor Wholesale' %}
               <div class="pro-tab tabs" id="select">
                 <h2 class="heading text-center"><span>SELECT WAREHOUSE</span></h2>
                   <ul class="list-inline nav nav-tabs text-center">
@@ -385,6 +386,7 @@
                     </li>
                   </ul>
               </div>
+              {% endif %}
 
               <div class="tab-content tab-pro">
                 <div class="tab-pane fade" id="LAV01"> <!-- CA FORM -->
@@ -396,7 +398,7 @@
                         <td width="30%"><strong>Options</strong></td>
                         <td width="15%" style="text-align: center;"><strong>Price</strong></td>
                         <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong id="castockheader">CA Stock</strong></td>    
+                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong id="castockheader">Stock Level</strong></td>    
                       </tr>
                     </tbody>
                   </table> <!-- /.table -->
@@ -525,7 +527,7 @@
                         <td width="30%"><strong>Options</strong></td>
                         <td width="15%" style="text-align: center;"><strong>Price</strong></td>
                         <td width="10%" style="text-align: center;"><strong>QTY</strong></td>
-                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>TX Stock</strong></td>    
+                        <td width="30%" style="padding-right: 12px; text-align: center; border-radius: 0 4px 0 0 !important;"><strong>Stock Level</strong></td>    
                       </tr>
                     </tbody>
                   </table> <!-- /.table -->
@@ -1255,15 +1257,11 @@
           var tempQty = request.quantity_id;
           var tempLoc = request.location_id;
           var dropship = 'LAV01';
-          let title = document.getElementById("product__title").innerHTML;
-          if (title.includes("DROPSHIP")) {
-            tempLoc = dropship;
-          }
 
           var params = {
             type: 'POST',
             url: '/cart/add.js',
-            data: { quantity: tempQty, id: tempId, properties: { 'LOCATION' : tempLoc } },
+            data: { quantity: tempQty, id: tempId, properties: { 'LOCATION' : {% if product.vendor == 'LA Vapor Wholesale' %}tempLoc{% else %}dropship{% endif %} } },
             dataType: 'json',
             success: function(line_item) { 
               //console.log("success!");
@@ -1296,10 +1294,6 @@
     variantArr.push(parseInt({{variant.id}}));
   {% endfor %}
 
-  var castockarr = [...variantArr];
-  castockarr = [];
-  var txstockarr = [...variantArr];
-  txstockarr = [];
   var caStockVariantArr = [...variantArr];
   var txStockVariantArr = [...variantArr];
   var startIndex = 0;

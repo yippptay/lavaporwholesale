@@ -16,7 +16,7 @@
     left: 15px;
     top: 15px;
     margin: 0 auto;
-    display: inline-block;
+    display: none; /* originally inline-block */
     text-transform: capitalize;
     line-height: normal;
     font-size: calc(var(--font-size-base) * 1px);

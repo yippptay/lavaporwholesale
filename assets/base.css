@@ -1,6 +1,23 @@
 /* Reset */
 /* Custom CSS */
 
+/* Quick View Tablinks */
+.qvtablinks {
+    width: 49%;
+    border-radius: 4px;
+    background-color: white;
+    margin-bottom: 16px;
+}
+.qvtablinks:hover {
+    background-color: black;
+    color: white;
+    transition: 250ms;
+}
+.qvtablinks.active {
+    background-color: black;
+    color: white;
+}
+
 /* smooth scroll */
 html {
   scroll-behavior: smooth !important;
